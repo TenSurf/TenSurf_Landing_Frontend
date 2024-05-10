@@ -14,7 +14,7 @@ export const ROUTE = {
   landing: '/',
   landingProducts: '/#Productss',
   landingChart: '/#Chart',
-  landingPlans: '/#Planss',
+  landingPlans: '/plans',
   landingTeam: '/#Teams',
   contactUs: '/contact-us',
   aboutUs: '/about-us',

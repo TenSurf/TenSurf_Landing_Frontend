@@ -35,7 +35,7 @@ export const DefaultHeader = ({
         break;
 
       case MnuItemsEnum.plans:
-        router.push(ROUTE.landingPlans);
+        router.push(process.env.NEXT_PUBLIC_PLAN_URL as string);
         break;
 
       case MnuItemsEnum.team:
@@ -87,55 +87,20 @@ export const DefaultHeader = ({
       </div>
 
       <div className="flex items-center gap-4">
-        {token ? (
-          <DropdownMenu>
-            <DropdownMenuTrigger>
-              <UserIcon className="w-6 h-6 border rounded-full" />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent className="dark">
-              <DropdownMenuGroup>
-                <DropdownMenuItem
-                  onClick={() => {
-                    router.push(ROUTE.profileSetting);
-                  }}
-                >
-                  Profile Setting
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  onClick={() => {
-                    router.push(ROUTE.profileBilling);
-                  }}
-                >
-                  Account and Billing
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  onClick={() => {
-                    removeToken();
-                    router.replace(ROUTE.home);
-                    window.location?.reload();
-                  }}
-                >
-                  Sign out
-                </DropdownMenuItem>
-              </DropdownMenuGroup>
-            </DropdownMenuContent>
-          </DropdownMenu>
-        ) : (
-          <>
-            {/*<Button*/}
-            {/*  onClick={() => setShouldShowSignInSignUpModal({ signUp: false, signIn: true })}*/}
-            {/*  variant={'ghost'}*/}
-            {/*  className='hover:bg-inherit hover:text-neutral-300 gap-1'*/}
-            {/*>*/}
-            {/*  <UserIcon />*/}
-            {/*  Login*/}
-            {/*</Button>*/}
+        <>
+          {/*<Button*/}
+          {/*  onClick={() => setShouldShowSignInSignUpModal({ signUp: false, signIn: true })}*/}
+          {/*  variant={'ghost'}*/}
+          {/*  className='hover:bg-inherit hover:text-neutral-300 gap-1'*/}
+          {/*>*/}
+          {/*  <UserIcon />*/}
+          {/*  Login*/}
+          {/*</Button>*/}
 
-            <a href={process.env.NEXT_PUBLIC_SIGNUP_URL}>
-              <Button className="flex">Get Started</Button>
-            </a>
-          </>
-        )}
+          <a href={process.env.NEXT_PUBLIC_SIGNUP_URL}>
+            <Button className="flex">Get Started</Button>
+          </a>
+        </>
       </div>
     </div>
   );
