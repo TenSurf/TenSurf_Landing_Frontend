@@ -97,7 +97,7 @@ export const DefaultHeader = ({
           {/*  Login*/}
           {/*</Button>*/}
 
-          <a href={process.env.NEXT_PUBLIC_SIGNUP_URL}>
+          <a href={process.env.NEXT_PUBLIC_SIGNUP_URL} target="_blank">
             <Button className="flex">Get Started</Button>
           </a>
         </>

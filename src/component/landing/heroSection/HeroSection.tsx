@@ -59,7 +59,7 @@ export const HeroSection: FC<IProps> = ({
         <div className="font-bold md:font-extrabold text-lg md:text-xl font-normal">
           {HERO_SECTION.description2}
         </div>
-        <a href={process.env.NEXT_PUBLIC_HUB_URL}>
+        <a href={process.env.NEXT_PUBLIC_HUB_URL} target="_blank">
           <Button
             // onClick={
             //   () =>
