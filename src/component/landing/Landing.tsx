@@ -13,6 +13,7 @@ import DefaultLayout from '../../layout/publicContentLayout/DefaultLayout';
 import useScrollToTop from '../../hooks/useScrollToTop';
 import AboutUsSection from "@/component/landing/AboutUsSection";
 import FaqSection from "@/component/landing/FaqSection";
+import OfferingSectionV2 from "@/component/landing/OfferingSectionV2";
 // import { useRouter } from 'next/router';
 
 // *.*.*.*.*.*.*.*.*.*.* Main Function ↓•↓•↓
@@ -72,7 +73,7 @@ export const Landing: FC = () => {
               headerHeight={headerRef?.current?.clientHeight}
             />
             <MvpSection productsRef={productsRef} />
-            <OfferingSection />
+            <OfferingSectionV2 />
             {/*<ChartSection ChartRef={chartRef} />*/}
             <PlansSection PlansRef={PlansRef} />
             {/*<InnovationSection />*/}
