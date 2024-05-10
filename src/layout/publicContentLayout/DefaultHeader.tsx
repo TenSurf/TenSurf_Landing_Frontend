@@ -1,8 +1,5 @@
-import { type RefObject, useState, useMemo } from "react";
-import {
-  MENU_ITEMS,
-  MnuItemsEnum,
-} from "../../constatns/landingPage.constants";
+import { type RefObject, useMemo, useState } from "react";
+import { MENU_ITEMS, MnuItemsEnum } from "../../constatns/landingPage.constants";
 import UserIcon from "../../icons/UserIcon";
 import { ROUTE } from "../../constatns/general.constants";
 import { useRouter } from "next/navigation";
@@ -13,13 +10,14 @@ import {
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuTrigger,
+  DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import Image from "next/image";
+import Link from "next/link";
 
 export const DefaultHeader = ({
-  headerRef,
-}: {
+                                headerRef
+                              }: {
   headerRef?: RefObject<HTMLDivElement>;
 }) => {
   const [shouldShowSignInSignUpModal, setShouldShowSignInSignUpModal] =
@@ -62,13 +60,15 @@ export const DefaultHeader = ({
       ref={headerRef}
       className="z-50 sticky top-0 flex items-center px-6 md:px-24 py-4 justify-between bg-[#121212]"
     >
-      <Image
-        src={"/tensurf.png"}
-        width={148}
-        height={10}
-        alt="Tensurf"
-        className="rounded"
-      />
+      <Link href={"/"}>
+        <Image
+          src={"/tensurf.png"}
+          width={148}
+          height={10}
+          alt="Tensurf"
+          className="rounded"
+        />
+      </Link>
 
       <div className="hidden items-center gap-10 lg:flex">
         {MENU_ITEMS.map((item, index) => (
