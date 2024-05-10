@@ -1,4 +1,3 @@
-import { getToken } from '@/helpers/auth';
 import { toast } from 'sonner';
 import moment from 'moment';
 import { Time } from 'tensurf-lightweight-charts';
@@ -16,7 +15,7 @@ export function convertNumberToEn(replaceString: string, returnType: 'string' | 
 }
 
 export const catchRequestError = (error: any, hasAuth: boolean = true) => {
-  if (error?.ErrorCode === 401 && getToken() !== null && window !== undefined && hasAuth) {
+  if (error?.ErrorCode === 401 && window !== undefined && hasAuth) {
     window.location.href = '/signin';
   }
 

@@ -1,6 +1,5 @@
 import axios, { type AxiosResponse } from "axios";
 import { jsonToQueryString } from "./functions";
-import { getToken } from "./auth";
 import { type GetServerSidePropsContext } from "next";
 
 export const backendUrl =
@@ -27,17 +26,15 @@ export const sendRequest = <T = Record<string, any>>(
 
   if (bearerToken) {
     token = bearerToken;
-  } else {
-    token = getToken();
   }
 
   const headers: Record<string, string> = {
     "Content-Type": hasFile ? "multipart/form-data" : "application/json",
   };
 
-  if (token) {
-    headers.Authorization = "Token " + token;
-  }
+  // if (token) {
+  //   headers.Authorization = "Token " + token;
+  // }
 
   const options: Record<string, any> = {
     headers,
@@ -75,10 +72,9 @@ export const serverSideFetch = async <T>(
   url: string,
   params?: Record<string, any>
 ) => {
-  const token = getToken(context.req.cookies);
 
   try {
-    const res = await sendRequest<T>(url, HttpMethod.GET, params, false, token);
+    const res = await sendRequest<T>(url, HttpMethod.GET, params, false);
     return {
       props: {
         data: res.data,

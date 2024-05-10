@@ -1,14 +1,8 @@
 import { HERO_SECTION } from "../../../constatns/landingPage.constants";
 import ChevronDownIcon from "../../../icons/ChevronDownIcon";
-import { type FC, type RefObject, useState, useEffect } from "react";
+import { type FC, type RefObject } from "react";
 import { AnimateLight } from "./AnimateLight";
-import { ROUTE } from "../../../constatns/general.constants";
-// import { useRouter } from 'next/router';
-import TenSurfModal from "../../general/TenSurfModal";
-import { useRouter } from "next/navigation";
-import { getToken } from "@/helpers/auth";
 import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
 
 interface IProps {
   viewPortHeight?: number;
@@ -21,22 +15,7 @@ export const HeroSection: FC<IProps> = ({
   headerHeight,
   productsRef,
 }) => {
-  const [shouldShowSignInSignUpModal, setShouldShowSignInSignUpModal] =
-    useState({ signUp: false, signIn: false });
-
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const token = getToken();
-    if (token) {
-      setIsLoggedIn(true);
-    } else {
-      setIsLoggedIn(false);
-    }
-  }, []);
-
   const animateLights = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-  const router = useRouter();
   return (
     <div
       style={{ height: Number(viewPortHeight) - Number(headerHeight) + "px" }}
@@ -69,7 +48,7 @@ export const HeroSection: FC<IProps> = ({
             //           signUp: true,
             //           signIn: false,
             //         })
-              // isLoggedIn ? router.push(ROUTE.chart) : toast.error('To register, contact TenSurf support')
+            // isLoggedIn ? router.push(ROUTE.chart) : toast.error('To register, contact TenSurf support')
             // }
             className="w-52 h-16 bg-primary font-bold text-lg"
           >

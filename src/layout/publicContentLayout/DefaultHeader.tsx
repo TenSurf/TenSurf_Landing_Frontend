@@ -6,7 +6,6 @@ import {
 import UserIcon from "../../icons/UserIcon";
 import { ROUTE } from "../../constatns/general.constants";
 import { useRouter } from "next/navigation";
-import { getToken, removeToken } from "../../helpers/auth";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -22,9 +21,6 @@ export const DefaultHeader = ({
 }: {
   headerRef?: RefObject<HTMLDivElement>;
 }) => {
-  const [shouldShowSignInSignUpModal, setShouldShowSignInSignUpModal] =
-    useState({ signUp: false, signIn: false });
-  let token = useMemo(() => getToken(), []);
 
   const router = useRouter();
 
@@ -35,18 +31,11 @@ export const DefaultHeader = ({
         break;
 
       case MnuItemsEnum.plans:
-        router.push(process.env.NEXT_PUBLIC_PLAN_URL as string);
+        window.open(process.env.NEXT_PUBLIC_PLAN_URL as string);
         break;
 
       case MnuItemsEnum.team:
         router.push(ROUTE.landingTeam);
-        break;
-      case MnuItemsEnum.chart:
-        if (token) {
-          router.push(ROUTE.chart);
-        } else {
-          setShouldShowSignInSignUpModal({ signUp: false, signIn: true });
-        }
         break;
       case MnuItemsEnum.contact:
         router.push(ROUTE.contactUs);

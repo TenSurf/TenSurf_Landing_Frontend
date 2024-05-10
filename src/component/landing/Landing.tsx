@@ -4,16 +4,12 @@ import { type FC, useEffect, useRef, useState } from 'react';
 import { MvpSection } from './MvpSection';
 import { HeroSection } from './heroSection/HeroSection';
 import { OfferingSection } from './OfferingSection';
-import { ChartSection } from './ChartSection';
-import { PlansSection } from './plansSection/PlansSection';
-import { InnovationSection } from './InnovationSection';
 import { TeamSection } from './TeamSection';
 import { MnuItemsEnum } from '../../constatns/landingPage.constants';
 import DefaultLayout from '../../layout/publicContentLayout/DefaultLayout';
 import useScrollToTop from '../../hooks/useScrollToTop';
 import AboutUsSection from "@/component/landing/AboutUsSection";
 import FaqSection from "@/component/landing/FaqSection";
-// import { useRouter } from 'next/router';
 
 // *.*.*.*.*.*.*.*.*.*.* Main Function ↓•↓•↓
 export const Landing: FC = () => {
@@ -73,9 +69,6 @@ export const Landing: FC = () => {
             />
             <MvpSection productsRef={productsRef} />
             <OfferingSection />
-            {/*<ChartSection ChartRef={chartRef} />*/}
-            <PlansSection PlansRef={PlansRef} />
-            {/*<InnovationSection />*/}
             <AboutUsSection/>
             <TeamSection TeamRef={TeamRef} />
             <FaqSection/>
