@@ -8,7 +8,7 @@ import { Toaster } from "@/components/ui/sonner";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Tensurf Hub",
+  title: "Tensurf",
   description:
     'Revolutionizing AI Trading\n"At TenSurf, we are committed to revolutionizing AI trading and democratizing algorithmic trading. Our mission is to harness the power of Generative AI and Data Science to enable smart trading decisions."',
   icons: ["/favicon.ico", "/logo.png"],
