@@ -78,7 +78,7 @@ export const Landing: FC = () => {
             <PlansSection PlansRef={PlansRef} />
             {/*<InnovationSection />*/}
             <AboutUsSection/>
-            <TeamSection TeamRef={TeamRef} />
+            {/*<TeamSection TeamRef={TeamRef} />*/}
             <FaqSection/>
           </>
         ) : (

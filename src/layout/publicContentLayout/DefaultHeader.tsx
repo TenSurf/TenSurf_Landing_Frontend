@@ -33,7 +33,7 @@ export const DefaultHeader = ({
         break;
 
       case MnuItemsEnum.team:
-        router.push(ROUTE.landingTeam);
+        router.push(ROUTE.team);
         break;
       case MnuItemsEnum.contact:
         router.push(ROUTE.contactUs);

@@ -19,6 +19,7 @@ export const ROUTE = {
   contactUs: '/contact-us',
   aboutUs: '/about-us',
   faq: '/faq',
+  team: '/team',
   support: '#',
   privacyPolicy: '/privacy-policy',
   refundPolicy: '/refund-policy',
