@@ -11,6 +11,7 @@ import AiRiskIllustration from '../illistrations/AiRiskIllustration';
 import TradeGptIllustration from '../illistrations/TradeGptIllustration';
 import TradingIntegrationIllustration from '../illistrations/TradingIntegrationIllustration';
 import LayerIcon from '../icons/LayerIcon';
+import ChartIcon from '../icons/ChartIcon';
 import FaqIcon from '../icons/FaqIcon';
 import ShoppingBagIcon from '../icons/ShoppingBagIcon';
 import UserGroupIcon from '../icons/UserGroupIcon';
@@ -42,13 +43,12 @@ export enum MnuItemsEnum {
 }
 
 export const MENU_ITEMS = [
-    {title: MnuItemsEnum.faq, icon: FaqIcon},
-    {title: MnuItemsEnum.services, icon: LayerIcon},
-    {title: MnuItemsEnum.plans, icon: ShoppingBagIcon},
-    {title: MnuItemsEnum.team, icon: UserGroupIcon},
-    {title: MnuItemsEnum.contact, icon: PhoneIcon},
-    {title: MnuItemsEnum.aboutUs, icon: AboutUsIcon}
-];
+    { title: MnuItemsEnum.chart, icon: ChartIcon },
+    { title: MnuItemsEnum.products, icon: LayerIcon },
+    { title: MnuItemsEnum.plans, icon: ShoppingBagIcon },
+    { title: MnuItemsEnum.team, icon: UserGroupIcon },
+    { title: MnuItemsEnum.contact, icon: PhoneIcon }
+  ];
 
 export const HERO_SECTION = {
     title: 'Your advanced AI-powered platform',

@@ -21,7 +21,6 @@ export const DefaultHeader = ({
 }: {
   headerRef?: RefObject<HTMLDivElement>;
 }) => {
-
   const router = useRouter();
 
   const onMenuItemClickHandler = (menuTitle: string) => {
@@ -39,6 +38,10 @@ export const DefaultHeader = ({
         break;
       case MnuItemsEnum.contact:
         router.push(ROUTE.contactUs);
+        break;
+
+      case MnuItemsEnum.chart:
+        router.push(process.env.NEXT_PUBLIC_HUB_URL as string);
         break;
 
       default:
