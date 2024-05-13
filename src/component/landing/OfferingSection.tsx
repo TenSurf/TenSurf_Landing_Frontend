@@ -6,7 +6,7 @@ export const OfferingSection = () => {
     <div className='flex flex-col gap-10 text-white w-full items-center max-w-screen-xl'>
       <div className='flex flex-col gap-4 text-center'>
         <div className='text-3xl md:text-4xl lg:text-6xl font-semibold'>{OFFERING_SECTION.title}</div>
-        {/*<div className='text-md md:text-2xl'>{OFFERING_SECTION.description}</div>*/}
+        <div className='text-md md:text-2xl'>{OFFERING_SECTION.description}</div>
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative z-20 w-full'>
         {OFFERING_SECTION.items.map((item, index) => (
@@ -18,7 +18,7 @@ export const OfferingSection = () => {
               <item.icon className='w-9 h-9' />
               <div>{item.title}</div>
             </div>
-            {/*<div className='text-base'>{item.description}</div>*/}
+            <div className='text-base'>{item.description}</div>
           </div>
         ))}
 
