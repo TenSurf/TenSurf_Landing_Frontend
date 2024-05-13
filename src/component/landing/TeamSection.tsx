@@ -1,8 +1,9 @@
+'use client'
 import { TEAM_SECTION } from '../../constatns/landingPage.constants';
 import Image from 'next/image';
 import type { RefObject } from 'react';
 
-export const TeamSection = ({ TeamRef }: { TeamRef: RefObject<HTMLDivElement> }) => {
+export const TeamSection = ({ TeamRef }: { TeamRef?: RefObject<HTMLDivElement> }) => {
   return (
     <div ref={TeamRef} id='Teams' className='relative flex flex-col items-center gap-10 scroll-m-20 max-w-screen-xl'>
       <div className='text-3xl md:text-4xl lg:text-6xl font-semibold'>{TEAM_SECTION.title}</div>

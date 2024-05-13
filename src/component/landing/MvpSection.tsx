@@ -7,13 +7,15 @@ const MvpItem = ({ title, description }: { title: string; description: string })
 
   useEffect(() => {
     AOS.init({
-      duration: 2000
+      duration: 2000,
+      anchorPlacement: 'center-center',
+      once: true,
     });
   }, [])
 
   return (
     <div
-      data-aos-once={true} data-aos="flip-up"
+      data-aos="flip-up"
       className="relative z-10 bg-[#000]/40 flex flex-col justify-center items-center gap-4 px-8 py-12 rounded-[24px] border-[1px] border-white/20 max-w-[392px]">
       <div className="text-[36px] font-semibold">{title}</div>
       <div className="text-[20px] font-normal">{description}</div>

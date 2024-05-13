@@ -22,7 +22,9 @@ export const Plan: FC<IProps> = ({ plan, isAnnuallyChecked }) => {
 
   useEffect(() => {
     AOS.init({
-      duration: 2000
+      duration: 2000,
+      anchorPlacement: 'center-center',
+      once: true,
     });
   }, []);
 
@@ -30,7 +32,6 @@ export const Plan: FC<IProps> = ({ plan, isAnnuallyChecked }) => {
   return (
     <div
       data-aos="fade-up"
-      data-aos-once={true}
       style={{
         background:
           'linear-gradient(136deg, rgba(57, 68, 225, 0.50) 7.59%, rgba(113, 82, 218, 0.15) 37.43%, rgba(255, 127, 101, 0.05) 66.68%), rgba(0, 0, 0, 0.40)'

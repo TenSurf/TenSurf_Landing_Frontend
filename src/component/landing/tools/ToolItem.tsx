@@ -38,7 +38,9 @@ const ToolItem = (
 
   useEffect(() => {
     AOS.init({
-      duration: 2000
+      duration: 2000,
+      anchorPlacement: 'center-center',
+      once: true,
     });
   }, [])
 
@@ -46,7 +48,7 @@ const ToolItem = (
   return (
     <div
       className="grid grid-cols-1 lg:grid-cols-2 md:max-w-[600px] lg:max-w-none px-6 sm:px-0 gap-14 items-start justify-between w-full">
-      <div data-aos-once={true} data-aos={direction == "right" ? 'fade-left' : 'fade-right'} className={direction == "left" ? "order-1" : "order-2"}>
+      <div data-aos={direction == "right" ? 'fade-left' : 'fade-right'} className={direction == "left" ? "order-1" : "order-2"}>
         <h3 className={"font-extrabold text-4xl mb-5"}>{title}</h3>
         <p className={"text-xl font-light mb-10"}>{description}</p>
         <Link className={"group transition-all flex items-center gap-1 hover:underline underline-offset-4"} href={link}>
@@ -75,7 +77,7 @@ const ToolItem = (
           </div>
         </div>
       </div>
-      <div data-aos-once={true} data-aos={direction == 'left' ? 'fade-left' : 'fade-right'} className={`relative pb-[63%] ${direction == "right" ? "order-1" : "order-2"}`}>
+      <div data-aos={direction == 'left' ? 'fade-left' : 'fade-right'} className={`relative pb-[63%] ${direction == "right" ? "order-1" : "order-2"}`}>
         <Image src={image} alt={imageAlt} layout={"fill"} objectFit={"contain"}
                className={"rounded"} />
       </div>

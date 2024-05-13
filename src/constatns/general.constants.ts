@@ -52,6 +52,7 @@ export const PAGE_TITLE = {
   faq: 'FAQ | Tensurf',
   termsOfUse: 'Terms of Use | Tensurf',
   privacyPolicy: 'Privacy Policy | Tensurf',
+  team: 'Team | Tensurf',
   refundPolicy: 'Refund Policy | Tensurf',
   riskDisclosure: 'Risk Disclosure | Tensurf',
   tools: 'Tools | Tensurf',
