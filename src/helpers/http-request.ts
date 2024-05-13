@@ -2,10 +2,7 @@ import axios, { type AxiosResponse } from "axios";
 import { jsonToQueryString } from "./functions";
 import { type GetServerSidePropsContext } from "next";
 
-export const backendUrl =
-  process.env.NODE_ENV === "production"
-    ? "/api"
-    : process.env.NEXT_PUBLIC_API_HUB_URL;
+export const backendUrl = process.env.NEXT_PUBLIC_API_HUB_URL;
 
 export enum HttpMethod {
   GET = "GET",
