@@ -1,4 +1,4 @@
-import { type FC, useState, useMemo } from 'react';
+import { type FC, useState, useMemo, useEffect } from "react";
 import InfoFilledIcon from '../../../icons/InfoFilledIcon';
 import CheckIcon from '../../../icons/CheckIcon';
 import type {IPlan} from '../../../types/general.types';
@@ -9,6 +9,7 @@ import { getToken } from '@/helpers/auth';
 import { Loader } from 'lucide-react';
 import { HttpMethod, sendRequest } from '@/helpers/http-request';
 import { BackendUrls } from '@/helpers/backend-urls';
+import AOS from "aos";
 
 interface IProps {
   plan: IPlan;
@@ -21,9 +22,17 @@ export const Plan: FC<IProps> = ({ plan, isAnnuallyChecked }) => {
   let token = useMemo(() => getToken(), []);
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 2000
+    });
+  }, []);
+
   // *.*.*.*.*.*.*.*.*. RETURN ↓•↓•↓
   return (
     <div
+      data-aos="fade-up"
+      data-aos-once={true}
       style={{
         background:
           'linear-gradient(136deg, rgba(57, 68, 225, 0.50) 7.59%, rgba(113, 82, 218, 0.15) 37.43%, rgba(255, 127, 101, 0.05) 66.68%), rgba(0, 0, 0, 0.40)'
