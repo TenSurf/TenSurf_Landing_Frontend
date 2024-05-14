@@ -3,7 +3,6 @@ import ChevronDownIcon from "../../../icons/ChevronDownIcon";
 import React, { type FC, type RefObject, useEffect, useState } from "react";
 import { AnimateLight } from "./AnimateLight";
 // import { useRouter } from 'next/router';
-import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
 import AOS from "aos";
@@ -20,7 +19,14 @@ export const HeroSection: FC<IProps> = ({
                                           headerHeight,
                                           productsRef
                                         }) => {
-    useState({ signUp: false, signIn: false });
+  useState({ signUp: false, signIn: false });
+  useEffect(() => {
+    AOS.init({
+      duration: 2000,
+      anchorPlacement: 'center-center',
+      once: true,
+    });
+  }, []);
 
   const [videoModal, setVideoModal] = useState(false);
 
