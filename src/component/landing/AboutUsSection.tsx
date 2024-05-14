@@ -6,9 +6,9 @@ const AboutUsSection = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 2000,
+      duration: 3000,
       once: true,
-      anchorPlacement: 'center-center',
+      anchorPlacement: 'bottom-bottom',
     });
   }, [])
 

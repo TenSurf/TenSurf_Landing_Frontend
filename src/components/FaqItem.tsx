@@ -10,7 +10,7 @@ const FaqItem = ({question, answer}: { question: string, answer: string }) => {
     AOS.init({
       duration: 3000,
       once: true,
-      anchorPlacement: 'center-bottom'
+      anchorPlacement: 'bottom-bottom'
     });
   }, []);
 
