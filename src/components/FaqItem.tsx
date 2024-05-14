@@ -8,9 +8,9 @@ const FaqItem = ({question, answer}: { question: string, answer: string }) => {
 
   useEffect(() => {
     AOS.init({
-      duration: 2000,
+      duration: 3000,
       once: true,
-      anchorPlacement: 'center-center'
+      anchorPlacement: 'center-bottom'
     });
   }, []);
 
@@ -19,10 +19,10 @@ const FaqItem = ({question, answer}: { question: string, answer: string }) => {
         <AccordionItem value={question} className={'w-full'}>
           <AccordionTrigger>
             <h3 onClick={() => setOpen(prevState => !prevState)}
-                className={'text-xl font-bold'}>{question}</h3>
+                className={'text-left text-xl font-bold'}>{question}</h3>
           </AccordionTrigger>
           <AccordionContent className={'w-full'}>
-            <h4 className={'text-lg font-light pt-4'}>{answer}</h4>
+            <h4 className={'text-left text-lg font-light pt-4'}>{answer}</h4>
           </AccordionContent>
         </AccordionItem>
       </div>
