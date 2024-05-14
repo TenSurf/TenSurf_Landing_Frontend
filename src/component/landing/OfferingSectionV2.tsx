@@ -23,12 +23,12 @@ const OfferingSectionV2 = () => {
           description={"Provides real-time visualization and alerts for major support and resistance and other key market levels, aiding traders in identifying critical market thresholds."}
           quote={"“By automating the majority of steps related to patient follow-ups, Rad AI removes those manual tasks from our clinical team and gives them back more time to focus on caring for their patients.”"}
           user={'/images/aaron korbs.jpg'}
-          userAlt={'aaron korbs'}
+          userAlt={'Aaron Korbs'}
           userCompany={'/images/company.png'}
           userCompanyAlt={'company'}
           link={"#"}
-          userJob={"aaron korbs position"}
-          userName={"aaron korbs"}
+          userJob={"Aaron Korbs position"}
+          userName={"Aaron Korbs"}
         />
         <ToolItem
           direction={'right'}
@@ -38,12 +38,12 @@ const OfferingSectionV2 = () => {
           description={"Provides real-time visualization and alerts for major support and resistance and other key market levels, aiding traders in identifying critical market thresholds."}
           quote={"“By automating the majority of steps related to patient follow-ups, Rad AI removes those manual tasks from our clinical team and gives them back more time to focus on caring for their patients.”"}
           user={'/images/aaron korbs.jpg'}
-          userAlt={'aaron korbs'}
+          userAlt={'Aaron Korbs'}
           userCompany={'/images/company.png'}
           userCompanyAlt={'company'}
           link={"#"}
-          userJob={"aaron korbs position"}
-          userName={"aaron korbs"}
+          userJob={"Aaron Korbs position"}
+          userName={"Aaron Korbs"}
         />
         <div className="absolute -z-10 top-[20%] left-[50%] -translate-x-[50%] w-full scale-[400%]">
           <GradientShape />
