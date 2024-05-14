@@ -6,7 +6,9 @@ import { AnimateLight } from "./AnimateLight";
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
 import AOS from "aos";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface IProps {
   viewPortHeight?: number;
@@ -14,17 +16,22 @@ interface IProps {
   productsRef: RefObject<HTMLDivElement>;
 }
 
-export const HeroSection: FC<IProps> = ({
-                                          viewPortHeight,
-                                          headerHeight,
-                                          productsRef
-                                        }) => {
+export const HeroSection: FC<IProps> = (
+  {
+    viewPortHeight,
+    headerHeight,
+    productsRef
+  }) => {
+
+  let router = useRouter();
+
   useState({ signUp: false, signIn: false });
+
   useEffect(() => {
     AOS.init({
       duration: 2000,
-      anchorPlacement: 'center-center',
-      once: true,
+      anchorPlacement: "center-center",
+      once: true
     });
   }, []);
 
@@ -35,12 +42,19 @@ export const HeroSection: FC<IProps> = ({
     <div
       className={`relative w-full flex flex-col items-center overflow-hidden h-screen`}
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-14 lg:gap-20 relative z-[9] max-w-[1700px] mt-[2vh] lg:mt-[15vh]">
-        <div className="flex gap-8 lg:gap-14 flex-col items-center lg:items-start text-center bottom-6 max-w-screen-xl mt-10 lg:mt-0">
+      <div
+        className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-14 lg:gap-20 relative z-[9] max-w-[1700px] mt-[2vh] lg:mt-[15vh]">
+        <div
+          className="flex gap-8 lg:gap-10 flex-col items-center lg:items-start text-center bottom-6 max-w-screen-xl mt-10 lg:mt-0">
           <h1 className="text-primaryGradient text-left staticPageTitle">
             {HERO_SECTION.title}
           </h1>
-          <p className={'text-center lg:text-left font-light text-2xl lg:text-3xl'}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci asperiores at, blanditiis, cum deleniti enim eos incidunt iste laboriosam minima natus,</p>
+          <p className={"text-center lg:text-left font-extralight text-2xl lg:text-3xl"}>
+            Experience the future of trading with TenSurf Hub, where our cutting-edge "TenSurf Brain" AI chat interface
+            delivers real-time market analysis and insights directly to you.
+            Integrate your trading strategy with our intuitive, no-code platform that makes algorithmic trading
+            accessible to everyone.
+          </p>
           {/*<ul className={"w-full px-6 list-disc text-left"}>*/}
           {/*  {HERO_SECTION.items.map((val) => (*/}
           {/*    <li key={val}>*/}
@@ -68,29 +82,20 @@ export const HeroSection: FC<IProps> = ({
               // }
               className="w-52 h-16 bg-primary font-bold text-lg"
             >
-              Go to Tensurf Hub
+              Go to TenSurf Hub
             </Button>
           </a>
         </div>
-        <div className={"relative rounded overflow-hidden h-fit mx-auto sm:max-w-2xl lg:max-w-none"}>
+        <div
+          className={"relative rounded-2xl overflow-hidden h-fit mx-auto sm:max-w-2xl lg:max-w-none pb-[67%] w-full"}>
           <div
-            className="cursor-pointer bg-black z-[11] absolute w-full h-full opacity-70 backdrop-blur flex items-center justify-center">
-            <Dialog open={videoModal} modal={videoModal} onOpenChange={setVideoModal}>
-              <DialogTrigger asChild>
-                <Play onClick={() => setVideoModal(true)} size={64} className={"stroke-[#8f8f8f] hover:stroke-[#ffffff]"} strokeWidth={6} />
-              </DialogTrigger>
-              <DialogContent className={'w-[80vw] max-w-7xl'}>
-                <div className="w-full h-full p-2">
-                  <video controls loop playsInline width={"100%"} height={"100%"}>
-                    <source src={"/video/TenSurf Hub Demo Website.mp4"} type="video/mp4" />
-                  </video>
-                </div>
-              </DialogContent>
-            </Dialog>
+            className="cursor-pointer bg-black z-[11] absolute w-full h-full opacity-30 backdrop-blur flex items-center justify-center">
+            <Link target={'_blank'} href={`${process.env.NEXT_PUBLIC_HUB_URL}/videos/tensurf-demo.mp4`}>
+              <Play size={64} className={"stroke-[#8f8f8f] hover:stroke-[#ffffff]"}
+                    strokeWidth={6} />
+            </Link>
           </div>
-          <video muted autoPlay loop playsInline width={"100%"} height={"100%"} className={"relative z-[10] inset-0"}>
-            <source src={"/video/dummy_video.mp4"} type="video/mp4" />
-          </video>
+          <Image src={"/images/video-preview.png"} alt={"landing video"} layout={"fill"} />
         </div>
       </div>
 
@@ -98,7 +103,7 @@ export const HeroSection: FC<IProps> = ({
         onClick={() => {
           productsRef?.current?.scrollIntoView({ behavior: "smooth" });
         }}
-        className="absolute z-10 bottom-24 h-8 w-8 animate-bounce cursor-pointer"
+        className="absolute z-10 bottom-24 h-8 w-8 animate-bounce cursor-pointer hidden lg:block"
       />
 
       <div

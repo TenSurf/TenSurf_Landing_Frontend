@@ -357,7 +357,7 @@ export const FOOTER_MENU_COLS = [
             {
                 title: 'Team',
                 icon: '',
-                path: ROUTE.landingTeam
+                path: ROUTE.team
             },
             {
                 title: 'Contact Us',

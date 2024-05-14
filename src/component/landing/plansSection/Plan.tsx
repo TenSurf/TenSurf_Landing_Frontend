@@ -23,7 +23,7 @@ export const Plan: FC<IProps> = ({ plan, isAnnuallyChecked }) => {
   useEffect(() => {
     AOS.init({
       duration: 2000,
-      anchorPlacement: 'center-center',
+      anchorPlacement: 'bottom-bottom',
       once: true,
     });
   }, []);
