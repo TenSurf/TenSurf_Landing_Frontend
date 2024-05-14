@@ -5,7 +5,6 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ToastContainer } from "react-toastify";
 import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
-import { GoogleAnalytics } from '@next/third-parties/google'
 
 const inter = Inter({ subsets: ["latin"] });
 
