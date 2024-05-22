@@ -8,7 +8,6 @@ import { Button } from '@/components/ui/button';
 import { Loader } from 'lucide-react';
 import { HttpMethod, sendRequest } from '@/helpers/http-request';
 import { BackendUrls } from '@/helpers/backend-urls';
-import AOS from "aos";
 
 interface IProps {
   plan: IPlan;
@@ -23,7 +22,6 @@ export const Plan: FC<IProps> = ({ plan, isAnnuallyChecked }) => {
   // *.*.*.*.*.*.*.*.*. RETURN ↓•↓•↓
   return (
     <div
-      data-aos="fade-up"
       style={{
         background:
           'linear-gradient(136deg, rgba(57, 68, 225, 0.50) 7.59%, rgba(113, 82, 218, 0.15) 37.43%, rgba(255, 127, 101, 0.05) 66.68%), rgba(0, 0, 0, 0.40)'

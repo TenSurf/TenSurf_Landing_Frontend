@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import {ABOUT_US_SECTION} from "@/constatns/landingPage.constants";
-import AOS from "aos";
 
 const AboutUsSection = () => {
 
@@ -9,7 +8,7 @@ const AboutUsSection = () => {
             <div className='text-3xl md:text-4xl lg:text-6xl font-semibold'>{ABOUT_US_SECTION.title}</div>
             <ul className='list-disc flex items-start flex-col gap-16 lg:gap-12'>
                 {ABOUT_US_SECTION.items.map((item) => (
-                    <li data-aos="fade-up" key={item.title} className={''}>
+                    <li key={item.title} className={''}>
                         <p className={'text-xl md:text-2xl lg:text-3xl'}>
                             <span className={'font-semibold'}>{item.title} : </span>
                             <span className={'font-thin'}>{item.description}</span>

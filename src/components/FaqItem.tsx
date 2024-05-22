@@ -6,7 +6,7 @@ const FaqItem = ({ question, answer }: { question: string, answer: string }) => 
   const [open, setOpen] = useState(false);
 
   return (
-    <div data-aos="fade-up" >
+    <div>
       <AccordionItem value={question} className={"w-full"}>
         <AccordionTrigger>
           <h3 onClick={() => setOpen(prevState => !prevState)}

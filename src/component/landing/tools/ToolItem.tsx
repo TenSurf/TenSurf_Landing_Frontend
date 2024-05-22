@@ -1,4 +1,3 @@
-import "aos/dist/aos.css";
 import React from "react";
 import ToolCard from "@/component/landing/tools/ToolCard";
 import ToolData from "@/component/landing/tools/ToolData";

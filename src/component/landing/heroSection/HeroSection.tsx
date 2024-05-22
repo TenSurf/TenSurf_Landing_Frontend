@@ -5,7 +5,6 @@ import { AnimateLight } from "./AnimateLight";
 // import { useRouter } from 'next/router';
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
-import AOS from "aos";
 import { useRouter } from "next/navigation";
 
 interface IProps {
