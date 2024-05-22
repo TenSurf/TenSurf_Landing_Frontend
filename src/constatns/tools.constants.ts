@@ -1,4 +1,4 @@
-export const tools = {
+export const TOOLS:{[key:string]: any} = {
   "WidgetSurf": {
     title: "WidgetSurf",
     header: "Enhanced Trading Insights with WidgetSurf in TenSurf Hub",
@@ -8,6 +8,7 @@ export const tools = {
       {
         title: "TrendSurf",
         description: "TrendSurf offers comprehensive market trend analysis, showcasing both short-term and long-term trends.",
+        image: "/images/tools/TrendSurf.png",
         list: [
           {
             title: "Short-term trends",
@@ -22,6 +23,7 @@ export const tools = {
       {
         title: "GapSurf",
         description: "GapSurf focuses on identifying and analyzing price gaps in the market.",
+        image: "/images/tools/GapSurf.png",
         list: [
           {
             title: "Price Gap Analysis",
@@ -36,6 +38,7 @@ export const tools = {
       {
         title: "WaveSurf",
         description: "WaveSurf calculates market volatility using two key indicators:",
+        image: "/images/tools/WaveSurf.png",
         list: [
           {
             title: "Zigzag Indicator",
@@ -50,6 +53,7 @@ export const tools = {
       {
         title: "PairSurf",
         description: "PairSurf aids in understanding market correlations and comparative trends between different trading instruments.",
+        image: "/images/tools/PairSurf.png",
         list: [
           {
             title: "Market Correlations",
@@ -64,6 +68,7 @@ export const tools = {
       {
         title: "LiqSurf",
         description: "LiqSurf focuses on analyzing the order book to identify market pressure.",
+        image: "/images/tools/RiskSurf.png",
         list: [
           {
             title: "Order Book Ratio",
@@ -78,6 +83,7 @@ export const tools = {
       {
         title: "TimeSurf",
         description: "TimeSurf analyzes market behavior in relation to news events.",
+        image: "/images/tools/TrendSurf.png",
         list: [
           {
             title: "News Event Analysis",
@@ -89,6 +95,25 @@ export const tools = {
           }
         ]
       },
-    ]
+      {
+        title: "StatSurf",
+        description: "StatSurf leverages historical market data to provide statistical analysis of market events and trends.",
+        image: "/images/tools/StatSurf.png",
+        list: [
+          {
+            title: "Probability Insights",
+            description: "Offers statistical probabilities of specific market events, such as the likelihood of price level breaks."
+          },
+          {
+            title: "Scenario Analysis",
+            description: "based on historical trends. This tool aids traders in making informed decisions by quantifying the likelihood of various trading scenarios, enhancing their ability to anticipate market behavior."
+          }
+        ]
+      }
+    ],
+    summery: {
+      title: "Summary",
+      description: "WidgetSurf in TenSurf Hub is a powerful suite of analytical tools designed to enhance trading strategies through comprehensive market insights. Each tool within WidgetSurf provides unique functionalities that together empower traders to make data-driven decisions, manage risks effectively, and capitalize on market opportunities. Whether analyzing trends, gaps, volatility, correlations, order book dynamics, news impacts, or statistical probabilities, WidgetSurf offers a robust solution for traders aiming to optimize their trading performance."
+    }
   }
-}
+};
