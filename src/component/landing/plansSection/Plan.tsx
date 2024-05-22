@@ -20,14 +20,6 @@ export const Plan: FC<IProps> = ({ plan, isAnnuallyChecked }) => {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    AOS.init({
-      duration: 2000,
-      anchorPlacement: 'bottom-bottom',
-      once: true,
-    });
-  }, []);
-
   // *.*.*.*.*.*.*.*.*. RETURN ↓•↓•↓
   return (
     <div

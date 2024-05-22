@@ -1,8 +1,9 @@
 'use client'
-import { type ReactNode, type RefObject } from 'react';
+import { type ReactNode, type RefObject, useEffect } from "react";
 import { PublicFooter } from './PublicFooter';
 import { DefaultHeader } from './DefaultHeader';
 import ChangingUrlProgress from '../../component/general/ChangingUrlProgress';
+import AOS from "aos";
 
 // *.*.*.*.*.*.*.*.*.*.* Main Function ↓•↓•↓
 export const DefaultLayout = ({
@@ -14,6 +15,14 @@ export const DefaultLayout = ({
 }) => {
   // const router = useRouter();
   // const isInDashboard = router?.pathname?.includes('dashboard');
+
+  useEffect(() => {
+    AOS.init({
+      duration: 3000,
+      anchorPlacement: 'center-center',
+      once: true,
+    });
+  }, [])
 
   // *.*.*.*.*.*.*.*.*. RETURN ↓•↓•↓
   return (

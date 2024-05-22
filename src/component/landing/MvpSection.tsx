@@ -5,14 +5,6 @@ import AOS from "aos";
 
 const MvpItem = ({ title, description }: { title: string; description: string }) => {
 
-  useEffect(() => {
-    AOS.init({
-      duration: 2000,
-      anchorPlacement: 'center-center',
-      once: true,
-    });
-  }, [])
-
   return (
     <div
       data-aos="flip-up"

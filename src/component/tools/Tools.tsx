@@ -15,7 +15,7 @@ const Tools = (
   }) => {
 
   return (
-    <div className=" flex flex-col gap-10  my-[120px] max-w-[1200px] px-8">
+    <div className=" flex flex-col gap-10  my-[120px] max-w-screen-xl px-8 lg:px-0">
       <div className="flex flex-col gap-2">
         <div className="flex flex-col gap-4 text-center items-center">
           <div className="pageTitle w-full">

@@ -49,7 +49,7 @@ const OfferingSectionV2 = () => {
         />
         <ToolItem
           direction={'left'}
-          name={'WidgetSurf  '}
+          name={'WidgetSurf'}
           image={'/images/LevelSurf-1.png'}
           imageAlt={"LevelSurf"}
           title={"Data-driven Insights with WidgetSurf"}
@@ -59,7 +59,7 @@ const OfferingSectionV2 = () => {
           userAlt={'Aaron Korbs'}
           userCompany={'/images/company.png'}
           userCompanyAlt={'company'}
-          link={"#"}
+          link={"/tools/WidgetSurf"}
           userJob={"Aaron Korbs position"}
           userName={"Aaron Korbs"}
         />

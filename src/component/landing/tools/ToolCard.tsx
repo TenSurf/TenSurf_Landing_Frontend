@@ -16,15 +16,6 @@ const ToolCard = (
     children: ReactNode
   }) => {
 
-
-  useEffect(() => {
-    AOS.init({
-      duration: 2000,
-      anchorPlacement: 'center-center',
-      once: true,
-    });
-  }, [])
-
   return (
     <div
       className="grid grid-cols-1 lg:grid-cols-2 md:max-w-[600px] lg:max-w-none px-6 sm:px-0 gap-12 items-start justify-between w-full relative z-20">

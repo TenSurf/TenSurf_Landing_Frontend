@@ -28,14 +28,6 @@ export const HeroSection: FC<IProps> = (
 
   useState({ signUp: false, signIn: false });
 
-  useEffect(() => {
-    AOS.init({
-      duration: 2000,
-      anchorPlacement: "center-center",
-      once: true
-    });
-  }, []);
-
   const [videoModal, setVideoModal] = useState(false);
 
   const animateLights = [0, 1, 2, 3, 4, 5, 6, 7, 8];

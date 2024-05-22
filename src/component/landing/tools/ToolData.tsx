@@ -37,6 +37,7 @@ const ToolData = (
   useEffect(() => {
     setParagraphHeight(descriptionRef.current?.clientHeight)
   }, []);
+
   return (
     <>
       <h6 className={"font-extrabold text-xl mb-1 text-primaryGradient"}>{name}</h6>
