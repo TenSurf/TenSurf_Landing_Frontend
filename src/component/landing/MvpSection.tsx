@@ -1,11 +1,27 @@
 import { MVP_SECTION } from "../../constatns/landingPage.constants";
 import { GradientShape } from "../general/GradientShape";
-import { type RefObject, useEffect } from "react";
+import { type RefObject, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const MvpItem = ({ title, description }: { title: string; description: string }) => {
 
+  const serviceRef = useRef(null);
+  useGSAP(() => {
+    gsap.fromTo(serviceRef.current, { opacity: 0, skewX: 45 , y: -100 }, {
+      opacity: 1, skewX: 0 ,y: 0, duration: 3, scrollTrigger: {
+        trigger: serviceRef.current,
+        start: "center bottom"
+      }
+    });
+  });
+
   return (
     <div
+      ref={serviceRef}
       className="relative z-10 bg-[#000]/40 flex flex-col justify-center items-center gap-4 px-8 py-12 rounded-[24px] border-[1px] border-white/20 max-w-[392px]">
       <div className="text-[36px] font-semibold">{title}</div>
       <div className="text-[20px] font-normal">{description}</div>

@@ -1,8 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import ArrowRight from "@/icons/ArrowRight";
 import QuoteIcon from "@/icons/QuoteIcon";
 import Image from "next/image";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const ToolData = (
   {
@@ -33,17 +35,19 @@ const ToolData = (
 
   const descriptionRef = useRef<HTMLParagraphElement>(null);
   const [paragraphHeight, setParagraphHeight] = useState<number>();
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
-    setParagraphHeight(descriptionRef.current?.clientHeight)
+    setParagraphHeight(descriptionRef.current?.clientHeight);
   }, []);
 
   return (
     <>
       <h6 className={"font-extrabold text-xl mb-1 text-primaryGradient"}>{name}</h6>
       <h3 className={"font-bold text-3xl leading-10 mb-3"}>{title}</h3>
-      <p ref={descriptionRef}
-         className={`cursor-pointer overflow-hidden max-h-[${paragraphHeight ?? 0}px] text-lg font-light mb-2 line-clamp-3 hover:line-clamp-[40] duration-1000 hover:max-h-[1000px] transition-all`}>{description}</p>
+      <p
+        ref={descriptionRef}
+        className={`cursor-pointer overflow-hidden max-h-[${paragraphHeight ?? 0}px] text-lg font-light mb-2 line-clamp-3 hover:line-clamp-[40] duration-1000 hover:max-h-[1000px] transition-all`}>{description}</p>
       <Link className={"group transition-all flex items-center gap-1 hover:underline underline-offset-4 w-fit"}
             href={link}>
         <p className={"text-xl"}>LEARN MORE </p>

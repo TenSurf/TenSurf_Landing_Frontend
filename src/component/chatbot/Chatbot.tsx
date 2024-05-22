@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import ChatBot, { Flow } from "react-chatbotify";
 import { HttpMethod, sendRequest } from "@/helpers/http-request";
