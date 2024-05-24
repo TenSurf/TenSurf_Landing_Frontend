@@ -51,6 +51,19 @@ export default function RootLayout({
             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
           }}
         ></Script>
+        <Script
+          id={"mouseflow"}
+          strategy={"afterInteractive"}
+          dangerouslySetInnerHTML={{
+            __html: `window._mfq = window._mfq || [];
+            (function() {
+              var mf = document.createElement("script");
+              mf.type = "text/javascript"; mf.defer = true;
+              mf.src = "//cdn.mouseflow.com/projects/8e109497-38a0-4e3e-81bc-ed0b8c2bd28b.js";
+              document.getElementsByTagName("head")[0].appendChild(mf);
+            })();`,
+          }}
+        ></Script>
       </head>
       <body className={inter.className}>
         <ThemeProvider
