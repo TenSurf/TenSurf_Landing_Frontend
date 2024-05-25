@@ -46,13 +46,13 @@ const Chatbot = () => {
         emoji: { disabled: true },
         botBubble: { simStream: true },
         fileAttachment: { disabled: true },
-        botBubbleStyle: {
-          width: "50px !important",
+        chatButtonStyle: {
+          width: "50px",
           backgroundSize: "40px 40px",
           boxSizing: "border-box",
           border: "white 1px solid",
           backgroundImage: "url(/svg/bot.svg)",
-          height: "50px !important",
+          height: "50px",
           padding: "10px",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center"
@@ -60,11 +60,6 @@ const Chatbot = () => {
         chatButton: { icon: "/svg/bot.svg" },
         notificationBadgeStyle: { display: "none" },
         footer: { text: "footer text (or jsx element)" },
-        chatButtonStyle: {
-          height: "50px",
-          width: "50px",
-          padding: "10px"
-        }
       }}
       flow={flow}
     />
