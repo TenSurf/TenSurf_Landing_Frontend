@@ -42,7 +42,7 @@ export const HeroSection: FC<IProps> = (
             {HERO_SECTION.title}
           </h1>
           <p className={"text-center lg:text-left font-extralight text-2xl lg:text-3xl"}>
-            Experience the future of trading with TenSurf Hub, where our cutting-edge "TenSurf Brain" AI chat interface
+            Experience the future of trading with TenSurf Hub, where our cutting-edge &#34;TenSurf Brain&#34; AI chat interface
             delivers real-time market analysis and insights directly to you.
             Integrate your trading strategy with our intuitive, no-code platform that makes algorithmic trading
             accessible to everyone.

@@ -12,7 +12,8 @@ import FaqSection from "@/component/landing/FaqSection";
 import OfferingSectionV2 from "@/component/landing/OfferingSectionV2";
 import ChatBot, { Params } from "react-chatbotify";
 import { Bot } from "lucide-react";
-import Chatbot from "@/component/chatbot/Chatbot";
+import dynamic from "next/dynamic";
+const Chatbot = dynamic(() => import("@/component/chatbot/Chatbot") , {ssr: false})
 // import { useRouter } from 'next/router';
 
 // *.*.*.*.*.*.*.*.*.*.* Main Function ↓•↓•↓
