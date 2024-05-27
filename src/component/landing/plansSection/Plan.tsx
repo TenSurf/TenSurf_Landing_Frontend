@@ -27,7 +27,7 @@ export const Plan: FC<IProps> = ({ plan, isAnnuallyChecked }) => {
 
   useGSAP(() => {
     gsap.fromTo(planRef.current, { opacity: 0, y: -100 }, {
-      opacity: 1, y: 0, duration: 2, scrollTrigger: {
+      opacity: 1, y: 0, duration: 1.5, scrollTrigger: {
         trigger: planRef.current,
         start: "center bottom"
       }

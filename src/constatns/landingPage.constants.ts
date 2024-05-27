@@ -42,12 +42,12 @@ export enum MnuItemsEnum {
 }
 
 export const MENU_ITEMS = [
-    {title: MnuItemsEnum.faq, icon: FaqIcon},
     {title: MnuItemsEnum.services, icon: LayerIcon},
     {title: MnuItemsEnum.plans, icon: ShoppingBagIcon},
     {title: MnuItemsEnum.team, icon: UserGroupIcon},
     {title: MnuItemsEnum.contact, icon: PhoneIcon},
-    {title: MnuItemsEnum.aboutUs, icon: AboutUsIcon}
+    {title: MnuItemsEnum.aboutUs, icon: AboutUsIcon},
+    {title: MnuItemsEnum.faq, icon: FaqIcon},
 ];
 
 export const HERO_SECTION = {

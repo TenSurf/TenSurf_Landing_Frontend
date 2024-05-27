@@ -12,6 +12,8 @@ export const TENSURF_CONTACT = {
 export const ROUTE = {
   home: '/',
   landing: '/',
+  landingAboutUs: '/#AboutUs',
+  landingFaq: '/#Frequently_asked_questions',
   landingProducts: '/#Productss',
   landingChart: '/#Chart',
   landingPlans: '/plans',

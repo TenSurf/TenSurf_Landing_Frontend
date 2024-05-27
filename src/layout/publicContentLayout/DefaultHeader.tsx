@@ -1,16 +1,8 @@
-import { type RefObject, useMemo, useState } from "react";
+import { type RefObject } from "react";
 import { MENU_ITEMS, MnuItemsEnum } from "../../constatns/landingPage.constants";
-import UserIcon from "../../icons/UserIcon";
 import { ROUTE } from "../../constatns/general.constants";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuTrigger
-} from "@/components/ui/dropdown-menu";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -27,18 +19,24 @@ export const DefaultHeader = ({
       case MnuItemsEnum.products:
         router.push(ROUTE.landingProducts);
         break;
-
-      case MnuItemsEnum.plans:
-        window.open(process.env.NEXT_PUBLIC_PLAN_URL as string);
+      case MnuItemsEnum.services:
+        router.push(ROUTE.landingProducts);
         break;
-
+      case MnuItemsEnum.plans:
+        window.open((process.env.NEXT_PUBLIC_HUB_URL as string) + "/plans");
+        break;
       case MnuItemsEnum.team:
         router.push(ROUTE.team);
         break;
       case MnuItemsEnum.contact:
         router.push(ROUTE.contactUs);
         break;
-
+      case MnuItemsEnum.aboutUs:
+        router.push(ROUTE.landingAboutUs);
+        break;
+      case MnuItemsEnum.faq:
+        router.push(ROUTE.landingFaq);
+        break;
       default:
         router.push(ROUTE.landing);
     }

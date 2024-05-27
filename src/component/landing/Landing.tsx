@@ -48,17 +48,17 @@ export const Landing: FC = () => {
   //   }, 100);
   // }, [router]);
 
-  const onMenuItemClickHandler = (name: string) => {
-    if (name === MnuItemsEnum.products) {
-      productsRef?.current?.scrollIntoView({ behavior: "smooth" });
-    } else if (name === MnuItemsEnum.chart) {
-      chartRef?.current?.scrollIntoView({ behavior: "smooth" });
-    } else if (name === MnuItemsEnum.plans) {
-      PlansRef?.current?.scrollIntoView({ behavior: "smooth" });
-    } else if (name === MnuItemsEnum.team) {
-      TeamRef?.current?.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  // const onMenuItemClickHandler = (name: string) => {
+  //   if (name === MnuItemsEnum.products) {
+  //     productsRef?.current?.scrollIntoView({ behavior: "smooth" });
+  //   } else if (name === MnuItemsEnum.chart) {
+  //     chartRef?.current?.scrollIntoView({ behavior: "smooth" });
+  //   } else if (name === MnuItemsEnum.plans) {
+  //     PlansRef?.current?.scrollIntoView({ behavior: "smooth" });
+  //   } else if (name === MnuItemsEnum.team) {
+  //     TeamRef?.current?.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
 
   // *.*.*.*.*.*.*.*.*. RETURN ↓•↓•↓
 

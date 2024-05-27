@@ -12,7 +12,7 @@ const MvpItem = ({ title, description }: { title: string; description: string })
   const serviceRef = useRef(null);
   useGSAP(() => {
     gsap.fromTo(serviceRef.current, { opacity: 0, skewX: 45 , y: -100 }, {
-      opacity: 1, skewX: 0 ,y: 0, duration: 3, scrollTrigger: {
+      opacity: 1, skewX: 0 ,y: 0, duration: 1.5, scrollTrigger: {
         trigger: serviceRef.current,
         start: "center bottom"
       }

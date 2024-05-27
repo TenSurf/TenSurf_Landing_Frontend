@@ -12,7 +12,7 @@ const AboutUsSection = () => {
 
   useGSAP(() => {
     gsap.fromTo(".about-us-item", { opacity: 0, y: 100 }, {
-      opacity: 1, y: 0, duration: 5, scrollTrigger: {
+      opacity: 1, y: 0, duration: 1.5, scrollTrigger: {
         trigger: ".about-us-item",
         start: "center center"
       }
@@ -20,7 +20,7 @@ const AboutUsSection = () => {
   }, { scope: aboutUsContainer });
 
   return (
-    <div className="relative flex flex-col items-center gap-10 scroll-m-20 max-w-screen-xl">
+    <div id={"AboutUs"} className="relative flex flex-col items-center gap-10 scroll-m-20 max-w-screen-xl">
       <div className="text-3xl md:text-4xl lg:text-6xl font-semibold">{ABOUT_US_SECTION.title}</div>
       <ul ref={aboutUsContainer} className="list-disc flex items-start flex-col gap-16 lg:gap-12">
         {ABOUT_US_SECTION.items.map((item) => (

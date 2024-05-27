@@ -13,7 +13,7 @@ const FaqItem = ({ question, answer }: { question: string, answer: string }) => 
 
   useGSAP(() => {
     gsap.fromTo(faqItemRef.current, { opacity: 0, y: 100 }, {
-      opacity: 1, y: 0, duration: 3 , scrollTrigger: {
+      opacity: 1, y: 0, duration: 1.5 , scrollTrigger: {
         trigger: faqItemRef.current,
         start: "center center"
       }
