@@ -1,16 +1,19 @@
-'use client';
+"use client";
 
-import { type FC, useEffect, useRef, useState } from 'react';
-import { MvpSection } from './MvpSection';
-import { HeroSection } from './heroSection/HeroSection';
-import { OfferingSection } from './OfferingSection';
-import { ChartSection } from './ChartSection';
-import { PlansSection } from './plansSection/PlansSection';
-import { InnovationSection } from './InnovationSection';
-import { TeamSection } from './TeamSection';
-import { MnuItemsEnum } from '../../constatns/landingPage.constants';
-import DefaultLayout from '../../layout/publicContentLayout/DefaultLayout';
-import useScrollToTop from '../../hooks/useScrollToTop';
+import { type FC, useEffect, useRef, useState } from "react";
+import { MvpSection } from "./MvpSection";
+import { HeroSection } from "./heroSection/HeroSection";
+import { PlansSection } from "./plansSection/PlansSection";
+import { MnuItemsEnum } from "../../constatns/landingPage.constants";
+import DefaultLayout from "../../layout/publicContentLayout/DefaultLayout";
+import useScrollToTop from "../../hooks/useScrollToTop";
+import AboutUsSection from "@/component/landing/AboutUsSection";
+import FaqSection from "@/component/landing/FaqSection";
+import OfferingSectionV2 from "@/component/landing/OfferingSectionV2";
+import ChatBot, { Params } from "react-chatbotify";
+import { Bot } from "lucide-react";
+import dynamic from "next/dynamic";
+const Chatbot = dynamic(() => import("@/component/chatbot/Chatbot") , {ssr: false})
 // import { useRouter } from 'next/router';
 
 // *.*.*.*.*.*.*.*.*.*.* Main Function ↓•↓•↓
@@ -30,11 +33,11 @@ export const Landing: FC = () => {
   };
   useEffect(() => {
     setViewPortHeight(window?.innerHeight);
-    addEventListener('resize', event => {
+    addEventListener("resize", event => {
       viewPortHeightController();
     });
     return () => {
-      removeEventListener('resize', viewPortHeightController);
+      removeEventListener("resize", viewPortHeightController);
     };
   }, []);
 
@@ -45,23 +48,23 @@ export const Landing: FC = () => {
   //   }, 100);
   // }, [router]);
 
-  const onMenuItemClickHandler = (name: string) => {
-    if (name === MnuItemsEnum.products) {
-      productsRef?.current?.scrollIntoView({ behavior: 'smooth' });
-    } else if (name === MnuItemsEnum.chart) {
-      chartRef?.current?.scrollIntoView({ behavior: 'smooth' });
-    } else if (name === MnuItemsEnum.plans) {
-      PlansRef?.current?.scrollIntoView({ behavior: 'smooth' });
-    } else if (name === MnuItemsEnum.team) {
-      TeamRef?.current?.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  // const onMenuItemClickHandler = (name: string) => {
+  //   if (name === MnuItemsEnum.products) {
+  //     productsRef?.current?.scrollIntoView({ behavior: "smooth" });
+  //   } else if (name === MnuItemsEnum.chart) {
+  //     chartRef?.current?.scrollIntoView({ behavior: "smooth" });
+  //   } else if (name === MnuItemsEnum.plans) {
+  //     PlansRef?.current?.scrollIntoView({ behavior: "smooth" });
+  //   } else if (name === MnuItemsEnum.team) {
+  //     TeamRef?.current?.scrollIntoView({ behavior: "smooth" });
+  //   }
+  // };
 
   // *.*.*.*.*.*.*.*.*. RETURN ↓•↓•↓
 
   return (
     <DefaultLayout headerRef={headerRef}>
-      <div className='flex flex-col w-full  items-center gap-[200px] px-6 md:px-10 overflow-x-hidden'>
+      <div className="flex flex-col w-full  items-center gap-[200px] px-6 md:px-10 overflow-x-hidden">
         {headerRef?.current?.clientHeight ? (
           <>
             <HeroSection
@@ -70,14 +73,17 @@ export const Landing: FC = () => {
               headerHeight={headerRef?.current?.clientHeight}
             />
             <MvpSection productsRef={productsRef} />
-            <OfferingSection />
-            <ChartSection ChartRef={chartRef} />
+            <OfferingSectionV2 />
+            {/*<ChartSection ChartRef={chartRef} />*/}
             <PlansSection PlansRef={PlansRef} />
-            <InnovationSection />
-            <TeamSection TeamRef={TeamRef} />
+            {/*<InnovationSection />*/}
+            <AboutUsSection />
+            {/*<TeamSection TeamRef={TeamRef} />*/}
+            <FaqSection />
+            <Chatbot/>
           </>
         ) : (
-          <div className='w-screen h-screen flex justify-center items-center'></div>
+          <div className="w-screen h-screen flex justify-center items-center"></div>
         )}
       </div>
     </DefaultLayout>

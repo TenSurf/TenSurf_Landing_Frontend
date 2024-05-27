@@ -43,12 +43,13 @@ export enum MnuItemsEnum {
 }
 
 export const MENU_ITEMS = [
-    { title: MnuItemsEnum.chart, icon: ChartIcon },
-    { title: MnuItemsEnum.products, icon: LayerIcon },
-    { title: MnuItemsEnum.plans, icon: ShoppingBagIcon },
-    { title: MnuItemsEnum.team, icon: UserGroupIcon },
-    { title: MnuItemsEnum.contact, icon: PhoneIcon }
-  ];
+    {title: MnuItemsEnum.services, icon: LayerIcon},
+    {title: MnuItemsEnum.plans, icon: ShoppingBagIcon},
+    {title: MnuItemsEnum.team, icon: UserGroupIcon},
+    {title: MnuItemsEnum.contact, icon: PhoneIcon},
+    {title: MnuItemsEnum.aboutUs, icon: AboutUsIcon},
+    {title: MnuItemsEnum.faq, icon: FaqIcon},
+];
 
 export const HERO_SECTION = {
     title: 'Your advanced AI-powered platform',
@@ -357,7 +358,7 @@ export const FOOTER_MENU_COLS = [
             {
                 title: 'Team',
                 icon: '',
-                path: ROUTE.landingTeam
+                path: ROUTE.team
             },
             {
                 title: 'Contact Us',

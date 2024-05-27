@@ -12,6 +12,8 @@ export const TENSURF_CONTACT = {
 export const ROUTE = {
   home: '/',
   landing: '/',
+  landingAboutUs: '/#AboutUs',
+  landingFaq: '/#Frequently_asked_questions',
   landingProducts: '/#Productss',
   landingChart: '/#Chart',
   landingPlans: '/plans',
@@ -19,6 +21,7 @@ export const ROUTE = {
   contactUs: '/contact-us',
   aboutUs: '/about-us',
   faq: '/faq',
+  team: '/team',
   support: '#',
   privacyPolicy: '/privacy-policy',
   refundPolicy: '/refund-policy',
@@ -45,18 +48,20 @@ export const NOTIFICATION = {
 };
 
 export const PAGE_TITLE = {
-  home: 'Tensurf Hub - Revolutionizing AI Trading',
-  aboutUs: 'Our Journey | Tensurf',
-  contactUs: 'Contact Us | Tensurf',
-  blog: 'blog | Tensurf',
-  faq: 'FAQ | Tensurf',
-  termsOfUse: 'Terms of Use | Tensurf',
-  privacyPolicy: 'Privacy Policy | Tensurf',
-  refundPolicy: 'Refund Policy | Tensurf',
-  riskDisclosure: 'Risk Disclosure | Tensurf',
-  dashboard: 'Dashboard | Tensurf',
-  chart: 'Chart | Tensurf',
-  profile: 'Profile Setting | Tensurf',
+  home: 'TenSurf Hub - Revolutionizing AI Trading',
+  aboutUs: 'Our Journey | TenSurf',
+  contactUs: 'Contact Us | TenSurf',
+  blog: 'blog | TenSurf',
+  faq: 'FAQ | TenSurf',
+  termsOfUse: 'Terms of Use | TenSurf',
+  privacyPolicy: 'Privacy Policy | TenSurf',
+  refundPolicy: 'Refund Policy | TenSurf',
+  team: 'Team | TenSurf',
+  riskDisclosure: 'Risk Disclosure | TenSurf',
+  tools: 'Tools | TenSurf',
+  dashboard: 'Dashboard | TenSurf',
+  chart: 'Chart | TenSurf',
+  profile: 'Profile Setting | TenSurf',
   commingSoon: 'Comming Soon'
 };
 

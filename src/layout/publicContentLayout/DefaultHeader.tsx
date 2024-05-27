@@ -1,24 +1,14 @@
-import { type RefObject, useState, useMemo } from "react";
-import {
-  MENU_ITEMS,
-  MnuItemsEnum,
-} from "../../constatns/landingPage.constants";
-import UserIcon from "../../icons/UserIcon";
+import { type RefObject } from "react";
+import { MENU_ITEMS, MnuItemsEnum } from "../../constatns/landingPage.constants";
 import { ROUTE } from "../../constatns/general.constants";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import Image from "next/image";
+import Link from "next/link";
 
 export const DefaultHeader = ({
-  headerRef,
-}: {
+                                headerRef
+                              }: {
   headerRef?: RefObject<HTMLDivElement>;
 }) => {
   const router = useRouter();
@@ -28,22 +18,24 @@ export const DefaultHeader = ({
       case MnuItemsEnum.products:
         router.push(ROUTE.landingProducts);
         break;
-
-      case MnuItemsEnum.plans:
-        window.open(process.env.NEXT_PUBLIC_PLAN_URL as string);
+      case MnuItemsEnum.services:
+        router.push(ROUTE.landingProducts);
         break;
-
+      case MnuItemsEnum.plans:
+        window.open((process.env.NEXT_PUBLIC_HUB_URL as string) + "/plans");
+        break;
       case MnuItemsEnum.team:
-        router.push(ROUTE.landingTeam);
+        router.push(ROUTE.team);
         break;
       case MnuItemsEnum.contact:
         router.push(ROUTE.contactUs);
         break;
-
-      case MnuItemsEnum.chart:
-        router.push(process.env.NEXT_PUBLIC_HUB_URL as string);
+      case MnuItemsEnum.aboutUs:
+        router.push(ROUTE.landingAboutUs);
         break;
-
+      case MnuItemsEnum.faq:
+        router.push(ROUTE.landingFaq);
+        break;
       default:
         router.push(ROUTE.landing);
     }
@@ -54,13 +46,15 @@ export const DefaultHeader = ({
       ref={headerRef}
       className="z-50 sticky top-0 flex items-center px-6 md:px-24 py-4 justify-between bg-[#121212]"
     >
-      <Image
-        src={"/tensurf.png"}
-        width={148}
-        height={10}
-        alt="Tensurf"
-        className="rounded"
-      />
+      <Link href={"/"}>
+        <Image
+          src={"/tensurf.png"}
+          width={148}
+          height={10}
+          alt="Tensurf"
+          className="rounded"
+        />
+      </Link>
 
       <div className="hidden items-center gap-10 lg:flex">
         {MENU_ITEMS.map((item, index) => (
