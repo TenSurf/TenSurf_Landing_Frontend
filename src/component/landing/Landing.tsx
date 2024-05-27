@@ -80,7 +80,7 @@ export const Landing: FC = () => {
             <AboutUsSection />
             {/*<TeamSection TeamRef={TeamRef} />*/}
             <FaqSection />
-            <Chatbot/>
+            {/* <Chatbot/> */}
           </>
         ) : (
           <div className="w-screen h-screen flex justify-center items-center"></div>
