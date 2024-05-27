@@ -1,4 +1,4 @@
-import React from "react";
+import React , {forwardRef} from "react";
 import { OFFERING_SECTION } from "@/constatns/landingPage.constants";
 import { GradientShape } from "@/component/general/GradientShape";
 import Link from "next/link";
@@ -7,9 +7,9 @@ import QuoteIcon from "@/icons/QuoteIcon";
 import Image from "next/image";
 import ToolItem from "@/component/landing/tools/ToolItem";
 
-const OfferingSectionV2 = () => {
+const OfferingSectionV2 = forwardRef<HTMLDivElement , {}>(({} , ref) => {
   return (
-    <div className='flex flex-col gap-10 text-white w-full items-center max-w-screen-xl'>
+    <div ref={ref} className='flex flex-col gap-10 text-white w-full items-center max-w-screen-xl'>
       <div className='flex flex-col gap-4 text-center'>
         <div className='text-3xl md:text-4xl lg:text-6xl font-semibold'>{OFFERING_SECTION.title}</div>
         {/*<div className='text-md md:text-2xl'>{OFFERING_SECTION.description}</div>*/}
@@ -69,6 +69,8 @@ const OfferingSectionV2 = () => {
       </div>
     </div>
   );
-};
+});
+
+OfferingSectionV2.displayName = "OfferingSectionV2"
 
 export default OfferingSectionV2;
