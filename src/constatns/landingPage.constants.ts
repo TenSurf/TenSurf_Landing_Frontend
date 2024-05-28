@@ -344,11 +344,11 @@ export const FOOTER_MENU_COLS = [
                 icon: '',
                 path: ROUTE.home
             },
-            {
-                title: 'Products',
-                icon: '',
-                path: ROUTE.landingProducts
-            },
+            // {
+            //     title: 'Products',
+            //     icon: '',
+            //     path: ROUTE.landingProducts
+            // },
             {
                 title: 'Plans',
                 icon: '',

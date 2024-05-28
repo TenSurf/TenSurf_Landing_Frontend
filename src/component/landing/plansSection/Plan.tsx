@@ -43,9 +43,9 @@ export const Plan: FC<IProps> = ({ plan, isAnnuallyChecked }) => {
         background:
           "linear-gradient(136deg, rgba(57, 68, 225, 0.50) 7.59%, rgba(113, 82, 218, 0.15) 37.43%, rgba(255, 127, 101, 0.05) 66.68%), rgba(0, 0, 0, 0.40)"
       }}
-      className={`flex flex-col gap-6 px-8 py-8 border backdrop-blur-[20px]  border-white/2 rounded-3xl relative z-10 w-full lg:w-96`}
+      className={`flex flex-col gap-4 px-4 py-6 border backdrop-blur-[20px]  border-white/2 rounded-3xl relative z-10 w-full lg:w-96`}
     >
-      <div className="flex flex-col items-center h-48 gap-3">
+      <div className="flex flex-col items-center h-48 gap-1">
         <div className="text-4xl font-bold">{plan.title}</div>
 
         <div className="grid items-center my-auto">
@@ -106,10 +106,10 @@ export const Plan: FC<IProps> = ({ plan, isAnnuallyChecked }) => {
         {loading ? <Loader></Loader> : plan.buttonLabel}
       </Button>
 
-      <div className="flex flex-col gap-5">
+      <div className="flex flex-col gap-1">
         {plan?.features?.map((feature, index) => (
           <div key={index} className="flex flex-col gap-3">
-            <div className="flex gap-1 text-[18px] font-bold">
+            <div className="flex gap-1 text-[18px] font-light">
               <CheckIcon className="shrink-0" />
               <div>{feature.title}</div>
             </div>
