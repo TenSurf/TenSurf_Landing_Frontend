@@ -70,33 +70,33 @@ export const MVP_SECTION = {
     title: 'Services',
     items: [
         {
-            title: 'AI-Powered Analytics',
-            description: 'Highlights uncovering hidden profit potential through AI analysis'
+            title: 'Al-powered Trading Assistant',
+            description: '(TenSurf Brain): Analyze markets, manage risk, and get personalized coaching - all powered by Al.'
         },
         {
-            title: 'AI-Driven Risk Shield',
-            description: 'Focuses on risk management and trader security'
+            title: 'Automated Analysis & Routines',
+            description: 'Streamline your pre-market preparation with a TenSurf Brain that adapts and optimizes your daily routines.'
         },
         {
-            title: 'AI Coach & Analyst',
-            description: 'Highlights educational and analytical support for smarter trading'
+            title: 'Advanced Chart Insights',
+            description: 'Ask questions, identify patterns, and gain insights directly on the charts.'
         },
         {
-            title: 'AI Trading Guru',
-            description: 'Emphasizes AI as a personal trading advisor'
+            title: 'Actionable Market Predictions',
+            description: 'Stay ahead of the curve with Al that predicts price movements and breakouts.'
         },
         {
-            title: 'Predict Market Shifts',
-            description: 'Make insightful market predictions and gain an analytical advantage'
+            title: 'Strategy Builder & Tester',
+            description: 'Develop and test trading strategies with ease using natural language prompts.'
         },
         {
-            title: 'AI Assistant',
-            description: 'Leverage AI to build, backtest, and refine trading strategies, strategy development'
+            title: 'Intelligent Widgets',
+            description: 'Gain a deeper understanding of the market with real-time insights on trends, risk, liquidity, and more.'
         },
-        {
-            title: 'Automate',
-            description: 'Focuses on automation and saving traders time'
-        },
+        // {
+        //     title: 'Automate',
+        //     description: 'Focuses on automation and saving traders time'
+        // },
     ]
 };
 
