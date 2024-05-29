@@ -132,7 +132,7 @@ export const PlansSection = (
           ))}
         </Swiper>
         <div className="flex flex-col lg:flex-row h-full justify-center gap-4 flex-wrap">
-          {plans?.data?.map((item: IPlan, index: number) => (
+          {plans?.data?.slice(4 ,5)?.map((item: IPlan, index: number) => (
             <Plan key={index} plan={item} isAnnuallyChecked={isAnnuallyChecked} />
           ))}
         </div>
