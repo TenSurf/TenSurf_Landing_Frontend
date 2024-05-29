@@ -1,3 +1,4 @@
+"use client";
 import { type RefObject, useEffect, useState } from "react";
 import Switch from "../../general/Switch";
 import Image from "next/image";
@@ -6,10 +7,12 @@ import { type IPlan } from "../../../types/general.types";
 import { Plan } from "./Plan";
 import { HttpMethod, sendRequest } from "@/helpers/http-request";
 import { BackendUrls } from "@/helpers/backend-urls";
-import {Swiper as SwiperType} from "swiper/types";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import {EffectCoverflow} from "swiper/modules";
-import 'swiper/css';
+
+import { Swiper as SwiperType } from "swiper/types";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCoverflow } from "swiper/modules";
+import "swiper/css/effect-coverflow";
+import "swiper/css";
 
 export const PlansSection = (
   {
@@ -19,11 +22,13 @@ export const PlansSection = (
     PlansRef?: RefObject<HTMLDivElement>;
     mode?: "landingPage" | "plansPage";
   }) => {
+
   const [isAnnuallyChecked, setIsAnnuallyChecked] = useState(true);
   const [plans, setPlans] = useState<{ status: "reject" | "pending" | "fulfilled"; data?: IPlan[] }>({
     status: "pending",
     data: []
   });
+  const [swiper, setSwiper] = useState<SwiperType>();
 
   useEffect(() => {
     setPlans({ status: "pending" });
@@ -62,7 +67,7 @@ export const PlansSection = (
     <div
       ref={PlansRef}
       id="Planss"
-      className="flex flex-col gap-10 text-white w-full items-center relative z-10 scroll-m-20 max-w-screen-xl min-h-screen"
+      className="flex flex-col gap-10 text-white w-full items-center relative z-10 scroll-m-20 max-w-screen-2xl min-h-screen"
     >
       <div className="flex flex-col gap-6 text-center items-center w-full">
         <div className={`${mode === "landingPage" ? "text-3xl md:text-4xl lg:text-6xl font-semibold " : "pageTitle"}`}>
@@ -80,7 +85,52 @@ export const PlansSection = (
         </div>
       </div>
 
-      <div>
+      <div className={"w-full"}>
+        <Swiper
+          onSwiper={swiper => setSwiper(swiper)}
+          effect={'coverflow'}
+          initialSlide={2}
+          coverflowEffect={{
+            rotate: 0,
+            stretch: 10,
+            depth: 0,
+            modifier: 1,
+            scale: 1,
+          }}
+          slidesPerView={5}
+          breakpoints={{
+            0: {
+              coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 300,
+                modifier: 1,
+              },
+              slidesPerView: 1.5
+            },
+            992: {
+              coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 50,
+                modifier: 3,
+              },
+              slidesPerView: 4
+            }
+          }}
+          modules={[EffectCoverflow]}
+          grabCursor
+          spaceBetween={10}
+          centeredSlides
+          rewind
+          loop
+        >
+          {plans?.data?.slice(0 , 4).map((item: IPlan, index: number) => (
+            <SwiperSlide key={item.order_id}>
+              <Plan key={index} plan={item} isAnnuallyChecked={isAnnuallyChecked} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
         <div className="flex flex-col lg:flex-row h-full justify-center gap-4 flex-wrap">
           {plans?.data?.map((item: IPlan, index: number) => (
             <Plan key={index} plan={item} isAnnuallyChecked={isAnnuallyChecked} />
