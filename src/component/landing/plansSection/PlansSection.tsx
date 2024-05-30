@@ -89,7 +89,8 @@ export const PlansSection = (
         <Swiper
           onSwiper={swiper => setSwiper(swiper)}
           effect={'coverflow'}
-          initialSlide={2}
+          initialSlide={3}
+          wrapperClass={'items-stretch'}
           coverflowEffect={{
             rotate: 0,
             stretch: 10,
@@ -108,11 +109,20 @@ export const PlansSection = (
               },
               slidesPerView: 1.5
             },
-            992: {
+            767: {
               coverflowEffect: {
                 rotate: 0,
                 stretch: 0,
-                depth: 50,
+                depth: 55,
+                modifier: 3,
+              },
+              slidesPerView: 2
+            },
+            1100: {
+              coverflowEffect: {
+                rotate: 0,
+                stretch: 0,
+                depth: 55,
                 modifier: 3,
               },
               slidesPerView: 4
@@ -125,17 +135,19 @@ export const PlansSection = (
           rewind
           loop
         >
-          {plans?.data?.slice(0 , 4).map((item: IPlan, index: number) => (
-            <SwiperSlide key={item.order_id}>
-              <Plan key={index} plan={item} isAnnuallyChecked={isAnnuallyChecked} />
+          {plans?.data?.map((item: IPlan, index: number) => (
+            <SwiperSlide className={'!h-auto transition-all'} key={item.order_id}>
+              {({isActive}) => (
+                <Plan className={isActive ? "grayscale-0" : "grayscale"} key={index} plan={item} isAnnuallyChecked={isAnnuallyChecked} />
+              )}
             </SwiperSlide>
           ))}
         </Swiper>
-        <div className="flex flex-col lg:flex-row h-full justify-center gap-4 flex-wrap">
-          {plans?.data?.slice(4 ,5)?.map((item: IPlan, index: number) => (
-            <Plan key={index} plan={item} isAnnuallyChecked={isAnnuallyChecked} />
-          ))}
-        </div>
+        {/*<div className="flex flex-col lg:flex-row h-full justify-center gap-4 flex-wrap">*/}
+        {/*  {plans?.data?.slice(4 ,5)?.map((item: IPlan, index: number) => (*/}
+        {/*    <Plan key={index} plan={item} isAnnuallyChecked={isAnnuallyChecked} />*/}
+        {/*  ))}*/}
+        {/*</div>*/}
       </div>
       <div className="absolute -z-10 top-[450px] bg-[#000]">
         <Image src={sphereImgSrc} alt="sphere image" className="mix-blend-hard-light" />
