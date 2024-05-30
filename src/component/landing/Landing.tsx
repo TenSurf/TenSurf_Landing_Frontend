@@ -1,5 +1,4 @@
 "use client";
-
 import { type FC, useEffect, useRef, useState } from "react";
 import { MvpSection } from "./MvpSection";
 import { HeroSection } from "./heroSection/HeroSection";

@@ -1,5 +1,5 @@
 'use client'
-import { type ReactNode, type RefObject, useEffect } from "react";
+import { type ReactNode, type RefObject } from "react";
 import { PublicFooter } from './PublicFooter';
 import { DefaultHeader } from './DefaultHeader';
 import ChangingUrlProgress from '../../component/general/ChangingUrlProgress';
