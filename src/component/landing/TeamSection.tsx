@@ -14,7 +14,7 @@ export const TeamSection = ({ TeamRef }: { TeamRef?: RefObject<HTMLDivElement> }
 
   useGSAP(() => {
     gsap.fromTo(".team-item", { rotateY: 90, opacity: 0 }, {
-      opacity: 1, rotateY: 0, duration: 1.5, scrollTrigger: {
+      opacity: 1, rotateY: 0, duration: 1, scrollTrigger: {
         trigger: ".team-item",
         start: "center bottom"
       }

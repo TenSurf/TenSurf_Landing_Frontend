@@ -12,7 +12,7 @@ const AboutUsSection = () => {
 
   useGSAP(() => {
     gsap.fromTo(".about-us-item", { opacity: 0, y: 100 }, {
-      opacity: 1, y: 0, duration: 1.5, scrollTrigger: {
+      opacity: 1, y: 0, duration: 1, scrollTrigger: {
         trigger: ".about-us-item",
         start: "center center"
       }
