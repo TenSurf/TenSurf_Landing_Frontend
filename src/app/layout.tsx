@@ -76,6 +76,13 @@ export default function RootLayout({
       {children}
     </ThemeProvider>
     <Toaster duration={3000} />
+    <Script
+      id={"hs-script-loader"}
+      async
+      defer
+      src={"//js-na1.hs-scripts.com/46299069.js"}
+      type={"text/javascript"}>
+    </Script>
     </body>
     </html>
   );

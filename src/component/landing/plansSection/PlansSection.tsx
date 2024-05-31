@@ -98,7 +98,7 @@ export const PlansSection = (
             modifier: 1,
             scale: 1,
           }}
-          slidesPerView={5}
+          slidesPerView={3}
           breakpoints={{
             0: {
               coverflowEffect: {
@@ -123,7 +123,7 @@ export const PlansSection = (
                 rotate: 0,
                 stretch: 0,
                 depth: 55,
-                modifier: 3,
+                modifier: 4,
               },
               slidesPerView: 4
             }
@@ -132,6 +132,8 @@ export const PlansSection = (
           grabCursor
           spaceBetween={10}
           centeredSlides
+          // centeredSlidesBounds
+          centerInsufficientSlides
           rewind
           loop
         >
