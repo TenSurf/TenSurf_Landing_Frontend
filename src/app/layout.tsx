@@ -80,7 +80,7 @@ export default function RootLayout({
       id={"hs-script-loader"}
       async
       defer
-      src={"//js-na1.hs-scripts.com/46299069.js"}
+      src={"//js.hs-scripts.com/46299069.js"}
       type={"text/javascript"}>
     </Script>
     </body>
