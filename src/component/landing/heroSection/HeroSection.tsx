@@ -130,11 +130,9 @@ export const HeroSection: FC<IProps> = ({
           <video
             ref={videoRef}
             poster={"/images/video-preview.png"}
-            muted
-            loop
-            playsInline
             width={"100%"}
             height={"100%"}
+            controls
           >
             <source
               src={`${process.env.NEXT_PUBLIC_HUB_URL}/videos/tensurf-demo.mp4`}
