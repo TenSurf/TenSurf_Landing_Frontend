@@ -46,10 +46,10 @@ export const PublicFooter = () => {
       <div className='flex flex-col lg:flex-row justify-around gap-4 items-center border-t-[1px] border-t-white/40 py-2 text-xs font-normal'>
         <div>{COPYRIGHT}</div>
         <div className='flex gap-8'>
-          <a href={TENSURF_CONTACT.phoneCallLink} className='flex items-center gap-1 group'>
-            <PhoneIcon />
-            <div className='group-hover:underline'>{TENSURF_CONTACT.phone}</div>
-          </a>
+          {/*<a href={TENSURF_CONTACT.phoneCallLink} className='flex items-center gap-1 group'>*/}
+          {/*  <PhoneIcon />*/}
+          {/*  <div className='group-hover:underline'>{TENSURF_CONTACT.phone}</div>*/}
+          {/*</a>*/}
           <a href={TENSURF_CONTACT.mailToLink} className='flex items-center gap-1 group'>
             <MailIcon />
             <div className='group-hover:underline'>{TENSURF_CONTACT.mail}</div>

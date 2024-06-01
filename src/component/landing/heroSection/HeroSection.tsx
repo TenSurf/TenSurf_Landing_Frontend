@@ -40,7 +40,7 @@ export const HeroSection: FC<IProps> = ({
     <div
       className={`relative w-full flex flex-col items-center overflow-hidden h-screen`}
     >
-      <div className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-14 lg:gap-20 relative z-[9] max-w-[1700px] mt-[2vh] lg:mt-[15vh]">
+      <div className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-14 lg:gap-20 relative z-[9] max-w-screen-2xl mt-[2vh] lg:mt-[15vh]">
         <div className="flex gap-8 lg:gap-10 flex-col items-center lg:items-start text-center bottom-6 max-w-screen-xl mt-10 lg:mt-0">
           <h1 className="text-primaryGradient text-left staticPageTitle">
             {HERO_SECTION.title}
@@ -130,11 +130,9 @@ export const HeroSection: FC<IProps> = ({
           <video
             ref={videoRef}
             poster={"/images/video-preview.png"}
-            muted
-            loop
-            playsInline
             width={"100%"}
             height={"100%"}
+            controls
           >
             <source
               src={`${process.env.NEXT_PUBLIC_HUB_URL}/videos/tensurf-demo.mp4`}

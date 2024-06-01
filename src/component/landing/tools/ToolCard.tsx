@@ -27,14 +27,14 @@ const ToolCard = (
 
   useGSAP(() => {
     gsap.fromTo(left.current, { opacity: 0, x: -200 }, {
-      opacity: 1, x: 0, duration: 1.5, scrollTrigger: {
+      opacity: 1, x: 0, duration: 1, scrollTrigger: {
         trigger: left.current,
         start: "center bottom"
       }
     });
 
     gsap.fromTo(right.current, { opacity: 0, x: 200 }, {
-      opacity: 1, x: 0, duration: 1.5, scrollTrigger: {
+      opacity: 1, x: 0, duration: 1, scrollTrigger: {
         trigger: right.current,
         start: "center bottom"
       }
