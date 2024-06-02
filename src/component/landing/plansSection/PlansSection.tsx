@@ -16,10 +16,8 @@ import "swiper/css";
 
 export const PlansSection = (
   {
-    PlansRef,
     mode = "landingPage"
   }: {
-    PlansRef?: RefObject<HTMLDivElement>;
     mode?: "landingPage" | "plansPage";
   }) => {
 
@@ -65,7 +63,6 @@ export const PlansSection = (
   // *.*.*.*.*.*.*.*.*. RETURN ↓•↓•↓
   return (
     <div
-      ref={PlansRef}
       id="Planss"
       className="flex flex-col gap-10 text-white w-full items-center relative z-10 scroll-m-20 max-w-screen-2xl min-h-screen"
     >

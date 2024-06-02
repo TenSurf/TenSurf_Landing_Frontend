@@ -6,11 +6,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
-export const DefaultHeader = ({
-                                headerRef
-                              }: {
-  headerRef?: RefObject<HTMLDivElement>;
-}) => {
+export const DefaultHeader = () => {
 
   const router = useRouter();
 
@@ -44,7 +40,6 @@ export const DefaultHeader = ({
 
   return (
     <div
-      ref={headerRef}
       className="z-50 sticky top-0 flex items-center px-6 md:px-24 py-4 justify-between bg-[#121212]"
     >
       <Link href={"/"}>

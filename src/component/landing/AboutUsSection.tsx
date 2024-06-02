@@ -1,3 +1,4 @@
+"use client"
 import React, { useRef } from "react";
 import { ABOUT_US_SECTION } from "@/constatns/landingPage.constants";
 import { useGSAP } from "@gsap/react";

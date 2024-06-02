@@ -1,9 +1,11 @@
+"use client"
 import { MVP_SECTION } from "../../constatns/landingPage.constants";
 import { GradientShape } from "../general/GradientShape";
 import { type RefObject, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
+import { useProductRefContext } from "@/component/landing/ScrollWrapper";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,9 +32,11 @@ const MvpItem = ({ title, description }: { title: string; description: string })
 };
 
 // *.*.*.*.*.*.*.*.*.*.* Main Function ↓•↓•↓
-export const MvpSection = ({ productsRef }: { productsRef: RefObject<HTMLDivElement> }) => {
+export const MvpSection = () => {
+
+  let ref = useProductRefContext();
   return (
-    <div ref={productsRef} id="Productss"
+    <div ref={ref} id="Productss"
          className="relative flex flex-col items-center justify-center gap-6 scroll-m-28 max-w-screen-2xl">
       <div className="text-3xl md:text-4xl lg:text-6xl font-semibold">{MVP_SECTION.title}</div>
       <div className="grid gird-cols-1 md:grid-cols-3 gap-6 text-center items-stretch justify-between w-full">
