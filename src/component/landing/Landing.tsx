@@ -3,7 +3,6 @@ import { MvpSection } from "./MvpSection";
 import { HeroSection } from "./heroSection/HeroSection";
 import { PlansSection } from "./plansSection/PlansSection";
 import DefaultLayout from "../../layout/publicContentLayout/DefaultLayout";
-import useScrollToTop from "../../hooks/useScrollToTop";
 import AboutUsSection from "@/component/landing/AboutUsSection";
 import FaqSection from "@/component/landing/FaqSection";
 import OfferingSectionV2 from "@/component/landing/OfferingSectionV2";
