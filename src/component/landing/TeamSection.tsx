@@ -42,7 +42,7 @@ export const TeamSection = ({ TeamRef }: { TeamRef?: RefObject<HTMLDivElement> }
             </a>
           ))}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           {TEAM_SECTION.persons.map((person, index) => (
             <a
               href={person.linkedIn || undefined}
@@ -68,7 +68,7 @@ export const TeamSection = ({ TeamRef }: { TeamRef?: RefObject<HTMLDivElement> }
               </div>
             </a>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   );
