@@ -1,5 +1,3 @@
-'use client';
-
 import ContactUs from '@/component/contactUs/contactUs';
 import DefaultLayout from '@/layout/publicContentLayout/DefaultLayout';
 import PageProvider from '@/component/general/PageProvider';

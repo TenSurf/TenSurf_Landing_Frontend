@@ -1,5 +1,3 @@
-'use client';
-
 import AboutUs from '@/component/aboutUs/AboutUs';
 import DefaultLayout from '@/layout/publicContentLayout/DefaultLayout';
 import PageProvider from '@/component/general/PageProvider';

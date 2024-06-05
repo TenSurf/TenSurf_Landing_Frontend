@@ -1,5 +1,3 @@
-'use client';
-
 import Blog from '@/component/blog/Blog';
 import DefaultLayout from '@/layout/publicContentLayout/DefaultLayout';
 import { PAGE_TITLE } from '@/constatns/general.constants';

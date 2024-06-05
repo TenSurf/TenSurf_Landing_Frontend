@@ -1,5 +1,3 @@
-'use client';
-
 import RefundPolicy from '@/component/refundPolicy/RefundPolicy';
 import DefaultLayout from '@/layout/publicContentLayout/DefaultLayout';
 import { PAGE_TITLE } from '@/constatns/general.constants';
