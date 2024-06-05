@@ -1,7 +1,6 @@
 import React from "react";
 import { BackendUrls } from "@/helpers/backend-urls";
 import type { IPlan } from "@/types/general.types";
-import { headers } from "next/headers";
 import { PlansSection } from "@/component/landing/plansSection/PlansSection";
 
 export const backendUrl = process.env.NEXT_PUBLIC_API_HUB_URL;
