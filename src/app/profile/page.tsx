@@ -1,5 +1,3 @@
-'use client';
-
 import ProfileSettings from '@/component/dashboard/ProfileSetting';
 import DefaultLayout from '@/layout/publicContentLayout/DefaultLayout';
 import { PAGE_TITLE } from '@/constatns/general.constants';
@@ -11,7 +9,7 @@ const ProfilePage = () => {
     <PageProvider title={PAGE_TITLE.profile}>
       <DefaultLayout>
         <Suspense>
-          <ProfileSettings></ProfileSettings>
+          <ProfileSettings/>
         </Suspense>
       </DefaultLayout>
     </PageProvider>

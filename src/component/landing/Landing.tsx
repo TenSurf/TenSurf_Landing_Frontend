@@ -8,6 +8,7 @@ import FaqSection from "@/component/landing/FaqSection";
 import OfferingSectionV2 from "@/component/landing/OfferingSectionV2";
 import dynamic from "next/dynamic";
 import ScrollWrapper from "@/component/landing/ScrollWrapper";
+import PlansServerSideSection from "@/component/landing/plansSection/PlansServerSideSection";
 
 const Chatbot = dynamic(() => import("@/component/chatbot/Chatbot"), { ssr: false });
 // import { useRouter } from 'next/router';
@@ -23,7 +24,8 @@ export const Landing: FC = () => {
         </ScrollWrapper>
         <OfferingSectionV2 />
         {/*<ChartSection ChartRef={chartRef} />*/}
-        <PlansSection />
+        {/*<PlansSection />*/}
+        <PlansServerSideSection/>
         {/*<InnovationSection />*/}
         <AboutUsSection />
         {/*<TeamSection TeamRef={TeamRef} />*/}

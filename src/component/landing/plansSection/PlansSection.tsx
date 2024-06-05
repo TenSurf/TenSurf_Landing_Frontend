@@ -16,49 +16,50 @@ import "swiper/css";
 
 export const PlansSection = (
   {
-    mode = "landingPage"
+    mode = "landingPage",
+    data
   }: {
     mode?: "landingPage" | "plansPage";
+    data: IPlan[]
   }) => {
 
   const [isAnnuallyChecked, setIsAnnuallyChecked] = useState(true);
-  const [plans, setPlans] = useState<{ status: "reject" | "pending" | "fulfilled"; data?: IPlan[] }>({
-    status: "pending",
-    data: []
-  });
-  const [swiper, setSwiper] = useState<SwiperType>();
-
-  useEffect(() => {
-    setPlans({ status: "pending" });
-    sendRequest(BackendUrls.plans, HttpMethod.GET)
-      .then(res => {
-        let data = Object.values(res.data)
-          .map((val: any): IPlan => {
-            return {
-              title: val.name,
-              description: val.description,
-              buttonLabel: val.is_coming_soon ? "Contact Us" : "Start Now",
-              features: val.features.map((feature: any) => ({ title: feature.name })),
-              priceAnnually: val.year_unit_amount / 100,
-              priceMonthly: val.month_unit_amount / 100,
-              is_coming_soon: val.is_coming_soon,
-              month_price_id: val.month_price_id,
-              year_price_id: val.year_price_id,
-              is_free: val.is_free,
-              order_id: val.order_id,
-              month_currency: val?.month_currency,
-              year_currency: val?.year_currency
-            };
-          })
-          .sort((a, b) => a.order_id - b.order_id);
-
-        setPlans({ status: "fulfilled", data });
-      })
-      .catch(err => {
-        console.log(err);
-        setPlans({ status: "reject" });
-      });
-  }, []);
+  // const [plans, setPlans] = useState<{ status: "reject" | "pending" | "fulfilled"; data?: IPlan[] }>({
+  //   status: "pending",
+  //   data: []
+  // });
+  //
+  // useEffect(() => {
+  //   setPlans({ status: "pending" });
+  //   sendRequest(BackendUrls.plans, HttpMethod.GET)
+  //     .then(res => {
+  //       let data = Object.values(res.data)
+  //         .map((val: any): IPlan => {
+  //           return {
+  //             title: val.name,
+  //             description: val.description,
+  //             buttonLabel: val.is_coming_soon ? "Contact Us" : "Start Now",
+  //             features: val.features.map((feature: any) => ({ title: feature.name })),
+  //             priceAnnually: val.year_unit_amount / 100,
+  //             priceMonthly: val.month_unit_amount / 100,
+  //             is_coming_soon: val.is_coming_soon,
+  //             month_price_id: val.month_price_id,
+  //             year_price_id: val.year_price_id,
+  //             is_free: val.is_free,
+  //             order_id: val.order_id,
+  //             month_currency: val?.month_currency,
+  //             year_currency: val?.year_currency
+  //           };
+  //         })
+  //         .sort((a, b) => a.order_id - b.order_id);
+  //
+  //       setPlans({ status: "fulfilled", data });
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //       setPlans({ status: "reject" });
+  //     });
+  // }, []);
 
   // *.*.*.*.*.*.*.*.*. RETURN ↓•↓•↓
   return (
@@ -84,7 +85,6 @@ export const PlansSection = (
 
       <div className={"w-full"}>
         <Swiper
-          onSwiper={swiper => setSwiper(swiper)}
           effect={'coverflow'}
           initialSlide={2}
           coverflowEffect={{
@@ -122,14 +122,14 @@ export const PlansSection = (
           rewind
           loop
         >
-          {plans?.data?.slice(0 , 4).map((item: IPlan, index: number) => (
+          {data?.slice(0 , 4).map((item: IPlan, index: number) => (
             <SwiperSlide key={item.order_id}>
               <Plan key={index} plan={item} isAnnuallyChecked={isAnnuallyChecked} />
             </SwiperSlide>
           ))}
         </Swiper>
         <div className="flex flex-col lg:flex-row h-full justify-center gap-4 flex-wrap">
-          {plans?.data?.slice(4 ,5)?.map((item: IPlan, index: number) => (
+          {data?.slice(4 ,5)?.map((item: IPlan, index: number) => (
             <Plan key={index} plan={item} isAnnuallyChecked={isAnnuallyChecked} />
           ))}
         </div>
