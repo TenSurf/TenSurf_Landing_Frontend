@@ -1,3 +1,4 @@
+"use client"
 import TensurfInputText from '../../component/general/inputText/tensurfInputText';
 import MailIcon from '../../icons/MailIcon';
 import TensurfButton from '../../component/general/TensurfButton';

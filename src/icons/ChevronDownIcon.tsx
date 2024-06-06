@@ -1,7 +1,7 @@
 import React, { type FC } from 'react';
 import { type IIconAndIllustration } from '../types/general.types';
 
-const ChevronDownIcon: FC<IIconAndIllustration> = ({ className, onClick, onMouseEnter, onMouseLeave }) => {
+const ChevronDownIcon: FC<IIconAndIllustration> = ({ className }) => {
   return (
     <svg
       width='24'
@@ -9,9 +9,6 @@ const ChevronDownIcon: FC<IIconAndIllustration> = ({ className, onClick, onMouse
       viewBox='0 0 24 24'
       fill='none'
       className={className}
-      onClick={onClick}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
       xmlns='http://www.w3.org/2000/svg'
     >
       <g id='Arrow / Chevron_Down'>

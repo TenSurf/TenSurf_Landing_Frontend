@@ -42,12 +42,12 @@ export enum MnuItemsEnum {
 }
 
 export const MENU_ITEMS = [
-    {title: MnuItemsEnum.services, icon: LayerIcon},
-    {title: MnuItemsEnum.plans, icon: ShoppingBagIcon},
-    {title: MnuItemsEnum.team, icon: UserGroupIcon},
-    {title: MnuItemsEnum.contact, icon: PhoneIcon},
-    {title: MnuItemsEnum.aboutUs, icon: AboutUsIcon},
-    {title: MnuItemsEnum.faq, icon: FaqIcon},
+    {title: MnuItemsEnum.services, icon: LayerIcon, link: ROUTE.landingProducts },
+    {title: MnuItemsEnum.plans, icon: ShoppingBagIcon, link: (process.env.NEXT_PUBLIC_HUB_URL as string) + "/plans" , target: '_blank'},
+    {title: MnuItemsEnum.team, icon: UserGroupIcon, link: ROUTE.team },
+    {title: MnuItemsEnum.contact, icon: PhoneIcon, link: ROUTE.contactUs },
+    {title: MnuItemsEnum.aboutUs, icon: AboutUsIcon, link: ROUTE.landingAboutUs },
+    {title: MnuItemsEnum.faq, icon: FaqIcon, link: ROUTE.landingFaq },
 ];
 
 export const HERO_SECTION = {
