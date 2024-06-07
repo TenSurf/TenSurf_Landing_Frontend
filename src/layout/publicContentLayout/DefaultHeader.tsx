@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export const DefaultHeader = ({
                                 headerRef
@@ -44,12 +45,12 @@ export const DefaultHeader = ({
   return (
     <div
       ref={headerRef}
-      className="z-50 sticky top-0 flex items-center px-6 md:px-24 py-4 justify-between bg-[#121212]"
+      className="z-50 sticky top-10 rounded-3xl mt-20 flex max-w-screen-2xl mx-auto w-full items-center px-6 md:px-24 py-7 justify-between bg-[#01061D]/50 backdrop-blur-lg"
     >
       <Link href={"/"}>
         <Image
           src={"/tensurf.png"}
-          width={148}
+          width={90}
           height={10}
           alt="Tensurf"
           className="rounded"
@@ -83,8 +84,13 @@ export const DefaultHeader = ({
           {/*  Login*/}
           {/*</Button>*/}
 
-          <a href={process.env.NEXT_PUBLIC_SIGNUP_URL} target="_blank">
-            <Button className="flex">Get Started</Button>
+          <a className={'flex'} href={process.env.NEXT_PUBLIC_SIGNUP_URL} target="_blank">
+            <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6">
+              <p>
+                Get Started
+              </p>
+              <ArrowRight size={20} strokeWidth={2} />
+            </Button>
           </a>
         </>
       </div>
