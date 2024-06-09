@@ -45,7 +45,7 @@ export const DefaultHeader = ({
   return (
     <div
       ref={headerRef}
-      className="z-50 sticky top-10 rounded-3xl mt-20 flex max-w-screen-2xl mx-auto w-full items-center px-6 md:px-24 py-7 justify-between bg-[#01061D]/50 backdrop-blur-lg"
+      className="z-50 sticky top-0 md:top-6 rounded-3xl mt-0 flex max-w-screen-2xl mx-auto w-full items-center px-6 md:px-24 py-7 justify-between bg-[#01061D]/50 backdrop-blur-lg"
     >
       <Link href={"/"}>
         <Image
@@ -57,7 +57,7 @@ export const DefaultHeader = ({
         />
       </Link>
 
-      <div className="hidden items-center gap-10 lg:flex">
+      <div className="hidden items-center gap-10 lg:flex lg:flex-1 lg:justify-center">
         {MENU_ITEMS.map((item, index) => (
           <div
             id={item.title}

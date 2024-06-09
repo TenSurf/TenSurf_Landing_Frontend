@@ -17,7 +17,7 @@ export const DefaultLayout = ({
 
   // *.*.*.*.*.*.*.*.*. RETURN ↓•↓•↓
   return (
-    <div className={`w-screen min-h-screen overflow-x-clip flex flex-col bg-[#000] text-white font-medium`}>
+    <div className={`w-screen min-h-screen overflow-x-clip flex flex-col bg-[#01030B] text-white font-medium`}>
       <ChangingUrlProgress />
       <DefaultHeader headerRef={headerRef} />
 

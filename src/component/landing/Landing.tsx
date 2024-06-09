@@ -13,6 +13,7 @@ import OfferingSectionV2 from "@/component/landing/OfferingSectionV2";
 import ChatBot, { Params } from "react-chatbotify";
 import { Bot } from "lucide-react";
 import dynamic from "next/dynamic";
+import ToolsCard from "@/component/landing/ToolsCard";
 const Chatbot = dynamic(() => import("@/component/chatbot/Chatbot") , {ssr: false})
 // import { useRouter } from 'next/router';
 
@@ -72,6 +73,7 @@ export const Landing: FC = () => {
               viewPortHeight={viewPortHeight}
               headerHeight={headerRef?.current?.clientHeight}
             />
+            <ToolsCard/>
             <MvpSection productsRef={productsRef} />
             <OfferingSectionV2 />
             {/*<ChartSection ChartRef={chartRef} />*/}
