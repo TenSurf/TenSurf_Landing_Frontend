@@ -40,12 +40,12 @@ export const HeroSection: FC<IProps> = ({
     <div
       className={`relative w-full flex flex-col items-center overflow-hidden h-screen`}
     >
-      <div className="flex flex-col justify-center gap-14 relative z-[9] max-w-2xl mt-[2vh] lg:mt-[28vh]">
+      <div className="flex items-center flex-col justify-center gap-14 relative z-[9] max-w-2xl mt-[2vh] lg:mt-[28vh]">
         <h1 className={'text-7xl text-center font-medium'}>Next Generation of Trading Platforms</h1>
         <p className={'text-xl font-normal text-center'}>At TenSurf, we are committed to revolutionizing trading and democratizing algorithmic trading. Our mission is
           to harness the power of Generative AI and Data Science to enable smart trading decisions to surf financial
           markets.</p>
-        <a className={"flex justify-center"} href={process.env.NEXT_PUBLIC_SIGNUP_URL} target="_blank">
+        <a className={"flex justify-center w-fit"} href={process.env.NEXT_PUBLIC_SIGNUP_URL} target="_blank">
           <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-8 px-16">
             <p className={'text-xl font-bold text-center'}>
               Go to TenSurf Hub

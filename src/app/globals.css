@@ -519,4 +519,8 @@
   .max-chart-view {
     height: calc(100vh - 150px);
   }
+
+  #hubspot-messages-iframe-container {
+    z-index: 998 !important;
+  }
 }

@@ -5,7 +5,9 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Menu } from "lucide-react";
+// import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
+import { Drawer } from "vaul";
 
 export const DefaultHeader = ({
                                 headerRef
@@ -45,7 +47,7 @@ export const DefaultHeader = ({
   return (
     <div
       ref={headerRef}
-      className="z-50 sticky top-0 md:top-6 rounded-3xl mt-0 flex max-w-screen-2xl mx-auto w-full items-center px-6 md:px-24 py-7 justify-between bg-[#01061D]/50 backdrop-blur-lg"
+      className="z-50 sticky top-0 lg:top-6 rounded-3xl mt-0 flex max-w-screen-2xl mx-auto w-full items-center px-6 md:px-24 py-7 justify-between bg-[#01061D]/50 backdrop-blur-lg"
     >
       <Link href={"/"}>
         <Image
@@ -73,7 +75,7 @@ export const DefaultHeader = ({
         ))}
       </div>
 
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-6">
         <>
           {/*<Button*/}
           {/*  onClick={() => setShouldShowSignInSignUpModal({ signUp: false, signIn: true })}*/}
@@ -84,7 +86,7 @@ export const DefaultHeader = ({
           {/*  Login*/}
           {/*</Button>*/}
 
-          <a className={'flex'} href={process.env.NEXT_PUBLIC_SIGNUP_URL} target="_blank">
+          <a className={"flex"} href={process.env.NEXT_PUBLIC_SIGNUP_URL} target="_blank">
             <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6">
               <p>
                 Get Started
@@ -92,6 +94,47 @@ export const DefaultHeader = ({
               <ArrowRight size={20} strokeWidth={2} />
             </Button>
           </a>
+          <Drawer.Root direction="right">
+            <Drawer.Trigger asChild>
+              <Button className={"block lg:hidden bg-transparent p-2 hover:bg-[#33415C33]/60 rounded-full"}>
+                <Menu size={24} strokeWidth={1.5} />
+              </Button>
+            </Drawer.Trigger>
+            <Drawer.Portal>
+              <Drawer.Overlay className="fixed inset-0 bg-blend-overlay bg-[#01061D]/50 backdrop-blur-lg z-[999] w-full h-full" />
+              <Drawer.Content
+                className="bg-[#01030B] flex flex-col gap-6 py-[8vh] items-center rounded-t-[10px] h-full w-[300px] mt-24 fixed bottom-0 right-0 z-[1000]">
+                <Link href={"/"}>
+                  <Image
+                    src={"/tensurf.png"}
+                    width={90}
+                    height={10}
+                    alt="Tensurf"
+                    className="rounded"
+                  />
+                </Link>
+                <span className={"h-[1px] bg-white w-3/4"}></span>
+                {MENU_ITEMS.map((item, index) => (
+                  <>
+                    <div
+                      id={item.title}
+                      key={index}
+                      className="flex items-center justify-center gap-1 cursor-pointer w-full"
+                      onClick={() => {
+                        onMenuItemClickHandler(item.title);
+                      }}
+                    >
+                      {<item.icon className="text-white" />}
+                      <div>
+                        <p className={'text-white text-base'}>{item.title}</p>
+                      </div>
+                    </div>
+                    <span className={"h-[1px] bg-white w-3/4"}></span>
+                  </>
+                ))}
+              </Drawer.Content>
+            </Drawer.Portal>
+          </Drawer.Root>
         </>
       </div>
     </div>
