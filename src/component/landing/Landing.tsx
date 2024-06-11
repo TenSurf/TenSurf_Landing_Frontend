@@ -14,6 +14,9 @@ import ChatBot, { Params } from "react-chatbotify";
 import { Bot } from "lucide-react";
 import dynamic from "next/dynamic";
 import ToolsCard from "@/component/landing/ToolsCard";
+import ToolsSlider from "@/component/landing/ToolsSlider";
+import Video from "@/component/landing/Video";
+import Subtitle from "@/component/landing/Subtitle";
 const Chatbot = dynamic(() => import("@/component/chatbot/Chatbot") , {ssr: false})
 // import { useRouter } from 'next/router';
 
@@ -74,6 +77,9 @@ export const Landing: FC = () => {
               headerHeight={headerRef?.current?.clientHeight}
             />
             <ToolsCard/>
+            <ToolsSlider/>
+            <Video/>
+            <Subtitle/>
             <MvpSection productsRef={productsRef} />
             <OfferingSectionV2 />
             {/*<ChartSection ChartRef={chartRef} />*/}
