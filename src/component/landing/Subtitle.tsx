@@ -1,70 +1,71 @@
 import React from "react";
 import SubtitleIcon from "@/icons/SubtitleIcon";
+import SubtitleText from "@/component/landing/SubtitleText";
 
 const Subtitle = () => {
 
   return (
-    <div className={'flex flex-col gap-[6vw]'}>
+    <div className={"flex flex-col gap-[16vw] sm:gap-[14vw] md:gap-[12vw] lg:gap-[10vw] xl:gap-[8vw] 2xl:gap-[6vw]"}>
       <div className="relative w-screen">
         <div className="absolute w-[102vw] left-[-1vw] rotate-[-3deg] bg-primary h-16">
           <div className={"marquee-1 w-screen whitespace-nowrap"}>
             <div className={"flex gap-8 items-center h-full w-full"}>
-              <p className={"text-5xl"}>Ignite AI Agents</p>
+              <SubtitleText title={"Ignite AI Agents"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={"text-5xl"}>TenSurf Brain</p>
+              <SubtitleText title={"TenSurf Brain"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={"text-5xl"}>Generative AI Insights</p>
+              <SubtitleText title={"Generative AI Insights"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={"text-5xl"}>Ignite AI Agents</p>
+              <SubtitleText title={"Ignite AI Agents"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={"text-5xl"}>TenSurf Brain</p>
+              <SubtitleText title={"TenSurf Brain"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={"text-5xl"}>Generative AI Insights</p>
+              <SubtitleText title={"Generative AI Insights"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={"text-5xl"}>Ignite AI Agents</p>
+              <SubtitleText title={"Ignite AI Agents"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={"text-5xl"}>TenSurf Brain</p>
+              <SubtitleText title={"TenSurf Brain"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={"text-5xl"}>Generative AI Insights</p>
+              <SubtitleText title={"Generative AI Insights"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={"text-5xl"}>Ignite AI Agents</p>
+              <SubtitleText title={"Ignite AI Agents"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={"text-5xl"}>TenSurf Brain</p>
+              <SubtitleText title={"TenSurf Brain"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={"text-5xl"}>Generative AI Insights</p>
+              <SubtitleText title={"Generative AI Insights"} />
               <span>
                 <SubtitleIcon />
               </span>
@@ -76,62 +77,62 @@ const Subtitle = () => {
         <div className="absolute w-screen bg-primary h-16">
           <div className={"marquee-2 w-screen whitespace-nowrap"}>
             <div className={"flex gap-8 items-center h-full w-full"}>
-              <p className={"text-5xl"}>Psychology Analysis</p>
+              <SubtitleText title={"Psychology Analysis"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={'text-5xl'}>Statistical Edge</p>
+              <SubtitleText title={"Statistical Edge"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={'text-5xl'}>AI Assistant</p>
+              <SubtitleText title={"AI Assistant"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={'text-5xl'}>Psychology Analysis</p>
+              <SubtitleText title={"Psychology Analysis"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={'text-5xl'}>Statistical Edge</p>
+              <SubtitleText title={"Statistical Edge"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={'text-5xl'}>AI Assistant</p>
+              <SubtitleText title={"AI Assistant"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={'text-5xl'}>Psychology Analysis</p>
+              <SubtitleText title={"Psychology Analysis"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={"text-5xl"}>Statistical Edge</p>
+              <SubtitleText title={"Statistical Edge"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={'text-5xl'}>AI Assistant</p>
+              <SubtitleText title={"AI Assistant"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={'text-5xl'}>Psychology Analysis</p>
+              <SubtitleText title={"Psychology Analysis"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={"text-5xl"}>Statistical Edge</p>
+              <SubtitleText title={"Statistical Edge"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={'text-5xl'}>AI Assistant</p>
+              <SubtitleText title={"AI Assistant"} />
               <span>
                 <SubtitleIcon />
               </span>
@@ -143,62 +144,62 @@ const Subtitle = () => {
         <div className="absolute w-[102vw] right-[-1vw] rotate-[-3deg] bg-primary h-16">
           <div className={"marquee-1 w-screen whitespace-nowrap"}>
             <div className={"flex gap-8 items-center h-full w-full"}>
-              <p className={'text-5xl'}>Backtesting & Optimization</p>
+              <SubtitleText title={"Backtesting & Optimization"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={'text-5xl'}>No Code Algorithmic Trading</p>
+              <SubtitleText title={"No Code Algorithmic Trading"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={'text-5xl'}>AI Risk Manager</p>
+              <SubtitleText title={"AI Risk Manager"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={'text-5xl'}>Chat with Market</p>
+              <SubtitleText title={"Chat with Market"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={'text-5xl'}>Backtesting & Optimization</p>
+              <SubtitleText title={"Backtesting & Optimization"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={'text-5xl'}>No Code Algorithmic Trading</p>
+              <SubtitleText title={"No Code Algorithmic Trading"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={'text-5xl'}>AI Risk Manager</p>
+              <SubtitleText title={"AI Risk Manager"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={'text-5xl'}>Chat with Market</p>
+              <SubtitleText title={"Chat with Market"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={'text-5xl'}>Backtesting & Optimization</p>
+              <SubtitleText title={"Backtesting & Optimization"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={'text-5xl'}>No Code Algorithmic Trading</p>
+              <SubtitleText title={"No Code Algorithmic Trading"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={'text-5xl'}>AI Risk Manager</p>
+              <SubtitleText title={"AI Risk Manager"} />
               <span>
                 <SubtitleIcon />
               </span>
 
-              <p className={'text-5xl'}>Chat with Market</p>
+              <SubtitleText title={"Chat with Market"} />
               <span>
                 <SubtitleIcon />
               </span>
