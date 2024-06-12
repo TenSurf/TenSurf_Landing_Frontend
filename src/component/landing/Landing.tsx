@@ -13,10 +13,10 @@ import OfferingSectionV2 from "@/component/landing/OfferingSectionV2";
 import ChatBot, { Params } from "react-chatbotify";
 import { Bot } from "lucide-react";
 import dynamic from "next/dynamic";
-import ToolsCard from "@/component/landing/ToolsCard";
+import ToolsCard from "@/component/landing/toolsV2/ToolsCard";
 import ToolsSlider from "@/component/landing/ToolsSlider";
-import Video from "@/component/landing/Video";
-import Subtitle from "@/component/landing/Subtitle";
+import Video from "@/component/landing/video/Video";
+import Subtitle from "@/component/landing/subtitle/Subtitle";
 const Chatbot = dynamic(() => import("@/component/chatbot/Chatbot") , {ssr: false})
 // import { useRouter } from 'next/router';
 
@@ -68,7 +68,7 @@ export const Landing: FC = () => {
 
   return (
     <DefaultLayout headerRef={headerRef}>
-      <div className="flex flex-col w-full  items-center gap-[200px] px-6 md:px-10 overflow-x-hidden">
+      <div className="flex flex-col w-full  items-center px-6 md:px-10 overflow-x-hidden">
         {headerRef?.current?.clientHeight ? (
           <>
             <HeroSection
@@ -80,10 +80,10 @@ export const Landing: FC = () => {
             <ToolsSlider/>
             <Video/>
             <Subtitle/>
-            <MvpSection productsRef={productsRef} />
-            <OfferingSectionV2 />
-            {/*<ChartSection ChartRef={chartRef} />*/}
-            <PlansSection PlansRef={PlansRef} />
+            {/*<MvpSection productsRef={productsRef} />*/}
+            {/*<OfferingSectionV2 />*/}
+            {/*/!*<ChartSection ChartRef={chartRef} />*!/*/}
+            {/*<PlansSection PlansRef={PlansRef} />*/}
             {/*<InnovationSection />*/}
             <AboutUsSection />
             {/*<TeamSection TeamRef={TeamRef} />*/}

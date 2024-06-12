@@ -1,12 +1,14 @@
 import React from "react";
 import SubtitleIcon from "@/icons/SubtitleIcon";
-import SubtitleText from "@/component/landing/SubtitleText";
+import SubtitleText from "@/component/landing/subtitle/SubtitleText";
+import SubtitleBackground from "@/component/landing/subtitle/SubtitleBackground";
 
 const Subtitle = () => {
 
   return (
-    <div className={"flex flex-col gap-[16vw] sm:gap-[14vw] md:gap-[12vw] lg:gap-[10vw] xl:gap-[8vw] 2xl:gap-[6vw]"}>
-      <div className="relative w-screen">
+    <div className={"flex flex-col gap-[16vw] sm:gap-[14vw] md:gap-[12vw] lg:gap-[10vw] xl:gap-[8vw] 2xl:gap-[6vw] py-80 relative mb-28"}>
+      <SubtitleBackground/>
+      <div className="relative z-[100] w-screen">
         <div className="absolute w-[102vw] left-[-1vw] rotate-[-3deg] bg-primary h-16">
           <div className={"marquee-1 w-screen whitespace-nowrap"}>
             <div className={"flex gap-8 items-center h-full w-full"}>
@@ -73,7 +75,7 @@ const Subtitle = () => {
           </div>
         </div>
       </div>
-      <div className="relative w-screen">
+      <div className="relative z-[100] w-screen">
         <div className="absolute w-screen bg-primary h-16">
           <div className={"marquee-2 w-screen whitespace-nowrap"}>
             <div className={"flex gap-8 items-center h-full w-full"}>
@@ -140,7 +142,7 @@ const Subtitle = () => {
           </div>
         </div>
       </div>
-      <div className="relative w-screen">
+      <div className="relative z-[100] w-screen">
         <div className="absolute w-[102vw] right-[-1vw] rotate-[-3deg] bg-primary h-16">
           <div className={"marquee-1 w-screen whitespace-nowrap"}>
             <div className={"flex gap-8 items-center h-full w-full"}>

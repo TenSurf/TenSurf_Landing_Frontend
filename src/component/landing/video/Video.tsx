@@ -1,6 +1,7 @@
-"use client"
+"use client";
 import React, { useRef, useState } from "react";
 import { Play } from "lucide-react";
+import VideoBackground from "@/component/landing/video/VideoBackground";
 
 const Video = () => {
 
@@ -12,14 +13,15 @@ const Video = () => {
   return (
     <div
       className={
-        "relative h-fit mx-auto sm:max-w-2xl lg:max-w-none w-full"
+        "relative h-fit w-screen mb-14"
       }
     >
-      <div className={'relative max-w-screen-xl mx-auto max-h-[80vh] rounded-2xl overflow-hidden'}>
+      <VideoBackground />
+      <div className={"relative z-[100] max-w-screen-xl mx-auto rounded-2xl overflow-hidden mt-72 px-6 xl:px-0"}>
         <div
           className={`${
             videoLoading == "full" && "hidden"
-          } cursor-pointer bg-black z-[11] absolute w-full h-full opacity-30 backdrop-blur flex items-center justify-center`}
+          } cursor-pointer bg-black z-[11] absolute w-full h-full rounded-2xl opacity-30 backdrop-blur flex items-center justify-center px-6 xl:px-0 indent-0`}
         >
           {videoLoading == "pend" ? (
             <div role="status">
@@ -60,8 +62,9 @@ const Video = () => {
           ref={videoRef}
           poster={"/images/Demo_Video.png"}
           width={"100%"}
-          height={"auto"}
-          controls={true}
+          height={"100%"}
+          controls={videoLoading != "idl"}
+          className={'rounded-2xl'}
         >
           <source
             src={`${process.env.NEXT_PUBLIC_HUB_URL}/videos/tensurf-demo.mp4`}

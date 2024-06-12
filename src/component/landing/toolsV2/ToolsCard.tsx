@@ -1,12 +1,12 @@
 import React from "react";
 import ChatbotIcon from "@/icons/ChatbotIcon";
-import ToolCard from "@/component/landing/ToolCard";
+import ToolCard from "@/component/landing/toolsV2/ToolCard";
 import { GradientShape } from "@/component/general/GradientShape";
 
 const ToolsCard = () => {
   return (
     <div
-      className=" relative overflow-visible flex flex-col justify-center items-center gap-16 scroll-m-28 max-w-screen-2xl w-full">
+      className=" relative overflow-visible flex flex-col justify-center items-center gap-16 scroll-m-28 max-w-screen-2xl w-full mb-12">
       {/*<div className="absolute tools-radial-gradient inset-0 w-full h-[180px] z-[0]"></div>*/}
       <div className={'z-10 flex flex-col items-center justify-center gap-12'}>
         <div className="bg-[#00041A] rounded-full p-2 flex gap-4 justify-between items-center">
@@ -16,7 +16,7 @@ const ToolsCard = () => {
           <p className={'text-lg font-normal px-2'}>Comprehensive Range of Tools</p>
         </div>
         <div className="flex flex-col gap-6 w-full items-center justify-center">
-          <h2 className={'font-normal text-5xl'}>New Generation of Trading Tools</h2>
+          <h2 className={'font-normal text-5xl text-center'}>New Generation of Trading Tools</h2>
           <p className={'font-normal text-2xl max-w-[600px] text-center'}>Leverage AI Agents in TenSurf Brain to Unlock
             Institutional-Grade Trading Tools</p>
         </div>

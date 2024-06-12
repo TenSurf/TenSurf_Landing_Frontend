@@ -38,7 +38,7 @@ export const HeroSection: FC<IProps> = ({
   const animateLights = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   return (
     <div
-      className={`relative w-full flex flex-col items-center overflow-hidden h-screen`}
+      className={`relative w-full flex flex-col items-center overflow-hidden h-screen mb-56`}
     >
       <div className="flex items-center flex-col justify-center gap-14 relative z-[9] max-w-2xl mt-[2vh] lg:mt-[28vh]">
         <h1 className={'text-7xl text-center font-medium'}>Next Generation of Trading Platforms</h1>

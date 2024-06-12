@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Menu } from "lucide-react";
+import { ArrowRight, CircleX, Menu } from "lucide-react";
 // import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import { Drawer } from "vaul";
 
@@ -103,35 +103,42 @@ export const DefaultHeader = ({
             <Drawer.Portal>
               <Drawer.Overlay className="fixed inset-0 bg-blend-overlay bg-[#01061D]/50 backdrop-blur-lg z-[999] w-full h-full" />
               <Drawer.Content
-                className="bg-[#01030B] flex flex-col gap-6 py-[8vh] items-center rounded-t-[10px] h-full w-[300px] mt-24 fixed bottom-0 right-0 z-[1000]">
-                <Link href={"/"}>
-                  <Image
-                    src={"/tensurf.png"}
-                    width={90}
-                    height={10}
-                    alt="Tensurf"
-                    className="rounded"
-                  />
-                </Link>
-                <span className={"h-[1px] bg-white w-3/4"}></span>
-                {MENU_ITEMS.map((item, index) => (
-                  <>
-                    <div
-                      id={item.title}
-                      key={index}
-                      className="flex items-center justify-center gap-1 cursor-pointer w-full"
-                      onClick={() => {
-                        onMenuItemClickHandler(item.title);
-                      }}
-                    >
-                      {<item.icon className="text-white" />}
-                      <div>
-                        <p className={'text-white text-base'}>{item.title}</p>
+                className="bg-[#01030B] flex flex-col gap-6 items-end rounded-t-[10px] h-full w-[300px] mt-24 fixed bottom-0 right-0 z-[1000]">
+                <Drawer.Close>
+                  <Button variant={'link'}>
+                    <CircleX color="#ffffff" strokeWidth={1.5} />
+                  </Button>
+                </Drawer.Close>
+                <div className="w-full flex flex-col gap-6 items-center">
+                  <Link href={"/"}>
+                    <Image
+                      src={"/tensurf.png"}
+                      width={90}
+                      height={10}
+                      alt="Tensurf"
+                      className="rounded"
+                    />
+                  </Link>
+                  <span className={"h-[1px] bg-white w-3/4"}></span>
+                  {MENU_ITEMS.map((item, index) => (
+                    <>
+                      <div
+                        id={item.title}
+                        key={index}
+                        className="flex items-center justify-center gap-1 cursor-pointer w-full"
+                        onClick={() => {
+                          onMenuItemClickHandler(item.title);
+                        }}
+                      >
+                        {<item.icon className="text-white" />}
+                        <div>
+                          <p className={'text-white text-base'}>{item.title}</p>
+                        </div>
                       </div>
-                    </div>
-                    <span className={"h-[1px] bg-white w-3/4"}></span>
-                  </>
-                ))}
+                      <span className={"h-[1px] bg-white w-3/4"}></span>
+                    </>
+                  ))}
+                </div>
               </Drawer.Content>
             </Drawer.Portal>
           </Drawer.Root>
