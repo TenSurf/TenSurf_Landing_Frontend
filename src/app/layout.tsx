@@ -105,7 +105,6 @@ export default function RootLayout({
         ></Script>
         <Script
           id="aos"
-          defer
           dangerouslySetInnerHTML={{
             __html: `AOS.init({once: true,  mirror: true, offset: 120, delay: 200});`,
           }}
