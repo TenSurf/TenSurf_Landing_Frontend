@@ -1,5 +1,5 @@
 "use client";
-import { type RefObject, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Switch from "../../general/Switch";
 import Image from "next/image";
 import sphereImgSrc from "../../../../public/images/sphere.webp";
@@ -8,29 +8,15 @@ import { Plan } from "./Plan";
 import { HttpMethod, sendRequest } from "@/helpers/http-request";
 import { BackendUrls } from "@/helpers/backend-urls";
 
-import { Swiper as SwiperType } from "swiper/types";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow } from "swiper/modules";
 import "swiper/css/effect-coverflow";
 import "swiper/css";
 
-export const PlansSection = ({
-  mode = "landingPage",
-}: {
-  mode?: "landingPage" | "plansPage";
-}) => {
+export const PlansSection = (props: { data: IPlan[] }) => {
   const [isAnnuallyChecked, setIsAnnuallyChecked] = useState(true);
-  const [plans, setPlans] = useState<{
-    status: "reject" | "pending" | "fulfilled";
-    data?: IPlan[];
-  }>({
-    status: "pending",
-    data: [],
-  });
-  const [swiper, setSwiper] = useState<SwiperType>();
 
   useEffect(() => {
-    setPlans({ status: "pending" });
     sendRequest(BackendUrls.plans, HttpMethod.GET)
       .then((res) => {
         let data = Object.values(res.data)
@@ -54,12 +40,9 @@ export const PlansSection = ({
             };
           })
           .sort((a, b) => a.order_id - b.order_id);
-
-        setPlans({ status: "fulfilled", data });
       })
       .catch((err) => {
         console.log(err);
-        setPlans({ status: "reject" });
       });
   }, []);
 
@@ -71,11 +54,8 @@ export const PlansSection = ({
     >
       <div className="flex flex-col gap-6 text-center items-center w-full">
         <div
-          className={`${
-            mode === "landingPage"
-              ? "text-3xl md:text-4xl lg:text-6xl font-semibold "
-              : "pageTitle"
-          }`}
+          className={`text-3xl md:text-4xl lg:text-6xl font-semibold`}
+          data-aos="fade-up"
         >
           Plans
         </div>
@@ -94,9 +74,8 @@ export const PlansSection = ({
         </div>
       </div>
 
-      <div className={"w-full"}>
+      <div className={"w-full"} data-aos="fade-up">
         <Swiper
-          onSwiper={(swiper) => setSwiper(swiper)}
           effect={"coverflow"}
           initialSlide={3}
           wrapperClass={"items-stretch"}
@@ -146,7 +125,7 @@ export const PlansSection = ({
           rewind
           loop
         >
-          {plans?.data?.map((item: IPlan, index: number) => (
+          {props.data?.map((item: IPlan, index: number) => (
             <SwiperSlide
               className={"!h-auto transition-all"}
               key={item.order_id}
@@ -162,17 +141,21 @@ export const PlansSection = ({
             </SwiperSlide>
           ))}
         </Swiper>
-        {/*<div className="flex flex-col lg:flex-row h-full justify-center gap-4 flex-wrap">*/}
-        {/*  {plans?.data?.slice(4 ,5)?.map((item: IPlan, index: number) => (*/}
-        {/*    <Plan key={index} plan={item} isAnnuallyChecked={isAnnuallyChecked} />*/}
-        {/*  ))}*/}
-        {/*</div>*/}
+        {/* <div className="flex flex-col lg:flex-row h-full justify-center gap-4 flex-wrap">
+          {props.data?.slice(4, 5)?.map((item: IPlan, index: number) => (
+            <Plan
+              key={index}
+              plan={item}
+              isAnnuallyChecked={isAnnuallyChecked}
+            />
+          ))}
+        </div> */}
       </div>
-      <div className="absolute -z-10 top-[450px] bg-[#000]">
+      <div className="absolute -z-10 top-[200px] bg-[#000]">
         <Image
           src={sphereImgSrc}
           alt="sphere image"
-          className="mix-blend-hard-light"
+          className="mix-blend-hard-light h-1/3"
         />
       </div>
     </div>

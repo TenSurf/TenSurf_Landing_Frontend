@@ -44,6 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <Script
           async
           src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALIYTICS}`}
@@ -96,6 +97,18 @@ export default function RootLayout({
           defer
           src={"//js.hs-scripts.com/46299069.js"}
           type={"text/javascript"}
+        ></Script>
+        <script
+          async
+          type={"text/javascript"}
+          src="https://unpkg.com/aos@next/dist/aos.js"
+        ></script>
+        <Script
+          id="aos"
+          type={"text/javascript"}
+          dangerouslySetInnerHTML={{
+            __html: `AOS.init({once: true,  mirror: true, offset: 120, delay: 200});`,
+          }}
         ></Script>
       </body>
     </html>

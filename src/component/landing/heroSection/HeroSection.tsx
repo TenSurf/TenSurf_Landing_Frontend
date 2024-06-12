@@ -12,13 +12,17 @@ export const HeroSection = () => {
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 justify-center gap-14 lg:gap-20 relative z-[9] max-w-screen-2xl mt-[2vh] lg:mt-[15vh]">
         <div className="flex gap-8 lg:gap-10 flex-col items-center lg:items-start text-center bottom-6 max-w-screen-xl mt-10 lg:mt-0">
-          <h1 className="text-primaryGradient text-left staticPageTitle">
+          <h1
+            className="text-primaryGradient text-left staticPageTitle"
+            data-aos="fade-up"
+          >
             {HERO_SECTION.title}
           </h1>
           <p
             className={
               "text-center lg:text-left font-extralight text-2xl lg:text-3xl"
             }
+            data-aos="fade-up"
           >
             Experience the future of trading with TenSurf Hub, where our
             cutting-edge &#34;TenSurf Brain&#34; AI chat interface delivers
@@ -39,7 +43,7 @@ export const HeroSection = () => {
           {/*<div className="font-bold md:font-extrabold text-lg md:text-xl">*/}
           {/*  {HERO_SECTION.description2}*/}
           {/*</div>*/}
-          <a href={process.env.NEXT_PUBLIC_HUB_URL}>
+          <a href={process.env.NEXT_PUBLIC_HUB_URL} data-aos="fade-up">
             <Button
               // onClick={
               //   () =>
@@ -61,6 +65,7 @@ export const HeroSection = () => {
           className={
             "relative rounded-2xl overflow-hidden h-fit mx-auto sm:max-w-2xl lg:max-w-none w-full"
           }
+          data-aos="zoom-in"
         >
           {/* <div
             className={`${

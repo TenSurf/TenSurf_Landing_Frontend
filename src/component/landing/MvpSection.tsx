@@ -9,7 +9,10 @@ const MvpItem = ({
   description: string;
 }) => {
   return (
-    <div className="relative z-10 bg-[#000]/40 flex flex-col justify-center items-center gap-4 px-4 py-10 rounded-[24px] border-[1px] border-white/20 max-w-[392px]">
+    <div
+      className="relative z-10 bg-[#000]/40 flex flex-col justify-center items-center gap-4 px-4 py-10 rounded-[24px] border-[1px] border-white/20 max-w-[392px]"
+      data-aos="flip-down"
+    >
       <div className="text-[36px] font-semibold">{title}</div>
       <div className="text-[20px] font-normal">{description}</div>
     </div>
@@ -23,7 +26,10 @@ export const MvpSection = () => {
       id="services"
       className="relative flex flex-col items-center justify-center gap-6 scroll-m-28 max-w-screen-2xl"
     >
-      <div className="text-3xl md:text-4xl lg:text-6xl font-semibold">
+      <div
+        className="text-3xl md:text-4xl lg:text-6xl font-semibold"
+        data-aos="fade-up"
+      >
         {MVP_SECTION.title}
       </div>
       <div className="grid gird-cols-1 md:grid-cols-3 gap-6 text-center items-stretch justify-between w-full">

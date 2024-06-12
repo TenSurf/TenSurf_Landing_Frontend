@@ -9,10 +9,13 @@ const FaqSection = () => {
       id="faq"
       className="relative flex flex-col items-center gap-10 scroll-m-20 w-full max-w-screen-2xl"
     >
-      <div className="text-3xl md:text-4xl lg:text-6xl font-semibold mb-6">
+      <div
+        className="text-3xl md:text-4xl lg:text-6xl font-semibold mb-6"
+        data-aos="fade-up"
+      >
         {FAQ_SECTION.title}
       </div>
-      <Accordion type="multiple" className="w-full">
+      <Accordion type="multiple" className="w-full" data-aos="fade-up">
         {FAQ_SECTION.items.map((val) => (
           <FaqItem
             question={val.question}
@@ -21,9 +24,7 @@ const FaqSection = () => {
           />
         ))}
       </Accordion>
-      <h4 className={"text-xl md:text-2xl lg:text-3xl mt-8"}>
-        {FAQ_SECTION.description}
-      </h4>
+      <h4 className={"text-xl mt-8"}>{FAQ_SECTION.description}</h4>
     </div>
   );
 };
