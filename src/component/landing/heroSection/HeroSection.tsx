@@ -1,40 +1,10 @@
 import { HERO_SECTION } from "../../../constatns/landingPage.constants";
 import ChevronDownIcon from "../../../icons/ChevronDownIcon";
-import React, {
-  type FC,
-  type RefObject,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React from "react";
 import { AnimateLight } from "./AnimateLight";
-// import { useRouter } from 'next/router';
 import { Button } from "@/components/ui/button";
-import { Play } from "lucide-react";
-import { useRouter } from "next/navigation";
 
-interface IProps {
-  viewPortHeight?: number;
-  headerHeight?: number;
-  productsRef: RefObject<HTMLDivElement>;
-}
-
-export const HeroSection: FC<IProps> = ({
-  viewPortHeight,
-  headerHeight,
-  productsRef,
-}) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoLoading, setVideoLoading] = useState<"idl" | "pend" | "full">(
-    "idl"
-  );
-
-  let router = useRouter();
-
-  useState({ signUp: false, signIn: false });
-
-  const [videoModal, setVideoModal] = useState(false);
-
+export const HeroSection = () => {
   const animateLights = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   return (
     <div
@@ -45,11 +15,16 @@ export const HeroSection: FC<IProps> = ({
           <h1 className="text-primaryGradient text-left staticPageTitle">
             {HERO_SECTION.title}
           </h1>
-          <p className={"text-center lg:text-left font-extralight text-2xl lg:text-3xl"}>
-            Experience the future of trading with TenSurf Hub, where our cutting-edge &#34;TenSurf Brain&#34; AI chat interface
-            delivers real-time market analysis and insights directly to you.
-            Integrate your trading strategy with our intuitive, no-code platform that makes algorithmic trading
-            accessible to everyone.
+          <p
+            className={
+              "text-center lg:text-left font-extralight text-2xl lg:text-3xl"
+            }
+          >
+            Experience the future of trading with TenSurf Hub, where our
+            cutting-edge &#34;TenSurf Brain&#34; AI chat interface delivers
+            real-time market analysis and insights directly to you. Integrate
+            your trading strategy with our intuitive, no-code platform that
+            makes algorithmic trading accessible to everyone.
           </p>
           {/*<ul className={"w-full px-6 list-disc text-left"}>*/}
           {/*  {HERO_SECTION.items.map((val) => (*/}
@@ -87,7 +62,7 @@ export const HeroSection: FC<IProps> = ({
             "relative rounded-2xl overflow-hidden h-fit mx-auto sm:max-w-2xl lg:max-w-none w-full"
           }
         >
-          <div
+          {/* <div
             className={`${
               videoLoading == "full" && "hidden"
             } cursor-pointer bg-black z-[11] absolute w-full h-full opacity-30 backdrop-blur flex items-center justify-center`}
@@ -117,7 +92,7 @@ export const HeroSection: FC<IProps> = ({
                 <Play
                   onClick={async () => {
                     setVideoLoading("pend");
-                    await videoRef?.current?.play();
+                    // await videoRef?.current?.play();
                     setVideoLoading("full");
                   }}
                   size={64}
@@ -126,9 +101,8 @@ export const HeroSection: FC<IProps> = ({
                 />
               </>
             )}
-          </div>
+          </div> */}
           <video
-            ref={videoRef}
             poster={"/images/video-preview.png"}
             width={"100%"}
             height={"100%"}
@@ -142,12 +116,9 @@ export const HeroSection: FC<IProps> = ({
         </div>
       </div>
 
-      <ChevronDownIcon
-        onClick={() => {
-          productsRef?.current?.scrollIntoView({ behavior: "smooth" });
-        }}
-        className="absolute z-10 bottom-24 h-8 w-8 animate-bounce cursor-pointer hidden lg:block"
-      />
+      <a href="/#services">
+        <ChevronDownIcon className="absolute z-10 bottom-24 h-8 w-8 animate-bounce cursor-pointer hidden lg:block" />
+      </a>
 
       <div className="absolute z-0 h-full w-full items-stretch flex-wrap gap-y-[20000px] justify-between flex gap-[200px] max-w-[90%]">
         {animateLights.map((light, index) => (

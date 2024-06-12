@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 
 const url = process.env.NEXT_PUBLIC_TENSURF_URL;
+export const revalidate = 30 
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [

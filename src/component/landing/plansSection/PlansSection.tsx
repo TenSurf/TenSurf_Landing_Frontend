@@ -14,33 +14,34 @@ import { EffectCoverflow } from "swiper/modules";
 import "swiper/css/effect-coverflow";
 import "swiper/css";
 
-export const PlansSection = (
-  {
-    PlansRef,
-    mode = "landingPage"
-  }: {
-    PlansRef?: RefObject<HTMLDivElement>;
-    mode?: "landingPage" | "plansPage";
-  }) => {
-
+export const PlansSection = ({
+  mode = "landingPage",
+}: {
+  mode?: "landingPage" | "plansPage";
+}) => {
   const [isAnnuallyChecked, setIsAnnuallyChecked] = useState(true);
-  const [plans, setPlans] = useState<{ status: "reject" | "pending" | "fulfilled"; data?: IPlan[] }>({
+  const [plans, setPlans] = useState<{
+    status: "reject" | "pending" | "fulfilled";
+    data?: IPlan[];
+  }>({
     status: "pending",
-    data: []
+    data: [],
   });
   const [swiper, setSwiper] = useState<SwiperType>();
 
   useEffect(() => {
     setPlans({ status: "pending" });
     sendRequest(BackendUrls.plans, HttpMethod.GET)
-      .then(res => {
+      .then((res) => {
         let data = Object.values(res.data)
           .map((val: any): IPlan => {
             return {
               title: val.name,
               description: val.description,
               buttonLabel: val.is_coming_soon ? "Contact Us" : "Start Now",
-              features: val.features.map((feature: any) => ({ title: feature.name })),
+              features: val.features.map((feature: any) => ({
+                title: feature.name,
+              })),
               priceAnnually: val.year_unit_amount / 100,
               priceMonthly: val.month_unit_amount / 100,
               is_coming_soon: val.is_coming_soon,
@@ -49,14 +50,14 @@ export const PlansSection = (
               is_free: val.is_free,
               order_id: val.order_id,
               month_currency: val?.month_currency,
-              year_currency: val?.year_currency
+              year_currency: val?.year_currency,
             };
           })
           .sort((a, b) => a.order_id - b.order_id);
 
         setPlans({ status: "fulfilled", data });
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
         setPlans({ status: "reject" });
       });
@@ -65,18 +66,26 @@ export const PlansSection = (
   // *.*.*.*.*.*.*.*.*. RETURN ↓•↓•↓
   return (
     <div
-      ref={PlansRef}
       id="Planss"
       className="flex flex-col gap-10 text-white w-full items-center relative z-10 scroll-m-20 max-w-screen-2xl min-h-screen"
     >
       <div className="flex flex-col gap-6 text-center items-center w-full">
-        <div className={`${mode === "landingPage" ? "text-3xl md:text-4xl lg:text-6xl font-semibold " : "pageTitle"}`}>
+        <div
+          className={`${
+            mode === "landingPage"
+              ? "text-3xl md:text-4xl lg:text-6xl font-semibold "
+              : "pageTitle"
+          }`}
+        >
           Plans
         </div>
         <div className="flex items-center justify-center gap-4 md:gap-12 flex-col-reverse md:flex-row w-full">
           <div className="flex items-center gap-3 font-bold text-base">
             <div>Monthly</div>
-            <Switch checked={isAnnuallyChecked} onChange={() => setIsAnnuallyChecked(prev => !prev)} />
+            <Switch
+              checked={isAnnuallyChecked}
+              onChange={() => setIsAnnuallyChecked((prev) => !prev)}
+            />
             <div>Annually</div>
           </div>
           <div className="rounded-lg bg-[#2C2C2C] py-2 px-3">
@@ -87,10 +96,10 @@ export const PlansSection = (
 
       <div className={"w-full"}>
         <Swiper
-          onSwiper={swiper => setSwiper(swiper)}
-          effect={'coverflow'}
+          onSwiper={(swiper) => setSwiper(swiper)}
+          effect={"coverflow"}
           initialSlide={3}
-          wrapperClass={'items-stretch'}
+          wrapperClass={"items-stretch"}
           coverflowEffect={{
             rotate: 0,
             stretch: 10,
@@ -107,7 +116,7 @@ export const PlansSection = (
                 depth: 300,
                 modifier: 1,
               },
-              slidesPerView: 1.5
+              slidesPerView: 1.5,
             },
             767: {
               coverflowEffect: {
@@ -116,7 +125,7 @@ export const PlansSection = (
                 depth: 55,
                 modifier: 3,
               },
-              slidesPerView: 2
+              slidesPerView: 2,
             },
             1100: {
               coverflowEffect: {
@@ -125,8 +134,8 @@ export const PlansSection = (
                 depth: 55,
                 modifier: 4,
               },
-              slidesPerView: 4
-            }
+              slidesPerView: 4,
+            },
           }}
           modules={[EffectCoverflow]}
           grabCursor
@@ -138,9 +147,17 @@ export const PlansSection = (
           loop
         >
           {plans?.data?.map((item: IPlan, index: number) => (
-            <SwiperSlide className={'!h-auto transition-all'} key={item.order_id}>
-              {({isActive}) => (
-                <Plan className={isActive ? "grayscale-0" : "grayscale"} key={index} plan={item} isAnnuallyChecked={isAnnuallyChecked} />
+            <SwiperSlide
+              className={"!h-auto transition-all"}
+              key={item.order_id}
+            >
+              {({ isActive }) => (
+                <Plan
+                  className={isActive ? "grayscale-0" : "grayscale"}
+                  key={index}
+                  plan={item}
+                  isAnnuallyChecked={isAnnuallyChecked}
+                />
               )}
             </SwiperSlide>
           ))}
@@ -152,7 +169,11 @@ export const PlansSection = (
         {/*</div>*/}
       </div>
       <div className="absolute -z-10 top-[450px] bg-[#000]">
-        <Image src={sphereImgSrc} alt="sphere image" className="mix-blend-hard-light" />
+        <Image
+          src={sphereImgSrc}
+          alt="sphere image"
+          className="mix-blend-hard-light"
+        />
       </div>
     </div>
   );
