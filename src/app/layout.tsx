@@ -100,12 +100,15 @@ export default function RootLayout({
         ></Script>
         <script
           async
+          defer
           type={"text/javascript"}
           src="https://unpkg.com/aos@next/dist/aos.js"
         ></script>
         <Script
           id="aos"
           type={"text/javascript"}
+          async
+          defer
           dangerouslySetInnerHTML={{
             __html: `AOS.init({once: true,  mirror: true, offset: 120, delay: 200});`,
           }}
