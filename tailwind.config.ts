@@ -80,14 +80,17 @@ const config = {
             opacity:"0",
             top:"80%"
           }
-          
-
-        }
+        },
+        "rotate": {
+          '0%': { transform: 'rotateY(90deg)' },
+          '100%': { transform: 'rotateY(00deg)' },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "topToBottomInfinite":"topToBottomInfinite 12s linear infinite"
+        "topToBottomInfinite":"topToBottomInfinite 12s linear infinite",
+        "rotate": 'rotate 1s ease-out forwards',
       },
     },
   },

@@ -10,8 +10,8 @@ import { ArrowRight, CircleX, Menu } from "lucide-react";
 import { Drawer } from "vaul";
 
 export const DefaultHeader = ({
-                                headerRef
-                              }: {
+  headerRef,
+}: {
   headerRef?: RefObject<HTMLDivElement>;
 }) => {
   const router = useRouter();
@@ -93,7 +93,7 @@ export const DefaultHeader = ({
               </p>
               <ArrowRight size={20} strokeWidth={2} />
             </Button>
-          </a>
+        </a>
           <Drawer.Root direction="right">
             <Drawer.Trigger asChild>
               <Button className={"block lg:hidden bg-transparent p-2 hover:bg-[#33415C33]/60 rounded-full"}>

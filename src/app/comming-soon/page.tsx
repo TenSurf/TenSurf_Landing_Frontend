@@ -1,5 +1,3 @@
-'use client';
-
 import DefaultLayout from '@/layout/publicContentLayout/DefaultLayout';
 import PageProvider from '@/component/general/PageProvider';
 import { PAGE_TITLE } from '@/constatns/general.constants';

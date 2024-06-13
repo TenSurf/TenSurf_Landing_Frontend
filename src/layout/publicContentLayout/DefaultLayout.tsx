@@ -4,18 +4,13 @@ import { PublicFooter } from './PublicFooter';
 import { DefaultHeader } from './DefaultHeader';
 import ChangingUrlProgress from '../../component/general/ChangingUrlProgress';
 
-// *.*.*.*.*.*.*.*.*.*.* Main Function ↓•↓•↓
 export const DefaultLayout = ({
   children,
-  headerRef
+  headerRef,
 }: {
   children: ReactNode;
   headerRef?: RefObject<HTMLDivElement>;
 }) => {
-  // const router = useRouter();
-  // const isInDashboard = router?.pathname?.includes('dashboard');
-
-  // *.*.*.*.*.*.*.*.*. RETURN ↓•↓•↓
   return (
     <div className={`w-screen min-h-screen overflow-x-clip flex flex-col bg-[#01030B] text-white font-medium`}>
       <ChangingUrlProgress />

@@ -1,5 +1,3 @@
-'use client';
-
 import DefaultLayout from '@/layout/publicContentLayout/DefaultLayout';
 import { PrivacyPolicy } from '@/component/privacyPolicy/PrivacyPolicy';
 import PageProvider from '@/component/general/PageProvider';

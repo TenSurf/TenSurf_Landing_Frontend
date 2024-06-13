@@ -32,7 +32,9 @@ const AboutUsSection = () => {
           </li>
         ))}
       </ul>
-      <h4 className={"text-2xl md:text-3xl lg:text-4xl mt-8"}>{ABOUT_US_SECTION.description}</h4>
+      <h4 className={"text-2xl md:text-3xl lg:text-4xl mt-8"}>
+        {ABOUT_US_SECTION.description}
+      </h4>
     </div>
   );
 };

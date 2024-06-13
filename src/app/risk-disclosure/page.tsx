@@ -1,5 +1,3 @@
-'use client';
-
 import RiskDisclosure from '@/component/riskDisclosure/RiskDisclosure';
 import PageProvider from '@/component/general/PageProvider';
 import DefaultLayout from '@/layout/publicContentLayout/DefaultLayout';
