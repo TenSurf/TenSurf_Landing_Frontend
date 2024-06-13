@@ -47,7 +47,7 @@ export const DefaultHeader = ({
   return (
     <div
       ref={headerRef}
-      className="z-50 sticky top-0 lg:top-6 rounded-3xl mt-0 flex max-w-screen-2xl mx-auto w-full items-center px-6 md:px-24 py-7 justify-between bg-[#01061D]/50 backdrop-blur-lg"
+      className="z-50 sticky top-0 lg:top-6 lg:rounded-3xl mt-0 flex max-w-screen-2xl lg:mx-6 2xl:mx-auto 2xl:w-full items-center px-6 md:px-24 py-7 justify-between bg-[#01061D]/50 backdrop-blur-lg"
     >
       <Link href={"/"}>
         <Image

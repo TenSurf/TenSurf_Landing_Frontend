@@ -6,7 +6,7 @@ import { GradientShape } from "@/component/general/GradientShape";
 const ToolsCard = () => {
   return (
     <div
-      className=" relative overflow-visible flex flex-col justify-center items-center gap-16 scroll-m-28 max-w-screen-2xl w-full mb-12">
+      className="relative overflow-visible flex flex-col justify-center items-center gap-16 scroll-m-28 max-w-screen-2xl w-full mb-12">
       {/*<div className="absolute tools-radial-gradient inset-0 w-full h-[180px] z-[0]"></div>*/}
       <div className={'z-10 flex flex-col items-center justify-center gap-12'}>
         <div className="bg-[#00041A] rounded-full p-2 flex gap-4 justify-between items-center">
