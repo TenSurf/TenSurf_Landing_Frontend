@@ -6,7 +6,7 @@ import { HeroSection } from "./heroSection/HeroSection";
 import { PlansSection } from "./plansSection/PlansSection";
 import { MnuItemsEnum } from "../../constatns/landingPage.constants";
 import DefaultLayout from "../../layout/publicContentLayout/DefaultLayout";
-import useScrollToTop from "../../hooks/useScrollToTop";
+// import useScrollToTop from "../../hooks/useScrollToTop";
 import AboutUsSection from "@/component/landing/AboutUsSection";
 import FaqSection from "@/component/landing/FaqSection";
 import OfferingSectionV2 from "@/component/landing/OfferingSectionV2";
@@ -17,7 +17,7 @@ import ToolsCard from "@/component/landing/toolsV2/ToolsCard";
 import ToolsSlider from "@/component/landing/ToolsSlider";
 import Video from "@/component/landing/video/Video";
 import Subtitle from "@/component/landing/subtitle/Subtitle";
-const Chatbot = dynamic(() => import("@/component/chatbot/Chatbot") , {ssr: false})
+// const Chatbot = dynamic(() => import("@/component/chatbot/Chatbot") , {ssr: false})
 // import { useRouter } from 'next/router';
 
 // *.*.*.*.*.*.*.*.*.*.* Main Function ↓•↓•↓
@@ -30,7 +30,7 @@ export const Landing: FC = () => {
   const TeamRef = useRef<HTMLDivElement>(null);
 
   // const router = useRouter();
-  useScrollToTop();
+  // useScrollToTop();
 
   const viewPortHeightController = () => {
     setViewPortHeight(window?.innerHeight);

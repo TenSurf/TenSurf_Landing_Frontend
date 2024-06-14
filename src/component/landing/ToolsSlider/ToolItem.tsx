@@ -6,8 +6,8 @@ import Image from "next/image";
 
 const ToolItem = () => {
   return (
-    <div className="w-full grid grid-cols-3 items-end justify-between pr-32 gap-32 py-1">
-      <div className="col-span-1 flex flex-col gap-8 justify-start">
+    <div className="mx-auto w-2/3 xl:w-full grid grid-cols-1 xl:grid-cols-3 items-end justify-between xl:pr-32 lg:gap-6 2xl:gap-32 py-1">
+      <div className="xl:col-span-1 flex flex-col gap-8 justify-start order-2 xl:order-1">
         <h3 className={"text-5xl font-normal leading-tight"}>Advanced Trading Insights by chatting with TenSurf
           Brain</h3>
         <p className={"text-[#ADB5BD] text-lg line-clamp-4 font-extralight"}>
@@ -28,8 +28,7 @@ const ToolItem = () => {
           </Button>
         </Link>
       </div>
-      <div className="col-span-2 relative pb-[68%]
-        ">
+      <div className="xl:col-span-2 relative pb-[68%] order-1 xl:order-2">
         <Image src={"/images/tools/Ipad1.png"} fill alt={"tool name"} loading={"lazy"} className={"w-full"} />
       </div>
     </div>

@@ -2,7 +2,7 @@
 import { type ReactNode, type RefObject, useEffect } from "react";
 import { PublicFooter } from './PublicFooter';
 import { DefaultHeader } from './DefaultHeader';
-import ChangingUrlProgress from '../../component/general/ChangingUrlProgress';
+// import ChangingUrlProgress from '../../component/general/ChangingUrlProgress';
 
 export const DefaultLayout = ({
   children,
@@ -13,7 +13,7 @@ export const DefaultLayout = ({
 }) => {
   return (
     <div className={`w-screen min-h-screen overflow-x-clip flex flex-col bg-[#01030B] text-white font-medium`}>
-      <ChangingUrlProgress />
+      {/*<ChangingUrlProgress />*/}
       <DefaultHeader headerRef={headerRef} />
 
       <div className={`grow flex flex-col items-center gap-[200px]`}>
