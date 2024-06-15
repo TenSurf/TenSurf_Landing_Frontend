@@ -14,7 +14,7 @@ import ChatBot, { Params } from "react-chatbotify";
 import { Bot } from "lucide-react";
 import dynamic from "next/dynamic";
 import ToolsCard from "@/component/landing/toolsV2/ToolsCard";
-import ToolsSlider from "@/component/landing/ToolsSlider";
+import ToolsSlider from "@/component/landing/ToolsSlider/ToolsSlider";
 import Video from "@/component/landing/video/Video";
 import Subtitle from "@/component/landing/subtitle/Subtitle";
 // const Chatbot = dynamic(() => import("@/component/chatbot/Chatbot") , {ssr: false})
