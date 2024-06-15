@@ -1,22 +1,20 @@
-'use client'
-import { type ReactNode, type RefObject, useEffect } from "react";
-import { PublicFooter } from './PublicFooter';
-import { DefaultHeader } from './DefaultHeader';
+"use client";
+import { type ReactNode, type RefObject } from "react";
+import { PublicFooter } from "./PublicFooter";
+import { DefaultHeader } from "./DefaultHeader";
 // import ChangingUrlProgress from '../../component/general/ChangingUrlProgress';
 
-export const DefaultLayout = ({
-  children,
-  headerRef,
-}: {
-  children: ReactNode;
-  headerRef?: RefObject<HTMLDivElement>;
-}) => {
+export const DefaultLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <div className={`w-screen min-h-screen overflow-x-clip flex flex-col bg-[#01030B] text-white font-medium`}>
+    <div
+      className={`w-screen min-h-screen overflow-x-clip flex flex-col bg-[#01030B] text-white font-medium`}
+    >
       {/*<ChangingUrlProgress />*/}
-      <DefaultHeader headerRef={headerRef} />
+      <DefaultHeader />
 
-      <div className={`grow flex flex-col items-center gap-[200px]`}>
+      <div
+        className={`grow flex flex-col items-center gap-[200px] md:mt-0 lg:-mt-24`}
+      >
         {children}
       </div>
 

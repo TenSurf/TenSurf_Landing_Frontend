@@ -98,17 +98,6 @@ export default function RootLayout({
           src={"//js.hs-scripts.com/46299069.js"}
           type={"text/javascript"}
         ></Script>
-        <Script
-          async
-          strategy={"beforeInteractive"}
-          src="https://unpkg.com/aos@next/dist/aos.js"
-        ></Script>
-        <Script
-          id="aos"
-          dangerouslySetInnerHTML={{
-            __html: `AOS.init({once: true,  mirror: true, offset: 120, delay: 200});`,
-          }}
-        ></Script>
       </body>
     </html>
   );

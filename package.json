@@ -60,6 +60,7 @@
     "tailwindcss-animate": "^1.0.7",
     "tensurf-lightweight-charts": "^4.2.74",
     "validator": "^13.11.0",
+    "vaul": "^0.9.1",
     "yup": "^1.4.0",
     "zustand": "^4.5.2"
   },
