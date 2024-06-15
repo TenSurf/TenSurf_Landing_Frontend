@@ -68,7 +68,7 @@ const ToolsSlider = () => {
         }}
       >
         {TOOLS.map(val => (
-          <SwiperSlide key={val.title} className={"!h-fit"}>
+          <SwiperSlide key={val.title} className={"!h-full"}>
             <ToolItem title={val.title} description={val.description} image={val.image} />
           </SwiperSlide>
         ))}
