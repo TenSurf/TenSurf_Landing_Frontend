@@ -43,7 +43,7 @@ export enum MnuItemsEnum {
 }
 
 export const MENU_ITEMS = [
-  { title: MnuItemsEnum.services, icon: LayerIcon, url: "/#services" },
+  { title: MnuItemsEnum.services, icon: LayerIcon, url: "/#tools" },
   {
     title: MnuItemsEnum.plans,
     icon: ShoppingBagIcon,
