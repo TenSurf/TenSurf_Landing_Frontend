@@ -21,7 +21,7 @@ const ToolsSlider = () => {
   }
 
   return (
-    <div className={"scroll-m-28 max-w-screen-2xl w-full mb-12 relative z-[100] bg-[#01030B] pl-6"}>
+    <div className={"scroll-m-28 max-w-screen-2xl w-full mb-12 relative z-[100] bg-[#01030B] container"}>
       <div className="hidden xl:block absolute w-[8px] h-[300px] top-[20%] rounded-full left-0 overflow-hidden bg-[#2F51E9]/30">
         <div style={{ height: (((slide ?? 0) + 1) / 3) * 300 }}
              className={`bg-[#1F42E4] drop-shadow-[3px_5px_24px_#082FDF] w-full rounded-full transition-all`}></div>

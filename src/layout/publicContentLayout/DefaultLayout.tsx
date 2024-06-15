@@ -13,7 +13,7 @@ export const DefaultLayout = ({ children }: { children: ReactNode }) => {
       <DefaultHeader />
 
       <div
-        className={`grow flex flex-col items-center gap-[200px] md:mt-0 lg:-mt-24`}
+        className={`grow flex flex-col items-center gap-[200px] md:mt-0 lg:-mt-12`}
       >
         {children}
       </div>

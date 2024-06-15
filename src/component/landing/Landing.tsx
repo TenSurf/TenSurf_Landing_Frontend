@@ -12,12 +12,14 @@ import Subtitle from "@/component/landing/subtitle/Subtitle";
 export const Landing = () => {
   return (
     <DefaultLayout>
-      <div className="flex flex-col overflow-x-hidden items-center">
+      <div className="flex flex-col overflow-x-hidden items-center container">
         <HeroSection />
         <ToolsCard />
         <ToolsSlider />
         <Video />
-        <Subtitle />
+      </div>
+      <Subtitle />
+      <div className="flex flex-col overflow-x-hidden items-center container">
         {/*<MvpSection productsRef={productsRef} />*/}
         {/*<OfferingSectionV2 />*/}
         {/*/!*<ChartSection ChartRef={chartRef} />*!/*/}
