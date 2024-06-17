@@ -1,14 +1,12 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperType } from "swiper/types";
 import "swiper/css/pagination";
 import "swiper/css";
 import ToolItem from "@/component/landing/ToolsSlider/ToolItem";
 import QuoteItem from "@/component/landing/ToolsSlider/QuoteItem";
-import { Controller } from 'swiper/modules';
-import { Pagination, PaginationContent, PaginationLink } from "@/components/ui/pagination";
-import { PaginationItem } from "@mui/material";
+import { Controller , Mousewheel} from "swiper/modules";
 import { TOOLS } from "@/constatns/toolsSlider.constants";
 
 const ToolsSlider = () => {
@@ -20,10 +18,10 @@ const ToolsSlider = () => {
   const toolRef = useRef<SwiperRef>() as any;
   const quoteRef = useRef<SwiperRef>() as any;
 
-  const onSlideClick = () => {
-    toolRef.current.swiper.slideNext();
-    // quoteRef.current.swiper.slideNext();
-  };
+  // const onSlideClick = () => {
+  //   toolRef.current.swiper.slideNext();
+  //   // quoteRef.current.swiper.slideNext();
+  // };
 
   return (
     <div
@@ -34,14 +32,19 @@ const ToolsSlider = () => {
              className={`bg-[#1F42E4] drop-shadow-[3px_5px_24px_#082FDF] w-full rounded-full transition-all`}></div>
       </div>
       <Swiper
-        onClick={onSlideClick}
+        // onClick={onSlideClick}
         onInit={setTool}
         controller={{
           by: "container",
           control: quote
         }}
-        modules={[Controller]}
-        allowSlidePrev={false}
+        modules={[Controller , Mousewheel]}
+        mousewheel={{
+          forceToAxis: true,
+          sensitivity: 1,
+          releaseOnEdges: true,
+          thresholdDelta: 1,
+        }}
         onSlideChange={swiper => {
           console.log(swiper);
           setSlide(swiper.realIndex);
@@ -50,8 +53,7 @@ const ToolsSlider = () => {
         direction={"vertical"}
         allowTouchMove={false}
         slidesPerView={1}
-        loop
-        spaceBetween={20}
+        spaceBetween={0}
         autoHeight
         ref={toolRef}
         draggable={false}
@@ -77,18 +79,15 @@ const ToolsSlider = () => {
       <div className="w-full lg:w-1/2">
         <Swiper
           modules={[Controller]}
-          onClick={onSlideClick}
           onInit={setQuote}
           controller={{
             by: "container",
             control: tool
           }}
-          allowSlidePrev={false}
           draggable={false}
           grabCursor={false}
           allowTouchMove={false}
           spaceBetween={50}
-          loop
           ref={quoteRef}
           breakpoints={{
             0: {
@@ -103,15 +102,19 @@ const ToolsSlider = () => {
         >
           {TOOLS.map(val => (
             <SwiperSlide key={val.quoteTitle}>
-              <QuoteItem quoteTitle={val.quoteTitle} name={val.quoteName} description={val.quoteDescription} image={val.quoteImage}/>
+              <QuoteItem quoteTitle={val.quoteTitle} name={val.quoteName} description={val.quoteDescription}
+                         image={val.quoteImage} />
             </SwiperSlide>
           ))}
         </Swiper>
       </div>
       <div className="lg:hidden w-full flex justify-center gap-1 items-center mt-4 md:mt-6">
-        <span style={{backgroundColor: slide == 0 ? "#CAD2FC" : "#343A40"}} className={'block w-[8px] h-[8px] rounded-full bg-[#CAD2FC]'}></span>
-        <span style={{backgroundColor: slide == 1 ? "#CAD2FC" : "#343A40"}} className={'block w-[8px] h-[8px] rounded-full bg-[#343A40]'}></span>
-        <span style={{backgroundColor: slide == 2 ? "#CAD2FC" : "#343A40"}} className={'block w-[8px] h-[8px] rounded-full bg-[#343A40]'}></span>
+        <span style={{ backgroundColor: slide == 0 ? "#CAD2FC" : "#343A40" }}
+              className={"block w-[8px] h-[8px] rounded-full bg-[#CAD2FC]"}></span>
+        <span style={{ backgroundColor: slide == 1 ? "#CAD2FC" : "#343A40" }}
+              className={"block w-[8px] h-[8px] rounded-full bg-[#343A40]"}></span>
+        <span style={{ backgroundColor: slide == 2 ? "#CAD2FC" : "#343A40" }}
+              className={"block w-[8px] h-[8px] rounded-full bg-[#343A40]"}></span>
       </div>
     </div>
   );
