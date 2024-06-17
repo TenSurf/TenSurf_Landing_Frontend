@@ -22,7 +22,7 @@ const ToolsSlider = () => {
 
   const onSlideClick = () => {
     toolRef.current.swiper.slideNext();
-    quoteRef.current.swiper.slideNext();
+    // quoteRef.current.swiper.slideNext();
   };
 
   return (
