@@ -10,7 +10,7 @@ import Subtitle from "@/component/landing/subtitle/Subtitle";
 export const Landing = () => {
   return (
     <DefaultLayout>
-      <div className="flex flex-col overflow-x-hidden items-center container">
+      <div className="flex flex-col overflow-x-hidden items-center container overflow-y-hidden">
         <HeroSection />
         <ToolsCard />
         <ToolsSlider />

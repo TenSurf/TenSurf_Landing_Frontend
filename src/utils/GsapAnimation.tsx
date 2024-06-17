@@ -1,16 +1,26 @@
-"use client"
-import React from "react";
+"use client";
+import React, { MutableRefObject, ReactNode, RefObject } from "react";
+import TweenVars = gsap.TweenVars;
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const GsapAnimation = () => {
+gsap.registerPlugin(ScrollTrigger);
 
+const GsapAnimation = ({ selector, toVars, fromVars, children , scope}: {
+  children: ReactNode,
+  selector: string | HTMLElement | null,
+  fromVars: TweenVars,
+  toVars: TweenVars,
+  scope?: string | HTMLElement
+}) => {
   useGSAP(() => {
-
-  } , {})
+    gsap.fromTo(selector, fromVars, toVars);
+  } , {scope: scope});
 
   return (
     <>
-
+      {children}
     </>
   );
 };
