@@ -27,7 +27,7 @@ const OfferingSectionV2 = forwardRef<HTMLDivElement , {}>(({} , ref) => {
           userAlt={'Aaron Korbs'}
           userCompany={'/images/company.png'}
           userCompanyAlt={'company'}
-          link={"#"}
+          link={"/tools/TenSurfBrain"}
           userJob={"Aaron Korbs position"}
           userName={"Aaron Korbs"}
         />
@@ -43,7 +43,7 @@ const OfferingSectionV2 = forwardRef<HTMLDivElement , {}>(({} , ref) => {
           userAlt={'Aaron Korbs'}
           userCompany={'/images/company.png'}
           userCompanyAlt={'company'}
-          link={"#"}
+          link={"/tools/Chart_Surf"}
           userJob={"Aaron Korbs position"}
           userName={"Aaron Korbs"}
         />
