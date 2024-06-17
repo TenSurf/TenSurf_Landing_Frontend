@@ -12,8 +12,16 @@ import { TensurfLogo } from "@/components/TensurfLogo";
 
 export const PublicFooter = () => {
   return (
-    <div className="relative mt-16 px-6 w-full max-w-screen-xl mx-auto">
+    <div className="relative px-6 w-full max-w-screen-xl mx-auto">
       <div className="z-50 flex flex-col md:flex-row justify-between gap-6 w-full mx-auto">
+        <div
+          style={{
+            opacity: "0.8",
+            background: "#343A40",
+            filter: "blur(100px)"
+          }}
+          className="z-0 absolute left-32 w-[200px] h-[150px] rounded-full"
+        ></div>
         <div className="flex flex-col gap-4">
           <TensurfLogo />
           <div>
@@ -48,7 +56,8 @@ export const PublicFooter = () => {
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row justify-around gap-4 items-center border-t-[1px] border-t-white/40 py-2 text-xs font-normal">
+      <div
+        className="flex flex-col lg:flex-row justify-around gap-4 items-center border-t-[1px] border-t-white/40 py-2 text-xs font-normal">
         <div>{COPYRIGHT}</div>
         <div className="flex gap-8">
           {/*<a href={TENSURF_CONTACT.phoneCallLink} className='flex items-center gap-1 group'>*/}

@@ -583,4 +583,14 @@
     }
   }
 
+  .faq-item {
+    background: rgba(30, 34, 56, 0.3);
+  }
+
+  .faq-item[data-state="open"] {
+    content: "";
+    background: rgb(128,50,255);
+    background: linear-gradient(102deg, rgba(128,50,255,0.15) 0%, rgba(0,4,26,0.8) 32%);
+    border: 1px solid rgba(33, 37, 41, 1);
+  }
 }
