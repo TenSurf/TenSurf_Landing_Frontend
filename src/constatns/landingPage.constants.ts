@@ -52,7 +52,7 @@ export const MENU_ITEMS = [
   { title: MnuItemsEnum.team, icon: UserGroupIcon, url: "/team" },
   { title: MnuItemsEnum.contact, icon: PhoneIcon, url: "/contact-us" },
   { title: MnuItemsEnum.aboutUs, icon: AboutUsIcon, url: "/about-us" },
-  { title: MnuItemsEnum.faq, icon: FaqIcon, url: ROUTE.landingFaq },
+  { title: MnuItemsEnum.faq, icon: FaqIcon, url: ROUTE.faq },
 ];
 
 export const HERO_SECTION = {
