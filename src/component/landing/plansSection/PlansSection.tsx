@@ -1,12 +1,10 @@
 "use client";
-import { type RefObject, useEffect, useState } from "react";
+import { useState } from "react";
 import Switch from "../../general/Switch";
 import Image from "next/image";
 import sphereImgSrc from "../../../../public/images/sphere.webp";
 import { type IPlan } from "../../../types/general.types";
 import { Plan } from "./Plan";
-import { HttpMethod, sendRequest } from "@/helpers/http-request";
-import { BackendUrls } from "@/helpers/backend-urls";
 
 import { Swiper as SwiperType } from "swiper/types";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -15,53 +13,14 @@ import "swiper/css/effect-coverflow";
 import "swiper/css";
 
 export const PlansSection = ({
+  data,
   mode = "landingPage",
 }: {
+  data: IPlan[];
   mode?: "landingPage" | "plansPage";
 }) => {
   const [isAnnuallyChecked, setIsAnnuallyChecked] = useState(true);
-  const [plans, setPlans] = useState<{
-    status: "reject" | "pending" | "fulfilled";
-    data?: IPlan[];
-  }>({
-    status: "pending",
-    data: [],
-  });
   const [swiper, setSwiper] = useState<SwiperType>();
-
-  useEffect(() => {
-    setPlans({ status: "pending" });
-    sendRequest(BackendUrls.plans, HttpMethod.GET)
-      .then((res) => {
-        let data = Object.values(res.data)
-          .map((val: any): IPlan => {
-            return {
-              title: val.name,
-              description: val.description,
-              buttonLabel: val.is_coming_soon ? "Contact Us" : "Start Now",
-              features: val.features.map((feature: any) => ({
-                title: feature.name,
-              })),
-              priceAnnually: val.year_unit_amount / 100,
-              priceMonthly: val.month_unit_amount / 100,
-              is_coming_soon: val.is_coming_soon,
-              month_price_id: val.month_price_id,
-              year_price_id: val.year_price_id,
-              is_free: val.is_free,
-              order_id: val.order_id,
-              month_currency: val?.month_currency,
-              year_currency: val?.year_currency,
-            };
-          })
-          .sort((a, b) => a.order_id - b.order_id);
-
-        setPlans({ status: "fulfilled", data });
-      })
-      .catch((err) => {
-        console.log(err);
-        setPlans({ status: "reject" });
-      });
-  }, []);
 
   // *.*.*.*.*.*.*.*.*. RETURN ↓•↓•↓
   return (
@@ -146,7 +105,7 @@ export const PlansSection = ({
           rewind
           loop
         >
-          {plans?.data?.map((item: IPlan, index: number) => (
+          {data?.map((item: IPlan, index: number) => (
             <SwiperSlide
               className={"!h-auto transition-all"}
               key={item.order_id}

@@ -4,6 +4,7 @@ import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -97,6 +98,7 @@ export default function RootLayout({
           src={"//js.hs-scripts.com/46299069.js"}
           type={"text/javascript"}
         ></Script>
+        <script async type="text/javascript" src="/js/scroll.js"></script>
       </body>
     </html>
   );

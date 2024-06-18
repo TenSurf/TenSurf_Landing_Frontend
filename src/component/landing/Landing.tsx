@@ -6,6 +6,7 @@ import DefaultLayout from "../../layout/publicContentLayout/DefaultLayout";
 import AboutUsSection from "@/component/landing/AboutUsSection";
 import FaqSection from "@/component/landing/FaqSection";
 import OfferingSectionV2 from "@/component/landing/OfferingSectionV2";
+import PlansServerSideSection from "./plansSection/PlansServerSideSection";
 
 export const Landing: FC = () => {
   return (
@@ -15,7 +16,8 @@ export const Landing: FC = () => {
         <MvpSection />
         <OfferingSectionV2 />
         {/*<ChartSection ChartRef={chartRef} />*/}
-        <PlansSection />
+        {/* <PlansSection /> */}
+        <PlansServerSideSection />
         {/*<InnovationSection />*/}
         <AboutUsSection />
         {/*<TeamSection TeamRef={TeamRef} />*/}

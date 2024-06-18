@@ -3,6 +3,7 @@ import { GradientShape } from "@/component/general/GradientShape";
 import React from "react";
 import ToolCard from "@/component/landing/tools/ToolCard";
 import ToolsHeader from "@/component/tools/ToolsHeader";
+import ToolSummery from "@/component/tools/ToolSummery";
 
 
 const Tools = (
@@ -17,11 +18,11 @@ const Tools = (
   return (
     <div className="flex flex-col gap-10  my-[120px] max-w-screen-xl px-8 lg:px-0">
       <div className="flex flex-col gap-2">
-          <ToolsHeader header={TOOLS[params.tool].header} title={TOOLS[params.tool]?.title}
-                       description={TOOLS[params.tool].description} />
+        <ToolsHeader header={TOOLS[params.tool]?.header} title={TOOLS[params.tool]?.title}
+                     description={TOOLS[params.tool]?.description} />
       </div>
       <div className="flex flex-col gap-36 relative z-20 w-full items-center mt-14">
-        {TOOLS[params.tool].items.map((item: any, index: number) => (
+        {TOOLS[params.tool]?.items.map((item: any, index: number) => (
           <ToolCard key={item.title} direction={index % 2 == 0 ? "left" : "right"} image={item.image}
                     imageAlt={item.title}>
             <div className="flex flex-col gap-4">
@@ -42,6 +43,7 @@ const Tools = (
           <GradientShape />
         </div>
       </div>
+      <ToolSummery title={TOOLS[params.tool]?.footer?.title} description={TOOLS[params.tool]?.footer?.description}/>
     </div>
   );
 };
