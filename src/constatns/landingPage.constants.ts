@@ -30,6 +30,12 @@ import LinkedInIcon from "../icons/LinkedInIcon";
 import { ROUTE, TENSURF_CONTACT } from "./general.constants";
 import XIcon from "../icons/XIcon";
 import AboutUsIcon from "@/icons/AboutUsIcon";
+import MenuTeamIcon from "@/icons/MenuTeamIcon";
+import MenuContactUsIcon from "@/icons/MenuContactUsIcon";
+import MenuAboutUsIcon from "@/icons/MenuAboutUsIcon";
+import MenuFaqIcon from "@/icons/MenuFaqIcon";
+import MenuPlansIcon from "@/icons/MenuPlansIcon";
+import MenuServicesIcon from "@/icons/MenuServicesIcon";
 
 export enum MnuItemsEnum {
   products = "Products",
@@ -43,16 +49,16 @@ export enum MnuItemsEnum {
 }
 
 export const MENU_ITEMS = [
-  { title: MnuItemsEnum.services, icon: LayerIcon, url: "/#tools" },
+  { title: MnuItemsEnum.services, icon: MenuServicesIcon, url: "/#tools" },
   {
     title: MnuItemsEnum.plans,
-    icon: ShoppingBagIcon,
+    icon: MenuPlansIcon,
     url: `${process.env.NEXT_PUBLIC_HUB_URL}/plans`,
   },
-  { title: MnuItemsEnum.team, icon: UserGroupIcon, url: "/team" },
-  { title: MnuItemsEnum.contact, icon: PhoneIcon, url: "/contact-us" },
-  { title: MnuItemsEnum.aboutUs, icon: AboutUsIcon, url: "/about-us" },
-  { title: MnuItemsEnum.faq, icon: FaqIcon, url: ROUTE.faq },
+  { title: MnuItemsEnum.team, icon: MenuTeamIcon, url: "/team" },
+  { title: MnuItemsEnum.contact, icon: MenuContactUsIcon, url: "/contact-us" },
+  { title: MnuItemsEnum.aboutUs, icon: MenuAboutUsIcon, url: "/about-us" },
+  { title: MnuItemsEnum.faq, icon: MenuFaqIcon, url: ROUTE.faq },
 ];
 
 export const HERO_SECTION = {
