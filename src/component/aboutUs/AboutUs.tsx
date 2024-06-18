@@ -1,6 +1,8 @@
 // *.*.*.*.*.*.*.*.*.*.* Main Function ↓•↓•↓
 import React from "react";
 import Image from "next/image";
+import AboutUsIcon from "@/icons/AboutUsIcon";
+import AboutUsItem from "@/component/aboutUs/AboutUsItem";
 
 export const AboutUs = () => {
   // *.*.*.*.*.*.*.*.*. RETURN ↓•↓•↓
@@ -14,8 +16,8 @@ export const AboutUs = () => {
         </div>
         <Image src={"/images/about-us.png"} className={'2xl:rounded-3xl max-w-screen-2xl mx-auto'} objectFit={"cover"} alt={"About Us"} fill />
       </div>
-      <div className="max-w-screen-2xl w-full flex-col md:gap-[200px]">
-
+      <div className="container w-full mx-auto flex-col md:gap-[200px]">
+        <AboutUsItem/>
       </div>
     </div>
   );
