@@ -1,5 +1,3 @@
-'use client';
-
 import Faq from '@/component/faq/Faq';
 import DefaultLayout from '@/layout/publicContentLayout/DefaultLayout';
 import PageProvider from '@/component/general/PageProvider';

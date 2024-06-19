@@ -1,18 +1,21 @@
-'use client';
+import ContactUs from "@/component/contactUs/contactUs";
+import DefaultLayout from "@/layout/publicContentLayout/DefaultLayout";
+import PageProvider from "@/component/general/PageProvider";
+import { PAGE_TITLE } from "@/constatns/general.constants";
+import { Metadata } from "next";
 
-import ContactUs from '@/component/contactUs/contactUs';
-import DefaultLayout from '@/layout/publicContentLayout/DefaultLayout';
-import PageProvider from '@/component/general/PageProvider';
-import { PAGE_TITLE } from '@/constatns/general.constants';
-import { HubspotProvider } from "next-hubspot";
+export const metadata: Metadata = {
+  title: "Contact US",
+  description: "Contact with Tensurf Support",
+  icons: ["/favicon.ico", "/logo.png"],
+  keywords: ["tensurf contact us"],
+};
 
 const ContactUsPage = () => {
   return (
     <PageProvider title={PAGE_TITLE.contactUs}>
       <DefaultLayout>
-        <HubspotProvider>
-          <ContactUs />
-        </HubspotProvider>
+        <ContactUs />
       </DefaultLayout>
     </PageProvider>
   );

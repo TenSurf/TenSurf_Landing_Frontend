@@ -1,18 +1,40 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
 import { ToastContainer } from "react-toastify";
 import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "TenSurf",
-  description:
-    'Revolutionizing AI Trading\n"At TenSurf, we are committed to revolutionizing AI trading and democratizing algorithmic trading. Our mission is to harness the power of Generative AI and Data Science to enable smart trading decisions."',
+  description: `Experience the future of trading with TenSurf Hub, where our cutting-edge "TenSurf Brain" AI chat interface delivers real-time market analysis and insights directly to you. Integrate your trading strategy with our intuitive, no-code platform that makes algorithmic trading accessible to everyone.`,
   icons: ["/favicon.ico", "/logo.png"],
+  keywords: [
+    "algorithm trading",
+    "algorithms trading",
+    "trading algorithms",
+    "ai trade",
+    "ai trader",
+    "ai algorithm trading",
+    "trade with ai",
+    "trade",
+    "finance",
+  ],
+  openGraph: {
+    type: "website",
+    url: "https://tensurf.ai",
+    title: "Tensurf",
+    description: "Your advanced AI-powered Trading platform",
+    siteName: "Tensurf Hub",
+    images: [
+      {
+        url: "/logo.png",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -66,15 +88,8 @@ export default function RootLayout({
         ></Script>
       </head>
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <App />
-          {children}
-        </ThemeProvider>
+        <App />
+        {children}
         <Toaster duration={3000} />
         <Script
           id={"hs-script-loader"}
@@ -83,6 +98,7 @@ export default function RootLayout({
           src={"//js.hs-scripts.com/46299069.js"}
           type={"text/javascript"}
         ></Script>
+        <script async type="text/javascript" src="/js/scroll.js"></script>
       </body>
     </html>
   );
