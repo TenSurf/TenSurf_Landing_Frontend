@@ -8,9 +8,7 @@ const Page = () => {
   return (
     <PageProvider title={PAGE_TITLE.team}>
       <DefaultLayout>
-        <div className={'py-20 px-5'}>
-          <TeamSection />
-        </div>
+        <TeamSection />
       </DefaultLayout>
     </PageProvider>
   );
