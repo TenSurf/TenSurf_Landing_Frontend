@@ -3,7 +3,7 @@ export const TOOLS:{[key:string]: any} = {
     title: "WidgetSurf",
     header: "Data-driven Insights with WidgetSurf",
     description: "WidgetSurf integrates a diverse range of widgets for comprehensive market analysis and trading strategy optimization. Each widget provides specific insights and analytical capabilities to enhance trading decisions, collectively empowering traders with valuable insights and data-driven decision-making capabilities.",
-    detailDescriptionTitle: "Detailed Descriptions of WidgetSurf Tools:",
+    detailDescriptionTitle: "Detailed Descriptions of WidgetSurf Tools",
     items: [
       {
         title: "TrendSurf",
@@ -120,7 +120,7 @@ export const TOOLS:{[key:string]: any} = {
     title: "ChartSurf",
     header: "Automated Key Levels and Event Insights in ChartSurf",
     description: "ChartSurf is an advanced charting tool within TenSurf Hub that integrates a comprehensive suite of analytical features designed to support effective trading. By automating key level calculations and providing event insights, ChartSurf empowers traders to make informed decisions swiftly and accurately.",
-    detailDescriptionTitle: "Key Features of ChartSurf:",
+    detailDescriptionTitle: "Key Features of ChartSurf",
     items: [
       {
         title: "Delta and Footprint Imbalances",
@@ -176,7 +176,6 @@ export const TOOLS:{[key:string]: any} = {
       },
       {
         title: "Volume Profile and VWAP Levels",
-        description: "LiqSurf focuses on analyzing the order book to identify market pressure.",
         image: "/images/tools/RiskSurf.png",
         list: [
           {
@@ -191,7 +190,6 @@ export const TOOLS:{[key:string]: any} = {
       },
       {
         title: "Support and Resistance (S/R) Levels",
-        description: "TimeSurf analyzes market behavior in relation to news events.",
         image: "/images/tools/TrendSurf.png",
         list: [
           {
@@ -206,7 +204,6 @@ export const TOOLS:{[key:string]: any} = {
       },
       {
         title: "Gap Analysis",
-        description: "StatSurf leverages historical market data to provide statistical analysis of market events and trends.",
         image: "/images/tools/StatSurf.png",
         list: [
           {
@@ -214,7 +211,49 @@ export const TOOLS:{[key:string]: any} = {
             description: "When the price opens with a gap relative to the previous RTH session range, it is marked on the chart at the beginning of the new RTH session. If the gap is subsequently filled, this event is also noted on the chart. This feature helps traders monitor and capitalize on gap-related trading opportunities."
           },
         ]
-      }
+      },
+      {
+        title: "Data-driven Decision Making",
+        image: "/images/tools/StatSurf.png",
+        list: [
+          {
+            title: "Accurate Insights",
+            description: "By automating the calculation of key levels and providing detailed market analysis, ChartSurf ensures traders have access to precise and timely information, reducing the reliance on manual analysis."
+          },
+          {
+            title: "Comprehensive Tools",
+            description: "The integration of various analytical tools, including delta and footprint imbalances, trend analysis, and volume profiles, equips traders with a holistic view of the market."
+          }
+        ]
+      },
+      {
+        title: "Risk Management",
+        image: "/images/tools/StatSurf.png",
+        list: [
+          {
+            title: "Support and Resistance Levels",
+            description: "The automatic identification of S/R levels helps traders manage risk by clearly indicating where the market is likely to reverse or stall, enabling them to set more effective stop-loss and take-profit orders."
+          },
+          {
+            title: "Volume and Liquidity Analysis",
+            description: "Understanding major liquidity levels and volume profiles allows traders to anticipate significant market movements and adjust their strategies accordingly."
+          },
+        ]
+      },
+      {
+        title: "Strategic Planning",
+        image: "/images/tools/StatSurf.png",
+        list: [
+          {
+            title: "Event Insights",
+            description: "By highlighting key market events such as gap openings and initial balance ranges, ChartSurf aids traders in planning their trades around significant market developments."
+          },
+          {
+            title: "Trend Identification",
+            description: "The use of adaptive moving averages and trend analysis tools helps traders stay aligned with the overall market direction, improving the effectiveness of their trading strategies."
+          },
+        ]
+      },
     ],
     footer: {
       title: "Conclusion",
@@ -225,7 +264,7 @@ export const TOOLS:{[key:string]: any} = {
     title: "TenSurf Brain",
     header: "Advanced Trading Insights by Chatting with TenSurf Brain",
     description: "TenSurf Brain is an artificial intelligence-powered chatbot designed to provide traders with a suite of advanced tools to enhance their trading strategies. This AI-driven assistant is accessible via both voice and text chat, making it highly interactive and user-friendly. Below are the key features and functionalities of TenSurf Brain, explained in more detail:",
-    detailDescriptionTitle: "Key Features of TenSurf Brain:",
+    detailDescriptionTitle: "Key Features of TenSurf Brain",
     items: [
       {
         title: "Trend Detection",
@@ -308,6 +347,48 @@ export const TOOLS:{[key:string]: any} = {
           {
             title: "Natural Language Processing",
             description: "The AI chatbot understands and responds to natural language queries, making it intuitive and easy to use. This feature ensures that even traders who are not tech-savvy can navigate and utilize the tool effectively."
+          }
+        ]
+      },
+      {
+        title: "Data-driven Decision Making",
+        image: "/images/tools/TrendSurf.png",
+        list: [
+          {
+            title: "Accurate Analysis",
+            description: "By leveraging AI and machine learning, TenSurf Brain provides accurate and data-driven insights, reducing the guesswork in trading."
+          },
+          {
+            title: "Comprehensive Tools",
+            description: "The combination of trend detection, support/resistance analysis, and risk management tools equips traders with everything they need to make informed decisions."
+          }
+        ]
+      },
+      {
+        title: "Risk Management",
+        image: "/images/tools/TrendSurf.png",
+        list: [
+          {
+            title: "Optimal Stop Loss and Take Profit",
+            description: "Calculations for stop loss and take profit levels help manage risk and secure profits, crucial for maintaining a healthy trading portfolio."
+          },
+          {
+            title: "Trading Biases",
+            description: "Evaluating market biases ensures that traders are aligned with the broader market movements, helping to avoid unnecessary risks."
+          }
+        ]
+      },
+      {
+        title: "Continuous Learning",
+        image: "/images/tools/TrendSurf.png",
+        list: [
+          {
+            title: "YouTube Integration",
+            description: "The ability to give YouTube videos and receive summaries helps traders stay updated with new strategies and techniques, fostering continuous learning and improvement."
+          },
+          {
+            title: "Interactive Assistance",
+            description: "The chatbot’s interactive nature encourages engagement and helps traders clarify their queries in real-time."
           }
         ]
       },

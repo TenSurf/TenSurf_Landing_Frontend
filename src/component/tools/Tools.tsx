@@ -21,6 +21,7 @@ const Tools = (
         <ToolsHeader header={TOOLS[params.tool]?.header} title={TOOLS[params.tool]?.title}
                      description={TOOLS[params.tool]?.description} />
       </div>
+      <h3 className={'text-5xl underline font-bold mb-16 text-center'}>{TOOLS[params.tool].detailDescriptionTitle}</h3>
       <div className="flex flex-col gap-36 relative z-20 w-full items-center mt-14">
         {TOOLS[params.tool]?.items.map((item: any, index: number) => (
           <ToolCard key={item.title} direction={index % 2 == 0 ? "left" : "right"} image={item.image}
