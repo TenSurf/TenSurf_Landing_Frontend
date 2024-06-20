@@ -14,12 +14,12 @@ interface IProps {
 export const Plan: FC<IProps> = ({ plan, isAnnuallyChecked, className }) => {
   return (
     <div
-      style={{
-        background:
-          "linear-gradient(136deg, rgba(57, 68, 225, 0.50) 7.59%, rgba(113, 82, 218, 0.15) 37.43%, rgba(255, 127, 101, 0.05) 66.68%), rgba(0, 0, 0, 0.40)",
-      }}
+      // style={{
+      //   background:
+      //     "linear-gradient(136deg, rgba(57, 68, 225, 0.50) 7.59%, rgba(113, 82, 218, 0.15) 37.43%, rgba(255, 127, 101, 0.05) 66.68%), rgba(0, 0, 0, 0.40)",
+      // }}
       className={cn(
-        `h-full flex flex-col gap-4 px-4 py-6 border backdrop-blur-[20px]  border-white/2 rounded-3xl relative z-10 w-full lg:w-96`,
+        `h-full flex flex-col gap-4 px-4 py-6 border backdrop-blur-[20px] border-white/2 rounded-3xl relative z-10 w-full lg:w-96`,
         className
       )}
     >

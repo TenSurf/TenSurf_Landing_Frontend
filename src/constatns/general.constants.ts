@@ -37,6 +37,7 @@ export const ROUTE = {
   signUp: '/signup',
   signOut: '/logout',
   plans: '/plans',
+  hubPlans: (process.env.NEXT_PUBLIC_HUB_URL as string) + "/plans",
   comming: '/comming-soon'
 };
 
@@ -59,6 +60,7 @@ export const PAGE_TITLE = {
   team: 'Team | TenSurf',
   riskDisclosure: 'Risk Disclosure | TenSurf',
   tools: 'Tools | TenSurf',
+  plans: 'plans | TenSurf',
   dashboard: 'Dashboard | TenSurf',
   chart: 'Chart | TenSurf',
   profile: 'Profile Setting | TenSurf',

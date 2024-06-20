@@ -53,7 +53,7 @@ export const MENU_ITEMS = [
   {
     title: MnuItemsEnum.plans,
     icon: MenuPlansIcon,
-    url: `${process.env.NEXT_PUBLIC_HUB_URL}/plans`,
+    url: `/plans`,
   },
   { title: MnuItemsEnum.team, icon: MenuTeamIcon, url: "/team" },
   { title: MnuItemsEnum.contact, icon: MenuContactUsIcon, url: "/contact-us" },

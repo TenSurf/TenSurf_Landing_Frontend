@@ -24,7 +24,7 @@ export const DefaultHeader = () => {
         router.push(ROUTE.landingProducts);
         break;
       case MnuItemsEnum.plans:
-        window.open((process.env.NEXT_PUBLIC_HUB_URL as string) + "/plans");
+        router.push(ROUTE.plans)
         break;
       case MnuItemsEnum.team:
         router.push(ROUTE.team);
