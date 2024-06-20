@@ -127,7 +127,7 @@ export const DefaultHeader = () => {
                       </div>
                       <span className={"h-[1px] bg-white w-3/4"}></span>
                     </div>
-                    {MENU_ITEMS.map((item, index) => (
+                    {MENU_ITEMS.map((item: any, index: number) => (
                       <div key={index} className={'w-full max-w-[336px]'}>
                         <div
                           id={item.title}
