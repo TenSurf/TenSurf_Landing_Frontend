@@ -18,39 +18,6 @@ import { Button } from "@/components/ui/button";
 export const PlansSection = (props: { data: IPlan[] }) => {
   const [isAnnuallyChecked, setIsAnnuallyChecked] = useState(true);
 
-  console.log(props.data);
-
-
-
-  // useEffect(() => {
-  //   sendRequest(BackendUrls.plans, HttpMethod.GET)
-  //     .then((res) => {
-  //       let data = Object.values(res.data)
-  //         .map((val: any): IPlan => {
-  //           return {
-  //             title: val.name,
-  //             description: val.description,
-  //             buttonLabel: val.is_coming_soon ? "Contact Us" : "Start Now",
-  //             features: val.features.map((feature: any) => ({
-  //               title: feature.name,
-  //             })),
-  //             priceAnnually: val.year_unit_amount / 100,
-  //             priceMonthly: val.month_unit_amount / 100,
-  //             is_coming_soon: val.is_coming_soon,
-  //             month_price_id: val.month_price_id,
-  //             year_price_id: val.year_price_id,
-  //             is_free: val.is_free,
-  //             order_id: val.order_id,
-  //             month_currency: val?.month_currency,
-  //             year_currency: val?.year_currency,
-  //           };
-  //         })
-  //         .sort((a, b) => a.order_id - b.order_id);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
 
   // *.*.*.*.*.*.*.*.*. RETURN ↓•↓•↓
   return (
@@ -137,7 +104,6 @@ export const PlansSection = (props: { data: IPlan[] }) => {
           grabCursor
           spaceBetween={10}
           centeredSlides
-          // centeredSlidesBounds
           centerInsufficientSlides
           rewind
           loop

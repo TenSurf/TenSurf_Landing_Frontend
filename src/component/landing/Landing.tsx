@@ -1,5 +1,3 @@
-"use client";
-
 import { HeroSection } from "./heroSection/HeroSection";
 import DefaultLayout from "../../layout/publicContentLayout/DefaultLayout";
 import ToolsCard from "@/component/landing/toolsV2/ToolsCard";

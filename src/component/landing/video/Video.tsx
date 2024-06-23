@@ -68,7 +68,7 @@ const Video = () => {
           </div>
           <video
             ref={videoRef}
-            poster={"/images/Demo_Video.png"}
+            poster={"/images/Demo_Video.webp"}
             width={"100%"}
             height={"100%"}
             controls={videoLoading != "idl"}

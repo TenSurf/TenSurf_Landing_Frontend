@@ -18,8 +18,8 @@ const ToolItem = ({title , image ,description}: {title: string , description: st
           </Button>
         </Link>
       </div>
-      <div className="w-full lg:w-[60%] xl:w-[52%] relative pb-[70%] lg:pb-[41%] xl:pb-[38%] order-1 lg:order-2">
-        <Image src={image} fill alt={title} loading={"lazy"} className={"w-full"} />
+      <div style={{aspectRatio: 1.3}} className="w-full lg:w-[60%] xl:w-[52%] relative pb-[70%] lg:pb-[41%] xl:pb-[38%] order-1 lg:order-2">
+        <Image src={image} fill alt={title} loading={"lazy"} />
       </div>
     </div>
   );

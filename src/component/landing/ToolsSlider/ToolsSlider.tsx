@@ -18,11 +18,7 @@ const ToolsSlider = () => {
 
   const toolRef = useRef<SwiperRef>() as any;
   const quoteRef = useRef<SwiperRef>() as any;
-
-  // const onSlideClick = () => {
-  //   toolRef.current.swiper.slideNext();
-  //   // quoteRef.current.swiper.slideNext();
-  // };
+  
 
   return (
     <GsapAnimation selector={"#toolsSlider"} fromVars={{y: 400 , rotate: -15}} toVars={{y: 0 , rotate: 0, duration: 1 , scrollTrigger: {start: "top bottom" , trigger: "#toolsSlider"}}}>

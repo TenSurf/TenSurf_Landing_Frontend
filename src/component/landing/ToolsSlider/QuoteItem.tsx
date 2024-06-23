@@ -11,8 +11,8 @@ const QuoteItem = ({image ,description ,quoteTitle ,name}: {image: string , name
         <Image className={'rounded-full shadow-md'} src={image} alt={name} width={80}
                height={80} />
         <div className="flex flex-1 flex-col justify-evenly">
-          <h5 className={'text-2xl'}>{name}</h5>
-          <h6 className={'text-lg font-normal'}>{quoteTitle}</h6>
+          <h2 className={'text-2xl'}>{name}</h2>
+          <h3 className={'text-lg font-normal'}>{quoteTitle}</h3>
         </div>
       </div>
       <p className={'text-xl font-normal'}>{description}</p>

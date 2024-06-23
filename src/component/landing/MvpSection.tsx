@@ -11,7 +11,6 @@ const MvpItem = ({
   return (
     <div
       className="relative z-10 bg-[#000]/40 flex flex-col justify-center items-center gap-4 px-4 py-10 rounded-[24px] border-[1px] border-white/20 max-w-[392px]"
-      data-aos="flip-down"
     >
       <div className="text-[36px] font-semibold">{title}</div>
       <div className="text-[20px] font-normal">{description}</div>
@@ -28,7 +27,6 @@ export const MvpSection = () => {
     >
       <div
         className="text-3xl md:text-4xl lg:text-6xl font-semibold"
-        data-aos="fade-up"
       >
         {MVP_SECTION.title}
       </div>
