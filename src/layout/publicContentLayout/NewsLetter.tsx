@@ -1,5 +1,3 @@
-import MailIcon from "../../icons/MailIcon";
-import TensurfButton from "../../component/general/TensurfButton";
 // import axios from "axios";
 // import { backendUrl } from "../../helpers/http-request";
 // import { BackendUrls } from "../../helpers/backend-urls";

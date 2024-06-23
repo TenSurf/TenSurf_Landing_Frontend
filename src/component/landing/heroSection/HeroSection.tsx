@@ -1,23 +1,14 @@
 import ChevronDownIcon from "../../../icons/ChevronDownIcon";
-import React, { useRef, useState } from "react";
+import React from "react";
 import { AnimateLight } from "./AnimateLight";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { useRouter } from "next/navigation";
+
+
+const animateLights = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
 export const HeroSection = () => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [videoLoading, setVideoLoading] = useState<"idl" | "pend" | "full">(
-    "idl"
-  );
 
-  let router = useRouter();
-
-  useState({ signUp: false, signIn: false });
-
-  const [videoModal, setVideoModal] = useState(false);
-
-  const animateLights = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   return (
     <div
       className={`relative w-full flex flex-col items-center overflow-hidden h-screen`}
@@ -48,7 +39,8 @@ export const HeroSection = () => {
         <ChevronDownIcon className="absolute z-10 bottom-12 h-8 w-8 animate-bounce cursor-pointer hidden lg:block" />
       </a>
 
-      <div className="absolute z-0 h-full w-full items-stretch flex-wrap gap-y-[20000px] justify-between flex gap-[200px] max-w-[90%]">
+      <div
+        className="absolute z-0 h-full w-full items-stretch flex-wrap gap-y-[20000px] justify-between flex gap-[200px] max-w-[90%]">
         {animateLights.map((light, index) => (
           <AnimateLight key={index} index={index} />
         ))}

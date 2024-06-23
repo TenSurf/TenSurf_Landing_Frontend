@@ -1,4 +1,3 @@
-"use client";
 import { type ReactNode, type RefObject } from "react";
 import { PublicFooter } from "./PublicFooter";
 import { DefaultHeader } from "./DefaultHeader";

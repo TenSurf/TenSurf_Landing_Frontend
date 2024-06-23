@@ -1,11 +1,6 @@
-import {
-  COPYRIGHT,
-  FOOTER_MENU_COLS,
-} from "../../constatns/landingPage.constants";
-import PhoneIcon from "../../icons/PhoneIcon";
-import { TENSURF_CONTACT } from "../../constatns/general.constants";
+import { COPYRIGHT, FOOTER_MENU_COLS } from "@/constatns/landingPage.constants";
+import { TENSURF_CONTACT } from "@/constatns/general.constants";
 import MailIcon from "../../icons/MailIcon";
-import { GradientShape } from "../../component/general/GradientShape";
 import { NewsLetter } from "./NewsLetter";
 import Link from "next/link";
 import { TensurfLogo } from "@/components/TensurfLogo";
