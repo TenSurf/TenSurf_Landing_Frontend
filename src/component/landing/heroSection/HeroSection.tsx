@@ -14,28 +14,30 @@ export const HeroSection = () => {
       className={`relative w-full flex flex-col items-center overflow-hidden h-screen`}
     >
       <div className="flex items-center flex-col justify-center gap-14 relative z-[9] max-w-2xl min-h-screen">
-        <h1 className={"text-7xl text-center font-medium"}>
-          Next Generation of Trading Platforms
-        </h1>
-        <p className={"text-xl font-normal text-center"}>
-          At TenSurf, we are committed to revolutionizing trading and
-          democratizing algorithmic trading. Our mission is to harness the power
-          of Generative AI and Data Science to enable smart trading decisions to
-          surf financial markets.
-        </p>
+        <div className="flex items-center flex-col justify-center gap-14 ">
+          <h1 className={"text-4xl sm:text-7xl text-center font-medium"}>
+            Next Generation of Trading Platforms
+          </h1>
+          <p className={"text-base sm:text-xl font-normal text-center"}>
+            At TenSurf, we are committed to revolutionizing trading and
+            democratizing algorithmic trading. Our mission is to harness the power
+            of Generative AI and Data Science to enable smart trading decisions to
+            surf financial markets.
+          </p>
+        </div>
         <a
           className={"flex justify-center w-fit"}
           href={process.env.NEXT_PUBLIC_SIGNUP_URL}
           target="_blank"
         >
-          <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-8 px-16">
-            <p className={"text-xl font-bold text-center"}>Go to TenSurf Hub</p>
+          <Button className="flex gap-1 sm:gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-4 px-8 sm:py-8 sm:px-16">
+            <p className={"text-lg sm:text-xl font-normal sm:font-bold text-center"}><span className={'hidden sm:inline-block'}>Go to </span><span>TenSurf Hub</span></p>
             <ArrowRight size={20} strokeWidth={2} />
           </Button>
         </a>
       </div>
 
-      <a href="#tools" className="lg:block hidden">
+      <a href="#tools" className="lg:block hidden" aria-label={'tools'}>
         <ChevronDownIcon className="absolute z-10 bottom-12 h-8 w-8 animate-bounce cursor-pointer hidden lg:block" />
       </a>
 

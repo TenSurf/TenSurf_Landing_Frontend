@@ -11,6 +11,7 @@ const MenuDrawer = ({children}: {children: ReactNode}) => {
     <Drawer.Root direction="right">
       <Drawer.Trigger asChild>
         <Button
+          aria-label="menu"
           className={
             "block lg:hidden bg-transparent p-2 hover:bg-[#33415C33]/60 rounded-full"
           }

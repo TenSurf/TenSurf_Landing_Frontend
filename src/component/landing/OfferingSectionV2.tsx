@@ -9,7 +9,7 @@ const OfferingSectionV2 = forwardRef<HTMLDivElement, {}>(({}, ref) => {
       ref={ref}
       className="flex flex-col gap-10 text-white w-full items-center max-w-screen-2xl"
     >
-      <div className="flex flex-col gap-4 text-center" data-aos="fade-up">
+      <div className="flex flex-col gap-4 text-center">
         <div className="text-3xl md:text-4xl lg:text-6xl font-semibold">
           {OFFERING_SECTION.title}
         </div>

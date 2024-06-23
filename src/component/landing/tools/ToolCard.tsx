@@ -16,7 +16,6 @@ const ToolCard = ({
     <div className="grid grid-cols-1 lg:grid-cols-2 md:max-w-[600px] lg:max-w-none px-6 sm:px-0 gap-12 items-start justify-between w-full relative z-20">
       <div
         className={direction == "left" ? "order-1" : "order-2"}
-        data-aos={direction === "left" ? "fade-right" : "fade-left"}
       >
         {children}
       </div>
@@ -24,7 +23,6 @@ const ToolCard = ({
         className={`relative pb-[63%] ${
           direction == "right" ? "order-1" : "order-2"
         }`}
-        data-aos={direction === "left" ? "fade-left" : "fade-right"}
       >
         <Image
           src={image}
