@@ -21,10 +21,10 @@ const ToolsCard = () => {
             </p>
           </div>
           <div className="flex flex-col gap-6 w-full items-center justify-center">
-            <h2 className={"font-normal text-5xl text-center"}>
+            <h2 className={"font-normal text-5xl text-center  text-[#E9ECEF]"}>
               New Generation of Trading Tools
             </h2>
-            <p className={"font-normal text-2xl max-w-[600px] text-center"}>
+            <p className={"font-normal text-2xl max-w-[600px] text-center text-[#ADB5BD]"}>
               Leverage AI Agents in TenSurf Brain to Unlock Institutional-Grade
               Trading Tools
             </p>

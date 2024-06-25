@@ -6,10 +6,10 @@ import SubtitleBackground from "@/component/landing/subtitle/SubtitleBackground"
 const Subtitle = () => {
 
   return (
-    <div className={"flex flex-col gap-[16vw] sm:gap-[14vw] md:gap-[12vw] lg:gap-[10vw] xl:gap-[8vw] 2xl:gap-[6vw] py-80 relative mb-28"}>
+    <div className={"flex flex-col gap-[22vw] sm:gap-[14vw] md:gap-[12vw] lg:gap-[10vw] xl:gap-[9vw] 2xl:gap-[7vw] py-80 relative mb-28"}>
       <SubtitleBackground/>
       <div className="relative z-[100] w-screen">
-        <div className="absolute w-[102vw] left-[-1vw] rotate-[-3deg] bg-primary h-20">
+        <div className="absolute w-[102vw] left-[-1vw] rotate-[-3deg] bg-primary h-16 sm:h-20">
           <div className={"marquee-1 w-screen whitespace-nowrap"}>
             <div className={"flex gap-8 items-center h-full w-full"}>
               <SubtitleText title={"Ignite AI Agents"} />
@@ -76,7 +76,7 @@ const Subtitle = () => {
         </div>
       </div>
       <div className="relative z-[100] w-screen">
-        <div className="absolute w-screen bg-primary h-20">
+        <div className="absolute w-screen bg-primary h-16 sm:h-20">
           <div className={"marquee-2 w-screen whitespace-nowrap"}>
             <div className={"flex gap-8 items-center h-full w-full"}>
               <SubtitleText title={"Psychology Analysis"} />
@@ -143,7 +143,7 @@ const Subtitle = () => {
         </div>
       </div>
       <div className="relative z-[100] w-screen">
-        <div className="absolute w-[102vw] right-[-1vw] rotate-[-3deg] bg-primary h-20">
+        <div className="absolute w-[102vw] right-[-1vw] rotate-[-3deg] bg-primary h-16 sm:h-20">
           <div className={"marquee-1 w-screen whitespace-nowrap"}>
             <div className={"flex gap-8 items-center h-full w-full"}>
               <SubtitleText title={"Backtesting & Optimization"} />

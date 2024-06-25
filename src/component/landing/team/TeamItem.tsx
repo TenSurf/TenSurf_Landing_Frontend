@@ -5,7 +5,7 @@ const TeamItem = ({position , image ,name}: {name: string , position: string , i
   return (
     <div className="group flex flex-col gap-2 grayscale hover:grayscale-0 transition-all">
       <div className="relative w-full pb-[75%] rounded-3xl overflow-hidden">
-        <Image src={image} className={"transition-all rounded-3xl overflow-hidden max-w-screen-2xl mx-auto group-hover:scale-110"}
+        <Image src={image} className={"transition-all duration-1000 rounded-3xl overflow-hidden max-w-screen-2xl mx-auto group-hover:scale-110"}
                objectFit={"fill"}
                alt={name} fill />
       </div>

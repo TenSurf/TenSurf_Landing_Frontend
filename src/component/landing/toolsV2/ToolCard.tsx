@@ -10,9 +10,9 @@ const ToolCard = ({ title, description , className}: { title: string, descriptio
         <div className="transition-all duration-500 w-fit h-fit group-hover:rotate-[2turn]">
           <ToolCardTitleIcon className={'transition-all duration-500 group-hover:stroke-[#B07FFF] group-hover:drop-shadow-[0px_2px_3px_#B07FFF]'}/>
         </div>
-        <h2 className={"font-normal text-3xl z-10"}>{title}</h2>
+        <h2 className={"font-normal text-3xl z-10 text-[#ADB5BD]"}>{title}</h2>
       </div>
-      <p className={"text-xl font-normal z-10"}>{description}</p>
+      <p className={"text-xl font-normal z-10 text-[#ADB5BD]"}>{description}</p>
     </div>
   );
 };

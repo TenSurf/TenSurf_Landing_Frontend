@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 import { Play } from "lucide-react";
 import VideoBackground from "@/component/landing/video/VideoBackground";
 import GsapAnimation from "@/utils/GsapAnimation";
+import PlayIcon from "@/icons/PlayIcon";
 
 const Video = () => {
 
@@ -29,7 +30,7 @@ const Video = () => {
           <div
             className={`${
               videoLoading == "full" && "hidden"
-            } cursor-pointer bg-black z-[11] absolute w-full h-full rounded-2xl opacity-30 backdrop-blur flex items-center justify-center px-6 xl:px-0 indent-0`}
+            } cursor-pointer bg-black z-[11] absolute w-full h-full rounded-2xl opacity-30 backdrop-blur flex items-center justify-center inset-0`}
           >
             {videoLoading == "pend" ? (
               <div role="status">
@@ -53,16 +54,21 @@ const Video = () => {
               </div>
             ) : (
               <>
-                <Play
-                  onClick={async () => {
-                    setVideoLoading("pend");
-                    await videoRef?.current?.play();
-                    setVideoLoading("full");
-                  }}
-                  size={64}
-                  className={"stroke-[#8f8f8f] hover:stroke-[#ffffff]"}
-                  strokeWidth={6}
-                />
+                <PlayIcon onClick={async () => {
+                  setVideoLoading("pend");
+                  await videoRef?.current?.play();
+                  setVideoLoading("full");
+                }}/>
+                {/*<Play*/}
+                {/*  onClick={async () => {*/}
+                {/*    setVideoLoading("pend");*/}
+                {/*    await videoRef?.current?.play();*/}
+                {/*    setVideoLoading("full");*/}
+                {/*  }}*/}
+                {/*  size={64}*/}
+                {/*  className={"stroke-[#8f8f8f] hover:stroke-[#ffffff]"}*/}
+                {/*  strokeWidth={6}*/}
+                {/*/>*/}
               </>
             )}
           </div>

@@ -93,6 +93,9 @@ const config = {
         "rotate": 'rotate 1s ease-out forwards',
       },
     },
+    fontFamily: {
+      playfair: "playfair"
+    }
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config
