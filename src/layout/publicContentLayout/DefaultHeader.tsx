@@ -22,12 +22,12 @@ export const DefaultHeader = () => {
           />
         </Link>
 
-        <div className="hidden items-center text-center gap-10 lg:flex lg:flex-1 lg:justify-center">
+        <div className="hidden items-center text-center gap-10 lg:gap-0 lg:flex lg:flex-1 lg:justify-between xl:px-12">
           {MENU_ITEMS.map((item: any, index: number) => (
             <Link
               id={item.title}
               key={index}
-              className="flex items-center gap-1"
+              className="flex items-center gap-1 transition-all rounded-full hover:bg-[#979DAC]/10 py-3 px-4"
               href={item.url}
             >
               {<item.icon className="text-white" />}

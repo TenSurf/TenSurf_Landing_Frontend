@@ -11,10 +11,9 @@ const ToolItem = ({title , image ,description}: {title: string , description: st
         <h3 className={"text-2xl md:text-4xl xl:text-5xl font-normal !leading-normal"}>{title}</h3>
         <p className={"text-[#ADB5BD] text-lg line-clamp-4 font-extralight"}>{description}</p>
         <Link className={'hidden md:block w-fit'} href={""}>
-          <Button className={"text-[#ADB5BD] border-[#ADB5BD] flex gap-2 rounded-full py-6 xl:py-8 bg-transparent w-fit"}
-                  variant={"outline"}>
-            <p className={"text-xl font-semibold"}>Learn More</p>
-            <ArrowRight size={20} strokeWidth={2} />
+          <Button className={"group hover:bg-[#979DAC]/15 border-[#ADB5BD] border-[1px] flex gap-2 rounded-full py-6 xl:py-8 bg-transparent w-fit"}>
+            <p className={"group-hover:!text-[#FCFDFF] text-xl font-semibold"}>Learn More</p>
+            <ArrowRight className={'group-hover:!text-[#FCFDFF] color-[#ADB5BD]'} size={20} strokeWidth={2}/>
           </Button>
         </Link>
       </div>
