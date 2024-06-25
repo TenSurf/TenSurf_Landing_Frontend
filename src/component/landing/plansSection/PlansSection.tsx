@@ -33,7 +33,7 @@ export const PlansSection = (props: { data: IPlan[] }) => {
         </div>
         <div className="flex items-center justify-center gap-4 md:gap-12 flex-col w-full">
           <div className="bg-[#040B1C] flex items-center gap-2 border-[1px] border-[#181F30] px-2 rounded-full 3xl py-2">
-            <button className={'bg-primary rounded-full p-2'}>
+            <button className={'bg-primary rounded-full p-2'} aria-label={'discount'}>
               <Percent />
             </button>
             <p>Get 16% off equivalent to 2 free months with annual subscription</p>

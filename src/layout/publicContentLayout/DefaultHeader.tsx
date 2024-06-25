@@ -24,7 +24,7 @@ export const DefaultHeader = () => {
 
         <div className="hidden items-center text-center gap-10 lg:flex lg:flex-1 lg:justify-center">
           {MENU_ITEMS.map((item: any, index: number) => (
-            <a
+            <Link
               id={item.title}
               key={index}
               className="flex items-center gap-1"
@@ -32,7 +32,7 @@ export const DefaultHeader = () => {
             >
               {<item.icon className="text-white" />}
               <div>{item.title}</div>
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -47,16 +47,16 @@ export const DefaultHeader = () => {
             {/*  Login*/}
             {/*</Button>*/}
 
-            <a
+            <Link
               className={"flex"}
-              href={process.env.NEXT_PUBLIC_SIGNUP_URL}
+              href={process.env.NEXT_PUBLIC_SIGNUP_URL ?? ""}
               target="_blank"
             >
               <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6">
                 <p>Get Started</p>
                 <ArrowRight size={20} strokeWidth={2} />
               </Button>
-            </a>
+            </Link>
             <MenuDrawer>
               <div className="w-full h-full flex flex-col justify-center items-center gap-6">
                 <Link href={"/"} className={"block w-full max-w-[336px]"}>
