@@ -277,6 +277,13 @@
     font-weight: 100 900;
   }
 
+  @font-face {
+    font-family: 'playfair';
+    font-style: normal;
+    src: url('/fonts/ttf/PlayfairDisplay-Italic.ttf') format('ttf');
+    font-weight: 100 900;
+  }
+
   .bg-primaryGradient {
     background: var(--primaryGradient);
   }
