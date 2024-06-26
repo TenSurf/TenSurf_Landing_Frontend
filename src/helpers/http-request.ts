@@ -1,6 +1,7 @@
 import axios, { type AxiosResponse } from "axios";
 import { jsonToQueryString } from "./functions";
 import { type GetServerSidePropsContext } from "next";
+import { getCookie, removeCookie } from "./auth";
 
 export const backendUrl = process.env.NEXT_PUBLIC_API_HUB_URL;
 
@@ -23,15 +24,17 @@ export const sendRequest = <T = Record<string, any>>(
 
   if (bearerToken) {
     token = bearerToken;
+  } else {
+    token = getCookie();
   }
 
   const headers: Record<string, string> = {
     "Content-Type": hasFile ? "multipart/form-data" : "application/json",
   };
 
-  // if (token) {
-  //   headers.Authorization = "Token " + token;
-  // }
+  if (token) {
+    headers.Authorization = "Token " + token;
+  }
 
   const options: Record<string, any> = {
     headers,
@@ -57,6 +60,7 @@ export const sendRequest = <T = Record<string, any>>(
         if (err.response?.data) {
           if (err.response.status === 401) {
             window.location.replace("/signin");
+            removeCookie();
           }
         }
         reject(err);
@@ -69,7 +73,6 @@ export const serverSideFetch = async <T>(
   url: string,
   params?: Record<string, any>
 ) => {
-
   try {
     const res = await sendRequest<T>(url, HttpMethod.GET, params, false);
     return {

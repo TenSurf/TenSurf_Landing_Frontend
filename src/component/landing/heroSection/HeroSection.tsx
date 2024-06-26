@@ -3,6 +3,8 @@ import ChevronDownIcon from "../../../icons/ChevronDownIcon";
 import React from "react";
 import { AnimateLight } from "./AnimateLight";
 import { Button } from "@/components/ui/button";
+import { isLoggedIn } from "@/helpers/auth";
+import { HeroAuthHub } from "./HeroAuthHub";
 
 export const HeroSection = () => {
   const animateLights = [0, 1, 2, 3, 4, 5, 6, 7, 8];
@@ -39,23 +41,7 @@ export const HeroSection = () => {
           {/*<div className="font-bold md:font-extrabold text-lg md:text-xl">*/}
           {/*  {HERO_SECTION.description2}*/}
           {/*</div>*/}
-          <a href={process.env.NEXT_PUBLIC_HUB_URL}>
-            <Button
-              // onClick={
-              //   () =>
-              //     isLoggedIn
-              //       ? router.push(ROUTE.chart)
-              //       : setShouldShowSignInSignUpModal({
-              //           signUp: true,
-              //           signIn: false,
-              //         })
-              // isLoggedIn ? router.push(ROUTE.chart) : toast.error('To register, contact TenSurf support')
-              // }
-              className="w-52 h-16 bg-primary font-bold text-lg"
-            >
-              Go to TenSurf Hub
-            </Button>
-          </a>
+          <HeroAuthHub />
         </div>
         <div
           className={

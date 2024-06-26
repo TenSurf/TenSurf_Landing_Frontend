@@ -47,7 +47,7 @@ export const MENU_ITEMS = [
   {
     title: MnuItemsEnum.plans,
     icon: ShoppingBagIcon,
-    url: `${process.env.NEXT_PUBLIC_HUB_URL}/plans`,
+    url: "/plans",
   },
   { title: MnuItemsEnum.team, icon: UserGroupIcon, url: "/team" },
   { title: MnuItemsEnum.contact, icon: PhoneIcon, url: "/contact-us" },

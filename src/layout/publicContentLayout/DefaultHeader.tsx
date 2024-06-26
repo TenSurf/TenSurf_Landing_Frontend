@@ -1,8 +1,8 @@
-import { type RefObject } from "react";
+import { Suspense, type RefObject } from "react";
 import { MENU_ITEMS } from "../../constatns/landingPage.constants";
-import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import { AuthProfile } from "./AuthProfile";
 
 export const DefaultHeader = ({
   headerRef,
@@ -38,11 +38,9 @@ export const DefaultHeader = ({
         ))}
       </div>
 
-      <div className="flex items-center gap-4">
-        <a href={process.env.NEXT_PUBLIC_SIGNUP_URL} target="_blank">
-          <Button className="flex">Get Started</Button>
-        </a>
-      </div>
+      <Suspense>
+        <AuthProfile />
+      </Suspense>
     </div>
   );
 };
