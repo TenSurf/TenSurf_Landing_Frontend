@@ -23,7 +23,7 @@ const ToolsSlider = () => {
   return (
     <GsapAnimation selector={"#toolsSlider"} fromVars={{y: 400 , rotate: -15}} toVars={{y: 0 , rotate: 0, duration: 1 , scrollTrigger: {start: "top bottom" , trigger: "#toolsSlider"}}}>
       <div
-        className={"scroll-m-28 max-w-screen-2xl mx-auto w-full md:w-3/4 lg:w-full mb-12 relative lg:z-[100] bg-[#01030B] pl-6"}
+        className={"scroll-m-28 max-w-screen-2xl mx-auto w-full md:w-3/4 lg:w-full mb-12 relative lg:z-[100] bg-[#01030B] pl-6 my-24"}
         id={'toolsSlider'}>
         <div
           className="hidden lg:block absolute w-[8px] h-[300px] top-[10%] rounded-full left-0 overflow-hidden bg-[#2F51E9]/30">

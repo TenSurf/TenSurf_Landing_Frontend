@@ -94,10 +94,10 @@ export const PlansSection = (props: { data: IPlan[] }) => {
               coverflowEffect: {
                 rotate: 0,
                 stretch: 0,
-                depth: 55,
+                depth: 40,
                 modifier: 4,
               },
-              slidesPerView: 4,
+              slidesPerView: 3.935,
             },
           }}
           modules={[EffectCoverflow]}
@@ -108,6 +108,21 @@ export const PlansSection = (props: { data: IPlan[] }) => {
           rewind
           loop
         >
+          {props.data?.map((item: IPlan, index: number) => (
+            <SwiperSlide
+              className={"!h-auto transition-all"}
+              key={item.order_id}
+            >
+              {({ isActive }) => (
+                <Plan
+                  className={isActive ? "bg-gradient-to-b from-[#00115E] to-[#0424B5]" : "bg-[#33415C]/20"}
+                  key={index}
+                  plan={item}
+                  isAnnuallyChecked={isAnnuallyChecked}
+                />
+              )}
+            </SwiperSlide>
+          ))}
           {props.data?.map((item: IPlan, index: number) => (
             <SwiperSlide
               className={"!h-auto transition-all"}
