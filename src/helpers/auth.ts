@@ -21,7 +21,9 @@ export const setCookie = (
     const time = date.getTime();
     const expireTime = time + expirationDays * 24 * 3600 * 1000;
     date.setTime(expireTime);
-    document.cookie = `tensurftoken=${token}; expires=${date.toUTCString()}; path=/;`;
+    document.cookie = `tensurftoken=${token}; domain=${
+      window.location.host
+    }; expires=${date.toUTCString()}; path=/;`;
   }
 };
 
