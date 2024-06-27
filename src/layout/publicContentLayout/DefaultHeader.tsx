@@ -49,16 +49,9 @@ export const DefaultHeader = () => {
             {/*  Login*/}
             {/*</Button>*/}
 
-            <Link
-              className={"flex"}
-              href={process.env.NEXT_PUBLIC_SIGNUP_URL ?? ""}
-              target="_blank"
-            >
-              <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6">
-                <p>Get Started</p>
-                <ArrowRight size={20} strokeWidth={2} />
-              </Button>
-            </Link>
+            <Suspense>
+              <AuthProfile />
+            </Suspense>
             <MenuDrawer>
               <div className="w-full h-full flex flex-col justify-center items-center gap-6">
                 <Link href={"/"} className={"block w-full max-w-[336px]"}>
@@ -91,10 +84,6 @@ export const DefaultHeader = () => {
           </>
         </div>
       </div>
-
-      <Suspense>
-        <AuthProfile />
-      </Suspense>
     </div>
   );
 };

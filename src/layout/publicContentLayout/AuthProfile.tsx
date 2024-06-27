@@ -10,17 +10,23 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ROUTE } from "@/constatns/general.constants";
 import { isLoggedIn, removeCookie } from "@/helpers/auth";
-import { UserRoundIcon } from "lucide-react";
+import { ArrowRight, UserRoundIcon } from "lucide-react";
+import Link from "next/link";
+import React from "react";
 
 export const AuthProfile = () => {
   return (
     <div>
       {!isLoggedIn() && (
-        <div className="items-center gap-4">
-          <a href="/waitlist">
-            <Button className="flex">Get Started</Button>
-          </a>
-        </div>
+        <Link
+          className={"flex"}
+          href={"/waitlist"}
+        >
+          <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6">
+            <p>Get Started</p>
+            <ArrowRight size={20} strokeWidth={2} />
+          </Button>
+        </Link>
       )}
       {isLoggedIn() && (
         <div>

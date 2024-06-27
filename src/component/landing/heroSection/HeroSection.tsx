@@ -1,4 +1,3 @@
-import ChevronDownIcon from "../../../icons/ChevronDownIcon";
 import React from "react";
 import { AnimateLight } from "./AnimateLight";
 import { Button } from "@/components/ui/button";
@@ -30,15 +29,14 @@ export const HeroSection = () => {
         </div>
         <Link
           className={"flex justify-center w-fit"}
-          href={process.env.NEXT_PUBLIC_SIGNUP_URL ?? ""}
-          target="_blank"
+          href={isLoggedIn() ? (process.env.NEXT_PUBLIC_HUB_URL ?? "") : "/signin"}
+          target={isLoggedIn() ? "_blank" : '_self'}
         >
           <Button className="flex gap-1 sm:gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-4 px-8 sm:py-8 sm:px-16">
             <p className={"text-lg sm:text-xl font-normal sm:font-bold text-center"}><span className={'hidden sm:inline-block'}>Go to </span><span>TenSurf Hub</span></p>
             <ArrowRight size={20} strokeWidth={2} />
           </Button>
         </Link>
-        <HeroAuthHub />
       </div>
 
       {/*<a href="#tools" className="lg:block hidden" aria-label={'tools'}>*/}
