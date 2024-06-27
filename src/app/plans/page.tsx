@@ -8,7 +8,7 @@ const Page = () => {
   return (
     <PageProvider title={PAGE_TITLE.plans}>
       <DefaultLayout>
-        <PlansServerSideSection/>
+          <PlansServerSideSection />
       </DefaultLayout>
     </PageProvider>
   );

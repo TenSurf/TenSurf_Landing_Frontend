@@ -1,7 +1,9 @@
 import { MENU_ITEMS } from "../../constatns/landingPage.constants";
+import { Suspense, type RefObject } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import { AuthProfile } from "./AuthProfile";
 import { ArrowRight, Home } from "lucide-react";
 import React from "react";
 import MenuDrawer from "@/layout/publicContentLayout/MenuDrawer";
@@ -89,6 +91,10 @@ export const DefaultHeader = () => {
           </>
         </div>
       </div>
+
+      <Suspense>
+        <AuthProfile />
+      </Suspense>
     </div>
   );
 };

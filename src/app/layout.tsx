@@ -4,6 +4,8 @@ import "./globals.css";
 import { ToastContainer } from "react-toastify";
 import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
+import Head from "next/head";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -87,16 +89,19 @@ export default function RootLayout({
         ></Script>
       </head>
       <body className={inter.className}>
-        <App />
-        {children}
-        <Toaster duration={3000} />
-        <Script
-          id={"hs-script-loader"}
-          async
-          defer
-          src={"//js.hs-scripts.com/46299069.js"}
-          type={"text/javascript"}
-        ></Script>
+        <GoogleOAuthProvider clientId={process.env.GOOGLE_CLIENT_ID as string}>
+          <App />
+          {children}
+          <Toaster duration={3000} />
+          <Script
+            id={"hs-script-loader"}
+            async
+            defer
+            src={"//js.hs-scripts.com/46299069.js"}
+            type={"text/javascript"}
+          ></Script>
+          <script async type="text/javascript" src="/js/scroll.js"></script>
+        </GoogleOAuthProvider>
       </body>
     </html>
   );

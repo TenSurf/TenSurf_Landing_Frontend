@@ -22,17 +22,13 @@ const OfferingSectionV2 = forwardRef<HTMLDivElement, {}>(({}, ref) => {
           image={"/images/LevelSurf-1.png"}
           imageAlt={"LevelSurf"}
           title={"Advanced Trading Insights by chatting with TenSurf Brain"}
-          description={
-            "TenSurf Brain is an artificial intelligence-powered chatbot designed to provide traders with advanced tools for enhancing their trading strategies. You can interact with this AI chatbot via both voice and text chat to access features such as trend detection and support/resistance analysis, which help you visually identify key price levels on charts for informed entry and exit decisions. Additionally, TenSurf Brain calculates precise stop loss and take profit levels to aid in robust risk management. It also evaluates trading biases to recommend whether to look for long or short positions, giving you strategic insights into various financial instruments. Plus, you can give YouTube videos directly to TenSurf Brain to receive concise summaries of the trading strategies discussed, further enhancing your learning and application of new trading techniques."
-          }
-          quote={
-            "“By automating the majority of steps related to patient follow-ups, Rad AI removes those manual tasks from our clinical team and gives them back more time to focus on caring for their patients.”"
-          }
-          user={"/images/aaron korbs.jpg"}
-          userAlt={"Aaron Korbs"}
-          userCompany={"/images/company.png"}
-          userCompanyAlt={"company"}
-          link={"#"}
+          description={"TenSurf Brain is an artificial intelligence-powered chatbot designed to provide traders with advanced tools for enhancing their trading strategies. You can interact with this AI chatbot via both voice and text chat to access features such as trend detection and support/resistance analysis, which help you visually identify key price levels on charts for informed entry and exit decisions. Additionally, TenSurf Brain calculates precise stop loss and take profit levels to aid in robust risk management. It also evaluates trading biases to recommend whether to look for long or short positions, giving you strategic insights into various financial instruments. Plus, you can give YouTube videos directly to TenSurf Brain to receive concise summaries of the trading strategies discussed, further enhancing your learning and application of new trading techniques."}
+          quote={"“By automating the majority of steps related to patient follow-ups, Rad AI removes those manual tasks from our clinical team and gives them back more time to focus on caring for their patients.”"}
+          user={'/images/aaron korbs.jpg'}
+          userAlt={'Aaron Korbs'}
+          userCompany={'/images/company.png'}
+          userCompanyAlt={'company'}
+          link={"/tools/TenSurfBrain"}
           userJob={"Aaron Korbs position"}
           userName={"Aaron Korbs"}
         />
@@ -42,17 +38,13 @@ const OfferingSectionV2 = forwardRef<HTMLDivElement, {}>(({}, ref) => {
           image={"/images/LevelSurf-1.png"}
           imageAlt={"LevelSurf"}
           title={"Automated Key Levels and Event Insights in ChartSurf"}
-          description={
-            "ChartSurf is an advanced charting tool within TenSurf Hub that incorporates a range of analytical features to support effective trading. It includes tools for identifying delta and footprint imbalances, trend analysis, and displaying major order flow levels for various assets. It also provides insights into key market levels like initial balance, previous session highs/lows, and overnight session extremes, alongside volume profile and VWAP levels to pinpoint key trading levels. Additionally, ChartSurf automatically calculates and visualizes support/resistance (S/R) levels, using our proprietary machine learning algorithm, to aid traders in making strategic decisions regarding entry and exit points. This S/R tool identifies and visualizes key support and resistance levels where prices historically reverse or stall, helping traders determine entry and exit points and assess trend strength. Furthermore, ChartSurf features automatic display of price breaking the key levels or holding them based on market typical rotation size, offering a comprehensive solution for analyzing and responding to market rapid dynamics."
-          }
-          quote={
-            "“By automating the majority of steps related to patient follow-ups, Rad AI removes those manual tasks from our clinical team and gives them back more time to focus on caring for their patients.”"
-          }
-          user={"/images/aaron korbs.jpg"}
-          userAlt={"Aaron Korbs"}
-          userCompany={"/images/company.png"}
-          userCompanyAlt={"company"}
-          link={"#"}
+          description={"ChartSurf is an advanced charting tool within TenSurf Hub that incorporates a range of analytical features to support effective trading. It includes tools for identifying delta and footprint imbalances, trend analysis, and displaying major order flow levels for various assets. It also provides insights into key market levels like initial balance, previous session highs/lows, and overnight session extremes, alongside volume profile and VWAP levels to pinpoint key trading levels. Additionally, ChartSurf automatically calculates and visualizes support/resistance (S/R) levels, using our proprietary machine learning algorithm, to aid traders in making strategic decisions regarding entry and exit points. This S/R tool identifies and visualizes key support and resistance levels where prices historically reverse or stall, helping traders determine entry and exit points and assess trend strength. Furthermore, ChartSurf features automatic display of price breaking the key levels or holding them based on market typical rotation size, offering a comprehensive solution for analyzing and responding to market rapid dynamics."}
+          quote={"“By automating the majority of steps related to patient follow-ups, Rad AI removes those manual tasks from our clinical team and gives them back more time to focus on caring for their patients.”"}
+          user={'/images/aaron korbs.jpg'}
+          userAlt={'Aaron Korbs'}
+          userCompany={'/images/company.png'}
+          userCompanyAlt={'company'}
+          link={"/tools/Chart_Surf"}
           userJob={"Aaron Korbs position"}
           userName={"Aaron Korbs"}
         />

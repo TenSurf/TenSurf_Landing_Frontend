@@ -4,6 +4,8 @@ import { AnimateLight } from "./AnimateLight";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { isLoggedIn } from "@/helpers/auth";
+import { HeroAuthHub } from "./HeroAuthHub";
 
 
 const animateLights = [0, 1, 2, 3, 4, 5, 6, 7, 8];
@@ -36,6 +38,7 @@ export const HeroSection = () => {
             <ArrowRight size={20} strokeWidth={2} />
           </Button>
         </Link>
+        <HeroAuthHub />
       </div>
 
       {/*<a href="#tools" className="lg:block hidden" aria-label={'tools'}>*/}

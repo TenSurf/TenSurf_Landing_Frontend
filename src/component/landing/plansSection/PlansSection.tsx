@@ -5,8 +5,6 @@ import Image from "next/image";
 import sphereImgSrc from "../../../../public/images/sphere.webp";
 import { type IPlan } from "../../../types/general.types";
 import { Plan } from "./Plan";
-import { HttpMethod, sendRequest } from "@/helpers/http-request";
-import { BackendUrls } from "@/helpers/backend-urls";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow } from "swiper/modules";
