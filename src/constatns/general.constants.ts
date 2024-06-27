@@ -1,12 +1,12 @@
 export const TENSURF_CONTACT = {
-  phone: '650-770-6476',
-  phoneCallLink: 'tel:+16507706476',
-  mail: 'support@tensurf.ai',
-  mailToLink: 'mailto:support@tensurf.ai',
-  facebook: '#',
-  linkedin: 'https://www.linkedin.com/company/tensurf/',
-  twitter: 'https://twitter.com/TenSurf_Algo',
-  youtube: 'https://www.youtube.com/channel/UC9ieaTLEY75vW_4wGR4hqdg'
+  phone: "650-770-6476",
+  phoneCallLink: "tel:+16507706476",
+  mail: "support@tensurf.ai",
+  mailToLink: "mailto:support@tensurf.ai",
+  facebook: "#",
+  linkedin: "https://www.linkedin.com/company/tensurf/",
+  twitter: "https://twitter.com/TenSurf_Algo",
+  youtube: "https://www.youtube.com/channel/UC9ieaTLEY75vW_4wGR4hqdg",
 };
 
 export const ROUTE = {
@@ -38,14 +38,15 @@ export const ROUTE = {
   signOut: '/logout',
   plans: '/plans',
   hubPlans: (process.env.NEXT_PUBLIC_HUB_URL as string) + "/plans",
+  waitlist: "/waitlist",
   comming: '/comming-soon'
 };
 
 export const NOTIFICATION = {
   newsLetter: {
-    successMessage: 'Your email has been registered.',
-    errorMessage: 'Email already exists'
-  }
+    successMessage: "Your email has been registered.",
+    errorMessage: "Email already exists",
+  },
 };
 
 export const PAGE_TITLE = {

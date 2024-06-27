@@ -1,9 +1,15 @@
-import { type FC } from "react";
+import { type FC, useState } from "react";
 import InfoFilledIcon from "../../../icons/InfoFilledIcon";
 import CheckIcon from "../../../icons/CheckIcon";
 import type { IPlan } from "../../../types/general.types";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { isLoggedIn } from "@/helpers/auth";
+import { useRouter } from "next/navigation";
+import { ROUTE } from "@/constatns/general.constants";
+import { HttpMethod, sendRequest } from "@/helpers/http-request";
+import { BackendUrls } from "@/helpers/backend-urls";
+import { Loader } from "lucide-react";
 
 interface IProps {
   plan: IPlan;
@@ -12,6 +18,8 @@ interface IProps {
 }
 
 export const Plan: FC<IProps> = ({ plan, isAnnuallyChecked, className }) => {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
   return (
     <div
       // style={{
@@ -69,31 +77,37 @@ export const Plan: FC<IProps> = ({ plan, isAnnuallyChecked, className }) => {
       </div>
 
       <Button
-        // onClick={() => {
-        //   if (plan.is_coming_soon) {
-        //     router.push(ROUTE.contactUs);
-        //   } else if (plan.is_free) {
-        //     router.push(ROUTE.chart);
-        //     // router.push(ROUTE.chart);
-        //   } else {
-        //     sendRequest(BackendUrls.payment, HttpMethod.POST, {
-        //       price_id: isAnnuallyChecked
-        //         ? plan.year_price_id
-        //         : plan.month_price_id,
-        //     })
-        //       .then((res) => {
-        //         router.push(res.data.url);
-        //       })
-        //       .catch(() => {});
-        //   }
-        // }}
+        onClick={() => {
+          if (plan.is_coming_soon) {
+            router.push(ROUTE.contactUs);
+          } else if (plan.is_free) {
+            router.push(ROUTE.chart);
+            // router.push(ROUTE.chart);
+          } else {
+            if (isLoggedIn()) {
+              sendRequest(BackendUrls.payment, HttpMethod.POST, {
+                price_id: isAnnuallyChecked
+                  ? plan.year_price_id
+                  : plan.month_price_id,
+              })
+                .then((res) => {
+                  router.push(res.data.url);
+                  setLoading(false);
+                })
+                .catch(() => setLoading(false));
+            } else {
+              router.push("/signin");
+            }
+          }
+        }}
         className={`w-full h-16 text-lg ${
           plan.is_coming_soon ||
           (plan.is_free &&
             "bg-white text-black hover:bg-white hover:text-black hover:opacity-90")
         }`}
+        disabled={loading}
       >
-        {plan.buttonLabel}
+        {loading ? <Loader></Loader> : plan.buttonLabel}
       </Button>
 
       <div className="flex flex-col gap-1">

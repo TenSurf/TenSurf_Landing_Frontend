@@ -16,7 +16,7 @@ async function getPlans() {
       title: val.name,
       description: val.description,
       buttonLabel: val.is_coming_soon ? "Contact Us" : "Start Now",
-      features: val.features.map((feature: any) => ({ title: feature.name })),
+        features: val.features?.map((feature: any) => ({ title: feature.name })),
       priceAnnually: val.year_unit_amount / 100,
       priceMonthly: val.month_unit_amount / 100,
       is_coming_soon: val.is_coming_soon,

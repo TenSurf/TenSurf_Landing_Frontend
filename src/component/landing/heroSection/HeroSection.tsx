@@ -1,9 +1,10 @@
-import ChevronDownIcon from "../../../icons/ChevronDownIcon";
 import React from "react";
 import { AnimateLight } from "./AnimateLight";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { isLoggedIn } from "@/helpers/auth";
+import { HeroAuthHub } from "./HeroAuthHub";
 
 
 const animateLights = [0, 1, 2, 3, 4, 5, 6, 7, 8];
@@ -28,8 +29,8 @@ export const HeroSection = () => {
         </div>
         <Link
           className={"flex justify-center w-fit"}
-          href={process.env.NEXT_PUBLIC_SIGNUP_URL ?? ""}
-          target="_blank"
+          href={isLoggedIn() ? (process.env.NEXT_PUBLIC_HUB_URL ?? "") : "/signin"}
+          target={isLoggedIn() ? "_blank" : '_self'}
         >
           <Button className="flex gap-1 sm:gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-4 px-8 sm:py-8 sm:px-16">
             <p className={"text-lg sm:text-xl font-normal sm:font-bold text-center"}><span className={'hidden sm:inline-block'}>Go to </span><span>TenSurf Hub</span></p>
