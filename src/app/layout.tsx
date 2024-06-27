@@ -101,11 +101,6 @@ export default function RootLayout({
             type={"text/javascript"}
           ></Script>
           <script async type="text/javascript" src="/js/scroll.js"></script>
-          {/* <script
-            async
-            src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"
-          ></script> */}
-          <script async type="text/javascript" src="/js/auth.js"></script>
         </GoogleOAuthProvider>
       </body>
     </html>

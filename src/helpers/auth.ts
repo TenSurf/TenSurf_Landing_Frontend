@@ -1,67 +1,26 @@
-export const parseCookie = (str: string): Record<string, string> => {
-  return str
-    .split(";")
-    .map((v) => v.split("="))
-    .reduce((acc: Record<string, string>, v) => {
-      if (v.length > 1) {
-        acc[decodeURIComponent(v[0].trim())] = decodeURIComponent(v[1].trim());
-        return acc;
-      } else {
-        return {};
-      }
-    }, {});
-};
+import Cookies from "js-cookie";
 
-export const setCookie = (
-  token: string,
-  expirationDays: number = 365
-): void => {
+const token_name = "tensurftoken";
+
+export const setCookie = (token: string): void => {
   if (typeof window !== "undefined") {
-    const date = new Date();
-    const time = date.getTime();
-    const expireTime = time + expirationDays * 24 * 3600 * 1000;
-    date.setTime(expireTime);
-    document.cookie = `tensurftoken=${token}; domain=${
-      window.location.host
-    }; expires=${date.toUTCString()}; path=/;`;
+    Cookies.set(token_name, token, {
+      domain: window.location.hostname,
+    });
   }
 };
 
 export const removeCookie = (): void => {
   if (typeof window !== "undefined") {
-    setCookie("", -1);
+    Cookies.remove(token_name);
   }
 };
 
-export const getCookie = (): string | null => {
+export const getCookie = (): string | undefined => {
   if (typeof window === "undefined") return "";
-  var name = "tensurftoken" + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var cookieArray = decodedCookie.split(";");
-  for (var i = 0; i < cookieArray.length; i++) {
-    var cookie = cookieArray[i].trim();
-    if (cookie.indexOf(name) == 0) {
-      return cookie.substring(name.length, cookie.length);
-    }
-  }
-  return "";
+  return Cookies.get(token_name);
 };
 
 export const isLoggedIn = (): boolean => {
   return !!getCookie();
-};
-
-export const getRedirectUrl = () => {
-  if (typeof window !== "undefined") {
-    const cookie = parseCookie(document.cookie);
-    if (cookie.redirect) return cookie.redirect;
-  }
-  return null;
-};
-
-export const setRedirectUrl = (url?: string): void => {
-  if (typeof window !== "undefined") {
-    let cookie = `redirect=${url}; path=/;`;
-    document.cookie = cookie;
-  }
 };
