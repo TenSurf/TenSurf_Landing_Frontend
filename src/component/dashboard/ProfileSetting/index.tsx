@@ -23,7 +23,9 @@ const ProfileSettings = () => {
   const [isGetDataLoading, setIsGetDataLoadingGetData] = useState(true);
 
   useEffect(() => {
-    setMode(params.get("mode") as "profileSetting" | "billing");
+    setMode(
+      (params.get("mode") as "profileSetting" | "billing") || "profileSetting"
+    );
   }, [params]);
 
   const changeModeHandler = (mode: "profileSetting" | "billing") => {
