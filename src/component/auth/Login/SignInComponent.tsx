@@ -65,7 +65,7 @@ const SignInComponent: FC<IProps> = ({
       .then((response) => {
         if (response?.data?.token) {
           setCookie(response?.data?.token as string);
-          router.replace(ROUTE.home);
+          router.replace(process.env.NEXT_PUBLIC_HUB_URL as string);
           if (onModalClose) {
             onModalClose();
           }

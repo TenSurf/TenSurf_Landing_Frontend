@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import { sendRequest } from "@/helpers/http-request";
 import { BackendUrls } from "@/helpers/backend-urls";
@@ -7,22 +8,19 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { ROUTE } from "../../../constatns/general.constants";
 import { EditProfile } from "./EditProfile";
 import { AccountAndBilling } from "./AccountAndBilling";
-import { useParams } from "next/navigation";
 import { useAccountStore } from "@/store/account";
 
 const ProfileSettings = () => {
   const router = useRouter();
   let params = useSearchParams();
-  const modeInQuery = "profileSetting";
 
   const [mode, setMode] = useState<"profileSetting" | "billing">(
     (params.get("mode") as "profileSetting" | "billing") || "profileSetting"
   );
 
-  const { user_data, update_user_data }: any = useAccountStore();
+  const { update_user_data }: any = useAccountStore();
 
   const [isGetDataLoading, setIsGetDataLoadingGetData] = useState(true);
-  // const [isStripLoading, setIsStripLoading] = useState<boolean>(false);
 
   useEffect(() => {
     setMode(params.get("mode") as "profileSetting" | "billing");
@@ -34,9 +32,7 @@ const ProfileSettings = () => {
       mode === "profileSetting" ? ROUTE.profileSetting : ROUTE.profileBilling
     );
   };
-  // ____________________________________________________________
 
-  // get user Data ↓•↓•↓
   useEffect(() => {
     sendRequest(BackendUrls.profile)
       .then((res: any) => {
@@ -46,7 +42,6 @@ const ProfileSettings = () => {
       .finally(() => setIsGetDataLoadingGetData(false));
   }, []);
 
-  // *.*.*.*.*.*.*.*.*. RETURN ↓•↓•↓
   return (
     <>
       <div className="flex flex-col gap-16 items-center w-screen">
