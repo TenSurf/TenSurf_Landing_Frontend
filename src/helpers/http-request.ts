@@ -20,7 +20,7 @@ export const sendRequest = <T = Record<string, any>>(
   hasFile: boolean = false,
   bearerToken?: string | null
 ): Promise<AxiosResponse<T>> => {
-  let token: string | null;
+  let token: string | undefined;
 
   if (bearerToken) {
     token = bearerToken;
