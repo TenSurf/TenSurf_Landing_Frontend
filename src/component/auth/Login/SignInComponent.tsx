@@ -242,14 +242,14 @@ const SignInComponent: FC<IProps> = ({
             console.log("coming soon");
           }}
         /> */}
-        <FacebookLogin
+        {/* <FacebookLogin
           appId="1088597931155576"
           // autoLoad
           callback={facebookCallback}
           render={(renderProps: any) => (
             <FacebookButton onClick={renderProps.onClick} />
           )}
-        />
+        /> */}
       </div>
     </div>
   );
