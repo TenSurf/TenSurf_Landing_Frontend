@@ -9,7 +9,7 @@ export const Landing = () => {
   return (
     <DefaultLayout>
       <div className="flex flex-col overflow-x-hidden items-center container overflow-y-hidden">
-        <HeroSection />
+        <HeroSection title={"Next Generation of Trading Platforms"} description={"At TenSurf, we are committed to revolutionizing trading and democratizing algorithmic trading. Our mission is to harness the power of Generative AI and Data Science to enable smart trading decisions to surf financial markets."}/>
         <ToolsCard />
         <ToolsSlider />
         <Video />

@@ -2,6 +2,7 @@ import React from "react";
 import ChatbotIcon from "@/icons/ChatbotIcon";
 import ToolCard from "@/component/landing/toolsV2/ToolCard";
 import GsapAnimation from "@/utils/GsapAnimation";
+import RoundTitleHeader from "@/component/landing/toolsV2/RoundTitleHeader";
 
 const ToolsCard = () => {
   return (
@@ -12,14 +13,7 @@ const ToolsCard = () => {
       {/*<div className="absolute tools-radial-gradient inset-0 w-full h-[180px] z-[0]"></div>*/}
       <GsapAnimation fromVars={{y: 400}} toVars={{y: 0 , duration: 1 , scrollTrigger: {start: "top bottom" , trigger: "#toolsCardHeader"}}} selector={"#toolsCardHeader"}>
         <div id={'toolsCardHeader'} className={"z-10 flex flex-col items-center justify-center gap-12"}>
-          <div className="bg-[#00041A] rounded-full p-2 flex gap-4 justify-between items-center">
-            <div className="rounded-full p-3 bg-primary">
-              <ChatbotIcon />
-            </div>
-            <p className={"text-lg font-normal px-2"}>
-              Comprehensive Range of Tools
-            </p>
-          </div>
+          <RoundTitleHeader title={'Comprehensive Range of Tools'}/>
           <div className="flex flex-col gap-6 w-full items-center justify-center">
             <h2 className={"font-normal text-5xl text-center  text-[#E9ECEF]"}>
               New Generation of Trading Tools
