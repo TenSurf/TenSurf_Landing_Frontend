@@ -21,7 +21,7 @@ export const PlansSection = (props: { data: IPlan[] }) => {
   return (
     <div
       id="Planss"
-      className="flex flex-col gap-20 text-white w-full items-center relative z-10 scroll-m-20 max-w-screen-2xl min-h-screen my-32"
+      className="flex flex-col gap-20 text-white w-full items-center relative z-10 scroll-m-20 max-w-screen-2xl min-h-screen my-32 px-8 sm:px-0"
     >
       <div className="flex flex-col gap-6 text-center items-center w-full">
         <div
@@ -56,88 +56,89 @@ export const PlansSection = (props: { data: IPlan[] }) => {
           }}
           className="top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 absolute w-[492px] h-[468px] rounded-full"
         ></div>
-        <Swiper
-          className={'hidden sm:block'}
-          effect={"coverflow"}
-          initialSlide={3}
-          wrapperClass={"items-stretch"}
-          coverflowEffect={{
-            rotate: 0,
-            stretch: 10,
-            depth: 0,
-            modifier: 1,
-            scale: 1,
-          }}
-          slidesPerView={3}
-          breakpoints={{
-            0: {
-              coverflowEffect: {
-                rotate: 0,
-                stretch: 0,
-                depth: 300,
-                modifier: 1,
+        <div className="hidden sm:block w-full">
+          <Swiper
+            effect={"coverflow"}
+            initialSlide={3}
+            wrapperClass={"items-stretch"}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 10,
+              depth: 0,
+              modifier: 1,
+              scale: 1,
+            }}
+            slidesPerView={3}
+            breakpoints={{
+              0: {
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: 0,
+                  depth: 300,
+                  modifier: 1,
+                },
+                slidesPerView: 1.5,
               },
-              slidesPerView: 1.5,
-            },
-            767: {
-              coverflowEffect: {
-                rotate: 0,
-                stretch: 0,
-                depth: 55,
-                modifier: 3,
+              767: {
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: 0,
+                  depth: 55,
+                  modifier: 3,
+                },
+                slidesPerView: 2,
               },
-              slidesPerView: 2,
-            },
-            1100: {
-              coverflowEffect: {
-                rotate: 0,
-                stretch: 0,
-                depth: 40,
-                modifier: 4,
+              1100: {
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: 0,
+                  depth: 40,
+                  modifier: 4,
+                },
+                slidesPerView: 3.935,
               },
-              slidesPerView: 3.935,
-            },
-          }}
-          modules={[EffectCoverflow]}
-          grabCursor
-          spaceBetween={10}
-          centeredSlides
-          centerInsufficientSlides
-          rewind
-          loop
-        >
-          {props.data?.map((item: IPlan, index: number) => (
-            <SwiperSlide
-              className={"!h-auto transition-all"}
-              key={item.order_id}
-            >
-              {({ isActive }) => (
-                <Plan
-                  className={isActive ? "bg-gradient-to-b from-[#00115E] to-[#0424B5]" : "bg-[#33415C]/20"}
-                  key={index}
-                  plan={item}
-                  isAnnuallyChecked={isAnnuallyChecked}
-                />
-              )}
-            </SwiperSlide>
-          ))}
-          {props.data?.map((item: IPlan, index: number) => (
-            <SwiperSlide
-              className={"!h-auto transition-all"}
-              key={item.order_id}
-            >
-              {({ isActive }) => (
-                <Plan
-                  className={isActive ? "bg-gradient-to-b from-[#00115E] to-[#0424B5]" : "bg-[#33415C]/20"}
-                  key={index}
-                  plan={item}
-                  isAnnuallyChecked={isAnnuallyChecked}
-                />
-              )}
-            </SwiperSlide>
-          ))}
-        </Swiper>
-        <div className="flex-flex-col w-full sm:hidden">
+            }}
+            modules={[EffectCoverflow]}
+            grabCursor
+            spaceBetween={10}
+            centeredSlides
+            centerInsufficientSlides
+            rewind
+            loop
+          >
+            {props.data?.map((item: IPlan, index: number) => (
+              <SwiperSlide
+                className={"!h-auto transition-all"}
+                key={item.order_id}
+              >
+                {({ isActive }) => (
+                  <Plan
+                    className={isActive ? "bg-gradient-to-b from-[#00115E] to-[#0424B5]" : "bg-[#33415C]/20"}
+                    key={index}
+                    plan={item}
+                    isAnnuallyChecked={isAnnuallyChecked}
+                  />
+                )}
+              </SwiperSlide>
+            ))}
+            {props.data?.map((item: IPlan, index: number) => (
+              <SwiperSlide
+                className={"!h-auto transition-all"}
+                key={item.order_id}
+              >
+                {({ isActive }) => (
+                  <Plan
+                    className={isActive ? "bg-gradient-to-b from-[#00115E] to-[#0424B5]" : "bg-[#33415C]/20"}
+                    key={index}
+                    plan={item}
+                    isAnnuallyChecked={isAnnuallyChecked}
+                  />
+                )}
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+        <div className="flex flex-col gap-8 w-full sm:hidden">
           {props.data?.map((item: IPlan, index: number) => (
             <Plan
               className={index == 0 ? "bg-gradient-to-b from-[#00115E] to-[#0424B5]" : "bg-[#33415C]/20"}
