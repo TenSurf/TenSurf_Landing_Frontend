@@ -14,9 +14,9 @@ export const HeroSection = ({title , description}: {title: string , description:
     <div
       className={`w-full flex flex-col items-center overflow-hidden h-screen`}
     >
-      <div className="flex items-center flex-col justify-center gap-14 relative z-[9] max-w-2xl min-h-screen">
-        <div className="flex items-center flex-col justify-center gap-14 ">
-          <h1 className={"text-5xl sm:text-7xl text-center font-medium text-[#F8F9FA]"}>
+      <div className="flex items-center flex-col justify-center gap-14 relative z-[9] max-w-3xl min-h-screen">
+        <div className="flex items-center flex-col justify-center gap-6">
+          <h1 className={"text-5xl sm:text-7xl text-center font-medium text-[#F8F9FA] !leading-[5.5rem]"}>
             {title}
           </h1>
           <p className={"text-lg sm:text-xl font-normal text-center text-[#DEE2E6]"}>

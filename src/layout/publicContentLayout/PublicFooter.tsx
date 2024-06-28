@@ -13,9 +13,9 @@ export const PublicFooter = () => {
           style={{
             opacity: "0.8",
             background: "#343A40",
-            filter: "blur(70px)"
+            filter: "blur(100px)"
           }}
-          className="z-0 absolute left-20 w-[150px] h-[100px] rounded-full"
+          className="z-0 absolute left-28 w-[100px] h-[100px] rounded-full"
         ></div>
         <div className="flex flex-col gap-4">
           <TensurfLogo />

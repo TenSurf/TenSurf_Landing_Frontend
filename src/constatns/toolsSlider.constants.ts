@@ -7,7 +7,7 @@ export const TOOLS = [
     quoteTitle: "An upcoming user interface upgrade",
     quoteDescription: "Utilizes statistical analysis to provide insights into market patterns and anomalies, enabling traders to make data-driven decisions.",
     image: "/images/tools/Ipad1.png",
-    link: ""
+    link: "tools/TenSurfBrain"
   },
   {
     title: "Automated Key Levels and Event Insights in ChartSurf",
@@ -17,7 +17,7 @@ export const TOOLS = [
     quoteTitle: "An upcoming user interface upgrade",
     quoteDescription: "Utilizes statistical analysis to provide insights into market patterns and anomalies, enabling traders to make data-driven decisions.",
     image: "/images/tools/Ipad1.png",
-    link: ""
+    link: "tools/Chart_Surf"
   },
   {
     title: "Data-driven Insights with WidgetSurf",
@@ -27,6 +27,6 @@ export const TOOLS = [
     quoteTitle: "An upcoming user interface upgrade",
     quoteDescription: "Utilizes statistical analysis to provide insights into market patterns and anomalies, enabling traders to make data-driven decisions.",
     image: "/images/tools/Ipad1.png",
-    link: ""
+    link: "tools/WidgetSurf"
   }
 ]

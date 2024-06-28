@@ -4,13 +4,13 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 
-const ToolItem = ({title , image ,description}: {title: string , description: string , image: string }) => {
+const ToolItem = ({title , image ,description , link}: {title: string , description: string , image: string ,link: string}) => {
   return (
     <div className="w-full flex flex-col lg:flex-row items-end justify-between lg:justify-start gap-6 2xl:gap-24 py-1">
       <div className="w-full lg:w-[40%] xl:w-[30%] flex flex-col gap-4 lg:gap-8 justify-start order-2 lg:order-1">
         <h3 className={"text-2xl md:text-4xl xl:text-5xl font-normal !leading-normal"}>{title}</h3>
         <p className={"text-[#ADB5BD] text-lg line-clamp-4 font-extralight"}>{description}</p>
-        <Link className={'hidden md:block w-fit'} href={""}>
+        <Link className={'hidden md:block w-fit'} href={link}>
           <Button className={"group hover:bg-[#979DAC]/15 border-[#ADB5BD] border-[1px] flex gap-2 rounded-full py-6 xl:py-8 bg-transparent w-fit"}>
             <p className={"group-hover:!text-[#FCFDFF] text-xl font-semibold"}>Learn More</p>
             <ArrowRight className={'group-hover:!text-[#FCFDFF] color-[#ADB5BD]'} size={20} strokeWidth={2}/>
