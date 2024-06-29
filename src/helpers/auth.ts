@@ -25,6 +25,7 @@ export const removeCookie = (): void => {
   if (typeof window !== "undefined") {
     Cookies.remove(token_name, { domain: ".tensurf.ai" });
     Cookies.remove(token_name, { domain: "tensurf.ai" });
+    Cookies.remove(token_name);
   }
 };
 
