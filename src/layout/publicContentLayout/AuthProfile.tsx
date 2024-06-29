@@ -41,7 +41,7 @@ export const AuthProfile = () => {
                 <DropdownMenuItem
                   onClick={() => {
                     removeCookie();
-                    window.location.reload();
+                    setTimeout(() => window.location.reload(), 1000);
                   }}
                 >
                   Sign out
