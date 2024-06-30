@@ -13,7 +13,7 @@ export const DefaultHeader = () => {
   return (
     <div className="lg:!container z-50 sticky top-0 lg:top-6">
       <div
-        className="lg:rounded-3xl mt-0 flex lg:mx-10 2xl:mx-auto 2xl:w-full items-center px-6 md:px-12 py-7 justify-between bg-[#01061D]/50 backdrop-blur-lg">
+        className="lg:rounded-3xl mt-0 flex lg:mx-10 2xl:mx-auto 2xl:w-full items-center px-6 md:px-12 py-7 justify-between bg-[#01061D]/50 backdrop-blur-lg overflow-hidden">
         <Link href={"/"}>
           <Image
             src={"/tensurf.png"}
