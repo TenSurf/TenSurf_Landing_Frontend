@@ -40,7 +40,7 @@ const ForgetPasswordComponent: FC<IProps> = ({
   };
 
   return (
-    <div className="flex flex-col gap-5 w-full">{step_content[activeStep]}</div>
+    <div className="flex flex-col w-full">{step_content[activeStep]}</div>
   );
 };
 

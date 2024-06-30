@@ -187,7 +187,7 @@ export const TensurfInputText = forwardRef(
         ref={divRef}
       >
         {(label || isRequired) && (
-          <div className='mb-1 font-medium flex gap-2 text-base text-white '>
+          <div className='font-medium flex gap-2 text-base text-white mb-2'>
             <div>{label}</div>
             {isRequired && <div className='text-white'>*</div>}
           </div>

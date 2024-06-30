@@ -60,7 +60,7 @@ const GetEmailVerificationCode: FC<IGetEmailStepProps> = (props) => {
   };
 
   return (
-    <form className="flex flex-col gap-4">
+    <form className="flex flex-col gap-10">
       <Controller
         name="email"
         control={control}
@@ -88,10 +88,10 @@ const GetEmailVerificationCode: FC<IGetEmailStepProps> = (props) => {
         onClick={handleSubmit(handleFormSubmit)}
         isLoading={isLoading}
         textColor="text-white"
-        customClassName="self-start w-full m-auto bg-[#3861fb]"
+        customClassName="self-start w-full m-auto bg-[#3861fb] bg-primary rounded-full"
         size={"xLarge56"}
       >
-        Send verification code
+        Done
       </TensurfButton>
     </form>
   );
