@@ -17,7 +17,7 @@ export const PublicFooter = () => {
           }}
           className="z-0 absolute left-28 w-[100px] h-[100px] rounded-full"
         ></div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-8">
           <TensurfLogo />
           <div>
             <div className="text-xl font-bold"><h6>Newsletter</h6></div>
@@ -32,7 +32,7 @@ export const PublicFooter = () => {
           {FOOTER_MENU_COLS.map((column, index: number) => (
             <div key={index} className="flex flex-col gap-4">
               <div className="text-lg font-bold"><h6>{column.title}</h6></div>
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-wrap md:flex-col gap-4">
                 {column.items.map((item, index) => (
                   <Link
                     href={item.path}
@@ -52,9 +52,9 @@ export const PublicFooter = () => {
       </div>
 
       <div
-        className="flex flex-col lg:flex-row justify-around gap-4 items-center border-t-[1px] border-t-white/40 py-2 text-xs font-normal">
-        <div><h6>{COPYRIGHT}</h6></div>
-        <div className="flex gap-8">
+        className="flex flex-col lg:flex-row justify-around gap-4 items-center sm:border-t-[1px] sm:border-t-white/40 sm:py-6 text-xs font-normal">
+        <div className={'border-t-[1px] border-t-white/40 pt-6 w-full sm:border-none sm:pb-0 sm:pt-0 sm:w-fit'}><h6>{COPYRIGHT}</h6></div>
+        <div className="flex gap-8 border-t-[1px] border-t-white/40 pt-6 pb-4 w-full sm:border-none sm:pb-0 sm:pt-0 sm:w-fit">
           {/*<a href={TENSURF_CONTACT.phoneCallLink} className='flex items-center gap-1 group'>*/}
           {/*  <PhoneIcon />*/}
           {/*  <div className='group-hover:underline'>{TENSURF_CONTACT.phone}</div>*/}

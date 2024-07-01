@@ -19,7 +19,7 @@ const GetEmailVerificationCode: FC<IGetEmailStepProps> = (props) => {
 
   useEffect(() => {
     const token = search_params.get("token");
-    if (!token) router.replace(ROUTE.waitlist);
+    // if (!token) router.replace(ROUTE.waitlist);
   }, []);
 
   // RHF ↓•↓•↓

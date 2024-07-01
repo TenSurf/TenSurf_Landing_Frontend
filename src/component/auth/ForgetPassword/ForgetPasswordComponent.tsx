@@ -20,7 +20,7 @@ const ForgetPasswordComponent: FC<IProps> = ({
   setSignInSignUpComponentMode,
 }) => {
   const [email, setEmail] = useState<string>("");
-  const [activeStep, setActiveStep] = useState<number>(0);
+  const [activeStep, setActiveStep] = useState<number>(1);
 
   const step_content: Record<string, ReactNode> = {
     0: (
