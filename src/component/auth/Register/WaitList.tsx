@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { HttpMethod, backendUrl, sendRequest } from "@/helpers/http-request";
 import { BackendUrls } from "@/helpers/backend-urls";
@@ -78,14 +78,22 @@ const WaitList = (props: any) => {
             )}
           />
           <TensurfButton
-            onClick={handleSubmit(handleFormSubmit)}
+            type={"submit"}
             isLoading={isLoading}
-            textColor="text-white"
-            customClassName="self-start w-full m-auto bg-[#3861fb]"
+            customClassName="self-start w-full bg-primary rounded-full text-white mt-8"
             size={"xLarge56"}
           >
-            Join Our Wait list
+            Done
           </TensurfButton>
+          {/*<TensurfButton*/}
+          {/*  onClick={handleSubmit(handleFormSubmit)}*/}
+          {/*  isLoading={isLoading}*/}
+          {/*  textColor="text-white"*/}
+          {/*  customClassName="self-start w-full m-auto bg-[#3861fb]"*/}
+          {/*  size={"xLarge56"}*/}
+          {/*>*/}
+          {/*  Join Our Wait list*/}
+          {/*</TensurfButton>*/}
         </form>
       )}
     </div>

@@ -10,13 +10,14 @@ import EyeOffIcon from "../../../icons/EyeOffIcon";
 import TensurfButton from "../../general/TensurfButton";
 import { Controller, useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import { EyeIcon } from "lucide-react";
+import { EyeIcon, EyeOff, Mail } from "lucide-react";
 import { toast } from "sonner";
 import { useGoogleLogin } from "@react-oauth/google";
 import GoogleButton from "../component/GoogleButton";
 import FacebookButton from "../component/FacebookButton";
 import { useMsal } from "@azure/msal-react";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
+import { Input } from "@/components/ui/input";
 
 const initialValues = {
   email: "",
@@ -145,22 +146,28 @@ const SignInComponent: FC<IProps> = ({
             control={control}
             rules={{ required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ }}
             render={({ field }) => (
-              <TensurfInputText
-                {...field}
-                name="email"
-                customClassName={{ container: "w-full" }}
-                placeholder="Enter your Email"
-                label="Email"
-                leftItem={<MailIcon className="w-6 h-6" />}
-                hasError={!!errors?.email}
-                hint={
-                  errors?.email?.type === "pattern" ? (
-                    <div className="text-red-400 mt-2">Enter a valid email</div>
-                  ) : (
-                    ""
-                  )
-                }
-              />
+              <div className="relative">
+                <div className="absolute w-fit h-fit inset-0 top-1/2 -translate-y-1/2 translate-x-1/2">
+                  <Mail color="#495057" strokeWidth={1.25} />
+                </div>
+                <Input {...field} className={'w-full bg-[#212529] border-none text-sm placeholder-[#6C757D] pl-12 py-6'} placeholder={'Enter your email'}/>
+              </div>
+              // <TensurfInputText
+              //   {...field}
+              //   name="email"
+              //   customClassName={{ container: "w-full" }}
+              //   placeholder="Enter your Email"
+              //   label="Email"
+              //   leftItem={<MailIcon className="w-6 h-6" />}
+              //   hasError={!!errors?.email}
+              //   hint={
+              //     errors?.email?.type === "pattern" ? (
+              //       <div className="text-red-400 mt-2">Enter a valid email</div>
+              //     ) : (
+              //       ""
+              //     )
+              //   }
+              // />
             )}
           />
           <Controller
@@ -171,34 +178,41 @@ const SignInComponent: FC<IProps> = ({
               pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
             }}
             render={({ field }) => (
-              <TensurfInputText
-                {...field}
-                name="Password"
-                customClassName={{ container: "w-full" }}
-                label="Password"
-                type={shouldShowPassword ? "text" : "password"}
-                leftItem={
-                  shouldShowPassword ? (
-                    <EyeIcon className="w-6 h-6" />
-                  ) : (
-                    <EyeOffIcon className="w-6 h-6" />
-                  )
-                }
-                leftItemOnClick={() => {
-                  setShouldShowPassword((prev) => !prev);
-                }}
-                placeholder="Enter your Password "
-                hasError={errors?.password?.type === "pattern" && true}
-                hint={
-                  errors?.password?.type === "pattern" && (
-                    <div className="text-red-400 mt-2">
-                      Password must be at least 8 characters long and contain at
-                      least one uppercase letter, one lowercase letter, and one
-                      number.
-                    </div>
-                  )
-                }
-              />
+              <div className="relative">
+                <div className="absolute w-fit h-fit inset-0 top-1/2 -translate-y-1/2 translate-x-1/2">
+                  <EyeOff color="#495057" strokeWidth={1.25} />
+                </div>
+                <Input {...field} className={"w-full bg-[#212529] border-none text-sm placeholder-[#6C757D] pl-12 py-6"}
+                       placeholder={"Enter your Password"} />
+              </div>
+              // <TensurfInputText
+              //   {...field}
+              //   name="Password"
+              //   customClassName={{ container: "w-full" }}
+              //   label="Password"
+              //   type={shouldShowPassword ? "text" : "password"}
+              //   leftItem={
+              //     shouldShowPassword ? (
+              //       <EyeIcon className="w-6 h-6" />
+              //     ) : (
+              //       <EyeOffIcon className="w-6 h-6" />
+              //     )
+              //   }
+              //   leftItemOnClick={() => {
+              //     setShouldShowPassword((prev) => !prev);
+              //   }}
+              //   placeholder="Enter your Password "
+              //   hasError={errors?.password?.type === "pattern" && true}
+              //   hint={
+              //     errors?.password?.type === "pattern" && (
+              //       <div className="text-red-400 mt-2">
+              //         Password must be at least 8 characters long and contain at
+              //         least one uppercase letter, one lowercase letter, and one
+              //         number.
+              //       </div>
+              //     )
+              //   }
+              // />
             )}
           />
         </div>

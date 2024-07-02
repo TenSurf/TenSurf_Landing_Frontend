@@ -140,7 +140,7 @@ export const ContactUs: FC = () => {
 
           <Button type={'submit'} className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6 self-end">
             {loading ? (
-              <CircularProgress size={isSmall ? 12 : isMedium ? 14 : 16} className='!text-dark-Neutral-0 '/>
+              <CircularProgress size={16} className='!text-dark-Neutral-0 '/>
             ) : (
               <>
                 <p>Send Message</p>

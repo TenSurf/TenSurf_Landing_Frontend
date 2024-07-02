@@ -64,7 +64,7 @@ export const NewsLetter = () => {
           </div>
         </>
       ) : (
-        <form className="w-full flex flex-col gap-0">
+        <form onSubmit={handleSubmit(submitHandler)} className="w-full flex flex-col gap-0">
           <Controller
             name="email"
             control={control}
@@ -73,7 +73,7 @@ export const NewsLetter = () => {
               <TensurfInputText
                 {...field}
                 name="email"
-                customClassName={{ container: "w-full" , labelAndInputContainer: "!bg-black"}}
+                customClassName={{ container: "w-full" , labelAndInputContainer: "!bg-black" , input: "!bg-black"}}
                 placeholder="Enter your Email "
                 leftItem={<MailIcon className="w-6 h-6" />}
                 hasError={!!errors?.email}
