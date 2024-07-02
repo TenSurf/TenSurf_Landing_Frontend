@@ -16,7 +16,7 @@ const ToolCard = (
     image: string;
     imageAlt: string;
     children: ReactNode;
-    scope: string
+    scope?: string
   }) => {
 
   const container = useRef() as any;
