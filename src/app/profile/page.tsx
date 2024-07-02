@@ -11,7 +11,7 @@ const ProfilePage = () => {
     <PageProvider title={PAGE_TITLE.profile}>
       <DefaultLayout>
         <Suspense>
-          <ProfileSettings></ProfileSettings>
+          <ProfileSettings/>
         </Suspense>
       </DefaultLayout>
     </PageProvider>

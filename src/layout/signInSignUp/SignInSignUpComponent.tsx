@@ -13,11 +13,12 @@ interface IProps {
   isModal?: boolean;
   onModalClose?: () => void;
 }
+
 export const SignInSignUpComponent: FC<IProps> = ({
-  isModal = false,
-  initialMode = "signIn",
-  onModalClose,
-}) => {
+                                                    isModal = false,
+                                                    initialMode = "signIn",
+                                                    onModalClose
+                                                  }) => {
   const [mode, setMode] = useState<
     "signIn" | "signUp" | "forgetPassword" | "waitlist" | undefined
   >(initialMode);
@@ -25,30 +26,33 @@ export const SignInSignUpComponent: FC<IProps> = ({
   const router = useRouter();
 
   return (
-    <div className="relative md:w-96 flex flex-col items-center w-full gap-4 p-6  bg-[#121212] rounded-lg">
-      {isModal ? (
-        <div className="absolute top-0 right-0 cursor-pointer">
-          <TensurfButton
-            onClick={onModalClose}
-            variant={"text"}
-            textColor={"text-white"}
-          >
-            <CloseIcon />
-          </TensurfButton>
+    <div
+      className="relative md:w-[32.5rem] flex flex-col items-center w-full gap-4 p-8 rounded-[32px] bg-[#02040E] border-[1px] border-[#343A40]">
+      <div className="flex flex-col gap-10 w-full items-start">
+        <div className="flex justify-between w-full items-center">
+          {(!isJoin || mode !== "waitlist") && (
+            <h5 className={"text-3xl font-bold text-white"}>
+              {mode === "signIn"
+                ? "Sign In"
+                : mode === "signUp"
+                  ? "Sign up"
+                  : mode === "forgetPassword"
+                    ? "Forget Password"
+                    : mode === "waitlist" && "Join Waitlist"}
+            </h5>
+          )}
+          {isModal ? (
+            <div className="cursor-pointer">
+              <TensurfButton
+                onClick={onModalClose}
+                variant={"text"}
+                textColor={"text-white"}
+              >
+                <CloseIcon />
+              </TensurfButton>
+            </div>
+          ) : null}
         </div>
-      ) : null}
-      <div className="flex flex-col gap-10 w-full items-center">
-        {(!isJoin || mode !== "waitlist") && (
-          <div className="text-[48px] font-bold text-white">
-            {mode === "signIn"
-              ? "Sign In"
-              : mode === "signUp"
-              ? "Sign up"
-              : mode === "forgetPassword"
-              ? "Forget Password"
-              : mode === "waitlist" && "Join Waitlist"}
-          </div>
-        )}
 
         <div className="flex flex-col items-center w-full">
           {mode === "signIn" ? (
@@ -59,9 +63,7 @@ export const SignInSignUpComponent: FC<IProps> = ({
           ) : mode === "signUp" ? (
             <SignUpComponent onModalClose={onModalClose} />
           ) : mode === "forgetPassword" ? (
-            mode === "forgetPassword" && (
-              <ForgetPasswordComponent setSignInSignUpComponentMode={setMode} />
-            )
+            <ForgetPasswordComponent setSignInSignUpComponentMode={setMode} />
           ) : (
             mode === "waitlist" && (
               <WaitList setIsJoin={setIsJoin} isJoin={isJoin} />
@@ -108,7 +110,7 @@ export const SignInSignUpComponent: FC<IProps> = ({
             <TensurfButton
               onClick={() => router.push(ROUTE.signIn)}
               variant="text"
-              customClassName="self-start text-[#3861fb]"
+              customClassName="self-start text-[#3861fb] !p-1 text-white underline"
               size={"small32"}
             >
               Log In Here

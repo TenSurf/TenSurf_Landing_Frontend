@@ -20,7 +20,7 @@ const ForgetPasswordComponent: FC<IProps> = ({
   setSignInSignUpComponentMode,
 }) => {
   const [email, setEmail] = useState<string>("");
-  const [activeStep, setActiveStep] = useState<number>(0);
+  const [activeStep, setActiveStep] = useState<number>(1);
 
   const step_content: Record<string, ReactNode> = {
     0: (
@@ -40,7 +40,7 @@ const ForgetPasswordComponent: FC<IProps> = ({
   };
 
   return (
-    <div className="flex flex-col gap-5 w-full">{step_content[activeStep]}</div>
+    <div className="flex flex-col w-full">{step_content[activeStep]}</div>
   );
 };
 

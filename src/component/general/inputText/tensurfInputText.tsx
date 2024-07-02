@@ -45,6 +45,7 @@ interface IProps {
   onKeyUp?: (event: KeyboardEvent) => void;
   hasNoPadding?: boolean;
   autoComplete?: string;
+  rows?: number
 }
 
 export const TensurfInputText = forwardRef(
@@ -81,7 +82,8 @@ export const TensurfInputText = forwardRef(
       onPaste,
       onKeyUp,
       hasNoPadding = false,
-      autoComplete
+      autoComplete,
+      rows
     }: IProps,
     ref
   ) => {
@@ -187,7 +189,7 @@ export const TensurfInputText = forwardRef(
         ref={divRef}
       >
         {(label || isRequired) && (
-          <div className='mb-1 font-medium flex gap-2 text-base text-white '>
+          <div className='font-medium flex gap-2 text-base text-white mb-2'>
             <div>{label}</div>
             {isRequired && <div className='text-white'>*</div>}
           </div>
@@ -327,6 +329,7 @@ export const TensurfInputText = forwardRef(
                 className={` w-full bg-transparent h-full outline-0  ${customClassName?.input || ''}`}
                 ref={texAreaRef}
                 name={name}
+                rows={rows}
                 value={maxChar ? value?.toString()?.slice(0, maxChar) : value}
                 maxLength={maxChar || 1000}
                 onChange={event => {

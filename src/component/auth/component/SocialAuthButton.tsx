@@ -12,9 +12,9 @@ export const SocialAuthButton = ({
     <Button
       variant={"outline"}
       onClick={onClick}
-      className={"w-full bg-transparent"}
+      className={"w-full bg-transparent rounded-full"}
     >
-      <div className="w-32 flex items-center justify-start gap-4">{children}</div>
+      <div className="flex items-center justify-start gap-4">{children}</div>
     </Button>
   );
 };

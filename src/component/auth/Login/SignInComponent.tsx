@@ -1,7 +1,7 @@
 import axios from "axios";
 import { setCookie } from "@/helpers/auth";
 import { BackendUrls } from "@/helpers/backend-urls";
-import { HttpMethod, backendUrl, sendRequest } from "@/helpers/http-request";
+import { backendUrl, HttpMethod, sendRequest } from "@/helpers/http-request";
 import React, { Dispatch, FC, SetStateAction, useState } from "react";
 import { ROUTE } from "../../../constatns/general.constants";
 import TensurfInputText from "../../general/inputText/tensurfInputText";
@@ -10,19 +10,18 @@ import EyeOffIcon from "../../../icons/EyeOffIcon";
 import TensurfButton from "../../general/TensurfButton";
 import { Controller, useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import { EyeIcon } from "lucide-react";
+import { EyeIcon, EyeOff, Mail } from "lucide-react";
 import { toast } from "sonner";
 import { useGoogleLogin } from "@react-oauth/google";
 import GoogleButton from "../component/GoogleButton";
-import MicrosoftButton from "../component/MicrosoftButton";
-import AppleButton from "../component/AppleButton";
 import FacebookButton from "../component/FacebookButton";
 import { useMsal } from "@azure/msal-react";
 import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
+import { Input } from "@/components/ui/input";
 
 const initialValues = {
   email: "",
-  password: "",
+  password: ""
 };
 
 type FormValues = typeof initialValues;
@@ -37,9 +36,9 @@ interface IProps {
 }
 
 const SignInComponent: FC<IProps> = ({
-  setSignInSignUpComponentMode,
-  onModalClose,
-}) => {
+                                       setSignInSignUpComponentMode,
+                                       onModalClose
+                                     }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [shouldShowPassword, setShouldShowPassword] = useState(false);
   const router = useRouter();
@@ -47,12 +46,12 @@ const SignInComponent: FC<IProps> = ({
   const {
     control,
     handleSubmit,
-    formState: { errors },
+    formState: { errors }
   } = useForm({
     defaultValues: {
       email: "",
-      password: "",
-    },
+      password: ""
+    }
   });
 
   const handleFormSubmit = (values: FormValues) => {
@@ -60,7 +59,7 @@ const SignInComponent: FC<IProps> = ({
     axios({
       method: "post",
       url: backendUrl + BackendUrls.login,
-      data: values,
+      data: values
     })
       .then((response) => {
         if (response?.data?.token) {
@@ -90,7 +89,7 @@ const SignInComponent: FC<IProps> = ({
       try {
         setIsLoading(true);
         sendRequest("/dj-rest-auth/google/", HttpMethod.POST, {
-          access_token: tokenResponse.access_token,
+          access_token: tokenResponse.access_token
         })
           .then((res) => {
             setCookie(res.data.key as string);
@@ -105,7 +104,7 @@ const SignInComponent: FC<IProps> = ({
     },
     onError: (errorResponse) => {
       console.error("Login Failed:", errorResponse);
-    },
+    }
   });
 
   const { instance, accounts } = useMsal();
@@ -124,7 +123,7 @@ const SignInComponent: FC<IProps> = ({
     try {
       setIsLoading(true);
       sendRequest("/dj-rest-auth/facebook/", HttpMethod.POST, {
-        access_token: response.accessToken,
+        access_token: response.accessToken
       })
         .then((res) => {
           setCookie(res.data.key as string);
@@ -141,91 +140,104 @@ const SignInComponent: FC<IProps> = ({
   return (
     <div className="flex flex-col gap-3 w-full">
       <form onSubmit={handleSubmit(handleFormSubmit)}>
-        <Controller
-          name="email"
-          control={control}
-          rules={{ required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ }}
-          render={({ field }) => (
-            <TensurfInputText
-              {...field}
-              name="email"
-              customClassName={{ container: "w-full" }}
-              placeholder="Enter your Email"
-              label="Email"
-              leftItem={<MailIcon className="w-6 h-6" />}
-              hasError={!!errors?.email}
-              hint={
-                errors?.email?.type === "pattern" ? (
-                  <div className="text-red-400 mt-2">Enter a valid email</div>
-                ) : (
-                  ""
-                )
-              }
-            />
-          )}
-        />
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-4">
+          <Controller
+            name="email"
+            control={control}
+            rules={{ required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ }}
+            render={({ field }) => (
+              <div className="relative">
+                <div className="absolute w-fit h-fit inset-0 top-1/2 -translate-y-1/2 translate-x-1/2">
+                  <Mail color="#495057" strokeWidth={1.25} />
+                </div>
+                <Input {...field} className={'w-full bg-[#212529] border-none text-sm placeholder-[#6C757D] pl-12 py-6'} placeholder={'Enter your email'}/>
+              </div>
+              // <TensurfInputText
+              //   {...field}
+              //   name="email"
+              //   customClassName={{ container: "w-full" }}
+              //   placeholder="Enter your Email"
+              //   label="Email"
+              //   leftItem={<MailIcon className="w-6 h-6" />}
+              //   hasError={!!errors?.email}
+              //   hint={
+              //     errors?.email?.type === "pattern" ? (
+              //       <div className="text-red-400 mt-2">Enter a valid email</div>
+              //     ) : (
+              //       ""
+              //     )
+              //   }
+              // />
+            )}
+          />
           <Controller
             name="password"
             control={control}
             rules={{
               required: true,
-              pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+              pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
             }}
             render={({ field }) => (
-              <TensurfInputText
-                {...field}
-                name="Password"
-                customClassName={{ container: "w-full" }}
-                label="Password"
-                type={shouldShowPassword ? "text" : "password"}
-                leftItem={
-                  shouldShowPassword ? (
-                    <EyeIcon className="w-6 h-6" />
-                  ) : (
-                    <EyeOffIcon className="w-6 h-6" />
-                  )
-                }
-                leftItemOnClick={() => {
-                  setShouldShowPassword((prev) => !prev);
-                }}
-                placeholder="Enter your Password "
-                hasError={errors?.password?.type === "pattern" && true}
-                hint={
-                  errors?.password?.type === "pattern" && (
-                    <div className="text-red-400 mt-2">
-                      Password must be at least 8 characters long and contain at
-                      least one uppercase letter, one lowercase letter, and one
-                      number.
-                    </div>
-                  )
-                }
-              />
+              <div className="relative">
+                <div className="absolute w-fit h-fit inset-0 top-1/2 -translate-y-1/2 translate-x-1/2">
+                  <EyeOff color="#495057" strokeWidth={1.25} />
+                </div>
+                <Input {...field} className={"w-full bg-[#212529] border-none text-sm placeholder-[#6C757D] pl-12 py-6"}
+                       placeholder={"Enter your Password"} />
+              </div>
+              // <TensurfInputText
+              //   {...field}
+              //   name="Password"
+              //   customClassName={{ container: "w-full" }}
+              //   label="Password"
+              //   type={shouldShowPassword ? "text" : "password"}
+              //   leftItem={
+              //     shouldShowPassword ? (
+              //       <EyeIcon className="w-6 h-6" />
+              //     ) : (
+              //       <EyeOffIcon className="w-6 h-6" />
+              //     )
+              //   }
+              //   leftItemOnClick={() => {
+              //     setShouldShowPassword((prev) => !prev);
+              //   }}
+              //   placeholder="Enter your Password "
+              //   hasError={errors?.password?.type === "pattern" && true}
+              //   hint={
+              //     errors?.password?.type === "pattern" && (
+              //       <div className="text-red-400 mt-2">
+              //         Password must be at least 8 characters long and contain at
+              //         least one uppercase letter, one lowercase letter, and one
+              //         number.
+              //       </div>
+              //     )
+              //   }
+              // />
             )}
           />
-
-          <TensurfButton
-            onClick={() => {
-              if (setSignInSignUpComponentMode) {
-                setSignInSignUpComponentMode("forgetPassword");
-              }
-            }}
-            variant="text"
-            type="button"
-            textColor="text-[#d7d7d7]"
-            customClassName="self-start"
-            size={"small32"}
-          >
-            Forget Password
-          </TensurfButton>
         </div>
+        <TensurfButton
+          onClick={() => {
+            if (setSignInSignUpComponentMode) {
+              setSignInSignUpComponentMode("forgetPassword");
+            }
+          }}
+          variant="text"
+          type="button"
+          textColor="text-[#d7d7d7]"
+          customClassName="self-start !p-0 mt-2"
+          size={"small32"}
+        >
+          Forget Password
+        </TensurfButton>
+
         <TensurfButton
           type={"submit"}
           isLoading={isLoading}
-          customClassName="self-start w-full text-white"
+          customClassName="self-start w-full bg-primary rounded-full text-white mt-8"
           size={"xLarge56"}
         >
-          Sign in
+          Done
         </TensurfButton>
       </form>
       <hr className="h-px my-1 bg-gray-200 border-0 dark:bg-gray-700" />
