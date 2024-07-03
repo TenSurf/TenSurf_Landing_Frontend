@@ -182,11 +182,11 @@ const SignInComponent: FC<IProps> = ({
             }}
             render={({ field }) => (
               <div className="relative">
-                <Button
-                  className="absolute w-fit h-fit inset-0 top-1/2 -translate-y-1/2 hover:bg-transparent ml-3"
+                <div
+                  className="absolute w-fit h-fit inset-0 top-1/2 -translate-y-1/2 hover:bg-transparent ml-3 cursor-pointer"
                   onClick={() => setShouldShowPassword((prev) => !prev)}
-                  variant={"ghost"}
-                  size={"icon"}
+                  // variant={"ghost"}
+                  // size={"icon"}
                 >
                   {shouldShowPassword && (
                     <EyeOff color="#495057" strokeWidth={1.25} />
@@ -194,7 +194,7 @@ const SignInComponent: FC<IProps> = ({
                   {!shouldShowPassword && (
                     <EyeIcon color="#495057" strokeWidth={1.25} />
                   )}
-                </Button>
+                </div>
                 <Input
                   {...field}
                   className={
