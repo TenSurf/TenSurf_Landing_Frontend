@@ -122,7 +122,6 @@ function App() {
   ).catch((err) => {
     if (err.response?.data) {
       if (err.response.status === 401) {
-        window.location.replace("/signin");
         cookieStore.delete(token_name);
       }
     }
