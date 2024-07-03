@@ -4,9 +4,6 @@ import { BackendUrls } from "@/helpers/backend-urls";
 import { backendUrl, HttpMethod, sendRequest } from "@/helpers/http-request";
 import React, { Dispatch, FC, SetStateAction, useState } from "react";
 import { ROUTE } from "../../../constatns/general.constants";
-import TensurfInputText from "../../general/inputText/tensurfInputText";
-import MailIcon from "../../../icons/MailIcon";
-import EyeOffIcon from "../../../icons/EyeOffIcon";
 import TensurfButton from "../../general/TensurfButton";
 import { Controller, useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
@@ -14,14 +11,13 @@ import { EyeIcon, EyeOff, Mail } from "lucide-react";
 import { toast } from "sonner";
 import { useGoogleLogin } from "@react-oauth/google";
 import GoogleButton from "../component/GoogleButton";
-import FacebookButton from "../component/FacebookButton";
 import { useMsal } from "@azure/msal-react";
-import FacebookLogin from "react-facebook-login/dist/facebook-login-render-props";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const initialValues = {
   email: "",
-  password: ""
+  password: "",
 };
 
 type FormValues = typeof initialValues;
@@ -36,9 +32,9 @@ interface IProps {
 }
 
 const SignInComponent: FC<IProps> = ({
-                                       setSignInSignUpComponentMode,
-                                       onModalClose
-                                     }) => {
+  setSignInSignUpComponentMode,
+  onModalClose,
+}) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [shouldShowPassword, setShouldShowPassword] = useState(false);
   const router = useRouter();
@@ -46,12 +42,12 @@ const SignInComponent: FC<IProps> = ({
   const {
     control,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
   } = useForm({
     defaultValues: {
       email: "",
-      password: ""
-    }
+      password: "",
+    },
   });
 
   const handleFormSubmit = (values: FormValues) => {
@@ -59,7 +55,7 @@ const SignInComponent: FC<IProps> = ({
     axios({
       method: "post",
       url: backendUrl + BackendUrls.login,
-      data: values
+      data: values,
     })
       .then((response) => {
         if (response?.data?.token) {
@@ -89,7 +85,7 @@ const SignInComponent: FC<IProps> = ({
       try {
         setIsLoading(true);
         sendRequest("/dj-rest-auth/google/", HttpMethod.POST, {
-          access_token: tokenResponse.access_token
+          access_token: tokenResponse.access_token,
         })
           .then((res) => {
             setCookie(res.data.key as string);
@@ -104,10 +100,10 @@ const SignInComponent: FC<IProps> = ({
     },
     onError: (errorResponse) => {
       console.error("Login Failed:", errorResponse);
-    }
+    },
   });
 
-  const { instance, accounts } = useMsal();
+  const { instance } = useMsal();
 
   const msalLogin = async () => {
     const request = { scopes: ["openid", "profile"] };
@@ -123,7 +119,7 @@ const SignInComponent: FC<IProps> = ({
     try {
       setIsLoading(true);
       sendRequest("/dj-rest-auth/facebook/", HttpMethod.POST, {
-        access_token: response.accessToken
+        access_token: response.accessToken,
       })
         .then((res) => {
           setCookie(res.data.key as string);
@@ -150,7 +146,14 @@ const SignInComponent: FC<IProps> = ({
                 <div className="absolute w-fit h-fit inset-0 top-1/2 -translate-y-1/2 translate-x-1/2">
                   <Mail color="#495057" strokeWidth={1.25} />
                 </div>
-                <Input {...field} className={'w-full bg-[#212529] border-none text-sm placeholder-[#6C757D] pl-12 py-6'} placeholder={'Enter your email'}/>
+                <Input
+                  type="email"
+                  {...field}
+                  className={
+                    "w-full bg-[#212529] border-none text-sm placeholder-[#6C757D] pl-12 py-6"
+                  }
+                  placeholder={"Enter your email"}
+                />
               </div>
               // <TensurfInputText
               //   {...field}
@@ -175,15 +178,31 @@ const SignInComponent: FC<IProps> = ({
             control={control}
             rules={{
               required: true,
-              pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/
+              pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
             }}
             render={({ field }) => (
               <div className="relative">
-                <div className="absolute w-fit h-fit inset-0 top-1/2 -translate-y-1/2 translate-x-1/2">
-                  <EyeOff color="#495057" strokeWidth={1.25} />
-                </div>
-                <Input {...field} className={"w-full bg-[#212529] border-none text-sm placeholder-[#6C757D] pl-12 py-6"}
-                       placeholder={"Enter your Password"} />
+                <Button
+                  className="absolute w-fit h-fit inset-0 top-1/2 -translate-y-1/2 hover:bg-transparent ml-3"
+                  onClick={() => setShouldShowPassword((prev) => !prev)}
+                  variant={"ghost"}
+                  size={"icon"}
+                >
+                  {shouldShowPassword && (
+                    <EyeOff color="#495057" strokeWidth={1.25} />
+                  )}
+                  {!shouldShowPassword && (
+                    <EyeIcon color="#495057" strokeWidth={1.25} />
+                  )}
+                </Button>
+                <Input
+                  {...field}
+                  className={
+                    "w-full bg-[#212529] border-none text-sm placeholder-[#6C757D] pl-12 py-6"
+                  }
+                  placeholder={"Enter your Password"}
+                  type={shouldShowPassword ? "text" : "password"}
+                />
               </div>
               // <TensurfInputText
               //   {...field}
@@ -254,14 +273,14 @@ const SignInComponent: FC<IProps> = ({
             console.log("coming soon");
           }}
         /> */}
-        <FacebookLogin
+        {/* <FacebookLogin
           appId="1088597931155576"
           // autoLoad
           callback={facebookCallback}
           render={(renderProps: any) => (
             <FacebookButton onClick={renderProps.onClick} />
           )}
-        />
+        /> */}
       </div>
     </div>
   );

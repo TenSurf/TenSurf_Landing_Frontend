@@ -49,9 +49,9 @@ const ProfileSettings = () => {
   // *.*.*.*.*.*.*.*.*. RETURN ↓•↓•↓
   return (
     <>
-      <div className="flex flex-col gap-16 items-center w-screen">
+      <div className="flex flex-col gap-16 items-center w-screen justify-center">
         {/* <Breadcrumb pageName='Profile Settings' /> */}
-        <div className="w-full bg-slate-900">
+        <div className="w-full bg-slate-900 mt-24">
           <div className="px-32 text-[24px]  font-medium flex gap-2">
             <TensurfButton
               onClick={() => changeModeHandler("profileSetting")}
@@ -80,7 +80,7 @@ const ProfileSettings = () => {
           </div>
         </div>
 
-        <div className="px-6 mt-24 w-full lg:w-1/2 max-w-[1200px]">
+        <div className="px-6 w-full lg:w-1/2 max-w-[1200px]">
           {mode === "profileSetting" ? (
             <EditProfile isGetDataLoading={isGetDataLoading} />
           ) : (

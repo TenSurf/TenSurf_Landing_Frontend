@@ -1,5 +1,3 @@
-'use client';
-
 import ProfileSettings from '@/component/dashboard/ProfileSetting';
 import DefaultLayout from '@/layout/publicContentLayout/DefaultLayout';
 import { PAGE_TITLE } from '@/constatns/general.constants';

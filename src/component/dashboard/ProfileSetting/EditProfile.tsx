@@ -78,7 +78,6 @@ export const EditProfile = ({
         .catch(() => {});
     } else {
       sendRequest(BackendUrls.change_password, HttpMethod.POST, {
-        // password: values.password,
         new_password: values.newPassword,
         confirm_new_password: values.confirmNewPassword,
       })

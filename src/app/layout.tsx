@@ -6,6 +6,9 @@ import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
 import Head from "next/head";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { cookies } from "next/headers";
+import { HttpMethod, sendRequest } from "@/helpers/http-request";
+import { token_name } from "@/helpers/auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -108,6 +111,23 @@ export default function RootLayout({
 }
 
 function App() {
+  const cookieStore = cookies();
+
+  sendRequest(
+    "/account/check_authentication/",
+    HttpMethod.GET,
+    {},
+    false,
+    cookieStore.get(token_name)?.value
+  ).catch((err) => {
+    if (err.response?.data) {
+      if (err.response.status === 401) {
+        window.location.replace("/signin");
+        cookieStore.delete(token_name);
+      }
+    }
+  });
+
   return (
     <div className="toastha">
       <ToastContainer />

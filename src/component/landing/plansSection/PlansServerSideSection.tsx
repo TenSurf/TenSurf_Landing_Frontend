@@ -3,7 +3,7 @@ import { BackendUrls } from "@/helpers/backend-urls";
 import type { IPlan } from "@/types/general.types";
 import { PlansSection } from "@/component/landing/plansSection/PlansSection";
 
-export const backendUrl = process.env.NEXT_PUBLIC_API_HUB_URL;
+export const backendUrl = process.env.NEXT_PUBLIC_API_URL;
 
 async function getPlans() {
   let res = await fetch(backendUrl + BackendUrls.plans, {

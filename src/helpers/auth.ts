@@ -1,6 +1,6 @@
 import Cookies from "js-cookie";
 
-const token_name = "tensurftoken";
+export const token_name = "tensurftoken";
 
 export const setCookie = (token: string): void => {
   if (typeof window !== "undefined") {

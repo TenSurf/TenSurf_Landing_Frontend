@@ -3,7 +3,7 @@ import { jsonToQueryString } from "./functions";
 import { type GetServerSidePropsContext } from "next";
 import { getCookie, removeCookie } from "./auth";
 
-export const backendUrl = process.env.NEXT_PUBLIC_API_HUB_URL;
+export const backendUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export enum HttpMethod {
   GET = "GET",
