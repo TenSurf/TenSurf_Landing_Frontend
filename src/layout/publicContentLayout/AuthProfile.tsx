@@ -10,18 +10,22 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ROUTE } from "@/constatns/general.constants";
 import { isLoggedIn, removeCookie } from "@/helpers/auth";
+import { HttpMethod, sendRequest } from "@/helpers/http-request";
 import { ArrowRight, UserRoundIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
 export const AuthProfile = () => {
+  const signout = () => {
+    sendRequest("/account/log_out/", HttpMethod.POST).then(() => {
+      removeCookie();
+      window.location.reload();
+    });
+  };
   return (
     <div>
       {!isLoggedIn() && (
-        <Link
-          className={"flex"}
-          href={"/waitlist"}
-        >
+        <Link className={"flex"} href={"/waitlist"}>
           <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6">
             <p>Get Started</p>
             <ArrowRight size={20} strokeWidth={2} />
@@ -44,14 +48,7 @@ export const AuthProfile = () => {
                 <a href={ROUTE.profileBilling}>
                   <DropdownMenuItem>Account and Billing</DropdownMenuItem>
                 </a>
-                <DropdownMenuItem
-                  onClick={() => {
-                    removeCookie();
-                    window.location.reload();
-                  }}
-                >
-                  Sign out
-                </DropdownMenuItem>
+                <DropdownMenuItem onClick={signout}>Sign out</DropdownMenuItem>
               </DropdownMenuGroup>
             </DropdownMenuContent>
           </DropdownMenu>
