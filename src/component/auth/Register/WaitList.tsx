@@ -53,7 +53,10 @@ const WaitList = (props: any) => {
           </span>
         </div>
       ) : (
-        <form className="flex flex-col gap-4 w-full">
+        <form
+          className="flex flex-col gap-4 w-full"
+          onSubmit={handleSubmit(handleFormSubmit)}
+        >
           <Controller
             name="email"
             control={control}
