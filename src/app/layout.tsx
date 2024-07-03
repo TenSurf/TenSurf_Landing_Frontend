@@ -92,7 +92,7 @@ export default function RootLayout({
         ></Script>
       </head>
       <body className={inter.className}>
-        <GoogleOAuthProvider clientId={process.env.GOOGLE_CLIENT_ID as string}>
+        <GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID as string}>
           <App />
           {children}
           <Toaster duration={3000} />
