@@ -5,7 +5,7 @@ export const token_name = "tensurftoken";
 export const setCookie = (token: string): void => {
   if (typeof window !== "undefined") {
     Cookies.set(token_name, token, {
-      domain: 'tensurf.ai',
+      domain: "tensurf.ai",
     });
   }
 };
@@ -13,6 +13,7 @@ export const setCookie = (token: string): void => {
 export const removeCookie = (): void => {
   if (typeof window !== "undefined") {
     Cookies.remove(token_name);
+    Cookies.remove(token_name, { domain: "tensurf.ai" });
   }
 };
 

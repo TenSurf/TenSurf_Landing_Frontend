@@ -19,7 +19,6 @@ export const AuthProfile = () => {
   const signout = () => {
     sendRequest("/account/log_out/", HttpMethod.POST).then(() => {
       removeCookie();
-      window.location.reload();
     });
   };
   return (
