@@ -59,7 +59,6 @@ export const sendRequest = <T = Record<string, any>>(
       .catch((err) => {
         if (err.response?.data) {
           if (err.response.status === 401) {
-            window.location.replace("/signin");
             removeCookie();
           }
         }
