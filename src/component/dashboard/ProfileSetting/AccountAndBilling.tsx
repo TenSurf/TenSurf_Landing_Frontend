@@ -1,24 +1,22 @@
 import { useRouter } from "next/navigation";
-import CheckAllIcon from "../../../icons/CheckAllIcon";
-import NoEntryIcon from "../../../icons/NoEntryIcon";
 import TensurfButton from "../../general/TensurfButton";
 import { ROUTE } from "../../../constatns/general.constants";
-import CalendarIcon from "../../../icons/CalendarIcon";
 import React from "react";
 import moment from "moment";
 import { useAccountStore } from "@/store/account";
-import { Ban, Calendar } from "lucide-react";
+import { Ban, Calendar, CheckCheck } from "lucide-react";
 
 export const AccountAndBilling = ({
-  isGetDataLoading,
-}: {
+                                    isGetDataLoading
+                                  }: {
   isGetDataLoading: boolean;
 }) => {
   const router = useRouter();
   const { user_data }: any = useAccountStore();
 
   return (
-    <div className="flex flex-col gap-6 p-8 w-full max-w-[1015px] mx-auto border-[1px] border-[#212529] bg-[#02040E] rounded-3xl">
+    <div
+      className="flex flex-col gap-6 p-8 w-full max-w-[1015px] mx-auto border-[1px] border-[#212529] bg-[#02040E] rounded-3xl">
       {isGetDataLoading ? (
         <div className="rounded-xl bg-dark-Neutral-2 h-20 animate-pulse"></div>
       ) : (
@@ -31,7 +29,7 @@ export const AccountAndBilling = ({
             </div>
             <div className="flex gap-4 items-center">
               {user_data?.expire_plan_at ? (
-                <CheckAllIcon className="text-dark-green-400" />
+                <CheckCheck size={20} color="#3DC751" strokeWidth={2} />
               ) : (
                 <Ban size={20} color="#F26056" strokeWidth={2} />
               )}
@@ -44,7 +42,8 @@ export const AccountAndBilling = ({
             </div>
           </div>
           <div className="flex flex-col gap-2 w-full">
-            <div className="flex justify-between items-center rounded-[10px] border-[1px] border-[#343A40] border-dark-Neutral-7 bg-[#212529] px-4 py-3">
+            <div
+              className="flex justify-between items-center rounded-[10px] border-[1px] border-[#343A40] border-dark-Neutral-7 bg-[#212529] px-4 py-3">
               <div className="flex flex-col gap-2 ">
                 <div className="font-medium text-sm text-dark-Neutral-200">
                   Current Plan
