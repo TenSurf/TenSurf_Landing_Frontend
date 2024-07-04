@@ -18,7 +18,7 @@ const WaitlistPage = () => {
       <DefaultLayout>
         <div className="p-8 items-center flex justify-center  text-dark-Neutral-0 mt-16">
           <div className="flex items-center justify-center  bg-dark-Neutral-1 p-8 rounded-lg">
-            <SignInSignUpComponent initialMode={"waitlist"} />
+            <SignInSignUpComponent initialMode={"signIn"} />
           </div>
         </div>
       </DefaultLayout>

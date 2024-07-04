@@ -7,6 +7,7 @@ import CalendarIcon from "../../../icons/CalendarIcon";
 import React from "react";
 import moment from "moment";
 import { useAccountStore } from "@/store/account";
+import { Ban, Calendar } from "lucide-react";
 
 export const AccountAndBilling = ({
   isGetDataLoading,
@@ -17,7 +18,7 @@ export const AccountAndBilling = ({
   const { user_data }: any = useAccountStore();
 
   return (
-    <div className="flex flex-col gap-6 p-8 rounded-lg border w-full">
+    <div className="flex flex-col gap-6 p-8 w-full max-w-[1015px] mx-auto border-[1px] border-[#212529] bg-[#02040E] rounded-3xl">
       {isGetDataLoading ? (
         <div className="rounded-xl bg-dark-Neutral-2 h-20 animate-pulse"></div>
       ) : (
@@ -32,9 +33,9 @@ export const AccountAndBilling = ({
               {user_data?.expire_plan_at ? (
                 <CheckAllIcon className="text-dark-green-400" />
               ) : (
-                <NoEntryIcon className="text-dark-red-400" />
+                <Ban size={20} color="#F26056" strokeWidth={2} />
               )}
-              <div className="text-[18px] font-medium text-dark-Neutral-200">
+              <div className="text-[16px] font-normal">
                 {user_data?.expire_plan_at
                   ? `Your current premium plan is active and running smoothly. Keep enjoying all the premium features without interruption`
                   : `It looks like you don't have an active premium plan at the moment. Explore our plans and find the one
@@ -43,21 +44,21 @@ export const AccountAndBilling = ({
             </div>
           </div>
           <div className="flex flex-col gap-2 w-full">
-            <div className="flex justify-between items-center rounded-[10px] border-[1px] border-dark-Neutral-7 bg-dark-Neutral-4 px-4 py-3">
+            <div className="flex justify-between items-center rounded-[10px] border-[1px] border-[#343A40] border-dark-Neutral-7 bg-[#212529] px-4 py-3">
               <div className="flex flex-col gap-2 ">
                 <div className="font-medium text-sm text-dark-Neutral-200">
                   Current Plan
                 </div>
-                <div className="font-bold text-[20px]">{user_data?.plan_name}</div>
+                <h3 className="font-bold text-[20px]">{user_data?.plan_name}</h3>
               </div>
               <TensurfButton onClick={() => router.push(ROUTE.plans)}>
                 Change Plan
               </TensurfButton>
             </div>
             {user_data?.expire_plan_at ? (
-              <div className="flex gap-1 items-center">
-                <CalendarIcon className="text-dark-Neutral-300" />
-                <div className="text-dark-Neutral-200 text-sx">
+              <div className="flex gap-2 items-center mt-4">
+                <Calendar size={16} color="#ADB5BD" />
+                <div className="text-base font-medium">
                   Your account will be automatically charged on{" "}
                   <strong>
                     {moment(user_data?.expire_plan_at).format("YYYY MMM D")}
@@ -66,10 +67,11 @@ export const AccountAndBilling = ({
                 </div>
               </div>
             ) : (
-              <span>
-                Unlock advanced features & optimize your trades - start your
-                TenSurf plan today!
-              </span>
+              <></>
+              // <span>
+              //   Unlock advanced features & optimize your trades - start your
+              //   TenSurf plan today!
+              // </span>
             )}
           </div>
         </>
