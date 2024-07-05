@@ -51,7 +51,7 @@ const ProfileSettings = () => {
   // *.*.*.*.*.*.*.*.*. RETURN ↓•↓•↓
   return (
     <>
-      <div className="flex flex-col gap-16 items-center w-screen justify-center container my-52 relative">
+      <div className="flex flex-col gap-16 items-center w-screen justify-center container my-28 sm:my-52 relative">
         <div
           style={{
             opacity: "0.5",
@@ -76,13 +76,13 @@ const ProfileSettings = () => {
               </div>
             </div>
             <div
-              className="px-4 text-[24px]  border-[1px] border-[#212529] rounded-3xl bg-[#02040E] py-3 font-medium flex gap-2">
+              className="px-1 sm:px-4 border-[1px] border-[#212529] rounded-3xl bg-[#02040E] py-3 font-medium flex gap-0 sm:gap-2">
               <Button onClick={() => changeModeHandler("profileSetting")}
-                      className={`text-2xl bg-transparent hover:bg-transparent ${mode === "profileSetting" ? "text-white" : "text-[#495057]"}`}>
+                      className={`p-2 text-xl sm:text-2xl bg-transparent hover:bg-transparent ${mode === "profileSetting" ? "text-white" : "text-[#495057]"}`}>
                 Profile
               </Button>
               <Button onClick={() => changeModeHandler("billing")}
-                      className={`text-2xl bg-transparent hover:bg-transparent ${mode === "billing" ? "text-white" : "text-[#495057]"}`}>
+                      className={`p-2 text-xl sm:text-2xl bg-transparent hover:bg-transparent ${mode === "billing" ? "text-white" : "text-[#495057]"}`}>
                 Account and Billing
               </Button>
             </div>

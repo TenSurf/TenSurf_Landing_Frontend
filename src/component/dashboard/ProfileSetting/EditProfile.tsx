@@ -13,6 +13,7 @@ import InputPasswordHint from "../../../utils/InputPasswordHint";
 import { toast } from "sonner";
 import { useAccountStore } from "@/store/account";
 import { Button } from "@/components/ui/button";
+import { CircularProgress } from "@mui/material";
 
 export const EditProfile = ({
   isGetDataLoading,
@@ -106,18 +107,18 @@ export const EditProfile = ({
   });
 
   return (
-    <div className="p-8 border-[1px] border-[#212529] bg-[#02040E] rounded-3xl w-full max-w-[540px] mx-auto">
+    <div className="p-3 sm:p-8 border-[1px] border-[#212529] bg-[#02040E] rounded-3xl w-full max-w-[540px] mx-auto">
       <form
         onSubmit={handleSubmit(handleFormSubmit)}
         className="flex flex-col gap-10"
       >
         <div className="flex gap-2 w-full">
           <Button type={"button"} onClick={() => setMode("editProfile")}
-                  className={`text-xl font-bold bg-transparent hover:bg-transparent rounded-none ${mode === "editProfile" ? "text-white border-b-2 border-[#082FDF]" : "text-[#495057]"}`}>
+                  className={`p-1 text-lg sm:text-xl font-bold bg-transparent hover:bg-transparent rounded-none ${mode === "editProfile" ? "text-white border-b-2 border-[#082FDF]" : "text-[#495057]"}`}>
             Edit Profile
           </Button>
           <Button type={'button'} onClick={() => setMode("changePassword")}
-                  className={`text-xl font-bold bg-transparent hover:bg-transparent rounded-none ${mode === "changePassword" ? "text-white border-b-2 border-[#082FDF]" : "text-[#495057]"}`}>
+                  className={`p-1 text-lg sm:text-xl font-bold bg-transparent hover:bg-transparent rounded-none ${mode === "changePassword" ? "text-white border-b-2 border-[#082FDF]" : "text-[#495057]"}`}>
             change Password
           </Button>
         </div>
@@ -267,15 +268,14 @@ export const EditProfile = ({
           </>
         )}
 
-        <TensurfButton
-          type={"submit"}
-          isDisabled={isGetDataLoading}
-          isLoading={isEditProfileLoading}
-          customClassName="self-start w-fit bg-primary rounded-full text-white"
-          size={"xLarge56"}
+        <Button
+          type={'submit'}
+          disabled={isGetDataLoading}
+          className={"self-start w-fit bg-primary rounded-full text-white text-lg sm:text-xl"}
         >
-          Save change
-        </TensurfButton>
+          {isEditProfileLoading ?
+            <CircularProgress size={14} className='!text-dark-Neutral-0 '/> : "Save change"}
+        </Button>
       </form>
     </div>
   );
