@@ -12,6 +12,8 @@ import PasswordValidation from "../../../utils/PasswordValidation";
 import InputPasswordHint from "../../../utils/InputPasswordHint";
 import { toast } from "sonner";
 import { useAccountStore } from "@/store/account";
+import { Button } from "@/components/ui/button";
+import { CircularProgress } from "@mui/material";
 
 export const EditProfile = ({
   isGetDataLoading,
@@ -41,7 +43,7 @@ export const EditProfile = ({
     defaultValues: {
       email: user_data.email || "",
       full_name: user_data.full_name || "",
-      // password: "",
+      password: "",
       newPassword: "",
       confirmNewPassword: "",
     },
@@ -54,7 +56,7 @@ export const EditProfile = ({
   }, [user_data.email, user_data.full_name]);
 
   useEffect(() => {
-    // setValue("password", "");
+    setValue("password", "");
     setValue("newPassword", "");
     setValue("confirmNewPassword", "");
     setValue("email", user_data.email || "");
@@ -84,7 +86,7 @@ export const EditProfile = ({
         .then((res) => {
           toast.success("Your password has been updated");
           reset({
-            // password: "",
+            password: "",
             newPassword: "",
             confirmNewPassword: "",
             email: user_data.email || "",
@@ -105,43 +107,23 @@ export const EditProfile = ({
   });
 
   return (
-    <div className="p-8 border rounded-lg w-full">
+    <div className="p-3 sm:p-8 border-[1px] border-[#212529] bg-[#02040E] rounded-3xl w-full max-w-[540px] mx-auto">
       <form
         onSubmit={handleSubmit(handleFormSubmit)}
-        className="flex flex-col gap-5"
+        className="flex flex-col gap-10"
       >
         <div className="flex gap-2 w-full">
-          <TensurfButton
-            type={"button"}
-            onClick={() => setMode("editProfile")}
-            variant={"text"}
-            textColor={"text-dark-Neutral-0"}
-            customClassName={
-              mode === "editProfile"
-                ? "border-b-2 border-dark-primary-400  !rounded-none"
-                : "!rounded-none"
-            }
-            size={"medium40"}
-          >
+          <Button type={"button"} onClick={() => setMode("editProfile")}
+                  className={`p-1 text-lg sm:text-xl font-bold bg-transparent hover:bg-transparent rounded-none ${mode === "editProfile" ? "text-white border-b-2 border-[#082FDF]" : "text-[#495057]"}`}>
             Edit Profile
-          </TensurfButton>
-          <TensurfButton
-            type={"button"}
-            onClick={() => setMode("changePassword")}
-            variant={"text"}
-            textColor={"text-dark-Neutral-0"}
-            customClassName={
-              mode === "changePassword"
-                ? "border-b-2 border-dark-primary-400  !rounded-none"
-                : "!rounded-none"
-            }
-            size={"medium40"}
-          >
-            Change Password
-          </TensurfButton>
+          </Button>
+          <Button type={'button'} onClick={() => setMode("changePassword")}
+                  className={`p-1 text-lg sm:text-xl font-bold bg-transparent hover:bg-transparent rounded-none ${mode === "changePassword" ? "text-white border-b-2 border-[#082FDF]" : "text-[#495057]"}`}>
+            change Password
+          </Button>
         </div>
         {mode === "editProfile" ? (
-          <>
+          <div className={'flex flex-col gap-6'}>
             <Controller
               name="email"
               control={control}
@@ -152,14 +134,10 @@ export const EditProfile = ({
                   label="Email"
                   value={values.email}
                   autoComplete={"new-password"}
+                  placeholder="Enter email"
                   isLoading={isGetDataLoading}
-                  leftItem={<MailIcon />}
+                  // leftItem={<MailIcon />}
                   isDisabled={true}
-                  hint={
-                    <div className="text-slate-500">
-                      Note: Email cannot be changed
-                    </div>
-                  }
                 />
               )}
             />
@@ -177,12 +155,12 @@ export const EditProfile = ({
                   value={values.full_name}
                   placeholder="Enter your Full Name "
                   label="Full Name"
-                  leftItem={<UserIcon className="w-6 h-6" />}
+                  // leftItem={<UserIcon className="w-6 h-6" />}
                   hasError={errors?.full_name?.type === "required" && true}
                 />
               )}
             />
-          </>
+          </div>
         ) : (
           <>
             {/* <Controller
@@ -207,6 +185,34 @@ export const EditProfile = ({
             /> */}
 
             <Controller
+              name="password"
+              control={control}
+              rules={{
+                required: true,
+                pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+              }}
+              render={({ field }) => (
+                <TensurfInputText
+                  {...field}
+                  label="Current Password"
+                  placeholder="Enter your current password"
+                  autoComplete={"current-password"}
+                  leftItem={<TeLock />}
+                  rightItem={<EyeOffIcon className="w-6 h-6" />}
+                  type={shouldShowNewPassword ? "text" : "password"}
+                  rightItemOnClick={() => {
+                    setShouldShowNewPassword((prev) => !prev);
+                  }}
+                  hasError={errors.newPassword?.type === "pattern" && true}
+                  hint={
+                    errors?.newPassword?.type === "pattern" && (
+                      <InputPasswordHint validation={passwordValidation} />
+                    )
+                  }
+                />
+              )}
+            />
+            <Controller
               name="newPassword"
               control={control}
               rules={{
@@ -216,7 +222,7 @@ export const EditProfile = ({
               render={({ field }) => (
                 <TensurfInputText
                   {...field}
-                  label="New Password"
+                  label="Password"
                   placeholder="Enter your new password"
                   autoComplete={"new-password"}
                   leftItem={<TeLock />}
@@ -245,7 +251,7 @@ export const EditProfile = ({
               render={({ field }) => (
                 <TensurfInputText
                   {...field}
-                  label="New Password Confirmation"
+                  label="Password Confirmation"
                   name="passwordConfirmation"
                   placeholder="Re-enter new password"
                   autoComplete={"new-password"}
@@ -262,15 +268,14 @@ export const EditProfile = ({
           </>
         )}
 
-        <TensurfButton
-          type={"submit"}
-          isDisabled={isGetDataLoading}
-          isLoading={isEditProfileLoading}
-          customClassName="self-end"
-          size={"xLarge56"}
+        <Button
+          type={'submit'}
+          disabled={isGetDataLoading}
+          className={"self-start w-fit bg-primary rounded-full text-white text-lg sm:text-xl"}
         >
-          Save change
-        </TensurfButton>
+          {isEditProfileLoading ?
+            <CircularProgress size={14} className='!text-dark-Neutral-0 '/> : "Save change"}
+        </Button>
       </form>
     </div>
   );

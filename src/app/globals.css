@@ -643,4 +643,8 @@
         background-color: #8032FF;
         filter: blur(100px);
     }
+
+    .container {
+        @apply px-2 sm:px-8 !important
+    }
 }
