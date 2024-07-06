@@ -14,11 +14,12 @@ interface IProps {
   onModalClose?: () => void;
 }
 
-export const SignInSignUpComponent: FC<IProps> = ({
-                                                    isModal = false,
-                                                    initialMode = "signIn",
-                                                    onModalClose
-                                                  }) => {
+export const SignInSignUpComponent: FC<IProps> = (
+  {
+    isModal = false,
+    initialMode = "signIn",
+    onModalClose
+  }) => {
   const [mode, setMode] = useState<
     "signIn" | "signUp" | "forgetPassword" | "waitlist" | undefined
   >(initialMode);
