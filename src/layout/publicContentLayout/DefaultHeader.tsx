@@ -1,5 +1,5 @@
 import { MENU_ITEMS } from "../../constatns/landingPage.constants";
-import { Suspense, type RefObject } from "react";
+import { Suspense, type RefObject, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
@@ -9,6 +9,8 @@ import React from "react";
 import MenuDrawer from "@/layout/publicContentLayout/MenuDrawer";
 
 export const DefaultHeader = () => {
+
+
 
   return (
     <div className="lg:!container z-50 sticky top-0 lg:top-6">
@@ -52,35 +54,7 @@ export const DefaultHeader = () => {
             <Suspense>
               <AuthProfile />
             </Suspense>
-            <MenuDrawer>
-              <div className="w-full h-full flex flex-col justify-center items-center gap-6">
-                <Link href={"/"} className={"block w-full max-w-[336px]"}>
-                  <div
-                    className="flex rounded-3xl bg-[#ADB5BD]/10 items-center justify-start gap-2 cursor-pointer w-full py-4 px-6"
-                  >
-                    <Home size={20} color="#adb5db" />
-                    <div>
-                      <p className={"text-white text-xl font-bold"}>Home</p>
-                    </div>
-                  </div>
-                  <span className={"h-[1px] bg-white w-3/4"}></span>
-                </Link>
-                {MENU_ITEMS.map((item: any, index: number) => (
-                  <Link key={index} href={item.url} className={"block w-full max-w-[336px]"}>
-                    <div
-                      id={item.title}
-                      className="flex rounded-3xl bg-[#ADB5BD]/10 items-center justify-start gap-2 cursor-pointer w-full py-4 px-6"
-                    >
-                      {<item.icon className="text-white" />}
-                      <div>
-                        <p className={"text-white text-xl font-bold"}>{item.title}</p>
-                      </div>
-                    </div>
-                    <span className={"h-[1px] bg-white w-3/4"}></span>
-                  </Link>
-                ))}
-              </div>
-            </MenuDrawer>
+            <MenuDrawer />
           </>
         </div>
       </div>

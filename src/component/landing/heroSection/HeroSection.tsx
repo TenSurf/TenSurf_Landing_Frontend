@@ -65,7 +65,7 @@ export const HeroSection = ({
       {/*  <ChevronDownIcon className="absolute z-10 bottom-12 h-8 w-8 animate-bounce cursor-pointer hidden lg:block" />*/}
       {/*</a>*/}
 
-      <div className="absolute z-0 h-full top-0 w-full items-stretch flex-wrap justify-between flex gap-[200px] max-w-[90%]">
+      <div className="absolute z-0 h-full top-0 w-full items-stretch justify-between flex gap-[200px] max-w-[90%] max-h-screen px-4 overflow-hidden">
         {animateLights.map((light, index) => (
           <AnimateLight key={index} index={index} />
         ))}

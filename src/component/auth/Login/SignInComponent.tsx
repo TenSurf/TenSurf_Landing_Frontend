@@ -256,7 +256,7 @@ const SignInComponent: FC<IProps> = ({
           customClassName="self-start w-full bg-primary rounded-full text-white mt-8"
           size={"xLarge56"}
         >
-          Done
+          Login
         </TensurfButton>
       </form>
       <hr className="h-px my-1 bg-gray-200 border-0 dark:bg-gray-700" />

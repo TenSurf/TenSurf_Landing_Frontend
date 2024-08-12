@@ -86,7 +86,7 @@ export const SignInSignUpComponent: FC<IProps> = (
             </TensurfButton>
           </div> */}
           <div className="flex flex-col md:flex-row items-center gap-1 text-white text-[12px]">
-            <div>{`Join our waitlist if no account`}</div>
+            <div>{`Join the waitlist if you don’t have an existing account`}</div>
             <TensurfButton
               onClick={() => router.push(ROUTE.waitlist)}
               variant="text"

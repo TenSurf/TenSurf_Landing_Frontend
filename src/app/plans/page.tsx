@@ -5,6 +5,7 @@ import { PAGE_TITLE } from "@/constatns/general.constants";
 import DefaultLayout from "@/layout/publicContentLayout/DefaultLayout";
 
 const Page = () => {
+
   return (
     <PageProvider title={PAGE_TITLE.plans}>
       <DefaultLayout>

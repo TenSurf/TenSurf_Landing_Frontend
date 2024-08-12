@@ -7,9 +7,16 @@ export const backendUrl = process.env.NEXT_PUBLIC_API_URL;
 
 async function getPlans() {
   let res = await fetch(backendUrl + BackendUrls.plans, {
-    cache: "no-store"
+    cache: "no-store",
   });
-  const data = await res.json();
+
+  let data: any[];
+
+  try {
+    data = await res.json();
+  } catch (e) {
+    data = [];
+  }
 
   return Object.values(data).map((val: any): IPlan => {
     return {
