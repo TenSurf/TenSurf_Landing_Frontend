@@ -1,8 +1,8 @@
 import axios from "axios";
-import { setCookie } from "@/helpers/auth";
+import { getCookie, setCookie } from "@/helpers/auth";
 import { BackendUrls } from "@/helpers/backend-urls";
 import { backendUrl, HttpMethod, sendRequest } from "@/helpers/http-request";
-import React, { Dispatch, FC, SetStateAction, useState } from "react";
+import React, { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
 import { ROUTE } from "../../../constatns/general.constants";
 import TensurfButton from "../../general/TensurfButton";
 import { Controller, useForm } from "react-hook-form";
@@ -10,14 +10,12 @@ import { useRouter } from "next/navigation";
 import { EyeIcon, EyeOff, Mail } from "lucide-react";
 import { toast } from "sonner";
 import { useGoogleLogin } from "@react-oauth/google";
-import GoogleButton from "../component/GoogleButton";
 import { useMsal } from "@azure/msal-react";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 
 const initialValues = {
   email: "",
-  password: "",
+  password: ""
 };
 
 type FormValues = typeof initialValues;
@@ -32,9 +30,9 @@ interface IProps {
 }
 
 const SignInComponent: FC<IProps> = ({
-  setSignInSignUpComponentMode,
-  onModalClose,
-}) => {
+                                       setSignInSignUpComponentMode,
+                                       onModalClose
+                                     }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [shouldShowPassword, setShouldShowPassword] = useState(false);
   const router = useRouter();
@@ -42,24 +40,37 @@ const SignInComponent: FC<IProps> = ({
   const {
     control,
     handleSubmit,
-    formState: { errors },
+    formState
   } = useForm({
     defaultValues: {
       email: "",
-      password: "",
-    },
+      password: ""
+    }
   });
+
+  useEffect(() => {
+    console.log(formState);
+  }, [formState]);
+
+  useEffect(() => {
+    console.log(formState, control);
+  }, [formState, control]);
+
 
   const handleFormSubmit = (values: FormValues) => {
     setIsLoading(true);
+    console.log("hear");
     axios({
       method: "post",
       url: backendUrl + BackendUrls.login,
       data: values,
+      withCredentials: true
     })
       .then((response) => {
         if (response?.data?.token) {
+          console.log(response?.data?.token);
           setCookie(response?.data?.token as string);
+          console.log(getCookie());
           router.replace(ROUTE.home);
           if (onModalClose) {
             onModalClose();
@@ -85,7 +96,7 @@ const SignInComponent: FC<IProps> = ({
       try {
         setIsLoading(true);
         sendRequest("/dj-rest-auth/google/", HttpMethod.POST, {
-          access_token: tokenResponse.access_token,
+          access_token: tokenResponse.access_token
         })
           .then((res) => {
             setCookie(res.data.key as string);
@@ -100,7 +111,7 @@ const SignInComponent: FC<IProps> = ({
     },
     onError: (errorResponse) => {
       console.error("Login Failed:", errorResponse);
-    },
+    }
   });
 
   const { instance } = useMsal();
@@ -119,7 +130,7 @@ const SignInComponent: FC<IProps> = ({
     try {
       setIsLoading(true);
       sendRequest("/dj-rest-auth/facebook/", HttpMethod.POST, {
-        access_token: response.accessToken,
+        access_token: response.accessToken
       })
         .then((res) => {
           setCookie(res.data.key as string);
@@ -177,8 +188,8 @@ const SignInComponent: FC<IProps> = ({
             name="password"
             control={control}
             rules={{
-              required: true,
-              pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+              required: true
+              // pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
             }}
             render={({ field }) => (
               <div className="relative">
@@ -261,12 +272,12 @@ const SignInComponent: FC<IProps> = ({
       </form>
       <hr className="h-px my-1 bg-gray-200 border-0 dark:bg-gray-700" />
       <div className="w-full grid grid-cols-1 gap-4 justify-items-center items-center">
-        <GoogleButton
-          onClick={() => {
-            // setGoogleLoginLoading(true);
-            googleLogin();
-          }}
-        />
+        {/*<GoogleButton*/}
+        {/*  onClick={() => {*/}
+        {/*    // setGoogleLoginLoading(true);*/}
+        {/*    googleLogin();*/}
+        {/*  }}*/}
+        {/*/>*/}
         {/* <MicrosoftButton onClick={msalLogin} /> */}
         {/* <AppleButton
           onClick={() => {
