@@ -63,8 +63,6 @@ const ProfileSettings = () => {
         {/* <Breadcrumb pageName='Profile Settings' /> */}
         <div className="w-full max-w-[1015px] relative">
           <div className="flex flex-col gap-8">
-            <h1
-              className={'text-xl font-medium sm:text-3xl sm:font-normal text-[#F8F9FA]'}>ahmad_reza_shah2002@gmail.com</h1>
             <div className="flex gap-5">
               <div className="flex gap-1 items-center">
                 <Clock3 size={16} color="#495057" strokeWidth={2} />

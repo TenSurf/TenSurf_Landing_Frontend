@@ -25,7 +25,7 @@ export const AuthProfile = () => {
   return (
     <div>
       {!isLoggedIn() && (
-        <Link className={"flex"} href={"/waitlist"}>
+        <Link className={"flex"} href={"/signup"}>
           <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6">
             <p>Get Started</p>
             <ArrowRight size={20} strokeWidth={2} />

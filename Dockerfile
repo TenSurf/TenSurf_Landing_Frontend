@@ -1,7 +1,8 @@
 FROM node:18-alpine as builder
 WORKDIR /temp
 COPY package*.json ./
-RUN npm ci --legacy-peer-deps && npm cache clean --force
+RUN npm install
+RUN npm ci && npm cache clean --force
 COPY . .
 RUN npm run build
 
