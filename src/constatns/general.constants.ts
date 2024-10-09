@@ -9,7 +9,7 @@ export const TENSURF_CONTACT = {
   youtube: "https://www.youtube.com/channel/UC9ieaTLEY75vW_4wGR4hqdg",
 };
 
-export const ROUTE = {
+export const  ROUTE = {
   home: '/',
   landing: '/',
   landingAboutUs: '/#AboutUs',
