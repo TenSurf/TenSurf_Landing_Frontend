@@ -12,6 +12,7 @@ export enum HttpMethod {
   PATCH = "PATCH",
   DELETE = "DELETE",
 }
+export const token_name = "tensurftoken";
 
 export const sendRequest = <T = Record<string, any>>(
   url: string,
