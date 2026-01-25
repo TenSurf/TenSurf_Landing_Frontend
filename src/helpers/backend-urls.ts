@@ -16,8 +16,8 @@ export const BackendUrls: Record<string, string> = {
   chartchatlist: "/chartchat/items/",
 
   // financial
-  billing: "/financial/payment/billing/",
-  transaction: "/financial/payment/update_transaction/",
-  plans: "/financial/payment/plans/",
-  payment: "/financial/payment/payment_link/",
+  billing: "/financial/payments/billing/",
+  transaction: "/financial/payments/update_transaction/",
+  plans: "/financial/payments/plans/",
+  payment: "/financial/payments/payment_link/",
 };

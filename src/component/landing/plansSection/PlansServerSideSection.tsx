@@ -14,6 +14,7 @@ async function getPlans() {
 
   try {
     data = await res.json();
+    console.log(data);
   } catch (e) {
     data = [];
   }

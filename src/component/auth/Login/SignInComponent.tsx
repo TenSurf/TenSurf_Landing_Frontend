@@ -1,300 +1,304 @@
-import axios from "axios";
-import { getCookie, setCookie } from "@/helpers/auth";
-import { BackendUrls } from "@/helpers/backend-urls";
-import { backendUrl, HttpMethod, sendRequest } from "@/helpers/http-request";
-import React, { Dispatch, FC, SetStateAction, useEffect, useState } from "react";
-import { ROUTE } from "../../../constatns/general.constants";
-import TensurfButton from "../../general/TensurfButton";
-import { Controller, useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
-import { EyeIcon, EyeOff, Mail } from "lucide-react";
-import { toast } from "sonner";
-import { useGoogleLogin } from "@react-oauth/google";
-import { useMsal } from "@azure/msal-react";
-import { Input } from "@/components/ui/input";
+import axios from 'axios';
+import {getCookie, setCookie} from '@/helpers/auth';
+import {BackendUrls} from '@/helpers/backend-urls';
+import {backendUrl, HttpMethod, sendRequest} from '@/helpers/http-request';
+import React, {Dispatch, FC, SetStateAction, useEffect, useState} from 'react';
+import {ROUTE} from '@/constatns/general.constants';
+import TensurfButton from '../../general/TensurfButton';
+import {Controller, useForm} from 'react-hook-form';
+import {useRouter} from 'next/navigation';
+import {EyeIcon, EyeOff, Mail} from 'lucide-react';
+import {toast} from 'sonner';
+import {useGoogleLogin} from '@react-oauth/google';
+import {useMsal} from '@azure/msal-react';
+import {Input} from '@/components/ui/input';
 
 const initialValues = {
-  email: "",
-  password: ""
+	email: '',
+	password: ''
 };
 
 type FormValues = typeof initialValues;
 
 interface IProps {
-  setSignInSignUpComponentMode?: Dispatch<
-    SetStateAction<
-      "signIn" | "signUp" | "forgetPassword" | "waitlist" | undefined
-    >
-  >;
-  onModalClose?: () => void;
+	setSignInSignUpComponentMode?: Dispatch<
+		SetStateAction<
+			'signIn' | 'signUp' | 'forgetPassword' | 'waitlist' | undefined
+		>
+	>;
+	onModalClose?: () => void;
 }
 
 const SignInComponent: FC<IProps> = ({
-                                       setSignInSignUpComponentMode,
-                                       onModalClose
+	                                     setSignInSignUpComponentMode,
+	                                     onModalClose
                                      }) => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [shouldShowPassword, setShouldShowPassword] = useState(false);
-  const router = useRouter();
-
-  const {
-    control,
-    handleSubmit,
-    formState
-  } = useForm({
-    defaultValues: {
-      email: "",
-      password: ""
-    }
-  });
-
-  useEffect(() => {
-    console.log(formState);
-  }, [formState]);
-
-  useEffect(() => {
-    console.log(formState, control);
-  }, [formState, control]);
-
-
-  const handleFormSubmit = (values: FormValues) => {
-    setIsLoading(true);
-    console.log("hear");
-    axios({
-      method: "post",
-      url: backendUrl + BackendUrls.login,
-      data: values,
-      withCredentials: true
-    })
-      .then((response) => {
-        if (response?.data?.token) {
-          console.log(response?.data?.token);
-          setCookie(response?.data?.token as string);
-          console.log(getCookie());
-          router.replace(ROUTE.home);
-          if (onModalClose) {
-            onModalClose();
-          }
-        } else {
-          setIsLoading(false);
-        }
-      })
-      .catch((axiosError) => {
-        if (axiosError.code === "ERR_NETWORK") {
-          toast.error(
-            "There was a problem connecting to the server. Check your internet connection and try again."
-          );
-        } else {
-          toast.error(axiosError?.response?.data?.detail as string);
-        }
-        setIsLoading(false);
-      });
-  };
-
-  const googleLogin = useGoogleLogin({
-    onSuccess: async (tokenResponse) => {
-      try {
-        setIsLoading(true);
-        sendRequest("/dj-rest-auth/google/", HttpMethod.POST, {
-          access_token: tokenResponse.access_token
-        })
-          .then((res) => {
-            setCookie(res.data.key as string);
-            router.replace(ROUTE.home);
-          })
-          .finally(() => {
-            setIsLoading(false);
-          });
-      } catch (error) {
-        console.error("Error fetching user info:", error);
-      }
-    },
-    onError: (errorResponse) => {
-      console.error("Login Failed:", errorResponse);
-    }
-  });
-
-  const { instance } = useMsal();
-
-  const msalLogin = async () => {
-    const request = { scopes: ["openid", "profile"] };
-    await instance.loginPopup();
-    await instance.acquireTokenPopup(request);
-  };
-
-  const facebookCallback = (response: any) => {
-    if (response?.status === "unknown") {
-      console.error("Sorry!", "Something went wrong with facebook Login.");
-      return;
-    }
-    try {
-      setIsLoading(true);
-      sendRequest("/dj-rest-auth/facebook/", HttpMethod.POST, {
-        access_token: response.accessToken
-      })
-        .then((res) => {
-          setCookie(res.data.key as string);
-          router.replace(ROUTE.home);
-        })
-        .finally(() => {
-          setIsLoading(false);
-        });
-    } catch (error) {
-      console.error("Error fetching user info:", error);
-    }
-  };
-
-  return (
-    <div className="flex flex-col gap-3 w-full">
-      <form onSubmit={handleSubmit(handleFormSubmit)}>
-        <div className="flex flex-col gap-4">
-          <Controller
-            name="email"
-            control={control}
-            rules={{ required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ }}
-            render={({ field }) => (
-              <div className="relative">
-                <div className="absolute w-fit h-fit inset-0 top-1/2 -translate-y-1/2 translate-x-1/2">
-                  <Mail color="#495057" strokeWidth={1.25} />
-                </div>
-                <Input
-                  type="email"
-                  {...field}
-                  className={
-                    "w-full bg-[#212529] border-none text-sm placeholder-[#6C757D] pl-12 py-6"
-                  }
-                  placeholder={"Enter your email"}
-                />
-              </div>
-              // <TensurfInputText
-              //   {...field}
-              //   name="email"
-              //   customClassName={{ container: "w-full" }}
-              //   placeholder="Enter your Email"
-              //   label="Email"
-              //   leftItem={<MailIcon className="w-6 h-6" />}
-              //   hasError={!!errors?.email}
-              //   hint={
-              //     errors?.email?.type === "pattern" ? (
-              //       <div className="text-red-400 mt-2">Enter a valid email</div>
-              //     ) : (
-              //       ""
-              //     )
-              //   }
-              // />
-            )}
-          />
-          <Controller
-            name="password"
-            control={control}
-            rules={{
-              required: true
-              // pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
-            }}
-            render={({ field }) => (
-              <div className="relative">
-                <div
-                  className="absolute w-fit h-fit inset-0 top-1/2 -translate-y-1/2 hover:bg-transparent ml-3 cursor-pointer"
-                  onClick={() => setShouldShowPassword((prev) => !prev)}
-                  // variant={"ghost"}
-                  // size={"icon"}
-                >
-                  {shouldShowPassword && (
-                    <EyeOff color="#495057" strokeWidth={1.25} />
-                  )}
-                  {!shouldShowPassword && (
-                    <EyeIcon color="#495057" strokeWidth={1.25} />
-                  )}
-                </div>
-                <Input
-                  {...field}
-                  className={
-                    "w-full bg-[#212529] border-none text-sm placeholder-[#6C757D] pl-12 py-6"
-                  }
-                  placeholder={"Enter your Password"}
-                  type={shouldShowPassword ? "text" : "password"}
-                />
-              </div>
-              // <TensurfInputText
-              //   {...field}
-              //   name="Password"
-              //   customClassName={{ container: "w-full" }}
-              //   label="Password"
-              //   type={shouldShowPassword ? "text" : "password"}
-              //   leftItem={
-              //     shouldShowPassword ? (
-              //       <EyeIcon className="w-6 h-6" />
-              //     ) : (
-              //       <EyeOffIcon className="w-6 h-6" />
-              //     )
-              //   }
-              //   leftItemOnClick={() => {
-              //     setShouldShowPassword((prev) => !prev);
-              //   }}
-              //   placeholder="Enter your Password "
-              //   hasError={errors?.password?.type === "pattern" && true}
-              //   hint={
-              //     errors?.password?.type === "pattern" && (
-              //       <div className="text-red-400 mt-2">
-              //         Password must be at least 8 characters long and contain at
-              //         least one uppercase letter, one lowercase letter, and one
-              //         number.
-              //       </div>
-              //     )
-              //   }
-              // />
-            )}
-          />
-        </div>
-        <TensurfButton
-          onClick={() => {
-            if (setSignInSignUpComponentMode) {
-              setSignInSignUpComponentMode("forgetPassword");
-            }
-          }}
-          variant="text"
-          type="button"
-          textColor="text-[#d7d7d7]"
-          customClassName="self-start !p-0 mt-2"
-          size={"small32"}
-        >
-          Forget Password
-        </TensurfButton>
-
-        <TensurfButton
-          type={"submit"}
-          isLoading={isLoading}
-          customClassName="self-start w-full bg-primary rounded-full text-white mt-8"
-          size={"xLarge56"}
-        >
-          Login
-        </TensurfButton>
-      </form>
-      <hr className="h-px my-1 bg-gray-200 border-0 dark:bg-gray-700" />
-      <div className="w-full grid grid-cols-1 gap-4 justify-items-center items-center">
-        {/*<GoogleButton*/}
-        {/*  onClick={() => {*/}
-        {/*    // setGoogleLoginLoading(true);*/}
-        {/*    googleLogin();*/}
-        {/*  }}*/}
-        {/*/>*/}
-        {/* <MicrosoftButton onClick={msalLogin} /> */}
-        {/* <AppleButton
-          onClick={() => {
-            console.log("coming soon");
-          }}
-        /> */}
-        {/* <FacebookLogin
-          appId="1088597931155576"
-          // autoLoad
-          callback={facebookCallback}
-          render={(renderProps: any) => (
-            <FacebookButton onClick={renderProps.onClick} />
-          )}
-        /> */}
-      </div>
-    </div>
-  );
+	const [isLoading, setIsLoading] = useState<boolean>(false);
+	const [shouldShowPassword, setShouldShowPassword] = useState(false);
+	const router = useRouter();
+	
+	const {
+		control,
+		handleSubmit,
+		formState
+	} = useForm({
+		defaultValues: {
+			email: '',
+			password: ''
+		}
+	});
+	
+	useEffect(() => {
+		// console.log(formState);
+	}, [formState]);
+	
+	useEffect(() => {
+		// console.log(formState, control);
+	}, [formState, control]);
+	
+	
+	const handleFormSubmit = (values: FormValues) => {
+		setIsLoading(true);
+		axios.defaults.withCredentials = true;
+		axios({
+			method: 'post',
+			url: backendUrl + BackendUrls.login,
+			data: values,
+			withCredentials: true,
+			headers: {
+				'Content-Type': 'application/json',
+				// 'X-CSRFToken': csrfToken // Django CSRF token, if needed
+			}
+		})
+			.then((response) => {
+				if (response?.data?.token) {
+					console.log(response?.data?.token);
+					setCookie(response?.data?.token as string);
+					console.log(getCookie());
+					router.replace(ROUTE.home);
+					if (onModalClose) {
+						onModalClose();
+					}
+				} else {
+					setIsLoading(false);
+				}
+			})
+			.catch((axiosError) => {
+				if (axiosError.code === 'ERR_NETWORK') {
+					toast.error(
+						'There was a problem connecting to the server. Check your internet connection and try again.'
+					);
+				} else {
+					toast.error(axiosError?.response?.data?.detail as string);
+				}
+				setIsLoading(false);
+			});
+	};
+	
+	const googleLogin = useGoogleLogin({
+		onSuccess: async (tokenResponse) => {
+			try {
+				setIsLoading(true);
+				sendRequest('/dj-rest-auth/google/', HttpMethod.POST, {
+					access_token: tokenResponse.access_token
+				})
+					.then((res) => {
+						setCookie(res.data.key as string);
+						router.replace(ROUTE.home);
+					})
+					.finally(() => {
+						setIsLoading(false);
+					});
+			} catch (error) {
+				console.error('Error fetching user info:', error);
+			}
+		},
+		onError: (errorResponse) => {
+			console.error('Login Failed:', errorResponse);
+		}
+	});
+	
+	const {instance} = useMsal();
+	
+	const msalLogin = async () => {
+		const request = {scopes: ['openid', 'profile']};
+		await instance.loginPopup();
+		await instance.acquireTokenPopup(request);
+	};
+	
+	const facebookCallback = (response: any) => {
+		if (response?.status === 'unknown') {
+			console.error('Sorry!', 'Something went wrong with facebook Login.');
+			return;
+		}
+		try {
+			setIsLoading(true);
+			sendRequest('/dj-rest-auth/facebook/', HttpMethod.POST, {
+				access_token: response.accessToken
+			})
+				.then((res) => {
+					setCookie(res.data.key as string);
+					router.replace(ROUTE.home);
+				})
+				.finally(() => {
+					setIsLoading(false);
+				});
+		} catch (error) {
+			console.error('Error fetching user info:', error);
+		}
+	};
+	
+	return (
+		<div className="flex flex-col gap-3 w-full">
+			<form onSubmit={handleSubmit(handleFormSubmit)}>
+				<div className="flex flex-col gap-4">
+					<Controller
+						name="email"
+						control={control}
+						rules={{required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/}}
+						render={({field}) => (
+							<div className="relative">
+								<div className="absolute w-fit h-fit inset-0 top-1/2 -translate-y-1/2 translate-x-1/2">
+									<Mail color="#495057" strokeWidth={1.25}/>
+								</div>
+								<Input
+									type="email"
+									{...field}
+									className={
+										'w-full bg-[#212529] border-none text-sm placeholder-[#6C757D] pl-12 py-6'
+									}
+									placeholder={'Enter your email'}
+								/>
+							</div>
+							// <TensurfInputText
+							//   {...field}
+							//   name="email"
+							//   customClassName={{ container: "w-full" }}
+							//   placeholder="Enter your Email"
+							//   label="Email"
+							//   leftItem={<MailIcon className="w-6 h-6" />}
+							//   hasError={!!errors?.email}
+							//   hint={
+							//     errors?.email?.type === "pattern" ? (
+							//       <div className="text-red-400 mt-2">Enter a valid email</div>
+							//     ) : (
+							//       ""
+							//     )
+							//   }
+							// />
+						)}
+					/>
+					<Controller
+						name="password"
+						control={control}
+						rules={{
+							required: true
+							// pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
+						}}
+						render={({field}) => (
+							<div className="relative">
+								<div
+									className="absolute w-fit h-fit inset-0 top-1/2 -translate-y-1/2 hover:bg-transparent ml-3 cursor-pointer"
+									onClick={() => setShouldShowPassword((prev) => !prev)}
+									// variant={"ghost"}
+									// size={"icon"}
+								>
+									{shouldShowPassword && (
+										<EyeOff color="#495057" strokeWidth={1.25}/>
+									)}
+									{!shouldShowPassword && (
+										<EyeIcon color="#495057" strokeWidth={1.25}/>
+									)}
+								</div>
+								<Input
+									{...field}
+									className={
+										'w-full bg-[#212529] border-none text-sm placeholder-[#6C757D] pl-12 py-6'
+									}
+									placeholder={'Enter your Password'}
+									type={shouldShowPassword ? 'text' : 'password'}
+								/>
+							</div>
+							// <TensurfInputText
+							//   {...field}
+							//   name="Password"
+							//   customClassName={{ container: "w-full" }}
+							//   label="Password"
+							//   type={shouldShowPassword ? "text" : "password"}
+							//   leftItem={
+							//     shouldShowPassword ? (
+							//       <EyeIcon className="w-6 h-6" />
+							//     ) : (
+							//       <EyeOffIcon className="w-6 h-6" />
+							//     )
+							//   }
+							//   leftItemOnClick={() => {
+							//     setShouldShowPassword((prev) => !prev);
+							//   }}
+							//   placeholder="Enter your Password "
+							//   hasError={errors?.password?.type === "pattern" && true}
+							//   hint={
+							//     errors?.password?.type === "pattern" && (
+							//       <div className="text-red-400 mt-2">
+							//         Password must be at least 8 characters long and contain at
+							//         least one uppercase letter, one lowercase letter, and one
+							//         number.
+							//       </div>
+							//     )
+							//   }
+							// />
+						)}
+					/>
+				</div>
+				<TensurfButton
+					onClick={() => {
+						if (setSignInSignUpComponentMode) {
+							setSignInSignUpComponentMode('forgetPassword');
+						}
+					}}
+					variant="text"
+					type="button"
+					textColor="text-[#d7d7d7]"
+					customClassName="self-start !p-0 mt-2"
+					size={'small32'}
+				>
+					Forget Password
+				</TensurfButton>
+				
+				<TensurfButton
+					type={'submit'}
+					isLoading={isLoading}
+					customClassName="self-start w-full bg-primary rounded-full text-white mt-8"
+					size={'xLarge56'}
+				>
+					Login
+				</TensurfButton>
+			</form>
+			<hr className="h-px my-1 bg-gray-200 border-0 dark:bg-gray-700"/>
+			<div className="w-full grid grid-cols-1 gap-4 justify-items-center items-center">
+				{/*<GoogleButton*/}
+				{/*  onClick={() => {*/}
+				{/*    // setGoogleLoginLoading(true);*/}
+				{/*    googleLogin();*/}
+				{/*  }}*/}
+				{/*/>*/}
+				{/* <MicrosoftButton onClick={msalLogin} /> */}
+				{/* <AppleButton
+				 onClick={() => {
+				 console.log("coming soon");
+				 }}
+				 /> */}
+				{/* <FacebookLogin
+				 appId="1088597931155576"
+				 // autoLoad
+				 callback={facebookCallback}
+				 render={(renderProps: any) => (
+				 <FacebookButton onClick={renderProps.onClick} />
+				 )}
+				 /> */}
+			</div>
+		</div>
+	);
 };
 
 export default SignInComponent;

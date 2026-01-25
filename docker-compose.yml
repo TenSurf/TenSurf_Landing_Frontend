@@ -1,4 +1,4 @@
-version: "3"
+version: "3.9"
 
 services:
   tensurf-ui:
@@ -9,7 +9,10 @@ services:
       - .env
     ports:
       - "3000:3000"
+    networks:
+      - tensurf_network
+
 networks:
-  default:
-    external: true
-    name: tensurf-network
+  tensurf_network:
+    name: tensurf_network
+
