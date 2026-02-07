@@ -1,28 +1,20 @@
 import type IGetEmailStepProps from "./Register/GetEmailStep/types";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { backendUrl } from "../../helpers/http-request";
 import { BackendUrls } from "../../helpers/backend-urls";
 import axios from "axios";
-import TensurfInputText from "../general/inputText/tensurfInputText";
-import MailIcon from "../../icons/MailIcon";
-import TensurfButton from "../general/TensurfButton";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { useRouter, useSearchParams } from "next/navigation";
-import { ROUTE } from "@/constatns/general.constants";
+import { useSearchParams } from "next/navigation";
 
 const GetEmailVerificationCode: FC<IGetEmailStepProps> = (props) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
   const search_params = useSearchParams();
-  const router = useRouter();
 
-  useEffect(() => {
-    const token = search_params.get("token");
-    // if (!token) router.replace(ROUTE.waitlist);
-  }, []);
-
-  // RHF ↓•↓•↓
   const {
     control,
     handleSubmit,
@@ -34,15 +26,10 @@ const GetEmailVerificationCode: FC<IGetEmailStepProps> = (props) => {
   });
 
   const handleFormSubmit = (values: { email: string }) => {
-    let url = backendUrl + BackendUrls.send_code;
-
-    if (props.isForgetPassword) {
-      url = backendUrl + BackendUrls.send_forgot_pass_code;
-    }
     setIsLoading(true);
     axios({
       method: "post",
-      url,
+      url: backendUrl + BackendUrls.send_code,
       data: {
         email: values.email.toLowerCase(),
         token: search_params.get("token"),
@@ -54,45 +41,55 @@ const GetEmailVerificationCode: FC<IGetEmailStepProps> = (props) => {
         props.setActiveStep(1);
       })
       .catch((e) => {
-        toast.error(e?.response?.data?.detail as string);
+        const detail = e?.response?.data?.detail as string;
+        toast.error(detail || "An error occurred. Please try again.");
       })
       .finally(() => setIsLoading(false));
   };
 
   return (
-    <form className="flex flex-col gap-10">
+    <form className="flex flex-col gap-8">
       <Controller
         name="email"
         control={control}
         rules={{ required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ }}
         render={({ field }) => (
-          <TensurfInputText
-            {...field}
-            name="email"
-            customClassName={{ container: "w-full" }}
-            placeholder="Enter your Email"
-            label="Email"
-            leftItem={<MailIcon className="w-6 h-6" />}
-            hasError={!!errors?.email}
-            hint={
-              errors?.email?.type === "pattern" ? (
-                <div className="text-red-400">Enter a valid email</div>
-              ) : (
-                ""
-              )
-            }
-          />
+          <div className="flex flex-col gap-2">
+            <Label htmlFor="email" className="text-sm font-medium text-[#E9ECEF]">
+              Email
+            </Label>
+            <div className="relative">
+              <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-[#6C757D]" />
+              <Input
+                {...field}
+                id="email"
+                type="email"
+                placeholder="you@example.com"
+                className={`h-11 pl-10 bg-[#0A0F1E] border text-sm text-white placeholder:text-[#6C757D] rounded-lg transition-colors focus-visible:ring-1 focus-visible:ring-[#082FDF] focus-visible:ring-offset-0 ${
+                  errors?.email
+                    ? "border-red-500 focus-visible:ring-red-500"
+                    : "border-[#1E293B] hover:border-[#334155] focus-visible:border-[#082FDF]"
+                }`}
+              />
+            </div>
+            {errors?.email?.type === "pattern" && (
+              <p className="text-xs text-red-400">Please enter a valid email address</p>
+            )}
+            {errors?.email?.type === "required" && (
+              <p className="text-xs text-red-400">Email is required</p>
+            )}
+          </div>
         )}
       />
-      <TensurfButton
+      <Button
+        type="button"
         onClick={handleSubmit(handleFormSubmit)}
-        isLoading={isLoading}
-        textColor="text-white"
-        customClassName="self-start w-full m-auto bg-[#3861fb] bg-primary rounded-full"
-        size={"xLarge56"}
+        loading={isLoading}
+        size="xl"
+        className="w-full bg-primary rounded-full text-white"
       >
-        Done
-      </TensurfButton>
+        Send Code
+      </Button>
     </form>
   );
 };

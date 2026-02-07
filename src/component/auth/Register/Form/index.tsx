@@ -2,7 +2,6 @@ import axios from "axios";
 import { getCookie, setCookie } from "@/helpers/auth";
 import { BackendUrls } from "@/helpers/backend-urls";
 import { backendUrl } from "@/helpers/http-request";
-import { TeLock } from "@/icons";
 import React, {
   type Dispatch,
   type FC,
@@ -11,8 +10,7 @@ import React, {
 } from "react";
 import { Controller, useForm } from "react-hook-form";
 import TensurfInputText from "../../../general/inputText/tensurfInputText";
-import EyeOffIcon from "../../../../icons/EyeOffIcon";
-import TensurfButton from "../../../general/TensurfButton";
+import { Button } from "@/components/ui/button";
 import UserIcon from "../../../../icons/UserIcon";
 import { ROUTE } from "../../../../constatns/general.constants";
 import { useRouter } from "next/navigation";
@@ -25,42 +23,31 @@ interface IProps {
 }
 
 export const RegisterForm: FC<IProps> = ({ setActiveStep, onModalClose }) => {
-  const [shouldShowPassword, setShouldShowPassword] = useState(false);
-  const [shouldShowConfirmPassword, setShouldShowConfirmPassword] =
-    useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [terms, setTerms] = useState(false);
   const { update_waitlist }: AccountState = useAccountStore();
 
   const router = useRouter();
 
-  // RHF ↓•↓•↓
   const {
     control,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm({
     defaultValues: {
       full_name: "",
-      password: "",
-      passwordConfirmation: "",
     },
     mode: "onChange",
   });
 
-  const values = watch();
-
   const handleFormSubmit = (submittedData: any) => {
     setIsLoading(true);
     const full_name = submittedData?.full_name;
-    const password = submittedData?.password;
     axios({
       method: "post",
       url: backendUrl + BackendUrls.register_form,
       data: {
         full_name,
-        password,
         token: getCookie(),
       },
     })
@@ -68,7 +55,7 @@ export const RegisterForm: FC<IProps> = ({ setActiveStep, onModalClose }) => {
         setIsLoading(false);
         if (response.data.token) {
           setCookie(response?.data?.token as string);
-          router.replace(ROUTE.home);
+          router.replace(ROUTE.plans);
         } else {
           toast.info(response.data.detail);
           update_waitlist(true);
@@ -106,70 +93,7 @@ export const RegisterForm: FC<IProps> = ({ setActiveStep, onModalClose }) => {
           />
         )}
       />
-      <Controller
-        name="password"
-        control={control}
-        rules={{
-          required: true,
-          pattern: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/,
-        }}
-        render={({ field }) => (
-          <TensurfInputText
-            {...field}
-            label="Password"
-            placeholder="Enter your password"
-            autoComplete={"new-password"}
-            leftItem={<TeLock />}
-            rightItem={<EyeOffIcon className="w-6 h-6" />}
-            type={shouldShowPassword ? "text" : "password"}
-            rightItemOnClick={() => {
-              setShouldShowPassword((prev) => !prev);
-            }}
-            hasError={errors?.password?.type === "pattern" && true}
-            hint={
-              errors?.password?.type === "pattern" && (
-                <div className="text-red-400 mt-2">
-                  Password must be at least 8 characters long and contain at
-                  least one uppercase letter, one lowercase letter, and one
-                  number.
-                </div>
-              )
-            }
-          />
-        )}
-      />
-      <Controller
-        name="passwordConfirmation"
-        control={control}
-        rules={{
-          required: true,
-          validate: (value) =>
-            value === values.password || "Password confirmation does not match",
-        }}
-        render={({ field }) => (
-          <TensurfInputText
-            {...field}
-            label="Password Confirmation"
-            name="passwordConfirmation"
-            placeholder="Re-enter your password"
-            autoComplete={"new-password"}
-            leftItem={<TeLock />}
-            rightItem={<EyeOffIcon className="w-6 h-6" />}
-            type={shouldShowConfirmPassword ? "text" : "password"}
-            rightItemOnClick={() => {
-              setShouldShowConfirmPassword((prev) => !prev);
-            }}
-            hasError={!!errors?.passwordConfirmation}
-            hint={
-              !!errors?.passwordConfirmation && (
-                <div className="text-red-400 mt-2">
-                  Password confirmation does not match
-                </div>
-              )
-            }
-          />
-        )}
-      />
+
       <div className="flex items-start">
         <input
           id="link-checkbox"
@@ -218,27 +142,28 @@ export const RegisterForm: FC<IProps> = ({ setActiveStep, onModalClose }) => {
           .
         </label>
       </div>
-      <TensurfButton
-        isDisabled={!terms}
-        type={"submit"}
-        isLoading={isLoading}
-        customClassName="self-start w-full disabled:bg-gray-700"
-        size={"xLarge56"}
+      <Button
+        disabled={!terms}
+        type="submit"
+        loading={isLoading}
+        size="xl"
+        className="w-full bg-[#3861fb] hover:bg-[#3861fb]/90 text-white disabled:bg-gray-700"
       >
         Register
-      </TensurfButton>
-      <TensurfButton
+      </Button>
+      <Button
+        type="button"
         onClick={() => {
           if (setActiveStep) {
             setActiveStep(0);
           }
         }}
         variant="text"
-        customClassName="m-auto text-[#3861fb]"
-        size={"small32"}
+        size="sm"
+        className="m-auto text-[#3861fb]"
       >
         ← Insert email again to resend code
-      </TensurfButton>
+      </Button>
     </form>
   );
 };

@@ -11,7 +11,7 @@ export const HeroAuthHub = () => {
         target={isLoggedIn() ? "_blank" : '_self'}
       >
         <Button className="h-16 bg-primary font-bold text-lg">
-          Go to TenSurf Hub
+          Go to TenSurf Brain
         </Button>
       </a>
     </div>

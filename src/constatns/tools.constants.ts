@@ -31,7 +31,7 @@ export const TOOLS:{[key:string]: any} = {
           },
           {
             title: "Monitoring Gap Progress",
-            description: "Lists instruments that have opened with a gap and tracks their progress towards closing the gap. This tool is essential for traders looking to exploit gap-related trading opportunities by predicting potential price movements."
+            description: "Lists instruments that have opened with a gap and tracks their progress towards closing the gap. This tool is essential for traders looking to exploit gap-related trading opportunities by identifying potential price movement opportunities."
           }
         ]
       },
@@ -46,7 +46,7 @@ export const TOOLS:{[key:string]: any} = {
           },
           {
             title: "ATR (Average True Range) Indicator",
-            description: "Measures short-term volatility by calculating the average range between high and low prices over 5-minute intervals. These indicators offer a detailed understanding of market volatility and help traders predict significant price movements."
+            description: "Measures short-term volatility by calculating the average range between high and low prices over 5-minute intervals. These indicators offer a detailed understanding of market volatility and help traders identify significant price movements."
           }
         ]
       },
@@ -106,20 +106,20 @@ export const TOOLS:{[key:string]: any} = {
           },
           {
             title: "Scenario Analysis",
-            description: "Uses current session data to predict market movements, aiding in decision-making by quantifying the likelihood of various scenarios. This tool enhances traders' ability to anticipate market behavior and make informed decisions based on statistical probabilities."
+            description: "Uses current session data to analyze market movements, aiding in decision-making by quantifying the likelihood of various scenarios. This tool enhances traders' ability to anticipate market behavior and make informed decisions based on statistical probabilities."
           }
         ]
       }
     ],
     footer: {
       title: "Summary",
-      description: "WidgetSurf in TenSurf Hub is a robust suite of analytical tools designed to provide traders with deep, data-driven insights into market dynamics. Each tool within WidgetSurf offers unique functionalities that collectively empower traders to make informed decisions, manage risks effectively, and capitalize on market opportunities. By leveraging the comprehensive analytical capabilities of TrendSurf, GapSurf, WaveSurf, PairSurf, LiqSurf, TimeSurf, and StatSurf, traders can optimize their trading strategies and enhance their overall trading performance."
+      description: "WidgetSurf in TenSurf Brain is a robust suite of analytical tools designed to provide traders with deep, data-driven insights into market dynamics. Each tool within WidgetSurf offers unique functionalities that collectively empower traders to make informed decisions, manage risks effectively, and capitalize on market opportunities. By leveraging the comprehensive analytical capabilities of TrendSurf, GapSurf, WaveSurf, PairSurf, LiqSurf, TimeSurf, and StatSurf, traders can optimize their trading strategies and enhance their overall trading performance."
     }
   },
   "Chart_Surf": {
     title: "ChartSurf",
     header: "Automated Key Levels and Event Insights in ChartSurf",
-    description: "ChartSurf is an advanced charting tool within TenSurf Hub that integrates a comprehensive suite of analytical features designed to support effective trading. By automating key level calculations and providing event insights, ChartSurf empowers traders to make informed decisions swiftly and accurately.",
+    description: "ChartSurf is an advanced charting tool within TenSurf Brain that integrates a comprehensive suite of analytical features designed to support effective trading. By automating key level calculations and providing event insights, ChartSurf empowers traders to make informed decisions swiftly and accurately.",
     detailDescriptionTitle: "Key Features of ChartSurf",
     items: [
       {
@@ -257,7 +257,7 @@ export const TOOLS:{[key:string]: any} = {
     ],
     footer: {
       title: "Conclusion",
-      description: "ChartSurf in TenSurf Hub is a comprehensive charting tool that combines a wide array of advanced analytical features to provide traders with deep insights into market dynamics. By automating the calculation and visualization of critical market levels and providing real-time event insights, ChartSurf empowers traders to make data-driven decisions, manage risks effectively, and capitalize on trading opportunities. Whether you are a beginner or an experienced trader, ChartSurf offers the tools you need to enhance your trading performance and navigate the complexities of the financial markets with confidence."
+      description: "ChartSurf in TenSurf Brain is a comprehensive charting tool that combines a wide array of advanced analytical features to provide traders with deep insights into market dynamics. By automating the calculation and visualization of critical market levels and providing real-time event insights, ChartSurf empowers traders to make data-driven decisions, manage risks effectively, and capitalize on trading opportunities. Whether you are a beginner or an experienced trader, ChartSurf offers the tools you need to enhance your trading performance and navigate the complexities of the financial markets with confidence."
     }
   },
   "TenSurfBrain": {
@@ -300,7 +300,7 @@ export const TOOLS:{[key:string]: any} = {
         list: [
           {
             title: "Risk Management",
-            description: "TenSurf Brain calculates optimal stop loss points to help manage risk effectively. It ensures that traders set stop losses at levels that minimize potential losses without cutting off profitable trades prematurely."
+            description: "TenSurf Brain calculates optimal stop loss points to help manage risk effectively. It ensures that traders set stop losses at levels that minimize potential losses without cutting off favorable trades prematurely."
           },
           {
             title: "Profit Maximization",

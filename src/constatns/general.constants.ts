@@ -37,6 +37,8 @@ export const  ROUTE = {
   signUp: '/signup',
   signOut: '/logout',
   plans: '/plans',
+  compare: '/compare',
+  howItWorks: "/how-it-works",
   hubPlans: (process.env.NEXT_PUBLIC_HUB_URL as string) + "/plans",
   waitlist: "/waitlist",
   comming: '/comming-soon'
@@ -44,13 +46,13 @@ export const  ROUTE = {
 
 export const NOTIFICATION = {
   newsLetter: {
-    successMessage: "Your email has been registered.",
-    errorMessage: "Email already exists",
+    successMessage: "Verification email sent! Check your inbox.",
+    errorMessage: "Something went wrong. Please try again.",
   },
 };
 
 export const PAGE_TITLE = {
-  home: 'TenSurf Hub - Revolutionizing AI Trading',
+  home: 'TenSurf Brain - Revolutionizing AI Trading',
   aboutUs: 'Our Journey | TenSurf',
   contactUs: 'Contact Us | TenSurf',
   blog: 'blog | TenSurf',

@@ -2,12 +2,10 @@
 import React, { useEffect, useState } from "react";
 import { sendRequest } from "@/helpers/http-request";
 import { BackendUrls } from "@/helpers/backend-urls";
-import TensurfButton from "../../general/TensurfButton";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ROUTE } from "../../../constatns/general.constants";
 import { EditProfile } from "./EditProfile";
 import { AccountAndBilling } from "./AccountAndBilling";
-import { useParams } from "next/navigation";
 import { useAccountStore } from "@/store/account";
 import { Button } from "@/components/ui/button";
 import { Calendar, Clock3 } from "lucide-react";
@@ -15,7 +13,6 @@ import { Calendar, Clock3 } from "lucide-react";
 const ProfileSettings = () => {
   const router = useRouter();
   let params = useSearchParams();
-  const modeInQuery = "profileSetting";
 
   const [mode, setMode] = useState<"profileSetting" | "billing">(
     (params.get("mode") as "profileSetting" | "billing") || "profileSetting"
@@ -24,7 +21,6 @@ const ProfileSettings = () => {
   const { user_data, update_user_data }: any = useAccountStore();
 
   const [isGetDataLoading, setIsGetDataLoadingGetData] = useState(true);
-  // const [isStripLoading, setIsStripLoading] = useState<boolean>(false);
 
   useEffect(() => {
     setMode(params.get("mode") as "profileSetting" | "billing");
@@ -36,9 +32,7 @@ const ProfileSettings = () => {
       mode === "profileSetting" ? ROUTE.profileSetting : ROUTE.profileBilling
     );
   };
-  // ____________________________________________________________
 
-  // get user Data ↓•↓•↓
   useEffect(() => {
     sendRequest(BackendUrls.profile)
       .then((res: any) => {
@@ -48,7 +42,6 @@ const ProfileSettings = () => {
       .finally(() => setIsGetDataLoadingGetData(false));
   }, []);
 
-  // *.*.*.*.*.*.*.*.*. RETURN ↓•↓•↓
   return (
     <>
       <div className="flex flex-col gap-16 items-center w-screen justify-center container my-28 sm:my-52 relative">
@@ -60,21 +53,20 @@ const ProfileSettings = () => {
           }}
           className="z-0 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[420px] h-[400px] rounded-full"
         ></div>
-        {/* <Breadcrumb pageName='Profile Settings' /> */}
         <div className="w-full max-w-[1015px] relative">
           <div className="flex flex-col gap-8">
             <div className="flex gap-5">
               <div className="flex gap-1 items-center">
                 <Clock3 size={16} color="#495057" strokeWidth={2} />
-                <p className={'text-base font-medium'}>Online</p>
+                <p className="text-base font-medium">Online</p>
               </div>
               <div className="flex gap-1 items-center">
                 <Calendar size={16} color="#495057" strokeWidth={2} />
-                <p className={'text-base font-medium'}>Joined a month ago</p>
+                <p className="text-base font-medium">Joined a month ago</p>
               </div>
             </div>
             <div
-              className="px-1 sm:px-4 border-[1px] border-[#212529] rounded-3xl bg-[#02040E] py-3 font-medium flex gap-0 sm:gap-2">
+              className="px-1 sm:px-4 border-[1px] border-[rgba(255,255,255,0.08)] rounded-3xl bg-[#00041A] py-3 font-medium flex gap-0 sm:gap-2">
               <Button onClick={() => changeModeHandler("profileSetting")}
                       className={`p-2 text-xl sm:text-2xl bg-transparent hover:bg-transparent ${mode === "profileSetting" ? "text-white" : "text-[#495057]"}`}>
                 Profile

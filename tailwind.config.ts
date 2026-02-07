@@ -94,6 +94,7 @@ const config = {
       },
     },
     fontFamily: {
+      "space-grotesk": ["var(--font-space-grotesk)", "sans-serif"],
       playfair: "playfair"
     }
   },

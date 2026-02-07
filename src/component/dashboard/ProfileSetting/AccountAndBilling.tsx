@@ -18,7 +18,7 @@ export const AccountAndBilling = ({
 
   return (
     <div
-      className="flex flex-col gap-6 p-8 w-full max-w-[1015px] mx-auto border-[1px] border-[#212529] bg-[#02040E] rounded-3xl">
+      className="flex flex-col gap-6 p-8 w-full max-w-[1015px] mx-auto border-[1px] border-[rgba(255,255,255,0.08)] bg-[#00041A] rounded-3xl">
       {isGetDataLoading ? (
         <div className="rounded-xl bg-dark-Neutral-2 h-20 animate-pulse"></div>
       ) : (
@@ -46,7 +46,7 @@ export const AccountAndBilling = ({
           </div>
           <div className="flex flex-col gap-2 w-full">
             <div
-              className="flex justify-between items-center rounded-[10px] border-[1px] border-[#343A40] border-dark-Neutral-7 bg-[#212529] px-4 py-3">
+              className="flex justify-between items-center rounded-[10px] border-[1px] border-[rgba(255,255,255,0.08)] border-dark-Neutral-7 bg-[#01030B] px-4 py-3">
               <div className="flex flex-col gap-2 ">
                 <div className="font-medium text-sm text-dark-Neutral-200">
                   Current Plan
@@ -88,7 +88,7 @@ export const AccountAndBilling = ({
         </>
       )}
       <Dialog open={planCancellationModal} onOpenChange={setPlanCancellationModal}>
-        <DialogContent className={"max-w-[520px] w-full rounded-3xl bg-[#02040E] p-8 border-[1px] border-[#495057]"}>
+        <DialogContent className={"max-w-[520px] w-full rounded-3xl bg-[#00041A] p-8 border-[1px] border-[#495057]"}>
           <div className="flex flex-col gap-12">
             <div className="flex flex-col gap-6">
               <div className="flex w-full justify-between items-start">

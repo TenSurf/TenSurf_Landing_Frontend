@@ -41,7 +41,7 @@ export const RISK_DISCLOSURE = {
     {
       title: 'Recommendation for Investors and Traders',
       description:
-        'Trading involve considerable risk. The possibility of losing more than the initial investment exists. We advise that only risk capita (funds that one can afford to lose without affecting their financial security) should be used for trading. Only those with adequate risk capital should consider engaging in such trading activities. Use TenSurf Hub as an assistant tool for trading analysis. Ensure that all final trading actions are made based on your independent judgement and assessment of market conditions.',
+        'Trading involve considerable risk. The possibility of losing more than the initial investment exists. We advise that only risk capita (funds that one can afford to lose without affecting their financial security) should be used for trading. Only those with adequate risk capital should consider engaging in such trading activities. Use TenSurf Brain as an assistant tool for trading analysis. Ensure that all final trading actions are made based on your independent judgement and assessment of market conditions.',
       hedLines: undefined
     }
   ]

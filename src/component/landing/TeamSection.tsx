@@ -27,27 +27,18 @@ export const TeamSection = (
 				</div>
 			</div>
 			<div className="container mx-auto flex flex-col gap-16">
-				<div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-5xl mx-auto justify-center items-center">
+				<div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto justify-center items-center">
 					<TeamItem
 						image="/images/keivan-ebrahimi.png"
 						name="Keivan Ebrahimi"
 						position="Founder and CEO"
 					/>
-					<TeamItem
-						image="/images/meisam-azad.png"
-						name="Meisam Azad"
-						position="Co-founder and CTO"
-					/>
-					<TeamItem
+	<TeamItem
 						image="/images/aaron-korbs.png"
 						name="Aaron Korbs"
-						position="Co-founder CMO"
+						position="Co-founder and CMO"
 					/>
-					<TeamItem
-						image="/images/pouya-asadi.png"
-						name="Pouya Asadi"
-						position="Chief Product Officer"
-					/>
+
 				</div>
 			</div>
 		</div>

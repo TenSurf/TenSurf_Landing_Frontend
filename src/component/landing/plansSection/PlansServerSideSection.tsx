@@ -20,20 +20,34 @@ async function getPlans() {
   }
 
   return Object.values(data).map((val: any): IPlan => {
+    let buttonLabel = "Start Now";
+    if (val.is_coming_soon) {
+      buttonLabel = "Contact Us";
+    } else if (val.is_trial) {
+      buttonLabel = "Start Free Trial";
+    } else if (val.is_free) {
+      buttonLabel = "Try Free";
+    } else {
+      buttonLabel = "Subscribe Now";
+    }
+    
     return {
       title: val.name,
       description: val.description,
-      buttonLabel: val.is_coming_soon ? "Contact Us" : "Start Now",
+      buttonLabel: buttonLabel,
       features: val.features?.map((feature: any) => ({ title: feature.name })),
-      priceAnnually: val.year_unit_amount / 100,
-      priceMonthly: val.month_unit_amount / 100,
-      is_coming_soon: val.is_coming_soon,
+      priceAnnually: val.year_unit_amount ? val.year_unit_amount / 100 : 0,
+      priceMonthly: val.month_unit_amount ? val.month_unit_amount / 100 : 0,
+      is_coming_soon: val.is_coming_soon || false,
       month_price_id: val.month_price_id,
       year_price_id: val.year_price_id,
-      is_free: val.is_free,
-      order_id: val.order_id,
+      is_free: val.is_free || false,
+      is_trial: val.is_trial || false,
+      order_id: val.order_id || 0,
       month_currency: val?.month_currency,
-      year_currency: val?.year_currency
+      year_currency: val?.year_currency,
+      strategies_per_day: val.strategies_per_day || 0,
+      trial_days: val.trial_days || 0,
     };
   }).sort((a, b) => a.order_id - b.order_id);
 }

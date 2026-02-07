@@ -5,9 +5,9 @@ import { PAGE_TITLE } from "@/constatns/general.constants";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contact US",
+  title: "Contact Us",
   description: "Contact with Tensurf Support",
-  icons: ["/favicon.ico", "/logo.png"],
+  icons: ["/favicon.ico"],
   keywords: ["tensurf contact us"],
 };
 

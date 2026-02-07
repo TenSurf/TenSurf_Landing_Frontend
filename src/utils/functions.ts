@@ -22,7 +22,7 @@ export const catchRequestError = (error: any, hasAuth: boolean = true) => {
   if (error?.response) {
     toast.error(error?.response?.data?.detail as string);
   } else {
-    toast.error('Error');
+    toast.error('Something went wrong. Please try again or contact support.');
   }
 };
 

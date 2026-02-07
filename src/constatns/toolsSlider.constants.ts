@@ -11,7 +11,7 @@ export const TOOLS = [
   },
   {
     title: "Automated Key Levels and Event Insights in ChartSurf",
-    description: "ChartSurf is an advanced charting tool within TenSurf Hub that incorporates a range of analytical features to support effective trading. It includes tools for identifying delta and footprint imbalances, trend analysis, and displaying major order flow levels for various assets. It also provides insights into key market levels like initial balance, previous session highs/lows, and overnight session extremes, alongside volume profile and VWAP levels to pinpoint key trading levels. ",
+    description: "ChartSurf is an advanced charting tool within TenSurf Brain that incorporates a range of analytical features to support effective trading. It includes tools for identifying delta and footprint imbalances, trend analysis, and displaying major order flow levels for various assets. It also provides insights into key market levels like initial balance, previous session highs/lows, and overnight session extremes, alongside volume profile and VWAP levels to pinpoint key trading levels. ",
     quoteImage: "/images/tools/korbs.png",
     quoteName: "DR. Scott Miler",
     quoteTitle: "An upcoming user interface upgrade",

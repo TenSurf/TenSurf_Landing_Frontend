@@ -20,7 +20,13 @@ const SignUpComponent: FC<IProps> = ({ onModalClose }) => {
         />
       </Suspense>
     ),
-    1: <Verification setActiveStep={setActiveStep} email={email} />,
+    1: (
+      <Verification
+        setActiveStep={setActiveStep}
+        email={email}
+        onModalClose={onModalClose}
+      />
+    ),
     2: (
       <RegisterForm setActiveStep={setActiveStep} onModalClose={onModalClose} />
     ),

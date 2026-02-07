@@ -20,20 +20,20 @@ export const AboutUs = () => {
         <AboutUsItem
           className={'mb-48 lg:mb-96'}
           title={"Born from Passion, Driven by Innovation"}
-          description={"We built a cutting-edge trading platform powered by TenSurf Brain, a suite of AI, ML, and data science tools. This translates to sophisticated analytics, robust risk management, and personalized assistance – all designed to elevate your trading experience."}
+          description={"We built TenSurf Brain to solve a simple problem: traders have great ideas but no way to code them. Our AI-powered add-on runs inside NinjaTrader, turning plain English trading rules into production-ready strategies — complete with code, configuration, and documentation."}
           direction={"left"} image={"/images/about-us-1.png"}
         />
         <AboutUsItem
           className={'mb-48 lg:mb-96'}
           title={"TenSurf Brain: Your AI Advantage"}
-          description={"TenSurf was founded by a team of industry veterans and technology enthusiasts with a shared vision (empower traders of all levels with the tools and insights needed to thrive in today markets)."}
+          description={"TenSurf was founded by traders and engineers who saw the gap between trading knowledge and coding ability. Our AI understands NinjaScript — so you don\'t have to. Describe your strategy, review the interpreted rules for free, and generate working code in minutes."}
           direction={"right"}
           image={"/images/about-us-2.png"}
         />
         <AboutUsItem
           className={'mb-16'}
           title={"Democratizing Trading"}
-          description={"We believe powerful trading tools shouldn be a privilege for the few. TenSurf mission is to level the playing field, providing everyone with the resources they need to succeed."}
+          description={"We believe every trader deserves the ability to automate their ideas. TenSurf\'s mission is to eliminate the coding barrier — so your edge comes from your trading knowledge, not your programming skills."}
           direction={"left"}
           image={"/images/about-us-3.png"}
         />

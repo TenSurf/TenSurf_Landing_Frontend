@@ -1,13 +1,13 @@
-import Faq from '@/component/faq/Faq';
+import TermsOfUse from '@/component/termsOfUse/TermsOfUse';
 import DefaultLayout from '@/layout/publicContentLayout/DefaultLayout';
 import PageProvider from '@/component/general/PageProvider';
 import { PAGE_TITLE } from '@/constatns/general.constants';
 
 const TermsOfUsePage = () => {
   return (
-    <PageProvider title={PAGE_TITLE.faq}>
+    <PageProvider title={PAGE_TITLE.termsOfUse}>
       <DefaultLayout>
-        <Faq />
+        <TermsOfUse />
       </DefaultLayout>
     </PageProvider>
   );

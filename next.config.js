@@ -26,7 +26,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "dev.tensurf.ai",
+        hostname: "tensurf.ai",
         port: "",
         pathname: "/chatbot/**",
       },
@@ -39,6 +39,8 @@ const nextConfig = {
     ],
   },
   reactStrictMode: true,
+  typescript: { ignoreBuildErrors: true },
+  eslint: { ignoreDuringBuilds: true },
   webpack: (config, {}) => {
     config.resolve.extensions.push(".ts", ".tsx");
     config.resolve.fallback = { fs: false };

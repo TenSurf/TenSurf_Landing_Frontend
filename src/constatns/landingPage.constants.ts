@@ -36,29 +36,33 @@ import MenuAboutUsIcon from "@/icons/MenuAboutUsIcon";
 import MenuFaqIcon from "@/icons/MenuFaqIcon";
 import MenuPlansIcon from "@/icons/MenuPlansIcon";
 import MenuServicesIcon from "@/icons/MenuServicesIcon";
+import MenuCompareIcon from "@/icons/MenuCompareIcon";
+import MenuHowItWorksIcon from "@/icons/MenuHowItWorksIcon";
 
 export enum MnuItemsEnum {
   products = "Products",
   services = "Services",
   chart = "Chart",
   plans = "Plans",
+  compare = "Compare",
+  howItWorks = "How It Works",
   team = "Team",
   contact = "Contact us",
-  faq = "Faq",
+  faq = "FAQ",
   aboutUs = "About us",
 }
 
 export const MENU_ITEMS = [
   { title: MnuItemsEnum.services, icon: MenuServicesIcon, url: "/#tools" },
+  // { title: MnuItemsEnum.howItWorks, icon: MenuHowItWorksIcon, url: "/how-it-works" },
   {
     title: MnuItemsEnum.plans,
     icon: MenuPlansIcon,
-    url: `/plans`,
+    url: "/plans",
   },
+  { title: MnuItemsEnum.compare, icon: MenuCompareIcon, url: "/compare" },
   { title: MnuItemsEnum.team, icon: MenuTeamIcon, url: "/team" },
   { title: MnuItemsEnum.contact, icon: MenuContactUsIcon, url: "/contact-us" },
-  { title: MnuItemsEnum.aboutUs, icon: MenuAboutUsIcon, url: "/about-us" },
-  { title: MnuItemsEnum.faq, icon: MenuFaqIcon, url: ROUTE.faq },
 ];
 
 export const HERO_SECTION = {
@@ -68,7 +72,7 @@ export const HERO_SECTION = {
     "Advanced Analytics",
     "Risk Management",
     "Effortless Automation",
-    "Predictive Analysis",
+    "Market Analysis",
     "Strategy Assistance",
     "Automation",
     "Saving traders time",
@@ -96,9 +100,9 @@ export const MVP_SECTION = {
         "Ask questions, identify patterns, and gain insights directly on the charts.",
     },
     {
-      title: "Actionable Market Predictions",
+      title: "Actionable Market Insights",
       description:
-        "Stay ahead of the curve with Al that predicts price movements and breakouts.",
+        "Stay ahead of the curve with Al that may indicate potential price movements and breakouts.",
     },
     {
       title: "Strategy Builder & Tester",
@@ -110,10 +114,6 @@ export const MVP_SECTION = {
       description:
         "Gain a deeper understanding of the market with real-time insights on trends, risk, liquidity, and more.",
     },
-    // {
-    //     title: 'Automate',
-    //     description: 'Focuses on automation and saving traders time'
-    // },
   ],
 };
 
@@ -352,26 +352,26 @@ export const FAQ_SECTION = {
 };
 
 export const FOOTER_MENU_COLS = [
-  {
-    title: "Connect with Us",
-    items: [
-      {
-        title: "LinkedIn",
-        icon: LinkedInIcon,
-        path: TENSURF_CONTACT.linkedin,
-      },
-      {
-        title: "X(Twitter)",
-        icon: XIcon,
-        path: TENSURF_CONTACT.twitter,
-      },
-      {
-        title: "Youtube",
-        icon: YoutubeIcon,
-        path: TENSURF_CONTACT.youtube,
-      },
-    ],
-  },
+  //   {
+  //     title: "Connect with Us",
+  //     items: [
+  //       {
+  //         title: "LinkedIn",
+  //         icon: LinkedInIcon,
+  //         path: TENSURF_CONTACT.linkedin,
+  //       },
+  //       {
+  //         title: "X(Twitter)",
+  //         icon: XIcon,
+  //         path: TENSURF_CONTACT.twitter,
+  //       },
+  //       {
+  //         title: "Youtube",
+  //         icon: YoutubeIcon,
+  //         path: TENSURF_CONTACT.youtube,
+  //       },
+  //     ],
+  //   },
   {
     title: "Quick Links",
     items: [
@@ -384,6 +384,11 @@ export const FOOTER_MENU_COLS = [
         title: "Plans",
         icon: "",
         path: ROUTE.plans,
+      },
+      {
+        title: "Compare",
+        icon: "",
+        path: ROUTE.compare,
       },
       {
         title: "Team",
@@ -441,3 +446,4 @@ export const FOOTER_MENU_COLS = [
 ];
 
 export const COPYRIGHT = `© ${new Date().getFullYear()} TenSurf LLC. All rights reserved.`;
+export const COMPANY_LOCATION = "San Francisco, California";

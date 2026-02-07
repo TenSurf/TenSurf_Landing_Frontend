@@ -1,17 +1,12 @@
 import { MENU_ITEMS } from "../../constatns/landingPage.constants";
-import { Suspense, type RefObject, useState } from "react";
-import { Button } from "@/components/ui/button";
+import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { AuthProfile } from "./AuthProfile";
-import { ArrowRight, Home } from "lucide-react";
 import React from "react";
 import MenuDrawer from "@/layout/publicContentLayout/MenuDrawer";
 
 export const DefaultHeader = () => {
-
-
-
   return (
     <div className="lg:!container z-50 sticky top-0 lg:top-6">
       <div
@@ -19,8 +14,8 @@ export const DefaultHeader = () => {
         <Link href={"/"}>
           <Image
             src={"/tensurf.png"}
-            width={90}
-            height={10}
+            width={150}
+            height={50}
             alt="Tensurf"
             className="rounded"
           />
@@ -41,21 +36,10 @@ export const DefaultHeader = () => {
         </div>
 
         <div className="flex items-center gap-6">
-          <>
-            {/*<Button*/}
-            {/*  onClick={() => setShouldShowSignInSignUpModal({ signUp: false, signIn: true })}*/}
-            {/*  variant={'ghost'}*/}
-            {/*  className='hover:bg-inherit hover:text-neutral-300 gap-1'*/}
-            {/*>*/}
-            {/*  <UserIcon />*/}
-            {/*  Login*/}
-            {/*</Button>*/}
-
-            <Suspense>
-              <AuthProfile />
-            </Suspense>
-            <MenuDrawer />
-          </>
+          <Suspense>
+            <AuthProfile />
+          </Suspense>
+          <MenuDrawer />
         </div>
       </div>
     </div>

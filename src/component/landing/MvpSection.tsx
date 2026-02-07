@@ -30,7 +30,7 @@ export const MvpSection = () => {
       >
         {MVP_SECTION.title}
       </div>
-      <div className="grid gird-cols-1 md:grid-cols-3 gap-6 text-center items-stretch justify-between w-full">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center items-stretch justify-between w-full">
         {MVP_SECTION.items.slice(0, 3).map((item, index: number) => (
           <MvpItem
             key={index}
@@ -39,7 +39,7 @@ export const MvpSection = () => {
           />
         ))}
       </div>
-      <div className="grid gird-cols-1 md:grid-cols-3 gap-6 text-center items-stretch  justify-between w-full">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center items-stretch  justify-between w-full">
         {MVP_SECTION.items.slice(3, 6).map((item, index: number) => (
           <MvpItem
             key={index}

@@ -2,16 +2,14 @@ import React, { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { HttpMethod, backendUrl, sendRequest } from "@/helpers/http-request";
 import { BackendUrls } from "@/helpers/backend-urls";
-import axios from "axios";
 import TensurfInputText from "@/component/general/inputText/tensurfInputText";
 import MailIcon from "@/icons/MailIcon";
-import TensurfButton from "@/component/general/TensurfButton";
+import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
 const WaitList = (props: any) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  // RHF ↓•↓•↓
   const {
     control,
     handleSubmit,
@@ -29,7 +27,6 @@ const WaitList = (props: any) => {
       email: values.email.toLowerCase(),
     })
       .then((response) => {
-        // toast.success(response.data.message as string);
         props.setIsJoin(true);
       })
       .catch((e) => {
@@ -42,7 +39,7 @@ const WaitList = (props: any) => {
     <div className="w-full">
       {props.isJoin ? (
         <div className="w-full text-center flex flex-col gap-4">
-          <div className="text-start text-xl">{`Thanks for joining the TenSurf Hub waiting list! We're excited to have you on board. Stay tuned for updates! 🌊 🚀`}</div>
+          <div className="text-start text-xl">{`Thanks for joining the TenSurf Brain waiting list! We're excited to have you on board. Stay tuned for updates! 🌊 🚀`}</div>
           <span className="text-center mx-auto w-full mt-4">
             <a
               className="text-primary"
@@ -80,23 +77,14 @@ const WaitList = (props: any) => {
               />
             )}
           />
-          <TensurfButton
-            type={"submit"}
-            isLoading={isLoading}
-            customClassName="self-start w-full bg-primary rounded-full text-white mt-8"
-            size={"xLarge56"}
+          <Button
+            type="submit"
+            loading={isLoading}
+            size="xl"
+            className="w-full bg-primary rounded-full text-white mt-8"
           >
-            Done
-          </TensurfButton>
-          {/*<TensurfButton*/}
-          {/*  onClick={handleSubmit(handleFormSubmit)}*/}
-          {/*  isLoading={isLoading}*/}
-          {/*  textColor="text-white"*/}
-          {/*  customClassName="self-start w-full m-auto bg-[#3861fb]"*/}
-          {/*  size={"xLarge56"}*/}
-          {/*>*/}
-          {/*  Join Our Wait list*/}
-          {/*</TensurfButton>*/}
+            Join Waitlist
+          </Button>
         </form>
       )}
     </div>

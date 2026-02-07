@@ -5,6 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    restart: always
     env_file:
       - .env
     ports:
@@ -15,4 +16,3 @@ services:
 networks:
   tensurf_network:
     name: tensurf_network
-
