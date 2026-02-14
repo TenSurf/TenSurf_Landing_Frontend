@@ -27,13 +27,13 @@ const FinalCTA = () => {
           <Link href="/waitlist">
             <div className="flex items-center gap-3 bg-[#082FDF]/20 border border-[#082FDF]/40 rounded-full px-12 py-6 mt-4 hover:bg-[#082FDF]/30 transition-colors">
               <span className="w-3 h-3 bg-[#082FDF] rounded-full animate-pulse"></span>
-              <span className="text-lg font-semibold text-white">Coming Soon \u2014 Join the Waitlist</span>
+              <span className="text-lg font-semibold text-white">Coming Soon — Join the Waitlist</span>
             </div>
           </Link>
 
           {/* Objection handlers */}
           <p className="text-sm text-[#6C757D]">
-            Be the first to know when we launch \u2022 No commitment required
+            Be the first to know when we launch • No commitment required
           </p>
         </div>
       </GsapAnimation>

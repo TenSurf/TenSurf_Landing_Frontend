@@ -71,7 +71,7 @@ export const Plan: FC<IProps> = ({ plan, className }) => {
       <Link href="/waitlist" className="w-full">
         <div className="w-full h-12 flex items-center justify-center gap-2 bg-[#082FDF]/20 border border-[#082FDF]/40 rounded-lg hover:bg-[#082FDF]/30 transition-colors">
           <span className="w-2 h-2 bg-[#082FDF] rounded-full animate-pulse"></span>
-          <span className="text-sm font-medium text-white">Coming Soon \u2014 Join Waitlist</span>
+          <span className="text-sm font-medium text-white">Coming Soon — Join Waitlist</span>
         </div>
       </Link>
 
