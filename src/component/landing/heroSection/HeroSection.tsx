@@ -54,7 +54,7 @@ export const HeroSection = async ({
 					
 					{/* Trust Indicators */}
 					<p className="text-sm text-[#6C757D]">
-						Join the waitlist \u2022 Be first to access \u2022 Free early access
+						Join the waitlist • Be first to access • Free early access
 					</p>
 				</div>
 			</div>
