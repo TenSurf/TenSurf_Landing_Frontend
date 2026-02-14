@@ -99,7 +99,7 @@ const WaitlistPage = () => {
               <span className="text-sm font-medium text-[#B0C4FF]">Launching Soon</span>
             </div>
             <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4 leading-tight">
-              Be the First to Trade<br />with AI-Powered Strategies
+              Automate Your Trading<br />Without Writing a Single Line of Code
             </h1>
             <p className="text-lg text-[#ADB5BD] leading-relaxed">
               TenSurf transforms your plain English trading ideas into fully automated
