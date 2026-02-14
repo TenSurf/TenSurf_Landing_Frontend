@@ -1,7 +1,3 @@
-import {Button} from '@/components/ui/button';
-import {token_name} from '@/helpers/auth';
-import {ArrowRight} from 'lucide-react';
-import {cookies} from 'next/headers';
 import Link from 'next/link';
 import React from 'react';
 import {AnimateLight} from './AnimateLight';
@@ -15,8 +11,6 @@ export const HeroSection = async ({
 	title: string;
 	description: React.ReactNode;
 }) => {
-	const cookieStore = await cookies();
-	
 	return (
 		<div
 			className={`w-full flex flex-col items-center overflow-hidden h-screen`}
@@ -48,20 +42,19 @@ export const HeroSection = async ({
 				<div className="flex flex-col items-center gap-4">
 					<Link
 						className={'flex justify-center w-fit'}
-						href='/login'
+						href='/waitlist'
 					>
-						<Button
-							className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-5 px-6 sm:py-6 sm:px-10 md:py-8 md:px-14">
-							<p className={'text-base sm:text-lg md:text-xl font-semibold text-center'}>
-								Generate Your First Strategy Free
-							</p>
-							<ArrowRight size={20} strokeWidth={2}/>
-						</Button>
+						<div className="flex items-center gap-3 bg-[#082FDF]/20 border border-[#082FDF]/40 rounded-full px-8 py-4 sm:px-10 sm:py-5 md:px-14 md:py-6 hover:bg-[#082FDF]/30 transition-colors">
+							<span className="w-3 h-3 bg-[#082FDF] rounded-full animate-pulse"></span>
+							<span className={'text-base sm:text-lg md:text-xl font-semibold text-white'}>
+								Coming Soon — Join the Waitlist
+							</span>
+						</div>
 					</Link>
 					
 					{/* Trust Indicators */}
 					<p className="text-sm text-[#6C757D]">
-						7 days free • Full access to all features • Cancel anytime
+						Join the waitlist \u2022 Be first to access \u2022 Free early access
 					</p>
 				</div>
 			</div>

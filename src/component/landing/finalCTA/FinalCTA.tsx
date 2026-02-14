@@ -1,8 +1,6 @@
 import React from "react";
 import GsapAnimation from "@/utils/GsapAnimation";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 
 const FinalCTA = () => {
   return (
@@ -26,16 +24,16 @@ const FinalCTA = () => {
             Stop waiting to learn coding. Start generating strategies today.
           </p>
 
-          <Link href="/login">
-            <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6 px-12 mt-4">
-              <span className="text-lg font-semibold">Start Your 7-Day Free Trial</span>
-              <ArrowRight size={20} strokeWidth={2} />
-            </Button>
+          <Link href="/waitlist">
+            <div className="flex items-center gap-3 bg-[#082FDF]/20 border border-[#082FDF]/40 rounded-full px-12 py-6 mt-4 hover:bg-[#082FDF]/30 transition-colors">
+              <span className="w-3 h-3 bg-[#082FDF] rounded-full animate-pulse"></span>
+              <span className="text-lg font-semibold text-white">Coming Soon \u2014 Join the Waitlist</span>
+            </div>
           </Link>
 
           {/* Objection handlers */}
           <p className="text-sm text-[#6C757D]">
-            30-second signup • No credit card required • Full access to all features
+            Be the first to know when we launch \u2022 No commitment required
           </p>
         </div>
       </GsapAnimation>

@@ -114,10 +114,10 @@ const PainPoint = () => {
           </div>
 
           {/* CTA */}
-          <Link href="/login">
+          <Link href="/waitlist">
             <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6 px-10">
               <span className="text-lg font-semibold">
-                Try It Free for 7 Days
+                Coming Soon — Join Waitlist
               </span>
               <ArrowRight size={20} strokeWidth={2} />
             </Button>

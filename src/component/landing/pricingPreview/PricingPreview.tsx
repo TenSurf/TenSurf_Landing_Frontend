@@ -168,7 +168,7 @@ const PricingPreview = () => {
                 <span>{plan.feature}</span>
               </div>
               <p className="text-sm text-[#6C757D] italic">{plan.bestFor}</p>
-              <Link href={plan.isTrial ? "/login" : "/plans"} className="mt-auto">
+              <Link href="/waitlist" className="mt-auto">
                 <Button
                   className={`w-full py-3 rounded-xl ${
                     plan.highlighted
@@ -176,7 +176,7 @@ const PricingPreview = () => {
                       : "bg-transparent border border-[#082FDF] hover:bg-[#082FDF]/10"
                   }`}
                 >
-                  {plan.cta}
+                  Coming Soon
                 </Button>
               </Link>
             </div>

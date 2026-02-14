@@ -1,15 +1,8 @@
-import { toast } from "sonner";
-import { type FC, useState } from "react";
+import { type FC } from "react";
 import CheckIcon from "../../../icons/CheckIcon";
 import type { IPlan } from "../../../types/general.types";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { isLoggedIn } from "@/helpers/auth";
-import { useRouter } from "next/navigation";
-import { ROUTE } from "@/constatns/general.constants";
-import { HttpMethod, sendRequest } from "@/helpers/http-request";
-import { BackendUrls } from "@/helpers/backend-urls";
-import { Loader } from "lucide-react";
+import Link from "next/link";
 
 interface IProps {
   plan: IPlan;
@@ -18,96 +11,6 @@ interface IProps {
 }
 
 export const Plan: FC<IProps> = ({ plan, className }) => {
-  const router = useRouter();
-  const [loading, setLoading] = useState(false);
-
-  const handleClick = async () => {
-    if (plan.is_coming_soon) {
-      router.push(ROUTE.contactUs);
-      return;
-    }
-
-    // Free trial plan (is_trial = true)
-    if (plan.is_trial) {
-      if (isLoggedIn()) {
-        setLoading(true);
-        try {
-          const res = await sendRequest(BackendUrls.start_trial, HttpMethod.POST, {});
-          if (res.data.success) {
-            router.push("/payment/success?trial=true");
-          } else {
-            toast.error(res.data.message || "Unable to start trial");
-          }
-        } catch (error: any) {
-          toast.error(error?.response?.data?.message || "Unable to start trial");
-        } finally {
-          setLoading(false);
-        }
-      } else {
-        router.push("/login?redirect=/plans");
-      }
-      return;
-    }
-
-    // Legacy free plan (chart access)
-    if (plan.is_free) {
-      router.push(ROUTE.chart);
-      return;
-    }
-
-    // Paid plans
-    if (isLoggedIn()) {
-      setLoading(true);
-      // Try Stripe Portal first (existing subscribers can upgrade/downgrade there)
-      try {
-        const billingRes = await sendRequest<{ url: string }>(
-          BackendUrls.billing,
-          HttpMethod.POST,
-          { return_url: window.location.href }
-        );
-        window.location.href = billingRes.data.url;
-        return;
-      } catch {
-        // No active subscription — proceed to checkout
-      }
-      // New subscription - go to Stripe checkout
-      sendRequest(BackendUrls.payment, HttpMethod.POST, {
-        price_id: plan.month_price_id,
-      })
-        .then((res) => {
-          router.push(res.data.url);
-        })
-        .catch(() => {
-          toast.error("Unable to process payment. Please try again.");
-        })
-        .finally(() => setLoading(false));
-    } else {
-      router.push("/login?redirect=/plans");
-    }
-  };
-
-  // Determine button styling based on plan type
-  const getButtonClass = () => {
-    if (plan.is_coming_soon) {
-      return "bg-white text-black hover:bg-white hover:text-black hover:opacity-90";
-    }
-    if (plan.is_trial) {
-      return "bg-blue-600 hover:bg-blue-700";
-    }
-    if (plan.is_free) {
-      return "bg-white text-black hover:bg-white hover:text-black hover:opacity-90";
-    }
-    return "bg-green-600 hover:bg-green-700";
-  };
-
-  // Determine button label
-  const getButtonLabel = () => {
-    if (plan.is_trial) {
-      return "Start Free Trial";
-    }
-    return plan.buttonLabel || "Get Started";
-  };
-
   return (
     <div
       className={cn(
@@ -165,20 +68,12 @@ export const Plan: FC<IProps> = ({ plan, className }) => {
         </div>
       </div>
 
-      <Button
-        onClick={handleClick}
-        className={cn("w-full h-12 text-base", getButtonClass())}
-        disabled={loading}
-      >
-        {loading ? <Loader className="animate-spin"></Loader> : getButtonLabel()}
-      </Button>
-
-      {/* Info text */}
-      {plan.is_trial && (
-        <p className="text-center text-gray-400 text-xs">
-          No credit card required
-        </p>
-      )}
+      <Link href="/waitlist" className="w-full">
+        <div className="w-full h-12 flex items-center justify-center gap-2 bg-[#082FDF]/20 border border-[#082FDF]/40 rounded-lg hover:bg-[#082FDF]/30 transition-colors">
+          <span className="w-2 h-2 bg-[#082FDF] rounded-full animate-pulse"></span>
+          <span className="text-sm font-medium text-white">Coming Soon \u2014 Join Waitlist</span>
+        </div>
+      </Link>
 
       <div className="flex flex-col gap-1">
         {plan?.features?.map((feature, index) => (

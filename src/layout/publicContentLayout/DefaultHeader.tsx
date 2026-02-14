@@ -1,8 +1,6 @@
 import { MENU_ITEMS } from "../../constatns/landingPage.constants";
-import { Suspense } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AuthProfile } from "./AuthProfile";
 import React from "react";
 import MenuDrawer from "@/layout/publicContentLayout/MenuDrawer";
 
@@ -36,9 +34,12 @@ export const DefaultHeader = () => {
         </div>
 
         <div className="flex items-center gap-6">
-          <Suspense>
-            <AuthProfile />
-          </Suspense>
+          <Link href="/waitlist">
+            <div className="flex items-center gap-2 bg-[#082FDF]/20 border border-[#082FDF]/40 rounded-full px-5 py-2.5 hover:bg-[#082FDF]/30 transition-colors">
+              <span className="w-2 h-2 bg-[#082FDF] rounded-full animate-pulse"></span>
+              <span className="text-sm font-medium text-white">Coming Soon</span>
+            </div>
+          </Link>
           <MenuDrawer />
         </div>
       </div>

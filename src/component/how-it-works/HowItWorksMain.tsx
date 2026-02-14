@@ -171,9 +171,9 @@ const HowItWorksMain = () => {
           No programming required.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 mt-4">
-          <Link href="/login">
+          <Link href="/waitlist">
             <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6 px-8">
-              <span>Start Your Free Trial</span>
+              <span>Coming Soon — Join Waitlist</span>
               <ArrowRight size={20} strokeWidth={2} />
             </Button>
           </Link>
@@ -414,9 +414,9 @@ const HowItWorksMain = () => {
           Start your 7-day free trial. No credit card required.
           Full access to all features.
         </p>
-        <Link href="/login">
+        <Link href="/waitlist">
           <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6 px-12">
-            <span className="text-lg font-semibold">Start Building Strategies</span>
+            <span className="text-lg font-semibold">Coming Soon — Join Waitlist</span>
             <ArrowRight size={20} strokeWidth={2} />
           </Button>
         </Link>

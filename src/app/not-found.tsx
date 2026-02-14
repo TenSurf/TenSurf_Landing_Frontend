@@ -39,9 +39,9 @@ export default function NotFound() {
             <span>Go Home</span>
           </Button>
         </Link>
-        <Link href="/login">
+        <Link href="/waitlist">
           <Button className="flex gap-2 rounded-xl bg-transparent border border-[#082FDF] hover:bg-[#082FDF]/10 py-3 px-6">
-            <span>Start Free Trial</span>
+            <span>Coming Soon — Join Waitlist</span>
             <ArrowRight className="w-4 h-4" />
           </Button>
         </Link>

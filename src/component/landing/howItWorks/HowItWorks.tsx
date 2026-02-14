@@ -111,9 +111,9 @@ const HowItWorks = () => {
         selector="#howItWorksCTA"
       >
         <div id="howItWorksCTA">
-          <Link href="/login">
+          <Link href="/waitlist">
             <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6 px-12">
-              <span className="text-lg font-semibold">Start Your Free Trial</span>
+              <span className="text-lg font-semibold">Coming Soon — Join Waitlist</span>
               <ArrowRight size={20} strokeWidth={2} />
             </Button>
           </Link>

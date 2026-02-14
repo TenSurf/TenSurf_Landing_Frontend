@@ -1,19 +1,14 @@
-"use client";
-
-import { Button } from "@/components/ui/button";
-import { isLoggedIn } from "@/helpers/auth";
+import Link from "next/link";
 
 export const HeroAuthHub = () => {
   return (
     <div>
-      <a
-        href={isLoggedIn() ? process.env.NEXT_PUBLIC_HUB_URL : "/login"}
-        target={isLoggedIn() ? "_blank" : '_self'}
-      >
-        <Button className="h-16 bg-primary font-bold text-lg">
-          Go to TenSurf Brain
-        </Button>
-      </a>
+      <Link href="/waitlist">
+        <div className="h-16 bg-[#082FDF]/20 border border-[#082FDF]/40 rounded-full px-8 flex items-center justify-center gap-2 hover:bg-[#082FDF]/30 transition-colors">
+          <span className="w-2 h-2 bg-[#082FDF] rounded-full animate-pulse"></span>
+          <span className="font-bold text-lg text-white">Coming Soon</span>
+        </div>
+      </Link>
     </div>
   );
 };
