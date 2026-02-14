@@ -2,7 +2,7 @@
 
 export const NT_PARTNER_LINKS = {
   ninjatrader: 'https://ninjatraderus.pxf.io/gOv61r',
-  kinetick: 'http://kinetick.com/NinjaTrader',
+  kinetick: 'https://kinetick.com/NinjaTrader',
 };
 
 export const NT_DISCLOSURES = {

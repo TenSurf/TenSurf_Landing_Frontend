@@ -127,7 +127,7 @@ export const ContactUs: FC = () => {
               }}
               className="hidden lg:block z-0 absolute inset-0 w-[200px] h-[200px] rounded-full -left-10"
             ></div>
-            <h1 className="text-center lg:text-left text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-medium text-[#F8F9FA]">
+            <h1 className="text-center lg:text-left text-3xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-medium text-[#F8F9FA]">
               Get in Touch<br />
               <span className="text-[#ADB5BD]">with our Team</span>
             </h1>
@@ -139,7 +139,7 @@ export const ContactUs: FC = () => {
           {/* Right side - Form */}
           <form
             onSubmit={handleSubmit(handleFormSubmit)}
-            className="flex flex-col gap-6 p-8 md:p-10 w-full lg:w-[55%] bg-[#00041A] border border-[rgba(255,255,255,0.08)] rounded-2xl"
+            className="flex flex-col gap-4 sm:gap-6 p-4 sm:p-6 md:p-10 w-full lg:w-[55%] bg-[#00041A] border border-[rgba(255,255,255,0.08)] rounded-2xl"
           >
             <div className='grid grid-cols-1 md:grid-cols-2 w-full gap-6'>
               <div className="flex flex-col gap-2">

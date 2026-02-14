@@ -31,7 +31,7 @@ export const HeroSection = async ({
 				<div className="flex items-center flex-col justify-center gap-6">
 					<h1
 						className={
-							'text-4xl sm:text-6xl md:text-7xl text-center font-medium text-[#F8F9FA] !leading-tight'
+							'text-[28px] sm:text-5xl md:text-7xl text-center font-medium text-[#F8F9FA] !leading-tight'
 						}
 					>
 						{title}
@@ -48,11 +48,11 @@ export const HeroSection = async ({
 				<div className="flex flex-col items-center gap-4">
 					<Link
 						className={'flex justify-center w-fit'}
-						href='/signup'
+						href='/login'
 					>
 						<Button
-							className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6 px-10 sm:py-8 sm:px-14">
-							<p className={'text-lg sm:text-xl font-semibold text-center'}>
+							className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-5 px-6 sm:py-6 sm:px-10 md:py-8 md:px-14">
+							<p className={'text-base sm:text-lg md:text-xl font-semibold text-center'}>
 								Generate Your First Strategy Free
 							</p>
 							<ArrowRight size={20} strokeWidth={2}/>

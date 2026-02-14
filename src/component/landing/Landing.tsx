@@ -7,11 +7,12 @@ import PricingPreview from "@/component/landing/pricingPreview/PricingPreview";
 import Roadmap from "@/component/landing/roadmap/Roadmap";
 import FinalCTA from "@/component/landing/finalCTA/FinalCTA";
 import PainPoint from "@/component/landing/painPoint/PainPoint";
+import CodeOwnership from "@/component/landing/codeOwnership/CodeOwnership";
 
 export const Landing = () => {
   return (
     <DefaultLayout>
-      <div className="flex flex-col overflow-x-hidden items-center container overflow-y-hidden">
+      <div className="flex flex-col overflow-x-hidden items-center container">
         <HeroSection 
           title="Turn Trading Ideas Into Automated Strategies" 
           description={<>Describe your strategy in plain English. TenSurf Brain generates the code, compiles it, and backtests it—all inside NinjaTrader.<br />No coding required.</>}
@@ -22,6 +23,7 @@ export const Landing = () => {
       <div className="flex flex-col overflow-x-hidden items-center container">
         <PainPoint />
         <HowItWorks />
+        <CodeOwnership />
         <Roadmap />
         <PricingPreview />
         <FinalCTA />

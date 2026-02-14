@@ -9,7 +9,7 @@ import { Controller, useForm } from "react-hook-form";
 import TensurfInputText from "../../../general/inputText/tensurfInputText";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { ROUTE } from "@/constatns/general.constants";
 
 const Verification: FC<IVerificationProps> = (props) => {
@@ -17,6 +17,7 @@ const Verification: FC<IVerificationProps> = (props) => {
   const [isVerificationLoading, setIsVerificationLoading] =
     useState<boolean>(false);
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   const {
     control,
@@ -116,7 +117,7 @@ const Verification: FC<IVerificationProps> = (props) => {
           if (response.data.is_new_user === false) {
             setCookie(response.data.token as string);
             if (props.onModalClose) props.onModalClose();
-            router.replace(ROUTE.home);
+            router.replace(searchParams.get("redirect") || ROUTE.home);
           } else {
             setCookie(response.data.token as string);
             props.setActiveStep(2);

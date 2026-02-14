@@ -52,7 +52,13 @@ const SignUpGetEmailCode: React.FC<IGetEmailStepProps> = props => {
       <Controller
         name='email'
         control={control}
-        rules={{ required: true }}
+        rules={{
+            required: 'Email is required',
+            pattern: {
+              value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+              message: 'Please enter a valid email address',
+            },
+          }}
         render={({ field }) => (
           <TensurfInputText
             {...field}
@@ -61,7 +67,8 @@ const SignUpGetEmailCode: React.FC<IGetEmailStepProps> = props => {
             placeholder='Enter your Email '
             label='Email'
             leftItem={<MailIcon className='w-6 h-6' />}
-            hasError={errors?.email?.type === 'required' && true}
+            hasError={!!errors?.email}
+            errorMessage={errors?.email?.message as string}
           />
         )}
       />

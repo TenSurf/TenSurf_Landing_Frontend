@@ -47,10 +47,10 @@ export const Faq = () => {
   const categoryData = FAQ_DATA.find((cat: FAQCategory) => cat.category === activeCategory);
 
   return (
-    <div className="flex flex-col w-full gap-16 mt-32 mb-32 max-w-screen-xl mx-auto px-4">
+    <div className="flex flex-col w-full gap-10 sm:gap-16 mt-16 sm:mt-24 md:mt-32 mb-16 sm:mb-24 md:mb-32 max-w-screen-xl mx-auto px-4">
       {/* Header */}
       <div className="flex flex-col items-center gap-6">
-        <h1 className="text-4xl md:text-6xl font-medium text-center text-[#E9ECEF]">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-medium text-center text-[#E9ECEF]">
           {FAQ.title}
         </h1>
         <p className="text-xl text-[#ADB5BD] text-center">

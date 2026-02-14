@@ -84,11 +84,11 @@ const PricingPreview = () => {
   // Skeleton loader
   if (!plans && !error) {
     return (
-      <div className="relative w-full flex flex-col justify-center items-center gap-16 py-24 max-w-screen-2xl">
+      <div className="relative w-full flex flex-col justify-center items-center gap-12 sm:gap-16 py-16 sm:py-24 max-w-screen-2xl px-4 md:px-0">
         <div className="flex flex-col items-center gap-6">
           <RoundTitleHeader title="Simple Pricing" />
-          <h2 className="font-normal text-4xl md:text-5xl text-center text-[#E9ECEF]">Simple, Transparent Pricing</h2>
-          <p className="font-normal text-xl text-center text-[#ADB5BD]">Start free. Upgrade when you need more strategies.</p>
+          <h2 className="font-normal text-3xl sm:text-4xl md:text-5xl text-center text-[#E9ECEF]">Simple, Transparent Pricing</h2>
+          <p className="font-normal text-base sm:text-lg md:text-xl text-center text-[#ADB5BD]">Start free. Upgrade when you need more strategies.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
           {[...Array(4)].map((_, i) => (
@@ -99,11 +99,27 @@ const PricingPreview = () => {
     );
   }
 
-  // Error state — hide section gracefully
-  if (error || !plans) return null;
+  // Error state — show section header with link to plans
+  if (error || !plans) {
+    return (
+      <div className="relative w-full flex flex-col justify-center items-center gap-12 sm:gap-16 py-16 sm:py-24 max-w-screen-2xl px-4 md:px-0">
+        <div className="flex flex-col items-center justify-center gap-6">
+          <RoundTitleHeader title="Simple Pricing" />
+          <h2 className="font-normal text-3xl sm:text-4xl md:text-5xl text-center text-[#E9ECEF]">Simple, Transparent Pricing</h2>
+          <p className="font-normal text-base sm:text-lg md:text-xl text-center text-[#ADB5BD]">Start free. Upgrade when you need more strategies.</p>
+        </div>
+        <Link href="/plans">
+          <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6 px-12">
+            <span className="text-lg font-semibold">View Plans</span>
+            <ArrowRight size={20} strokeWidth={2} />
+          </Button>
+        </Link>
+      </div>
+    );
+  }
 
   return (
-    <div className="relative w-full flex flex-col justify-center items-center gap-16 py-24 max-w-screen-2xl">
+    <div className="relative w-full flex flex-col justify-center items-center gap-12 sm:gap-16 py-16 sm:py-24 max-w-screen-2xl px-4 md:px-0">
       <GsapAnimation
         fromVars={{ y: 100, opacity: 0 }}
         toVars={{ y: 0, opacity: 1, duration: 0.8, scrollTrigger: { start: "top bottom", trigger: "#pricingPreviewHeader" } }}
@@ -111,10 +127,10 @@ const PricingPreview = () => {
       >
         <div id="pricingPreviewHeader" className="flex flex-col items-center justify-center gap-6">
           <RoundTitleHeader title="Simple Pricing" />
-          <h2 className="font-normal text-4xl md:text-5xl text-center text-[#E9ECEF]">
+          <h2 className="font-normal text-3xl sm:text-4xl md:text-5xl text-center text-[#E9ECEF]">
             Simple, Transparent Pricing
           </h2>
-          <p className="font-normal text-xl text-center text-[#ADB5BD]">
+          <p className="font-normal text-base sm:text-lg md:text-xl text-center text-[#ADB5BD]">
             Start free. Upgrade when you need more strategies.
           </p>
         </div>
@@ -152,7 +168,7 @@ const PricingPreview = () => {
                 <span>{plan.feature}</span>
               </div>
               <p className="text-sm text-[#6C757D] italic">{plan.bestFor}</p>
-              <Link href={plan.isTrial ? "/signup" : "/plans"} className="mt-auto">
+              <Link href={plan.isTrial ? "/login" : "/plans"} className="mt-auto">
                 <Button
                   className={`w-full py-3 rounded-xl ${
                     plan.highlighted

@@ -159,11 +159,11 @@ const faqs = [
 
 const HowItWorksMain = () => {
   return (
-    <div className="flex flex-col w-full gap-24 mt-32 mb-32 max-w-screen-xl mx-auto px-4">
+    <div className="flex flex-col w-full gap-12 sm:gap-16 md:gap-24 mt-16 sm:mt-24 md:mt-32 mb-16 sm:mb-24 md:mb-32 max-w-screen-xl mx-auto px-4">
       {/* Hero Section */}
       <div className="flex flex-col items-center gap-6 text-center">
         <RoundTitleHeader title="How It Works" />
-        <h1 className="text-4xl md:text-6xl font-medium text-[#E9ECEF] max-w-4xl">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-medium text-[#E9ECEF] max-w-4xl">
           From Trading Idea to <span className="text-[#082FDF]">Automated Strategy</span> in Minutes
         </h1>
         <p className="text-xl text-[#ADB5BD] max-w-2xl">
@@ -171,7 +171,7 @@ const HowItWorksMain = () => {
           No programming required.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 mt-4">
-          <Link href="/signup">
+          <Link href="/login">
             <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6 px-8">
               <span>Start Your Free Trial</span>
               <ArrowRight size={20} strokeWidth={2} />
@@ -191,7 +191,7 @@ const HowItWorksMain = () => {
 
       {/* The Problem Section */}
       <div className="flex flex-col items-center gap-8">
-        <h2 className="text-3xl md:text-4xl font-medium text-center text-[#E9ECEF]">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-center text-[#E9ECEF]">
           Tired of the Coding Barrier?
         </h2>
         <p className="text-lg text-[#ADB5BD] text-center max-w-3xl">
@@ -208,7 +208,7 @@ const HowItWorksMain = () => {
       {/* 5-Step Process */}
       <div id="steps" className="flex flex-col gap-16 scroll-mt-20">
         <div className="flex flex-col items-center gap-4">
-          <h2 className="text-3xl md:text-4xl font-medium text-center text-[#E9ECEF]">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-center text-[#E9ECEF]">
             Five Steps to Your First Strategy
           </h2>
           <p className="text-lg text-[#ADB5BD] text-center max-w-2xl">
@@ -280,12 +280,12 @@ const HowItWorksMain = () => {
 
       {/* Before/After Comparison */}
       <div className="flex flex-col gap-8">
-        <h2 className="text-3xl md:text-4xl font-medium text-center text-[#E9ECEF]">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-center text-[#E9ECEF]">
           The Difference is Clear
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Before */}
-          <div className="bg-gradient-to-b from-[#1a0a0a] to-[#0a0505] border border-red-900/30 rounded-2xl p-8">
+          <div className="bg-gradient-to-b from-[#1a0a0a] to-[#0a0505] border border-red-900/30 rounded-2xl p-4 sm:p-6 md:p-8">
             <h3 className="text-xl font-medium text-red-400 mb-6">{beforeAfter.before.title}</h3>
             <ul className="flex flex-col gap-4">
               {beforeAfter.before.items.map((item, index) => (
@@ -298,7 +298,7 @@ const HowItWorksMain = () => {
           </div>
 
           {/* After */}
-          <div className="bg-gradient-to-b from-[#00115E]/30 to-[#00041A] border border-[#082FDF]/30 rounded-2xl p-8">
+          <div className="bg-gradient-to-b from-[#00115E]/30 to-[#00041A] border border-[#082FDF]/30 rounded-2xl p-4 sm:p-6 md:p-8">
             <h3 className="text-xl font-medium text-[#082FDF] mb-6">{beforeAfter.after.title}</h3>
             <ul className="flex flex-col gap-4">
               {beforeAfter.after.items.map((item, index) => (
@@ -314,7 +314,7 @@ const HowItWorksMain = () => {
 
       {/* Benefits Grid */}
       <div className="flex flex-col gap-8">
-        <h2 className="text-3xl md:text-4xl font-medium text-center text-[#E9ECEF]">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-center text-[#E9ECEF]">
           Why Traders Choose TenSurf Brain
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -337,7 +337,7 @@ const HowItWorksMain = () => {
 
       {/* Use Cases / Personas */}
       <div className="flex flex-col gap-8">
-        <h2 className="text-3xl md:text-4xl font-medium text-center text-[#E9ECEF]">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-center text-[#E9ECEF]">
           Built For Traders Like You
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -359,7 +359,7 @@ const HowItWorksMain = () => {
       </div>
 
       {/* Iteration CTA */}
-      <div className="bg-gradient-to-b from-[#00115E]/20 to-[#00041A] border border-[#082FDF]/20 rounded-3xl p-8 md:p-12 text-center">
+      <div className="bg-gradient-to-b from-[#00115E]/20 to-[#00041A] border border-[#082FDF]/20 rounded-3xl p-4 sm:p-8 md:p-12 text-center">
         <RefreshCw className="w-12 h-12 text-[#082FDF] mx-auto mb-6" />
         <h2 className="text-2xl md:text-3xl font-medium text-[#E9ECEF] mb-4">
           The Real Power: Rapid Iteration
@@ -384,7 +384,7 @@ const HowItWorksMain = () => {
 
       {/* FAQ Section */}
       <div className="flex flex-col gap-8">
-        <h2 className="text-3xl md:text-4xl font-medium text-center text-[#E9ECEF]">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-center text-[#E9ECEF]">
           Common Questions
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -407,14 +407,14 @@ const HowItWorksMain = () => {
 
       {/* Final CTA */}
       <div className="flex flex-col items-center gap-6 py-16 bg-gradient-to-b from-[#00041A] to-[#01030B] rounded-3xl">
-        <h2 className="text-3xl md:text-4xl font-medium text-center text-[#E9ECEF] px-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-center text-[#E9ECEF] px-4">
           Ready to Turn Your Trading Ideas Into Code?
         </h2>
         <p className="text-lg text-[#ADB5BD] text-center max-w-xl px-4">
           Start your 7-day free trial. No credit card required.
           Full access to all features.
         </p>
-        <Link href="/signup">
+        <Link href="/login">
           <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6 px-12">
             <span className="text-lg font-semibold">Start Building Strategies</span>
             <ArrowRight size={20} strokeWidth={2} />

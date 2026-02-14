@@ -109,7 +109,7 @@ export const RefundPolicy = () => {
         </p>
         <div className="flex items-center gap-2 text-sm text-[#6C757D]">
           <span>Last Updated:</span>
-          <time dateTime="2025-01" className="text-[#ADB5BD]">January 2025</time>
+          <time dateTime="2026-02" className="text-[#ADB5BD]">February 2026</time>
         </div>
       </header>
 

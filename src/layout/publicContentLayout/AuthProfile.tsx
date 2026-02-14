@@ -11,7 +11,7 @@ import {
 import { ROUTE } from "@/constatns/general.constants";
 import { isLoggedIn, removeCookie } from "@/helpers/auth";
 import { HttpMethod, sendRequest } from "@/helpers/http-request";
-import { ArrowRight, LogIn, UserRoundIcon } from "lucide-react";
+import { ArrowRight, UserRoundIcon } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -25,24 +25,12 @@ export const AuthProfile = () => {
   return (
     <div>
       {!isLoggedIn() && (
-        <div className="flex items-center gap-3">
-          {/* Login link */}
-          <Link 
-            href="/signin"
-            className="hidden md:flex items-center gap-2 text-[#ADB5BD] hover:text-white transition-colors py-2 px-3"
-          >
-            <LogIn className="w-4 h-4" />
-            <span className="text-sm">Login</span>
-          </Link>
-          
-          {/* Sign Up button */}
-          <Link className="flex" href="/signup">
-            <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-5 px-6">
-              <p className="text-sm font-medium">Sign Up</p>
-              <ArrowRight size={18} strokeWidth={2} />
-            </Button>
-          </Link>
-        </div>
+        <Link className="flex" href="/login">
+          <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-5 px-6">
+            <p className="text-sm font-medium">Log In</p>
+            <ArrowRight size={18} strokeWidth={2} />
+          </Button>
+        </Link>
       )}
       {isLoggedIn() && (
         <div>

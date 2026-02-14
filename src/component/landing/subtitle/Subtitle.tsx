@@ -57,7 +57,7 @@ const Strip3Items = () => (
 
 const Subtitle = () => {
   return (
-    <div className={"flex flex-col gap-[16vw] sm:gap-[14vw] md:gap-[12vw] lg:gap-[10vw] xl:gap-[8vw] 2xl:gap-[6vw] py-80 relative mb-28"}>
+    <div className={"flex flex-col gap-[6vw] sm:gap-[10vw] md:gap-[12vw] lg:gap-[10vw] xl:gap-[8vw] 2xl:gap-[6vw] py-4 sm:py-40 md:py-60 relative mb-4 sm:mb-28"}>
       <SubtitleBackground/>
       {/* Strip 1 - awareness hooks (pain + solution) */}
       <div className="relative z-[100] w-screen">
@@ -66,7 +66,7 @@ const Subtitle = () => {
             <div className={"flex gap-8 items-center h-full flex-shrink-0 min-w-max"}>
               <Strip1Items />
             </div>
-            <div className={"flex gap-8 items-center h-full flex-shrink-0 min-w-max"}>
+            <div aria-hidden="true" className={"flex gap-8 items-center h-full flex-shrink-0 min-w-max"}>
               <Strip1Items />
             </div>
           </div>
@@ -79,7 +79,7 @@ const Subtitle = () => {
             <div className={"flex gap-8 items-center h-full flex-shrink-0 min-w-max"}>
               <Strip2Items />
             </div>
-            <div className={"flex gap-8 items-center h-full flex-shrink-0 min-w-max"}>
+            <div aria-hidden="true" className={"flex gap-8 items-center h-full flex-shrink-0 min-w-max"}>
               <Strip2Items />
             </div>
           </div>
@@ -92,7 +92,7 @@ const Subtitle = () => {
             <div className={"flex gap-8 items-center h-full flex-shrink-0 min-w-max"}>
               <Strip3Items />
             </div>
-            <div className={"flex gap-8 items-center h-full flex-shrink-0 min-w-max"}>
+            <div aria-hidden="true" className={"flex gap-8 items-center h-full flex-shrink-0 min-w-max"}>
               <Strip3Items />
             </div>
           </div>

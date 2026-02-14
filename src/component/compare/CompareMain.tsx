@@ -11,7 +11,7 @@ const tools = [
     description: 'Write your strategy rules in natural language. The AI interprets your intent, generates NinjaScript code, and compiles it—all inside NinjaTrader. Your strategy is then ready to backtest.',
     bestFor: 'Traders who know what they want to automate and prefer writing over visual interfaces.',
     icon: MessageSquare,
-    link: '/signup'
+    link: '/login'
   },
   {
     name: 'BloodHound',
@@ -50,11 +50,11 @@ const renderCell = (value: string | boolean) => {
 
 const CompareMain = () => {
   return (
-    <div className="flex flex-col w-full gap-20 mt-32 mb-32 max-w-screen-xl mx-auto px-4">
+    <div className="flex flex-col w-full gap-10 sm:gap-16 md:gap-20 mt-16 sm:mt-24 md:mt-32 mb-16 sm:mb-24 md:mb-32 max-w-screen-xl mx-auto px-4">
       {/* Hero Section */}
       <div className="flex flex-col items-center gap-6">
         <RoundTitleHeader title="2026 Comparison Guide" />
-        <h1 className="text-4xl md:text-6xl font-medium text-center text-[#E9ECEF]">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-medium text-center text-[#E9ECEF]">
           Best Strategy Builders for NinjaTrader
         </h1>
         <p className="text-xl text-[#ADB5BD] text-center max-w-2xl">
@@ -184,22 +184,22 @@ const CompareMain = () => {
       <div className="flex flex-col gap-8">
         <h2 className="text-3xl font-medium text-center text-[#E9ECEF]">Feature Comparison</h2>
         <div className="overflow-x-auto">
-          <table className="w-full border-collapse">
+          <table className="w-full border-collapse min-w-[500px]">
             <thead>
               <tr className="border-b border-[#1a1a2e]">
-                <th className="py-4 px-6 text-left text-[#ADB5BD]">Feature</th>
-                <th className="py-4 px-6 text-center text-[#082FDF]">TenSurf Brain</th>
-                <th className="py-4 px-6 text-center text-[#ADB5BD]">BloodHound</th>
-                <th className="py-4 px-6 text-center text-[#ADB5BD]">Build Alpha</th>
+                <th className="py-3 px-2 sm:px-4 md:px-6 text-left text-[#ADB5BD]">Feature</th>
+                <th className="py-3 px-2 sm:px-4 md:px-6 text-center text-[#082FDF]">TenSurf Brain</th>
+                <th className="py-3 px-2 sm:px-4 md:px-6 text-center text-[#ADB5BD]">BloodHound</th>
+                <th className="py-3 px-2 sm:px-4 md:px-6 text-center text-[#ADB5BD]">Build Alpha</th>
               </tr>
             </thead>
             <tbody>
               {comparisonTable.map((row, index) => (
                 <tr key={index} className="border-b border-[#1a1a2e]/50 hover:bg-[#00041A]/50">
-                  <td className="py-4 px-6 text-[#E9ECEF]">{row.feature}</td>
-                  <td className="py-4 px-6 text-center">{renderCell(row.tensurf)}</td>
-                  <td className="py-4 px-6 text-center">{renderCell(row.bloodhound)}</td>
-                  <td className="py-4 px-6 text-center">{renderCell(row.buildalpha)}</td>
+                  <td className="py-3 px-2 sm:px-4 md:px-6 text-[#E9ECEF]">{row.feature}</td>
+                  <td className="py-3 px-2 sm:px-4 md:px-6 text-center">{renderCell(row.tensurf)}</td>
+                  <td className="py-3 px-2 sm:px-4 md:px-6 text-center">{renderCell(row.bloodhound)}</td>
+                  <td className="py-3 px-2 sm:px-4 md:px-6 text-center">{renderCell(row.buildalpha)}</td>
                 </tr>
               ))}
             </tbody>
@@ -211,7 +211,7 @@ const CompareMain = () => {
       <div className="flex flex-col gap-8">
         <h2 className="text-3xl font-medium text-center text-[#E9ECEF]">The Key Question</h2>
         <div className="text-center bg-gradient-to-b from-[#00041A] to-[#01030B] border border-[#1a1a2e] rounded-2xl p-8">
-          <p className="text-2xl text-[#E9ECEF] mb-6">
+          <p className="text-xl sm:text-2xl text-[#E9ECEF] mb-4 sm:mb-6">
             Do you want to <strong className="text-[#082FDF]">implement</strong> a strategy or <strong className="text-[#082FDF]">discover</strong> one?
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
@@ -242,7 +242,7 @@ const CompareMain = () => {
         <h2 className="text-3xl font-medium text-center text-[#E9ECEF]">
           Ready to Try Plain English Strategy Building?
         </h2>
-        <Link href="/signup">
+        <Link href="/login">
           <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6 px-12">
             <span className="text-lg font-semibold">Start Your 7-Day Free Trial</span>
             <ArrowRight size={20} strokeWidth={2} />

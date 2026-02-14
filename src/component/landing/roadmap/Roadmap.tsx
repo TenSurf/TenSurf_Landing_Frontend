@@ -75,7 +75,7 @@ const IndicatorChips = () => {
 
 const Roadmap = () => {
   return (
-    <div id="roadmap" className="relative w-full flex flex-col justify-center items-center gap-12 py-24 max-w-screen-2xl scroll-m-28">
+    <div id="roadmap" className="relative w-full flex flex-col justify-center items-center gap-10 sm:gap-12 py-16 sm:py-24 max-w-screen-2xl scroll-m-28 px-4 md:px-0">
       {/* Header */}
       <GsapAnimation
         fromVars={{ y: 80, opacity: 0 }}
@@ -84,10 +84,10 @@ const Roadmap = () => {
       >
         <div id="roadmapHeader" className="flex flex-col items-center justify-center gap-6">
           <RoundTitleHeader title="Roadmap" />
-          <h2 className="font-normal text-4xl md:text-5xl text-center text-[#E9ECEF]">
+          <h2 className="font-normal text-3xl sm:text-4xl md:text-5xl text-center text-[#E9ECEF]">
             Built for Technical Analysis
           </h2>
-          <p className="font-normal text-xl max-w-[700px] text-center text-[#ADB5BD]">
+          <p className="font-normal text-base sm:text-lg md:text-xl max-w-[700px] text-center text-[#ADB5BD]">
             TenSurf Brain v1.0 supports indicator-based strategies using 100+ NinjaTrader built-in indicators.
             More trading methods are on the way.
           </p>

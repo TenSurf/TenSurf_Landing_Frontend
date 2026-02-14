@@ -8,7 +8,7 @@ export const AboutUs = () => {
   return (
     <div
       className="flex flex-col w-full gap-[120px] mt-44 mb-[200px]">
-      <h1 className={"text-5xl md:text-7xl font-medium text-center"}>About Us</h1>
+      <h1 className={"text-4xl sm:text-5xl md:text-7xl font-medium text-center"}>About Us</h1>
       <div className="relative w-full pb-[75vh] overflow-visible">
         <div
           className="absolute w-screen bg-[url('/images/subtitleBackground.svg')] bg-no-repeat bg-cover h-[200vh] bottom-0">

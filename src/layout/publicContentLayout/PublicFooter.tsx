@@ -39,10 +39,10 @@ export const PublicFooter = () => {
                 {column.items.map((item, index) => (
                   <Link
                     href={item.path}
-                    target={item.path.includes("#") ? undefined : "_blank"}
+                    target={item.path.startsWith("http") ? "_blank" : undefined}
                     key={index}
                     className="text-sm font-normal flex gap-2 cursor-pointer hover:underline"
-                    rel="noreferrer"
+                    rel={item.path.startsWith("http") ? "noreferrer" : undefined}
                   >
                     {item.icon ? <item.icon /> : null}
                     <div><p>{item.title}</p></div>

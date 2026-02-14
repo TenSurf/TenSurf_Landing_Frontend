@@ -48,13 +48,15 @@ export const TrialStatusBanner = () => {
   // Trial expired banner
   if (trialStatus.is_trial_expired) {
     return (
-      <div className="bg-red-900/50 border border-red-500 rounded-lg p-4 mb-6 text-center">
-        <div className="text-red-200 font-semibold text-lg mb-2">
-          Your Free Trial Has Expired
+      <div className="max-w-screen-2xl mx-auto w-full px-4 pt-24">
+        <div className="bg-red-900/50 border border-red-500 rounded-lg p-4 text-center">
+          <div className="text-red-200 font-semibold text-lg mb-2">
+            Your Free Trial Has Expired
+          </div>
+          <p className="text-red-300 text-sm">
+            To continue using TenSurf Brain, please select one of the paid plans below.
+          </p>
         </div>
-        <p className="text-red-300 text-sm">
-          To continue using TenSurf Brain, please select one of the paid plans below.
-        </p>
       </div>
     );
   }
@@ -63,13 +65,15 @@ export const TrialStatusBanner = () => {
   if (trialStatus.is_on_trial) {
     const daysText = trialStatus.trial_days_remaining === 1 ? "day" : "days";
     return (
-      <div className="bg-blue-900/50 border border-blue-500 rounded-lg p-4 mb-6 text-center">
-        <div className="text-blue-200 font-semibold text-lg mb-2">
-          {trialStatus.trial_days_remaining} {daysText} left in your free trial
+      <div className="max-w-screen-2xl mx-auto w-full px-4 pt-24">
+        <div className="bg-blue-900/50 border border-blue-500 rounded-lg p-4 text-center">
+          <div className="text-blue-200 font-semibold text-lg mb-2">
+            {trialStatus.trial_days_remaining} {daysText} left in your free trial
+          </div>
+          <p className="text-blue-300 text-sm">
+            Upgrade now to ensure uninterrupted access to TenSurf Brain.
+          </p>
         </div>
-        <p className="text-blue-300 text-sm">
-          Upgrade now to ensure uninterrupted access to TenSurf Brain.
-        </p>
       </div>
     );
   }

@@ -9,8 +9,8 @@ export const TeamSection = (
 		TeamRef?: RefObject<HTMLDivElement>;
 	}) => {
 	return (
-		<div className="flex flex-col w-full gap-20 mt-44 mb-52">
-			<h1 className="text-5xl md:text-7xl font-medium text-center">
+		<div className="flex flex-col w-full gap-10 sm:gap-16 md:gap-20 mt-20 sm:mt-32 md:mt-44 mb-20 sm:mb-36 md:mb-52">
+			<h1 className="text-4xl sm:text-5xl md:text-7xl font-medium text-center">
 				Meet the Team
 			</h1>
 			<div className="relative w-full overflow-hidden">

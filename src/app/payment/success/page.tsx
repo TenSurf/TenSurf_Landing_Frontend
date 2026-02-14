@@ -6,6 +6,7 @@ import DefaultLayout from "@/layout/publicContentLayout/DefaultLayout";
 import { Button } from "@/components/ui/button";
 import { ROUTE } from "@/constatns/general.constants";
 import { useRouter, useSearchParams } from "next/navigation";
+import { NewsLetter } from "@/layout/publicContentLayout/NewsLetter";
 
 const PaymentSuccessContent = () => {
   const router = useRouter();
@@ -33,35 +34,51 @@ const PaymentSuccessContent = () => {
         </div>
 
         <h1 className="text-3xl font-bold text-white mb-4">
-          {isTrial ? "Your Free Trial Has Started!" : "Welcome to TenSurf!"}
+          {isTrial ? "You're on the List!" : "Welcome to TenSurf!"}
         </h1>
 
         <p className="text-gray-400 text-lg mb-8">
           {isTrial 
-            ? "You have 7 days of full access to all features. No credit card required."
-            : "Your subscription is now active. You have full access to all features."
+            ? "Thank you for signing up! We're putting the finishing touches on TenSurf Brain."
+            : "Your subscription is now active. We'll notify you as soon as TenSurf Brain is ready."
           }
         </p>
 
         <div className="bg-[#0a0f1a] border border-gray-800 rounded-lg p-6 mb-8 text-left">
-          <h2 className="text-white font-semibold mb-4">Getting Started:</h2>
-          <ol className="space-y-3 text-gray-400">
-            <li className="flex items-start gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-medium">1</span>
-              <span>Download the TenSurf Brain add-on for NinjaTrader</span>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 bg-blue-600/20 rounded-full flex items-center justify-center">
+              <svg className="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <h2 className="text-white font-semibold text-lg">Coming Soon</h2>
+          </div>
+          <p className="text-gray-400 text-sm leading-relaxed mb-4">
+            TenSurf Brain — the AI-powered NinjaTrader add-on that turns plain English into working trading strategies — is launching soon. Your account is ready and waiting.
+          </p>
+          <ul className="space-y-2 text-gray-400 text-sm">
+            <li className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              <span>No coding required — describe strategies in plain English</span>
             </li>
-            <li className="flex items-start gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-medium">2</span>
-              <span>Install and activate using your NinjaTrader username</span>
+            <li className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              <span>AI generates, compiles, and backtests NinjaScript code</span>
             </li>
-            <li className="flex items-start gap-3">
-              <span className="flex-shrink-0 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-medium">3</span>
-              <span>Start creating strategies using plain English</span>
+            <li className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Custom indicators, strategy modification, and more</span>
             </li>
-          </ol>
+          </ul>
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
           <Button
             onClick={() => router.push(ROUTE.profile)}
             size="lg"
@@ -79,11 +96,13 @@ const PaymentSuccessContent = () => {
           </Button>
         </div>
 
-        {isTrial && (
-          <p className="text-gray-500 text-sm mt-8">
-            Your trial ends in 7 days. Upgrade to a paid plan anytime to continue using TenSurf Brain.
+        <div className="border-t border-gray-800 pt-8">
+          <h3 className="text-white font-semibold mb-2">Get Notified When We Launch</h3>
+          <p className="text-gray-500 text-sm mb-4">
+            Subscribe to our newsletter and be the first to know when TenSurf Brain is available.
           </p>
-        )}
+          <NewsLetter />
+        </div>
       </div>
     </div>
   );
@@ -91,7 +110,7 @@ const PaymentSuccessContent = () => {
 
 const PaymentSuccessPage = () => {
   return (
-    <PageProvider title="Payment Successful">
+    <PageProvider title="Welcome to TenSurf">
       <DefaultLayout>
         <Suspense fallback={
           <div className="min-h-[60vh] flex items-center justify-center">

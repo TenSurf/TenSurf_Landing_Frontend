@@ -221,7 +221,7 @@ const CompareStrategyquant = () => {
         <h2 className="text-3xl font-medium text-center text-[#E9ECEF]">
           See If Plain English Strategy Building Fits Your Workflow
         </h2>
-        <Link href="/signup">
+        <Link href="/login">
           <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6 px-12">
             <span className="text-lg font-semibold">Start Your 7-Day Free Trial</span>
             <ArrowRight size={20} strokeWidth={2} />

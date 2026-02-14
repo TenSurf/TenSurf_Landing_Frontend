@@ -106,14 +106,14 @@ export const RegisterForm: FC<IProps> = ({ setActiveStep, onModalClose }) => {
           htmlFor="link-checkbox"
           className="ms-2 text-sm font-medium text-white dark:text-gray-300"
         >
-          I have read and agreed with the{" "}
+          I have read and agreed with the
           <a
             href={ROUTE.termsOfUse}
             target={"_blank"}
             className="text-blue-600 dark:text-blue-500 hover:underline"
           >
             Terms Of Use
-          </a>
+          </a>{" "}
           ,{" "}
           <a
             href={ROUTE.privacyPolicy}
@@ -121,23 +121,24 @@ export const RegisterForm: FC<IProps> = ({ setActiveStep, onModalClose }) => {
             className="text-blue-600 dark:text-blue-500 hover:underline"
           >
             Privacy Policy
-          </a>
+          </a>{" "}
           ,{" "}
           <a
             href={ROUTE.refundPolicy}
             target={"_blank"}
             className="text-blue-600 dark:text-blue-500 hover:underline"
           >
+            {" "}
             Refund Policy
-          </a>
-          {" "}and{" "}
+          </a>{" "}
+          and{" "}
           <a
             href={ROUTE.riskDisclosure}
             target={"_blank"}
             className="text-blue-600 dark:text-blue-500 hover:underline"
           >
             Risk Disclosure
-          </a>
+          </a>{" "}
           .
         </label>
       </div>

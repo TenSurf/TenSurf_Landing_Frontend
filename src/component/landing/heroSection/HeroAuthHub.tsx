@@ -7,7 +7,7 @@ export const HeroAuthHub = () => {
   return (
     <div>
       <a
-        href={isLoggedIn() ? process.env.NEXT_PUBLIC_HUB_URL : "/signin"}
+        href={isLoggedIn() ? process.env.NEXT_PUBLIC_HUB_URL : "/login"}
         target={isLoggedIn() ? "_blank" : '_self'}
       >
         <Button className="h-16 bg-primary font-bold text-lg">

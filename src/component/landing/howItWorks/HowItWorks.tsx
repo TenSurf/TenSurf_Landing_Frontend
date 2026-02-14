@@ -34,7 +34,7 @@ const steps = [
 
 const HowItWorks = () => {
   return (
-    <div className="relative w-full flex flex-col justify-center items-center gap-16 py-24 max-w-screen-2xl">
+    <div className="relative w-full flex flex-col justify-center items-center gap-12 sm:gap-16 py-16 sm:py-24 max-w-screen-2xl px-4 md:px-0">
       <GsapAnimation
         fromVars={{ y: 100, opacity: 0 }}
         toVars={{ y: 0, opacity: 1, duration: 0.8, scrollTrigger: { start: "top bottom", trigger: "#howItWorksHeader" } }}
@@ -42,7 +42,7 @@ const HowItWorks = () => {
       >
         <div id="howItWorksHeader" className="flex flex-col items-center justify-center gap-6">
           <RoundTitleHeader title="How It Works" />
-          <h2 className="font-normal text-4xl md:text-5xl text-center text-[#E9ECEF]">
+          <h2 className="font-normal text-3xl sm:text-4xl md:text-5xl text-center text-[#E9ECEF]">
             Three Steps to Your First Strategy
           </h2>
         </div>
@@ -57,7 +57,7 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="relative flex flex-col gap-6 p-8 rounded-2xl bg-gradient-to-b from-[#00041A] to-[#01030B] border border-[#1a1a2e] hover:border-[#082FDF]/50 transition-all duration-300"
+              className="relative flex flex-col gap-4 sm:gap-6 p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-[#00041A] to-[#01030B] border border-[#1a1a2e] hover:border-[#082FDF]/50 transition-all duration-300"
             >
               {/* Time badge */}
               <div className="absolute top-4 right-4 flex items-center gap-1 bg-[#10B981]/10 border border-[#10B981]/30 rounded-full px-3 py-1">
@@ -70,7 +70,7 @@ const HowItWorks = () => {
                 <step.icon className="w-8 h-8 text-[#082FDF]" />
               </div>
               <h3 className="text-2xl font-medium text-[#E9ECEF]">{step.title}</h3>
-              <p className="text-lg text-[#ADB5BD]">{step.description}</p>
+              <p className="text-base sm:text-lg text-[#ADB5BD]">{step.description}</p>
             </div>
           ))}
         </div>
@@ -111,7 +111,7 @@ const HowItWorks = () => {
         selector="#howItWorksCTA"
       >
         <div id="howItWorksCTA">
-          <Link href="/signup">
+          <Link href="/login">
             <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6 px-12">
               <span className="text-lg font-semibold">Start Your Free Trial</span>
               <ArrowRight size={20} strokeWidth={2} />

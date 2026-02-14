@@ -55,7 +55,7 @@ const CompareBuildAlpha = () => {
   const priceText = startingPrice ? `$${startingPrice}/month` : "...";
 
   return (
-    <div className="flex flex-col w-full gap-16 mt-32 mb-32 max-w-screen-xl mx-auto px-4">
+    <div className="flex flex-col w-full gap-10 sm:gap-16 mt-16 sm:mt-24 md:mt-32 mb-16 sm:mb-24 md:mb-32 max-w-screen-xl mx-auto px-4">
       {/* Back Link */}
       <Link href="/compare" className="flex items-center gap-2 text-[#ADB5BD] hover:text-[#082FDF] transition-colors w-fit">
         <ArrowLeft size={18} /> Back to all comparisons
@@ -64,7 +64,7 @@ const CompareBuildAlpha = () => {
       {/* Hero Section */}
       <div className="flex flex-col items-center gap-6">
         <RoundTitleHeader title="Comparison" />
-        <h1 className="text-4xl md:text-6xl font-medium text-center text-[#E9ECEF]">
+        <h1 className="text-3xl sm:text-4xl md:text-6xl font-medium text-center text-[#E9ECEF]">
           TenSurf Brain vs Build Alpha
         </h1>
         <p className="text-xl text-[#ADB5BD] text-center max-w-2xl">
@@ -77,17 +77,17 @@ const CompareBuildAlpha = () => {
         <table className="w-full border-collapse">
           <thead>
             <tr className="border-b border-[#1a1a2e]">
-              <th className="py-4 px-6 text-left text-[#ADB5BD]">Aspect</th>
-              <th className="py-4 px-6 text-center text-[#082FDF]">TenSurf Brain</th>
-              <th className="py-4 px-6 text-center text-[#ADB5BD]">Build Alpha</th>
+              <th className="py-3 px-2 sm:px-4 md:px-6 text-left text-[#ADB5BD]">Aspect</th>
+              <th className="py-3 px-2 sm:px-4 md:px-6 text-center text-[#082FDF]">TenSurf Brain</th>
+              <th className="py-3 px-2 sm:px-4 md:px-6 text-center text-[#ADB5BD]">Build Alpha</th>
             </tr>
           </thead>
           <tbody>
             {quickComparison.map((row, index) => (
               <tr key={index} className="border-b border-[#1a1a2e]/50 hover:bg-[#00041A]/50">
-                <td className="py-4 px-6 text-[#E9ECEF] font-medium">{row.aspect}</td>
-                <td className="py-4 px-6 text-center text-[#ADB5BD]">{row.tensurf}</td>
-                <td className="py-4 px-6 text-center text-[#ADB5BD]">{row.buildalpha}</td>
+                <td className="py-3 px-2 sm:px-4 md:px-6 text-[#E9ECEF] font-medium">{row.aspect}</td>
+                <td className="py-3 px-2 sm:px-4 md:px-6 text-center text-[#ADB5BD]">{row.tensurf}</td>
+                <td className="py-3 px-2 sm:px-4 md:px-6 text-center text-[#ADB5BD]">{row.buildalpha}</td>
               </tr>
             ))}
           </tbody>
@@ -96,7 +96,7 @@ const CompareBuildAlpha = () => {
 
       {/* Approach */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="flex flex-col gap-6 p-8 rounded-2xl bg-gradient-to-b from-[#00041A] to-[#01030B] border border-[#082FDF]">
+        <div className="flex flex-col gap-4 sm:gap-6 p-4 sm:p-6 md:p-8 rounded-2xl bg-gradient-to-b from-[#00041A] to-[#01030B] border border-[#082FDF]">
           <div className="flex items-center gap-3">
             <PenLine className="w-6 h-6 text-[#082FDF]" />
             <h3 className="text-xl font-medium text-[#E9ECEF]">TenSurf Brain: Your Words, Your Strategy</h3>
@@ -112,7 +112,7 @@ const CompareBuildAlpha = () => {
           </p>
         </div>
 
-        <div className="flex flex-col gap-6 p-8 rounded-2xl bg-gradient-to-b from-[#00041A] to-[#01030B] border border-[#1a1a2e]">
+        <div className="flex flex-col gap-4 sm:gap-6 p-4 sm:p-6 md:p-8 rounded-2xl bg-gradient-to-b from-[#00041A] to-[#01030B] border border-[#1a1a2e]">
           <div className="flex items-center gap-3">
             <Database className="w-6 h-6 text-[#ADB5BD]" />
             <h3 className="text-xl font-medium text-[#E9ECEF]">Build Alpha: Combine Signals, Let Algorithms Decide</h3>
@@ -127,7 +127,7 @@ const CompareBuildAlpha = () => {
       </div>
 
       {/* Key Question */}
-      <div className="text-center bg-gradient-to-b from-[#00041A] to-[#01030B] border border-[#1a1a2e] rounded-2xl p-8">
+      <div className="text-center bg-gradient-to-b from-[#00041A] to-[#01030B] border border-[#1a1a2e] rounded-2xl p-4 sm:p-6 md:p-8">
         <h2 className="text-2xl font-medium text-[#E9ECEF] mb-6">
           Who Decides What the Strategy Is?
         </h2>
@@ -146,7 +146,7 @@ const CompareBuildAlpha = () => {
 
       {/* When to Choose */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="flex flex-col gap-4 p-8 rounded-2xl bg-gradient-to-b from-[#00041A] to-[#01030B] border border-[#082FDF]">
+        <div className="flex flex-col gap-3 sm:gap-4 p-4 sm:p-6 md:p-8 rounded-2xl bg-gradient-to-b from-[#00041A] to-[#01030B] border border-[#082FDF]">
           <h3 className="text-xl font-medium text-[#E9ECEF]">Choose TenSurf Brain If...</h3>
           <ul className="space-y-3 text-[#ADB5BD]">
             <li className="flex items-start gap-2">
@@ -168,7 +168,7 @@ const CompareBuildAlpha = () => {
           </ul>
         </div>
 
-        <div className="flex flex-col gap-4 p-8 rounded-2xl bg-gradient-to-b from-[#00041A] to-[#01030B] border border-[#1a1a2e]">
+        <div className="flex flex-col gap-3 sm:gap-4 p-4 sm:p-6 md:p-8 rounded-2xl bg-gradient-to-b from-[#00041A] to-[#01030B] border border-[#1a1a2e]">
           <h3 className="text-xl font-medium text-[#E9ECEF]">Build Alpha Might Be Better If...</h3>
           <ul className="space-y-3 text-[#ADB5BD]">
             <li className="flex items-start gap-2">
@@ -217,17 +217,17 @@ const CompareBuildAlpha = () => {
           <table className="w-full border-collapse">
             <thead>
               <tr className="border-b border-[#1a1a2e]">
-                <th className="py-4 px-6 text-left text-[#ADB5BD]">Feature</th>
-                <th className="py-4 px-6 text-center text-[#082FDF]">TenSurf Brain</th>
-                <th className="py-4 px-6 text-center text-[#ADB5BD]">Build Alpha</th>
+                <th className="py-3 px-2 sm:px-4 md:px-6 text-left text-[#ADB5BD]">Feature</th>
+                <th className="py-3 px-2 sm:px-4 md:px-6 text-center text-[#082FDF]">TenSurf Brain</th>
+                <th className="py-3 px-2 sm:px-4 md:px-6 text-center text-[#ADB5BD]">Build Alpha</th>
               </tr>
             </thead>
             <tbody>
               {featureComparison.map((row, index) => (
                 <tr key={index} className="border-b border-[#1a1a2e]/50 hover:bg-[#00041A]/50">
-                  <td className="py-4 px-6 text-[#E9ECEF]">{row.feature}</td>
-                  <td className="py-4 px-6 text-center">{renderCell(row.tensurf)}</td>
-                  <td className="py-4 px-6 text-center">{renderCell(row.buildalpha)}</td>
+                  <td className="py-3 px-2 sm:px-4 md:px-6 text-[#E9ECEF]">{row.feature}</td>
+                  <td className="py-3 px-2 sm:px-4 md:px-6 text-center">{renderCell(row.tensurf)}</td>
+                  <td className="py-3 px-2 sm:px-4 md:px-6 text-center">{renderCell(row.buildalpha)}</td>
                 </tr>
               ))}
             </tbody>
@@ -256,7 +256,7 @@ const CompareBuildAlpha = () => {
         <h2 className="text-3xl font-medium text-center text-[#E9ECEF]">
           See How Natural Language Strategy Building Works
         </h2>
-        <Link href="/signup">
+        <Link href="/login">
           <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6 px-12">
             <span className="text-lg font-semibold">Start Your 7-Day Free Trial</span>
             <ArrowRight size={20} strokeWidth={2} />

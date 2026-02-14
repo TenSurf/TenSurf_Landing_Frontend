@@ -10,8 +10,8 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import { Code2, FileJson, FileText, BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
 
-const SETS = 9; // Many duplicate sets for seamless infinite scroll
-const MID_SET = 4; // Middle set index
+const SETS = 3; // Reduced for performance
+const MID_SET = 1; // Middle set index
 
 export const PlansSection = (props: { data: IPlan[] }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -25,7 +25,7 @@ export const PlansSection = (props: { data: IPlan[] }) => {
     const currentSet = Math.floor(idx / len);
 
     // If more than 2 sets away from middle, silently re-center
-    if (currentSet <= 1 || currentSet >= SETS - 2) {
+    if (currentSet === 0 || currentSet === SETS - 1) {
       swiper.slideTo(MID_SET * len + offset, 0);
     }
   };
@@ -37,10 +37,10 @@ export const PlansSection = (props: { data: IPlan[] }) => {
   return (
     <div
       id="Planss"
-      className="flex flex-col gap-20 text-white w-full items-center relative z-10 scroll-m-20 max-w-screen-2xl min-h-screen my-32 px-8 sm:px-0"
+      className="flex flex-col gap-20 text-white w-full items-center relative z-10 scroll-m-20 max-w-screen-2xl min-h-screen my-16 sm:my-24 md:my-32 px-4 sm:px-8 sm:px-0"
     >
       <div className="flex flex-col gap-6 text-center items-center w-full">
-        <div className="text-5xl md:text-7xl font-semibold">Plans</div>
+        <div className="text-4xl sm:text-5xl md:text-7xl font-semibold">Plans</div>
       </div>
 
       {/* Deliverables Block */}
@@ -224,8 +224,7 @@ export const PlansSection = (props: { data: IPlan[] }) => {
       {/* Footnote */}
       <div className="w-full max-w-3xl text-center">
         <p className="text-sm text-gray-400">
-          * Each strategy generation counts toward your daily limit — including
-          revisions or small changes to existing rules. Usage resets on a rolling 24-hour window.
+          * 1 credit = one strategy creation, custom indicator creation, or NinjaScript modification with AI. Credits reset on a rolling 24-hour window.
         </p>
       </div>
     </div>

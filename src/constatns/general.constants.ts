@@ -34,7 +34,7 @@ export const  ROUTE = {
   profileBilling: '/profile?mode=billing',
   chart: '/chart',
   signIn: '/signin',
-  signUp: '/signup',
+  signUp: '/login',
   signOut: '/logout',
   plans: '/plans',
   compare: '/compare',

@@ -7,23 +7,23 @@ const ToolsCard = () => {
   return (
     <div
       id="tools"
-      className="relative overflow-visible flex flex-col justify-center items-center gap-16 scroll-m-28 max-w-screen-2xl w-full my-12 pt-12"
+      className="relative overflow-visible flex flex-col justify-center items-center gap-16 scroll-m-28 max-w-screen-2xl w-full mb-4 sm:mb-12 mt-12 pt-12 px-4 md:px-0"
     >
-      <GsapAnimation fromVars={{y: 400}} toVars={{y: 0 , duration: 1 , scrollTrigger: {start: "top bottom" , trigger: "#toolsCardHeader"}}} selector={"#toolsCardHeader"}>
+      <GsapAnimation fromVars={{y: 100}} toVars={{y: 0 , duration: 1 , scrollTrigger: {start: "top bottom" , trigger: "#toolsCardHeader"}}} selector={"#toolsCardHeader"}>
         <div id={'toolsCardHeader'} className={"z-10 flex flex-col items-center justify-center gap-12"}>
           <RoundTitleHeader title={'AI Strategy Builder'}/>
           <div className="flex flex-col gap-6 w-full items-center justify-center">
-            <h2 className={"font-normal text-5xl text-center text-[#E9ECEF]"}>
+            <h2 className={"font-normal text-3xl sm:text-4xl md:text-5xl text-center text-[#E9ECEF]"}>
               Everything You Need to Automate
             </h2>
-            <p className={"font-normal text-2xl max-w-[700px] text-center text-[#ADB5BD]"}>
+            <p className={"font-normal text-lg sm:text-xl md:text-2xl max-w-[700px] text-center text-[#ADB5BD]"}>
               From plain English to compiled code—TenSurf Brain generates your strategy inside NinjaTrader
             </p>
           </div>
         </div>
       </GsapAnimation>
 
-      <GsapAnimation selector={"#toolsCard"} fromVars={{ y: 300 }} toVars={{y: 0 , duration: 1 , scrollTrigger: {start: "top bottom" , trigger: "#toolsCardHeader"}}}>
+      <GsapAnimation selector={"#toolsCard"} fromVars={{ y: 80 }} toVars={{y: 0 , duration: 1 , scrollTrigger: {start: "top bottom" , trigger: "#toolsCardHeader"}}}>
         <div className="z-10 w-full flex flex-col gap-4" id={'toolsCard'}>
           <div className="w-full grid md:grid-cols-2 xl:grid-cols-3 grid-rows-1 gap-4 items-stretch">
             <ToolCard

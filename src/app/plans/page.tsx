@@ -10,9 +10,7 @@ const Page = () => {
   return (
     <PageProvider title={PAGE_TITLE.plans}>
       <DefaultLayout>
-        <div className="max-w-screen-2xl mx-auto px-4 pt-8">
-          <TrialStatusBanner />
-        </div>
+        <TrialStatusBanner />
         <PlansServerSideSection />
       </DefaultLayout>
     </PageProvider>

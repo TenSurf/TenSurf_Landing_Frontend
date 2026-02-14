@@ -44,7 +44,7 @@ export const Plan: FC<IProps> = ({ plan, className }) => {
           setLoading(false);
         }
       } else {
-        router.push("/signup");
+        router.push("/login?redirect=/plans");
       }
       return;
     }
@@ -55,19 +55,34 @@ export const Plan: FC<IProps> = ({ plan, className }) => {
       return;
     }
 
-    // Paid plans - go to Stripe checkout
+    // Paid plans
     if (isLoggedIn()) {
       setLoading(true);
+      // Try Stripe Portal first (existing subscribers can upgrade/downgrade there)
+      try {
+        const billingRes = await sendRequest<{ url: string }>(
+          BackendUrls.billing,
+          HttpMethod.POST,
+          { return_url: window.location.href }
+        );
+        window.location.href = billingRes.data.url;
+        return;
+      } catch {
+        // No active subscription — proceed to checkout
+      }
+      // New subscription - go to Stripe checkout
       sendRequest(BackendUrls.payment, HttpMethod.POST, {
         price_id: plan.month_price_id,
       })
         .then((res) => {
           router.push(res.data.url);
-          setLoading(false);
         })
-        .catch(() => setLoading(false));
+        .catch(() => {
+          toast.error("Unable to process payment. Please try again.");
+        })
+        .finally(() => setLoading(false));
     } else {
-      router.push("/signup");
+      router.push("/login?redirect=/plans");
     }
   };
 
@@ -142,6 +157,9 @@ export const Plan: FC<IProps> = ({ plan, className }) => {
                 ${plan.priceMonthly}
                 <span className="text-sm font-normal">/month</span>
               </div>
+              {plan.cost_per_credit && (
+                <div className="text-xs text-gray-400 mt-1">~${plan.cost_per_credit}/credit</div>
+              )}
             </div>
           )}
         </div>

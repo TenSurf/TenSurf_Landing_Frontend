@@ -6,7 +6,7 @@ import { ArrowRight, AlertTriangle, CheckCircle2, Clock } from "lucide-react";
 
 const PainPoint = () => {
   return (
-    <div className="relative w-full flex flex-col justify-center items-center py-24 max-w-screen-2xl px-4">
+    <div className="relative w-full flex flex-col justify-center items-center py-16 sm:py-24 max-w-screen-2xl px-4">
       <GsapAnimation
         fromVars={{ y: 80, opacity: 0 }}
         toVars={{
@@ -114,7 +114,7 @@ const PainPoint = () => {
           </div>
 
           {/* CTA */}
-          <Link href="/signup">
+          <Link href="/login">
             <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6 px-10">
               <span className="text-lg font-semibold">
                 Try It Free for 7 Days

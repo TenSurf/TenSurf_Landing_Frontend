@@ -16,7 +16,7 @@ export function convertNumberToEn(replaceString: string, returnType: 'string' | 
 
 export const catchRequestError = (error: any, hasAuth: boolean = true) => {
   if (error?.ErrorCode === 401 && window !== undefined && hasAuth) {
-    window.location.href = '/signin';
+    window.location.href = '/login';
   }
 
   if (error?.response) {
