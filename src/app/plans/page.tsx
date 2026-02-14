@@ -1,19 +1,20 @@
-import PageProvider from "@/component/general/PageProvider";
-import DefaultLayout from "@/layout/publicContentLayout/DefaultLayout";
+import React from "react";
 import PlansServerSideSection from "@/component/landing/plansSection/PlansServerSideSection";
+import PageProvider from "@/component/general/PageProvider";
+import { PAGE_TITLE } from "@/constatns/general.constants";
+import DefaultLayout from "@/layout/publicContentLayout/DefaultLayout";
+import TrialStatusBanner from "@/component/trial/TrialStatusBanner";
 
-const PlansPage = () => {
+const Page = () => {
+
   return (
-    <PageProvider title="Plans | TenSurf">
+    <PageProvider title={PAGE_TITLE.plans}>
       <DefaultLayout>
-        <div className="py-20 w-full flex justify-center ">
-          <PlansServerSideSection />
-        </div>
+        <TrialStatusBanner />
+        <PlansServerSideSection />
       </DefaultLayout>
     </PageProvider>
   );
 };
 
-PlansPage.getLayout = (page: any) => <DefaultLayout>{page}</DefaultLayout>;
-
-export default PlansPage;
+export default Page;

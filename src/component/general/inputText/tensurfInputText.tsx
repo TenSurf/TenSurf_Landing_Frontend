@@ -9,7 +9,7 @@ import {
   useRef,
   useState
 } from 'react';
-import { CircularProgress } from '@mui/material';
+import { Loader2 } from 'lucide-react';
 import { inputCurrencyFormatter } from '../../../utils/inputCurrencyFormatter';
 
 interface IProps {
@@ -45,6 +45,7 @@ interface IProps {
   onKeyUp?: (event: KeyboardEvent) => void;
   hasNoPadding?: boolean;
   autoComplete?: string;
+  rows?: number
 }
 
 export const TensurfInputText = forwardRef(
@@ -81,7 +82,8 @@ export const TensurfInputText = forwardRef(
       onPaste,
       onKeyUp,
       hasNoPadding = false,
-      autoComplete
+      autoComplete,
+      rows
     }: IProps,
     ref
   ) => {
@@ -187,7 +189,7 @@ export const TensurfInputText = forwardRef(
         ref={divRef}
       >
         {(label || isRequired) && (
-          <div className='mb-1 font-medium flex gap-2 text-base text-white '>
+          <div className='font-medium flex gap-2 text-base text-white mb-2'>
             <div>{label}</div>
             {isRequired && <div className='text-white'>*</div>}
           </div>
@@ -195,7 +197,7 @@ export const TensurfInputText = forwardRef(
 
         <div className='w-full flex flex-col'>
           <div
-            className={`flex justify-between border-[#505050] bg-[#313131] items-center gap-2 relative border-[.5px] transition-all ease-in ${
+            className={`flex justify-between border-[rgba(255,255,255,0.08)] bg-[#01030B] items-center gap-2 relative border-[.5px] transition-all ease-in ${
               hasNoPadding ? '!p-0' : ''
             } ${isDisabled ? 'bg-dark-Neutral-4 text-dark-Neutral-8' : 'bg-dark-Neutral-4 text-dark-Neutral-0'} ${
               !isMultiLine
@@ -211,7 +213,7 @@ export const TensurfInputText = forwardRef(
           >
             {isLoading && (
               <div className=' absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] w-full h-full flex justify-center items-center'>
-                <CircularProgress className={`!h-[18px] !w-[18px] !text-primary-300`} />
+                <Loader2 className="h-[18px] w-[18px] text-primary-300 animate-spin" />
               </div>
             )}
             {(leftItem && !isMultiLine) || (isMultiLine && !value) ? (
@@ -327,6 +329,7 @@ export const TensurfInputText = forwardRef(
                 className={` w-full bg-transparent h-full outline-0  ${customClassName?.input || ''}`}
                 ref={texAreaRef}
                 name={name}
+                rows={rows}
                 value={maxChar ? value?.toString()?.slice(0, maxChar) : value}
                 maxLength={maxChar || 1000}
                 onChange={event => {

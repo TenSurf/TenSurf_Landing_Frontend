@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import TensurfButton from '../../../general/TensurfButton';
+import { Button } from '@/components/ui/button';
 
 export interface ITimerProps {
   seconds: number;
-
   resendCode: () => any;
 }
 
@@ -35,15 +34,15 @@ export const TimerOrButton = (props: ITimerProps): JSX.Element => {
 
   return seconds === 0 ? (
     <div>
-      <TensurfButton
+      <Button
         type='button'
-        
-        customClassName={'animate-scale  text-[#3861fb]'}
+        variant='text'
+        size='sm'
+        className='text-[#3861fb] animate-scale'
         onClick={resend}
-        size={'small32'}
       >
         Resend Code
-      </TensurfButton>
+      </Button>
     </div>
   ) : (
     <div className='text-center h-8 flex items-center justify-center text-white'> {showTimer()}</div>

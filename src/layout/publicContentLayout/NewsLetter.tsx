@@ -1,97 +1,137 @@
-import MailIcon from "../../icons/MailIcon";
-import TensurfButton from "../../component/general/TensurfButton";
-// import axios from "axios";
-// import { backendUrl } from "../../helpers/http-request";
-// import { BackendUrls } from "../../helpers/backend-urls";
-// import { Controller, useForm } from "react-hook-form";
-import React from "react";
-// import isEmail from 'validator/lib/isEmail';
-// import { NOTIFICATION } from "../../constatns/general.constants";
+"use client"
+import React, { useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+import axios from "axios";
+import { backendUrl } from "@/helpers/http-request";
+import { BackendUrls } from "@/helpers/backend-urls";
+import { Button } from "@/components/ui/button";
+import TensurfInputText from "@/component/general/inputText/tensurfInputText";
+import { MailIcon, CheckCircle, AlertCircle } from "lucide-react";
 
 export const NewsLetter = () => {
-  // const {
-  //   control,
-  //   handleSubmit,
-  //   formState: { errors },
-  // } = useForm({
-  //   defaultValues: {
-  //     email: "",
-  //   },
-  // });
+  const [response, setResponse] = useState<{
+    hasError: boolean;
+    message: string;
+    alreadySubscribed?: boolean;
+  } | null>(null);
+  const [isNewsLetterLoading, setIsNewsLetterLoading] = useState<boolean>(false);
 
-  // const submitHandler = (values: any) => {
-  //   axios({
-  //     method: 'post',
-  //     url: backendUrl + BackendUrls.news_letter,
-  //     data: values
-  //   })
-  //     .then(response => {
-  //       if (response?.data) {
-  //         setResponse({ hasError: false, message: NOTIFICATION.newsLetter.successMessage });
-  //       } else {
-  //         setIsNewsLetterLoading(false);
-  //       }
-  //     })
-  //     .finally(() => setIsNewsLetterLoading(false))
-  //     .catch(e => {
-  //       setResponse({ hasError: true, message: NOTIFICATION.newsLetter.errorMessage });
-  //       setIsNewsLetterLoading(false);
-  //     });
-  // };
+  const {
+    control,
+    handleSubmit,
+    reset,
+    formState: { errors }
+  } = useForm({
+    defaultValues: {
+      email: ""
+    }
+  });
 
-  // *.*.*.*.*.*.*.*.*. RETURN ↓•↓•↓
+  const submitHandler = async (values: any) => {
+    setIsNewsLetterLoading(true);
+    try {
+      const res = await axios({
+        method: "post",
+        url: backendUrl + BackendUrls.news_letter,
+        data: values
+      });
+      
+      if (res?.data) {
+        setResponse({ 
+          hasError: false, 
+          message: res.data.detail || "Verification email sent! Check your inbox.",
+          alreadySubscribed: res.data.already_subscribed
+        });
+        reset();
+      }
+    } catch (e: any) {
+      const errorMessage = e?.response?.data?.detail || "Something went wrong. Please try again.";
+      setResponse({ 
+        hasError: true, 
+        message: typeof errorMessage === "string" ? errorMessage : "Something went wrong. Please try again."
+      });
+    } finally {
+      setIsNewsLetterLoading(false);
+    }
+  };
+
   return (
-    <div className="w-full flex flex-col">
-      {/* {response?.message ? (
-        <>
-          <div className='flex flex-col gap-1'>
-            <div className='text-base'>Email</div>
-            <div
-              className={`h-[56px] text-sm flex items-center justify-center border-[1px] rounded-lg mb-3 ${
-                response?.hasError ? 'text-dark-red-400' : 'text-green-400'
-              }`}
-            >
-              {response?.message}
-            </div>
-            <TensurfButton onClick={() => setResponse(undefined)} customClassName=' !self-end mt-1 '>
-              <div className='!text-xs !font-normal w-20'>Ok</div>
-            </TensurfButton>
+    <div className="w-full flex flex-col border-b-[1px] border-b-[#343A40] md:border-b-0 pb-6">
+      {response?.message ? (
+        <div className="flex flex-col gap-3">
+          <div className="text-base font-medium">Email</div>
+          <div
+            className={`min-h-[56px] text-sm flex items-center justify-center gap-2 border-[1px] rounded-lg p-4 ${
+              response?.hasError 
+                ? "text-red-400 border-red-400/30 bg-red-400/10" 
+                : response?.alreadySubscribed 
+                  ? "text-blue-400 border-blue-400/30 bg-blue-400/10"
+                  : "text-green-400 border-green-400/30 bg-green-400/10"
+            }`}
+          >
+            {response?.hasError ? (
+              <AlertCircle className="w-5 h-5 flex-shrink-0" />
+            ) : (
+              <CheckCircle className="w-5 h-5 flex-shrink-0" />
+            )}
+            <span className="text-center">{response?.message}</span>
           </div>
-        </>
-      ) : ( */}
-      <form className="w-full flex flex-col gap-0">
-        {/* <Controller
-          name="email"
-          control={control}
-          rules={{ required: true }}
-          render={({ field }) => (
-            <TensurfInputText
-              {...field}
-              name="email"
-              customClassName={{ container: "w-full" }}
-              placeholder="Enter your Email "
-              label="Email"
-              leftItem={<MailIcon className="w-6 h-6" />}
-              hasError={!!errors?.email}
-              hint={
-                errors?.email?.type === "validate" ? (
-                  <div className="text-dark-red-400">Enter a valid email</div>
-                ) : (
-                  " "
-                )
+          <Button 
+            onClick={() => setResponse(null)} 
+            size="sm"
+            className="self-end mt-1"
+          >
+            <span className="text-xs font-normal w-20">
+              {response?.alreadySubscribed ? "Got it" : "Ok"}
+            </span>
+          </Button>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit(submitHandler)} className="w-full flex flex-col gap-0">
+          <Controller
+            name="email"
+            control={control}
+            rules={{ 
+              required: "Email is required",
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "Please enter a valid email"
               }
-            />
-          )}
-        /> */}
-        {/* <TensurfButton
-          // isLoading={isNewsLetterLoading}
-          type={"submit"}
-          customClassName=" !self-end "
-        >
-          <div className="!text-xs !font-normal w-20">Subscribe</div>
-        </TensurfButton> */}
-      </form>
-      {/* )} */}
+            }}
+            render={({ field }) => (
+              <TensurfInputText
+                {...field}
+                name="email"
+                customClassName={{ 
+                  container: "w-full", 
+                  labelAndInputContainer: "!bg-black", 
+                  input: "!bg-black"
+                }}
+                placeholder="Enter your Email"
+                leftItem={<MailIcon className="w-6 h-6" />}
+                hasError={!!errors?.email}
+                hint={
+                  errors?.email?.message ? (
+                    <div className="text-red-400 text-sm">{errors.email.message}</div>
+                  ) : (
+                    " "
+                  )
+                }
+              />
+            )}
+          />
+          <Button
+            loading={isNewsLetterLoading}
+            type="submit"
+            size="sm"
+            className="self-end"
+          >
+            <span className="text-xs font-normal w-20">
+              {isNewsLetterLoading ? "Sending..." : "Subscribe"}
+            </span>
+          </Button>
+        </form>
+      )}
     </div>
   );
 };

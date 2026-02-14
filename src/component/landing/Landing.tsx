@@ -1,28 +1,32 @@
-import { type FC } from "react";
-import { MvpSection } from "./MvpSection";
 import { HeroSection } from "./heroSection/HeroSection";
-import { PlansSection } from "./plansSection/PlansSection";
 import DefaultLayout from "../../layout/publicContentLayout/DefaultLayout";
-import AboutUsSection from "@/component/landing/AboutUsSection";
-import FaqSection from "@/component/landing/FaqSection";
-import OfferingSectionV2 from "@/component/landing/OfferingSectionV2";
-import PlansServerSideSection from "./plansSection/PlansServerSideSection";
+import ToolsCard from "@/component/landing/toolsV2/ToolsCard";
+import Subtitle from "@/component/landing/subtitle/Subtitle";
+import HowItWorks from "@/component/landing/howItWorks/HowItWorks";
+import PricingPreview from "@/component/landing/pricingPreview/PricingPreview";
+import Roadmap from "@/component/landing/roadmap/Roadmap";
+import FinalCTA from "@/component/landing/finalCTA/FinalCTA";
+import PainPoint from "@/component/landing/painPoint/PainPoint";
+import CodeOwnership from "@/component/landing/codeOwnership/CodeOwnership";
 
-export const Landing: FC = () => {
+export const Landing = () => {
   return (
     <DefaultLayout>
-      <div className="flex flex-col w-full  items-center gap-[200px] px-6 md:px-10 overflow-x-hidden">
-        <HeroSection />
-        <MvpSection />
-        <OfferingSectionV2 />
-        {/*<ChartSection ChartRef={chartRef} />*/}
-        {/* <PlansSection /> */}
-        <PlansServerSideSection />
-        {/*<InnovationSection />*/}
-        <AboutUsSection />
-        {/*<TeamSection TeamRef={TeamRef} />*/}
-        <FaqSection />
-        {/*<Chatbot/>*/}
+      <div className="flex flex-col overflow-x-hidden items-center container">
+        <HeroSection 
+          title="Turn Trading Ideas Into Automated Strategies" 
+          description={<>Describe your strategy in plain English. TenSurf Brain generates the code, compiles it, and backtests it—all inside NinjaTrader.<br />No coding required.</>}
+        />
+        <ToolsCard />
+      </div>
+      <Subtitle />
+      <div className="flex flex-col overflow-x-hidden items-center container">
+        <PainPoint />
+        <HowItWorks />
+        <CodeOwnership />
+        <Roadmap />
+        <PricingPreview />
+        <FinalCTA />
       </div>
     </DefaultLayout>
   );

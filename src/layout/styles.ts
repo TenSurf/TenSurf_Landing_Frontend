@@ -1,10 +1,6 @@
 import PageProvider from '@/component/general/PageProvider';
-import { styled } from '@mui/material';
 
-const Container = styled(PageProvider)(
-  ({ theme }) => `
-   
-`
-);
+// Simple pass-through — no MUI styled() wrapper needed
+const Container = PageProvider;
 
 export default Container;

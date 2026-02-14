@@ -1,5 +1,3 @@
-import { type StackProps } from '@mui/material';
-
-export default interface IPageDataProviderProps extends StackProps {
+export default interface IPageDataProviderProps extends React.HTMLAttributes<HTMLDivElement> {
   title: string;
 }

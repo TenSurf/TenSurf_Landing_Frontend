@@ -1,116 +1,116 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import { ToastContainer } from "react-toastify";
-import { Toaster } from "@/components/ui/sonner";
-import Script from "next/script";
-import Head from "next/head";
-import { GoogleOAuthProvider } from "@react-oauth/google";
+import type {Metadata} from 'next';
+import {Inter, Space_Grotesk} from 'next/font/google';
+import './globals.css';
+import {Toaster} from '@/components/ui/sonner';
+import {GoogleOAuthProvider} from '@react-oauth/google';
+import {cookies} from 'next/headers';
+import {HttpMethod, sendRequest} from '@/helpers/http-request';
+import {token_name} from '@/helpers/auth';
+import Script from 'next/script';
+import CookieConsent from '@/components/CookieConsent';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({subsets: ['latin']});
+const spaceGrotesk = Space_Grotesk({subsets: ['latin'], variable: '--font-space-grotesk', weight: ['500', '700']});
 
 export const metadata: Metadata = {
-  title: "TenSurf",
-  description: `Experience the future of trading with TenSurf Hub, where our cutting-edge "TenSurf Brain" AI chat interface delivers real-time market analysis and insights directly to you. Integrate your trading strategy with our intuitive, no-code platform that makes algorithmic trading accessible to everyone.`,
-  icons: ["/favicon.ico", "/logo.png"],
-  keywords: [
-    "algorithm trading",
-    "algorithms trading",
-    "trading algorithms",
-    "ai trade",
-    "ai trader",
-    "ai algorithm trading",
-    "trade with ai",
-    "trade",
-    "finance",
-  ],
-  openGraph: {
-    type: "website",
-    url: "https://tensurf.ai",
-    title: "Tensurf",
-    description: "Your advanced AI-powered Trading platform",
-    siteName: "Tensurf Hub",
-    images: [
-      {
-        url: "/logo.png",
-      },
-    ],
-  },
+	metadataBase: new URL('https://tensurf.ai'),
+	title: 'TenSurf',
+	description: `Turn your trading ideas into automated NinjaScript strategies using plain English. TenSurf Brain generates, compiles, and validates your code inside NinjaTrader—no coding required.`,
+	icons: ['/favicon.ico'],
+	keywords: [
+		'ninjatrader strategy builder',
+		'no code trading',
+		'ai trading strategy',
+		'ninjascript generator',
+		'automated trading',
+		'algorithmic trading',
+		'trading bot builder',
+		'plain english trading',
+		'tensurf brain'
+	],
+	openGraph: {
+		type: 'website',
+		url: 'https://tensurf.ai',
+		title: 'TenSurf Brain - AI Strategy Builder for NinjaTrader',
+		description: 'Turn plain English trading rules into working NinjaScript code. No coding required.',
+		siteName: 'TenSurf Brain',
+		images: [
+			{
+				url: '/tensurf.png'
+			}
+		]
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: 'TenSurf Brain - AI Strategy Builder',
+		description: 'Plain English to NinjaScript in minutes. No coding required.',
+		images: ['/tensurf.png']
+	}
 };
 
 export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
+	                                   children
+                                   }: Readonly<{
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <Script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALIYTICS}`}
-        ></Script>
-        <Script
-          id={"google-tag-manager"}
-          strategy={"afterInteractive"}
-          dangerouslySetInnerHTML={{
-            __html: `window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALIYTICS}');`,
-          }}
-        ></Script>
-        <Script
-          id={"hotjar"}
-          strategy={"afterInteractive"}
-          dangerouslySetInnerHTML={{
-            __html: `(function(h,o,t,j,a,r){
-                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-                h._hjSettings={hjid:4985901,hjsv:6};
-                a=o.getElementsByTagName('head')[0];
-                r=o.createElement('script');r.async=1;
-                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-                a.appendChild(r);
-            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`,
-          }}
-        ></Script>
-        <Script
-          id={"mouseflow"}
-          strategy={"afterInteractive"}
-          dangerouslySetInnerHTML={{
-            __html: `window._mfq = window._mfq || [];
-                (function() {
-                  var mf = document.createElement("script");
-                  mf.type = "text/javascript"; mf.defer = true;
-                  mf.src = "//cdn.mouseflow.com/projects/9bc15f72-9b4a-4ee7-b0a1-84ce917ca48f.js";
-                  document.getElementsByTagName("head")[0].appendChild(mf);
-                  })();`,
-          }}
-        ></Script>
-      </head>
-      <body className={inter.className}>
-        <GoogleOAuthProvider clientId={process.env.GOOGLE_CLIENT_ID as string}>
-          <App />
-          {children}
-          <Toaster duration={3000} />
-          <Script
-            id={"hs-script-loader"}
-            async
-            defer
-            src={"//js.hs-scripts.com/46299069.js"}
-            type={"text/javascript"}
-          ></Script>
-          <script async type="text/javascript" src="/js/scroll.js"></script>
-        </GoogleOAuthProvider>
-      </body>
-    </html>
-  );
+	return (
+		<html lang="en" suppressHydrationWarning>
+		<head>
+			<meta name="impact-site-verification" value="6533ef63-80cd-4424-96fb-92bf1881373e" />
+
+			{/* Google Analytics 4 */}
+			{process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+				<>
+					<Script
+						src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
+						strategy="afterInteractive"
+					/>
+					<Script id="google-analytics" strategy="afterInteractive">
+						{`
+							window.dataLayer = window.dataLayer || [];
+							function gtag(){dataLayer.push(arguments);}
+							gtag('js', new Date());
+							gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}');
+						`}
+					</Script>
+				</>
+			)}
+		</head>
+		<body className={`${inter.className} ${spaceGrotesk.variable}`}>
+		{process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID as string ? (
+			<GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID as string}>
+				<App/>
+				{children}
+				<CookieConsent />
+				<Toaster duration={3000}/>
+				<script async type="text/javascript" src="/js/scroll.js" />
+			</GoogleOAuthProvider>
+		) : (
+			<div>
+			Google client id not set
+			</div>
+		)}
+		</body>
+		</html>
+	);
 }
 
-function App() {
-  return (
-    <div className="toastha">
-      <ToastContainer />
-    </div>
-  );
+async function App() {
+	const cookieStore = await cookies();
+	
+	sendRequest(
+		'/account/check_authentication/',
+		HttpMethod.GET,
+		{},
+		false,
+		cookieStore.get(token_name)?.value
+	).catch((err) => {
+		if (err.response?.data) {
+			if (err.response.status === 401) {
+				cookieStore.delete(token_name);
+			}
+		}
+	});
+	
+	return null;
 }

@@ -12,7 +12,7 @@ export const OfferingSection = () => {
         {OFFERING_SECTION.items.map((item, index) => (
           <div
             key={index}
-            className=' flex flex-col gap-3 rounded-3xl bg-[#121212] hover:bg-[#000]/40 hover:backdrop-blur-md p-8 w-full mx-auto'
+            className=' flex flex-col gap-3 rounded-3xl bg-[#00041A] hover:bg-[#000]/40 hover:backdrop-blur-md p-8 w-full mx-auto'
           >
             <div className='text-xl md:text-3xl font-bold flex items-center gap-4'>
               <item.icon className='w-9 h-9' />

@@ -6,7 +6,13 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "TenSurf",
   description:
-    'Experience the future of trading with TenSurf Hub, where our cutting-edge "TenSurf Brain" AI chat interface delivers real-time market analysis and insights directly to you. Integrate your trading strategy with our intuitive, no-code platform that makes algorithmic trading accessible to everyone.',
+    "Turn trading ideas into automated NinjaScript strategies using plain English. TenSurf Brain runs inside NinjaTrader. Start your free 7-day trial.",
+  openGraph: {
+    title: "TenSurf Brain | AI Strategy Builder for NinjaTrader",
+    description: "Turn trading ideas into automated NinjaScript strategies using plain English. No coding required.",
+    type: "website",
+    url: "https://tensurf.ai",
+  },
 };
 
 const MainPage = () => {

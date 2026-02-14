@@ -16,13 +16,13 @@ export function convertNumberToEn(replaceString: string, returnType: 'string' | 
 
 export const catchRequestError = (error: any, hasAuth: boolean = true) => {
   if (error?.ErrorCode === 401 && window !== undefined && hasAuth) {
-    window.location.href = '/signin';
+    window.location.href = '/login';
   }
 
   if (error?.response) {
     toast.error(error?.response?.data?.detail as string);
   } else {
-    toast.error('Error');
+    toast.error('Something went wrong. Please try again or contact support.');
   }
 };
 

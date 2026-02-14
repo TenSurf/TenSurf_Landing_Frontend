@@ -13,7 +13,6 @@ const CloseIcon: FC<IIconAndIllustration> = ({ className, onClick, onMouseEnter,
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       xmlns='http://www.w3.org/2000/svg'
-      style={{marginTop:'20px'}}
     >
       <path
         d='M18.0005 18.5L12.0005 12.5M12.0005 12.5L6.00049 6.5M12.0005 12.5L18.0005 6.5M12.0005 12.5L6.00049 18.5'

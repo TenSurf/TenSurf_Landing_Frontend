@@ -2,22 +2,18 @@
 
 import { Button } from "@/components/ui/button";
 import { isLoggedIn } from "@/helpers/auth";
-import { useRouter } from "next/navigation";
 
 export const HeroAuthHub = () => {
-  const router = useRouter();
   return (
     <div>
-      <Button
-        className="h-16 bg-primary font-bold text-lg"
-        onClick={() =>
-          isLoggedIn()
-            ? router.push(process.env.NEXT_PUBLIC_HUB_URL as string)
-            : router.push("/signin")
-        }
+      <a
+        href={isLoggedIn() ? process.env.NEXT_PUBLIC_HUB_URL : "/login"}
+        target={isLoggedIn() ? "_blank" : '_self'}
       >
-        Go to TenSurf Hub
-      </Button>
+        <Button className="h-16 bg-primary font-bold text-lg">
+          Go to TenSurf Brain
+        </Button>
+      </a>
     </div>
   );
 };
