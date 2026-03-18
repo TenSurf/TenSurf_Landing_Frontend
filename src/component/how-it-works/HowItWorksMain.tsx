@@ -173,7 +173,7 @@ const HowItWorksMain = () => {
         <div className="flex flex-col sm:flex-row gap-4 mt-4">
           <Link href="/waitlist">
             <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6 px-8">
-              <span>Coming Soon — Join Waitlist</span>
+              <span>Join the Waitlist</span>
               <ArrowRight size={20} strokeWidth={2} />
             </Button>
           </Link>
@@ -416,7 +416,7 @@ const HowItWorksMain = () => {
         </p>
         <Link href="/waitlist">
           <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6 px-12">
-            <span className="text-lg font-semibold">Coming Soon — Join Waitlist</span>
+            <span className="text-lg font-semibold">Join the Waitlist</span>
             <ArrowRight size={20} strokeWidth={2} />
           </Button>
         </Link>

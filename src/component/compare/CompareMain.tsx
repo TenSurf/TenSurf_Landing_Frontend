@@ -11,7 +11,7 @@ const tools = [
     description: 'Write your strategy rules in natural language. The AI interprets your intent, generates NinjaScript code, and compiles it—all inside NinjaTrader. Your strategy is then ready to backtest.',
     bestFor: 'Traders who know what they want to automate and prefer writing over visual interfaces.',
     icon: MessageSquare,
-    link: '/login'
+    link: '/waitlist'
   },
   {
     name: 'BloodHound',
@@ -173,7 +173,7 @@ const CompareMain = () => {
             </p>
             <Link href={tool.link} className="mt-auto">
               <Button className="w-full rounded-xl bg-transparent border border-[#082FDF] hover:bg-[#082FDF]/10">
-                {index === 0 ? 'Start Free Trial' : 'Compare Details'}
+                {index === 0 ? 'Join the Waitlist' : 'Compare Details'}
               </Button>
             </Link>
           </div>
@@ -244,7 +244,7 @@ const CompareMain = () => {
         </h2>
         <Link href="/waitlist">
           <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6 px-12">
-            <span className="text-lg font-semibold">Coming Soon — Join Waitlist</span>
+            <span className="text-lg font-semibold">Join the Waitlist</span>
             <ArrowRight size={20} strokeWidth={2} />
           </Button>
         </Link>

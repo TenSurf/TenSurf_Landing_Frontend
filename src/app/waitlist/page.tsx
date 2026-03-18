@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import PageProvider from "@/component/general/PageProvider";
 import DefaultLayout from "@/layout/publicContentLayout/DefaultLayout";
-
 const TBLSAI_API = process.env.NEXT_PUBLIC_TBLSAI_API_URL || "";
 
 type Step = "email" | "verify" | "success";

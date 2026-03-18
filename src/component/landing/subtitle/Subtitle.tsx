@@ -10,15 +10,17 @@ const SubtitleText = ({ title }: { title: string }) => (
 
 const Strip1Items = () => (
   <>
-    <SubtitleText title={"Frustrated with ChatGPT Code?"} />
+    <SubtitleText title={"Vibe Algo Trading"} />
+    <span className="mx-10"><SubtitleIcon /></span>
+    <SubtitleText title={"Plain English Strategies"} />
+    <span className="mx-10"><SubtitleIcon /></span>
+    <SubtitleText title={"AI Code Generation"} />
+    <span className="mx-10"><SubtitleIcon /></span>
+    <SubtitleText title={"Automatic Backtesting"} />
     <span className="mx-10"><SubtitleIcon /></span>
     <SubtitleText title={"No Coding Required"} />
     <span className="mx-10"><SubtitleIcon /></span>
-    <SubtitleText title={"Describe in Plain English"} />
-    <span className="mx-10"><SubtitleIcon /></span>
-    <SubtitleText title={"AI Writes the Code"} />
-    <span className="mx-10"><SubtitleIcon /></span>
-    <SubtitleText title={"Compiles Automatically"} />
+    <SubtitleText title={"English is All You Need"} />
     <span className="mx-10"><SubtitleIcon /></span>
   </>
 );

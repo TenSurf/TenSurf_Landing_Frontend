@@ -8,53 +8,62 @@ export const HeroSection = async ({
 	title,
 	description
 }: {
-	title: string;
+	title: React.ReactNode;
 	description: React.ReactNode;
 }) => {
 	return (
 		<div
-			className={`w-full flex flex-col items-center overflow-hidden h-screen`}
+			className={`w-full flex flex-col items-center overflow-hidden min-h-screen`}
 		>
-			<div className="flex items-center flex-col justify-center gap-10 relative z-[9] max-w-4xl min-h-screen px-4">
-				{/* Badge */}
-				<div className="flex items-center gap-2 bg-[#082FDF]/10 border border-[#082FDF]/30 rounded-full px-4 py-2">
-					<span className="w-2 h-2 bg-[#082FDF] rounded-full animate-pulse"></span>
-					<span className="text-sm text-[#ADB5BD]">AI You Can Trust</span>
-				</div>
+			<div className="flex items-center flex-col justify-center gap-6 relative z-[9] max-w-4xl min-h-screen px-4 py-12">
 
-				<div className="flex items-center flex-col justify-center gap-6">
+				<div className="flex items-center flex-col justify-center gap-4">
 					<h1
 						className={
-							'text-[28px] sm:text-5xl md:text-7xl text-center font-medium text-[#F8F9FA] !leading-tight'
+							'text-[26px] sm:text-4xl md:text-5xl text-center font-medium text-[#F8F9FA] !leading-tight'
 						}
 					>
 						{title}
 					</h1>
 					<p
 						className={
-							'text-lg sm:text-xl font-normal text-center text-[#DEE2E6] max-w-2xl'
+							'text-base sm:text-lg font-normal text-center text-[#DEE2E6] max-w-2xl'
 						}
 					>
 						{description}
 					</p>
 				</div>
 
-				<div className="flex flex-col items-center gap-4">
+				{/* Karpathy Quote */}
+				<div className="max-w-xl border-l-2 border-[#082FDF]/40 pl-5 py-1">
+					<p className="text-sm sm:text-base italic text-[#ADB5BD]">
+						&ldquo;There&apos;s a new kind of coding I call &apos;vibe coding&apos;, where you fully give in to the vibes, embrace exponentials, and forget that the code even exists.&rdquo;
+					</p>
+					<p className="text-xs sm:text-sm text-[#6C757D] mt-1">
+						— Andrej Karpathy, AI pioneer and former Tesla AI Director
+					</p>
+				</div>
+
+				<div className="flex flex-col items-center gap-3">
 					<Link
 						className={'flex justify-center w-fit'}
 						href='/waitlist'
 					>
-						<div className="flex items-center gap-3 bg-[#082FDF]/20 border border-[#082FDF]/40 rounded-full px-8 py-4 sm:px-10 sm:py-5 md:px-14 md:py-6 hover:bg-[#082FDF]/30 transition-colors">
-							<span className="w-3 h-3 bg-[#082FDF] rounded-full animate-pulse"></span>
-							<span className={'text-base sm:text-lg md:text-xl font-semibold text-white'}>
-								Coming Soon — Join the Waitlist
+						<div className="flex items-center gap-3 bg-[#082FDF]/20 border border-[#082FDF]/40 rounded-full px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 hover:bg-[#082FDF]/30 transition-colors">
+							<span className="w-2.5 h-2.5 bg-[#082FDF] rounded-full animate-pulse"></span>
+							<span className={'text-sm sm:text-base md:text-lg font-semibold text-white'}>
+								Join the Waitlist
 							</span>
 						</div>
 					</Link>
+
+					<Link href="/vibe-algo-trading" className="text-sm text-[#082FDF] hover:underline">
+						What is Vibe Algo Trading? →
+					</Link>
 					
 					{/* Trust Indicators */}
-					<p className="text-sm text-[#6C757D]">
-						Join the waitlist • Be first to access • Free early access
+					<p className="text-xs text-[#6C757D]">
+						Be first in line • No credit card required • Inspired by Vibe Coding. Built for Traders.
 					</p>
 				</div>
 			</div>

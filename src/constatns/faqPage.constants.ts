@@ -16,6 +16,10 @@ export const FAQ_DATA = [
   {
     category: 'general',
     questions: [
+            {
+        question: 'What is Vibe Algo Trading?',
+        answer: 'Vibe Algo Trading is algorithmic trading powered by natural language and AI \u2014 the trading evolution of \u201cvibe coding,\u201d the concept coined by AI pioneer Andrej Karpathy. Instead of writing code, you describe your trading strategy in plain English and let AI handle the programming, compilation, and backtesting. The term was coined by Keivan Ebrahimi and Aaron Korbs in March 2026. TenSurf Brain is the first tool purpose-built for Vibe Algo Trading on NinjaTrader.'
+      },
       {
         question: 'What is TenSurf Brain?',
         answer: 'TenSurf Brain is an AI-powered strategy builder that runs as a native add-on inside NinjaTrader. It lets you create automated trading strategies by describing your rules in plain English—no coding required. The AI generates complete NinjaScript code and compiles it automatically. Your strategy is then ready to backtest directly in NinjaTrader.'
@@ -35,6 +39,10 @@ export const FAQ_DATA = [
       {
         question: 'Is my data secure?',
         answer: 'Yes. TenSurf Brain runs inside NinjaTrader on your computer. Your strategies are generated, compiled, and backtested locally. Your proprietary trading ideas never leave your machine.'
+      },
+      {
+        question: 'Do I own the code TenSurf Brain generates?',
+        answer: 'Yes, 100%. Every strategy TenSurf generates is yours with full copyright ownership. Download the .cs file, open it in any editor, modify the logic, or hand it to your developer. You can trade with it, sell it on marketplaces, license it to other traders, or keep it as your competitive edge. No usage restrictions, no licensing fees, no strings attached.'
       }
     ]
   },
@@ -47,7 +55,7 @@ export const FAQ_DATA = [
       },
       {
         question: 'What types of strategies can I create?',
-        answer: 'TenSurf Brain supports rule-based strategies using technical indicators and price action. You can create entry and exit conditions based on any NinjaTrader built-in indicator, stop loss and take profit rules, position sizing rules, and multi-condition logic (AND/OR combinations).'
+        answer: 'TenSurf Brain v1.0 supports indicator-based strategies using 100+ NinjaTrader built-in indicators including RSI, MACD, Stochastic, CCI, SMA, EMA, WMA, Bollinger Bands, ATR, Keltner Channel, VWAP, ADX, Parabolic SAR, Donchian Channel, Ichimoku, OBV, and many more. You can create entry and exit conditions, stop loss and take profit rules, position sizing rules, and multi-condition logic (AND/OR combinations). Coming in future releases: Price Action (candlestick patterns, support/resistance, breakouts), Volume Profile (POC, value area, volume nodes), Order Flow (delta, footprint, cumulative analysis), Intermarket Analysis (cross-market correlations), and ICT/Smart Money Concepts (FVG, order blocks, liquidity sweeps). All existing subscribers get free upgrades to new versions.'
       },
       {
         question: 'What indicators are supported?',

@@ -14,10 +14,10 @@ const ToolsCard = () => {
           <RoundTitleHeader title={'AI Strategy Builder'}/>
           <div className="flex flex-col gap-6 w-full items-center justify-center">
             <h2 className={"font-normal text-3xl sm:text-4xl md:text-5xl text-center text-[#E9ECEF]"}>
-              Everything You Need to Automate
+              Everything You Need to Vibe Algo Trade
             </h2>
             <p className={"font-normal text-lg sm:text-xl md:text-2xl max-w-[700px] text-center text-[#ADB5BD]"}>
-              From plain English to compiled code—TenSurf Brain generates your strategy inside NinjaTrader
+              From plain English to compiled code — TenSurf Brain turns your trading ideas into working strategies inside NinjaTrader
             </p>
           </div>
         </div>

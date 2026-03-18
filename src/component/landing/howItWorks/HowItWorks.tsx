@@ -43,7 +43,7 @@ const HowItWorks = () => {
         <div id="howItWorksHeader" className="flex flex-col items-center justify-center gap-6">
           <RoundTitleHeader title="How It Works" />
           <h2 className="font-normal text-3xl sm:text-4xl md:text-5xl text-center text-[#E9ECEF]">
-            Three Steps to Your First Strategy
+            Three Steps to Vibe Algo Trading
           </h2>
         </div>
       </GsapAnimation>
@@ -113,7 +113,7 @@ const HowItWorks = () => {
         <div id="howItWorksCTA">
           <Link href="/waitlist">
             <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6 px-12">
-              <span className="text-lg font-semibold">Coming Soon — Join Waitlist</span>
+              <span className="text-lg font-semibold">Join the Waitlist</span>
               <ArrowRight size={20} strokeWidth={2} />
             </Button>
           </Link>

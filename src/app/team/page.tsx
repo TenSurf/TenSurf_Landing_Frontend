@@ -4,6 +4,12 @@ import PageProvider from "@/component/general/PageProvider";
 import { PAGE_TITLE } from "@/constatns/general.constants";
 import { TeamSection } from "@/component/landing/TeamSection";
 
+
+export const metadata = {
+  title: 'Team | TenSurf Brain',
+};
+
+
 const Page = () => {
   return (
     <PageProvider title={PAGE_TITLE.team}>

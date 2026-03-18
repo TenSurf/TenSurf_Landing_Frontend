@@ -405,11 +405,7 @@ export const FOOTER_MENU_COLS = [
         icon: "",
         path: ROUTE.aboutUs,
       },
-      {
-        title: "Blog",
-        icon: "",
-        path: ROUTE.blog,
-      },
+
     ],
   },
   {

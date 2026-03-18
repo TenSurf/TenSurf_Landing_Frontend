@@ -41,6 +41,7 @@ export const  ROUTE = {
   howItWorks: "/how-it-works",
   hubPlans: (process.env.NEXT_PUBLIC_HUB_URL as string) + "/plans",
   waitlist: "/waitlist",
+  vibeAlgoTrading: "/vibe-algo-trading",
   comming: '/comming-soon'
 };
 

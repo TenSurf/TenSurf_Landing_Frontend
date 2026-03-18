@@ -23,8 +23,8 @@ const PainPoint = () => {
         >
           {/* Headline */}
           <h2 className="text-3xl md:text-5xl font-medium text-center text-[#E9ECEF] leading-tight max-w-3xl">
-            Still copy-pasting NinjaScript from ChatGPT and{" "}
-            <span className="text-red-400">hoping it compiles?</span>
+            ChatGPT Gets You Started.{" "}
+            <span className="text-[#082FDF]">Vibe Algo Trading Gets You Backtested.</span>
           </h2>
 
           {/* Stat callout */}
@@ -117,7 +117,7 @@ const PainPoint = () => {
           <Link href="/waitlist">
             <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6 px-10">
               <span className="text-lg font-semibold">
-                Coming Soon — Join Waitlist
+                Join the Waitlist
               </span>
               <ArrowRight size={20} strokeWidth={2} />
             </Button>
