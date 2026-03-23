@@ -69,7 +69,7 @@ export const AuthProfile = () => {
                   </div>
                 )}
                 <DropdownMenuSeparator />
-                <a href="https://brain.tensurf.ai/app">
+                <a href="https://brain.tensurf.ai">
                   <DropdownMenuItem>
                     <BrainCircuit className="mr-2 h-4 w-4" />
                     Go to Brain
