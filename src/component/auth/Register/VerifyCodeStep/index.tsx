@@ -1,7 +1,7 @@
 import { TimerOrButton } from "./TimerOrButton";
 import type IVerificationProps from "./types";
-import { backendUrl } from "@/helpers/http-request";
-import { BackendUrls } from "@/helpers/backend-urls";
+import { BrainUrls, brainApiUrl } from "@/helpers/backend-urls";
+
 import axios from "axios";
 import { setCookie } from "@/helpers/auth";
 import { type FC, useEffect, useState } from "react";
@@ -109,19 +109,14 @@ const Verification: FC<IVerificationProps> = (props) => {
     if (isNumber && !isVerificationLoading) {
       axios({
         method: "post",
-        url: backendUrl + BackendUrls.verify_code,
+        url: brainApiUrl + BrainUrls.verify_code,
         data: { code, email: props.email },
       })
         .then((response) => {
-          toast.success(response?.data?.detail || "Verification successful");
-          if (response.data.is_new_user === false) {
-            setCookie(response.data.token as string);
-            if (props.onModalClose) props.onModalClose();
-            router.replace(searchParams.get("redirect") || ROUTE.home);
-          } else {
-            setCookie(response.data.token as string);
-            props.setActiveStep(2);
-          }
+          setCookie(response.data.token as string);
+          toast.success("Welcome to TenSurf!");
+          if (props.onModalClose) props.onModalClose();
+          router.replace(searchParams.get("redirect") || ROUTE.home);
           setIsVerificationLoading(false);
         })
         .catch((e) => {
@@ -145,7 +140,7 @@ const Verification: FC<IVerificationProps> = (props) => {
   const resend = () => {
     axios({
       method: "post",
-      url: backendUrl + BackendUrls.send_code,
+      url: brainApiUrl + BrainUrls.send_code,
       data: { email: props.email },
     })
       .then((response) => {

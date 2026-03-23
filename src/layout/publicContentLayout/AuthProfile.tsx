@@ -6,22 +6,42 @@ import {
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ROUTE } from "@/constatns/general.constants";
-import { isLoggedIn, removeCookie } from "@/helpers/auth";
-import { HttpMethod, sendRequest } from "@/helpers/http-request";
-import { ArrowRight, UserRoundIcon } from "lucide-react";
+import { isLoggedIn, removeCookie, getCookie } from "@/helpers/auth";
+import { ArrowRight, UserRoundIcon, BrainCircuit } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
+
+interface UserInfo {
+  email: string;
+  tier: string;
+  full_name?: string;
+}
 
 export const AuthProfile = () => {
+  const [user, setUser] = useState<UserInfo | null>(null);
+
+  useEffect(() => {
+    if (isLoggedIn()) {
+      const token = getCookie();
+      fetch("https://brain.tensurf.ai/api/v1/auth/me", {
+        headers: { Authorization: "Bearer " + token },
+      })
+        .then((r) => (r.ok ? r.json() : null))
+        .then((data) => {
+          if (data) setUser({ email: data.email, tier: data.tier, full_name: data.full_name });
+        })
+        .catch(() => {});
+    }
+  }, []);
+
   const signout = () => {
-    sendRequest("/account/log_out/", HttpMethod.POST).then(() => {
-      removeCookie();
-      window.location.reload();
-    });
+    removeCookie();
+    window.location.reload();
   };
+
   return (
     <div>
       {!isLoggedIn() && (
@@ -42,11 +62,18 @@ export const AuthProfile = () => {
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuGroup>
-                <a href={ROUTE.profileSetting}>
-                  <DropdownMenuItem>Profile Settings</DropdownMenuItem>
-                </a>
-                <a href={ROUTE.profileBilling}>
-                  <DropdownMenuItem>Account and Billing</DropdownMenuItem>
+                {user && (
+                  <div className="px-2 py-1.5 text-sm">
+                    <p className="font-medium">{user.full_name || user.email}</p>
+                    <p className="text-xs text-muted-foreground capitalize">{user.tier?.replace("_", " ")}</p>
+                  </div>
+                )}
+                <DropdownMenuSeparator />
+                <a href="https://brain.tensurf.ai/app">
+                  <DropdownMenuItem>
+                    <BrainCircuit className="mr-2 h-4 w-4" />
+                    Go to Brain
+                  </DropdownMenuItem>
                 </a>
                 <DropdownMenuItem onClick={signout}>Sign Out</DropdownMenuItem>
               </DropdownMenuGroup>

@@ -1,19 +1,16 @@
 import type IGetEmailStepProps from "./Register/GetEmailStep/types";
 import { FC, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { backendUrl } from "../../helpers/http-request";
-import { BackendUrls } from "../../helpers/backend-urls";
+import { BrainUrls, brainApiUrl } from "../../helpers/backend-urls";
 import axios from "axios";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { useSearchParams } from "next/navigation";
 
 const GetEmailVerificationCode: FC<IGetEmailStepProps> = (props) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const search_params = useSearchParams();
 
   const {
     control,
@@ -29,20 +26,20 @@ const GetEmailVerificationCode: FC<IGetEmailStepProps> = (props) => {
     setIsLoading(true);
     axios({
       method: "post",
-      url: backendUrl + BackendUrls.send_code,
+      url: brainApiUrl + BrainUrls.send_code,
       data: {
         email: values.email.toLowerCase(),
-        token: search_params.get("token"),
       },
     })
       .then((response) => {
-        toast.success(response?.data?.detail as string);
-        props.setEmail(values.email);
+        toast.success(response?.data?.message || "Verification code sent!");
+        props.setEmail(values.email.toLowerCase());
         props.setActiveStep(1);
       })
       .catch((e) => {
-        const detail = e?.response?.data?.detail as string;
-        toast.error(detail || "An error occurred. Please try again.");
+        const detail = e?.response?.data?.detail;
+        const message = typeof detail === "string" ? detail : detail?.message || "An error occurred. Please try again.";
+        toast.error(message);
       })
       .finally(() => setIsLoading(false));
   };

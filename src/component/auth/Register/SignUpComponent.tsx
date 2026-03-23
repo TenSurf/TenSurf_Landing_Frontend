@@ -1,6 +1,5 @@
 import { type FC, type ReactNode, useState } from "react";
 import Verification from "./VerifyCodeStep";
-import { RegisterForm } from "./Form";
 import GetEmailVerificationCode from "../GetEmailVerificationCode";
 import { Suspense } from "react";
 
@@ -26,9 +25,6 @@ const SignUpComponent: FC<IProps> = ({ onModalClose }) => {
         email={email}
         onModalClose={onModalClose}
       />
-    ),
-    2: (
-      <RegisterForm setActiveStep={setActiveStep} onModalClose={onModalClose} />
     ),
   };
 

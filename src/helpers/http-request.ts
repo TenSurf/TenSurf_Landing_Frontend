@@ -35,7 +35,7 @@ export const sendRequest = <T = Record<string, any>>(
   };
 
   if (token) {
-    headers.Authorization = "Token " + token;
+    headers.Authorization = "Bearer " + token;
   }
 
   const options: Record<string, any> = {
