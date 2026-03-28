@@ -18,10 +18,10 @@ const FinalCTA = () => {
       >
         <div id="finalCTAContent" className="relative flex flex-col items-center justify-center gap-6 text-center py-16 px-8">
           <h2 className="font-medium text-3xl sm:text-4xl md:text-5xl text-[#E9ECEF] max-w-3xl leading-tight">
-            Start <Link href="/vibe-algo-trading" className="text-[#082FDF] hover:underline">Vibe Algo Trading</Link> Today
+            Start <Link href="/vibe-trading" className="text-[#082FDF] hover:underline">Vibe Trading</Link> Today
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-[#ADB5BD] max-w-2xl">
-            Karpathy made vibe coding mainstream. We&apos;re making Vibe Algo Trading real. Describe your strategy in English. Let AI do the rest.
+            Karpathy made vibe coding mainstream. We&apos;re making Vibe Trading real. Describe your strategy in English. Let AI do the rest.
           </p>
 
           <Link href="/waitlist">

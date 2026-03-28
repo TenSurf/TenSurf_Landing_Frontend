@@ -43,7 +43,7 @@ const HowItWorks = () => {
         <div id="howItWorksHeader" className="flex flex-col items-center justify-center gap-6">
           <RoundTitleHeader title="How It Works" />
           <h2 className="font-normal text-3xl sm:text-4xl md:text-5xl text-center text-[#E9ECEF]">
-            Three Steps to Vibe Algo Trading
+            Three Steps to Vibe Trading
           </h2>
         </div>
       </GsapAnimation>

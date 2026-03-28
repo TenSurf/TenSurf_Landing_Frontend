@@ -17,8 +17,8 @@ export const FAQ_DATA = [
     category: 'general',
     questions: [
             {
-        question: 'What is Vibe Algo Trading?',
-        answer: 'Vibe Algo Trading is algorithmic trading powered by natural language and AI \u2014 the trading evolution of \u201cvibe coding,\u201d the concept coined by AI pioneer Andrej Karpathy. Instead of writing code, you describe your trading strategy in plain English and let AI handle the programming, compilation, and backtesting. The term was coined by Keivan Ebrahimi and Aaron Korbs in March 2026. TenSurf Brain is the first tool purpose-built for Vibe Algo Trading on NinjaTrader.'
+        question: 'What is Vibe Trading?',
+        answer: 'Vibe Trading is algorithmic trading powered by natural language and AI \u2014 the trading evolution of \u201cvibe coding,\u201d the concept coined by AI pioneer Andrej Karpathy. Instead of writing code, you describe your trading strategy in plain English and let AI handle the programming, compilation, and backtesting. The term was coined by Keivan Ebrahimi and Aaron Korbs in March 2026. TenSurf Brain is the first tool purpose-built for Vibe Trading on NinjaTrader.'
       },
       {
         question: 'What is TenSurf Brain?',

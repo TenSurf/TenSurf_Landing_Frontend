@@ -4,20 +4,20 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'What is Vibe Algo Trading? | TenSurf Brain',
-  description: 'Vibe Algo Trading: describe your trading strategy in English, get working NinjaScript code. Coined by Keivan Ebrahimi & Aaron Korbs. Inspired by vibe coding. Built for NinjaTrader.',
+  title: 'What is Vibe Trading? | TenSurf Brain',
+  description: 'Vibe Trading: describe your trading strategy in English, get working NinjaScript code. Coined by Keivan Ebrahimi & Aaron Korbs. Inspired by vibe coding. Built for NinjaTrader.',
   openGraph: {
     title: 'The Hottest New Algo Trading Language is English',
-    description: 'Vibe Algo Trading: describe your strategy in plain English. AI generates the code, compiles it, and backtests it.',
+    description: 'Vibe Trading: describe your strategy in plain English. AI generates the code, compiles it, and backtests it.',
     type: 'article',
-    url: 'https://tensurf.ai/vibe-algo-trading',
-    images: ['/images/og-vibe-algo-trading.png'],
+    url: 'https://tensurf.ai/vibe-trading',
+    images: ['/images/og-vibe-trading.png'],
   },
 };
 
 const VibeAlgoTradingPage = () => {
   return (
-    <PageProvider title="Vibe Algo Trading | TenSurf">
+    <PageProvider title="Vibe Trading | TenSurf">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -27,18 +27,18 @@ const VibeAlgoTradingPage = () => {
             mainEntity: [
               {
                 "@type": "Question",
-                name: "What is Vibe Algo Trading?",
+                name: "What is Vibe Trading?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "Vibe Algo Trading is algorithmic trading powered by natural language and AI. Instead of writing code, you describe your trading strategy in plain English and let AI handle the programming, compilation, and backtesting. The term was coined by Keivan Ebrahimi and Aaron Korbs in March 2026, inspired by Andrej Karpathy's concept of 'vibe coding.'"
+                  text: "Vibe Trading is algorithmic trading powered by natural language and AI. Instead of writing code, you describe your trading strategy in plain English and let AI handle the programming, compilation, and backtesting. The term was coined by Keivan Ebrahimi and Aaron Korbs in March 2026, inspired by Andrej Karpathy's concept of 'vibe coding.'"
                 }
               },
               {
                 "@type": "Question",
-                name: "How is Vibe Algo Trading different from vibe coding?",
+                name: "How is Vibe Trading different from vibe coding?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "Vibe coding produces code you hope works. Vibe Algo Trading produces code that is automatically compiled, verified, and backtested against historical data. The AI handles everything end-to-end inside NinjaTrader 8."
+                  text: "Vibe coding produces code you hope works. Vibe Trading produces code that is automatically compiled, verified, and backtested against historical data. The AI handles everything end-to-end inside NinjaTrader 8."
                 }
               }
             ]
@@ -52,10 +52,10 @@ const VibeAlgoTradingPage = () => {
           <div className="flex flex-col items-center gap-8">
             <div className="flex items-center gap-2 bg-[#082FDF]/10 border border-[#082FDF]/30 rounded-full px-4 py-2">
               <span className="w-2 h-2 bg-[#082FDF] rounded-full animate-pulse"></span>
-              <span className="text-sm text-[#ADB5BD]">Vibe Algo Trading</span>
+              <span className="text-sm text-[#ADB5BD]">Vibe Trading</span>
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-medium text-center text-[#F8F9FA] leading-tight">
-              What is Vibe Algo Trading?
+              What is Vibe Trading?
             </h1>
             <p className="text-lg sm:text-xl text-[#DEE2E6] text-center max-w-3xl leading-relaxed">
               In February 2025, Andrej Karpathy — AI pioneer and former Tesla AI Director — coined the term &ldquo;vibe coding&rdquo;: writing software by describing what you want in English and letting AI generate the code. We took that idea and applied it to algorithmic trading.
@@ -74,7 +74,7 @@ const VibeAlgoTradingPage = () => {
 
           {/* Transition */}
           <p className="text-lg text-[#DEE2E6] leading-relaxed">
-            Vibe Algo Trading takes this concept into the world of automated trading. Describe your strategy in plain English. AI generates the NinjaScript code, compiles it, and backtests it — all inside NinjaTrader 8. No coding required. No hoping it works. Verified and backtested before you risk a dollar.
+            Vibe Trading takes this concept into the world of automated trading. Describe your strategy in plain English. AI generates the NinjaScript code, compiles it, and backtests it — all inside NinjaTrader 8. No coding required. No hoping it works. Verified and backtested before you risk a dollar.
           </p>
 
           {/* Keivan & Aaron Quote */}
@@ -83,7 +83,7 @@ const VibeAlgoTradingPage = () => {
               &ldquo;The hottest new <span className="text-[#082FDF]">algo trading</span> language is English.&rdquo;
             </p>
             <p className="text-base text-[#6C757D] mt-4">
-              — Keivan Ebrahimi &amp; Aaron Korbs, co-founders of Vibe Algo Trading
+              — Keivan Ebrahimi &amp; Aaron Korbs, co-founders of Vibe Trading
             </p>
           </div>
 
@@ -94,8 +94,8 @@ const VibeAlgoTradingPage = () => {
               {[
                 { date: '2025 Feb', title: 'Andrej Karpathy coins "Vibe Coding"', desc: 'Developers embrace AI-generated code' },
                 { date: '2025', title: 'Vibe Coding goes mainstream', desc: 'The hottest programming language becomes English' },
-                { date: '2026 Mar', title: 'Keivan Ebrahimi & Aaron Korbs coin "Vibe Algo Trading"', desc: 'Algorithmic trading meets natural language AI' },
-                { date: '2026', title: 'TenSurf Brain makes Vibe Algo Trading real', desc: 'The first purpose-built tool for NinjaTrader 8' },
+                { date: '2026 Mar', title: 'Keivan Ebrahimi & Aaron Korbs coin "Vibe Trading"', desc: 'Algorithmic trading meets natural language AI' },
+                { date: '2026', title: 'TenSurf Brain makes Vibe Trading real', desc: 'The first purpose-built tool for NinjaTrader 8' },
               ].map((item, i) => (
                 <div key={i} className="flex gap-6 items-start py-4 border-l-2 border-[#082FDF]/30 pl-6 relative">
                   <div className="absolute left-[-5px] top-6 w-2 h-2 rounded-full bg-[#082FDF]" />
@@ -127,7 +127,7 @@ const VibeAlgoTradingPage = () => {
                 </ul>
               </div>
               <div className="flex flex-col gap-4 p-8 rounded-2xl bg-gradient-to-b from-[#00115E]/30 to-[#00041A] border border-[#082FDF]/30">
-                <h3 className="text-xl font-medium text-[#10B981]">Vibe Algo Trading</h3>
+                <h3 className="text-xl font-medium text-[#10B981]">Vibe Trading</h3>
                 <p className="text-sm text-[#6C757D]">Verified-by-default development</p>
                 <div className="bg-black/50 rounded-lg p-4 font-mono text-sm text-[#ADB5BD]">
                   &ldquo;Buy when VWAP bands contract below 0.5% and price breaks above with volume 1.5x average&rdquo;
@@ -140,17 +140,17 @@ const VibeAlgoTradingPage = () => {
                 </ul>
               </div>
             </div>
-            <p className="text-center text-[#ADB5BD] italic">Vibe coding is hope. Vibe Algo Trading is proof.</p>
+            <p className="text-center text-[#ADB5BD] italic">Vibe coding is hope. Vibe Trading is proof.</p>
           </div>
 
           {/* What it is NOT */}
           <div className="flex flex-col gap-4">
-            <h2 className="text-2xl sm:text-3xl font-medium text-[#E9ECEF]">What Vibe Algo Trading is Not</h2>
+            <h2 className="text-2xl sm:text-3xl font-medium text-[#E9ECEF]">What Vibe Trading is Not</h2>
             <p className="text-lg text-[#DEE2E6] leading-relaxed">
-              Let&apos;s be clear: Vibe Algo Trading is not trading on vibes. It&apos;s not gambling. It&apos;s not asking an AI to pick stocks for you.
+              Let&apos;s be clear: Vibe Trading is not trading on vibes. It&apos;s not gambling. It&apos;s not asking an AI to pick stocks for you.
             </p>
             <p className="text-lg text-[#DEE2E6] leading-relaxed">
-              Vibe Algo Trading is the disciplined application of AI to implement YOUR systematic, rule-based trading strategies. Every strategy you create is:
+              Vibe Trading is the disciplined application of AI to implement YOUR systematic, rule-based trading strategies. Every strategy you create is:
             </p>
             <ul className="text-lg text-[#E9ECEF] space-y-3 ml-4">
               <li className="flex items-start gap-3"><span className="text-[#082FDF]">&bull;</span> Based on quantifiable rules you define</li>
@@ -165,9 +165,9 @@ const VibeAlgoTradingPage = () => {
 
           {/* CTA */}
           <div className="flex flex-col items-center gap-6 py-8">
-            <h2 className="text-2xl sm:text-3xl font-medium text-[#E9ECEF] text-center">Ready to Try Vibe Algo Trading?</h2>
+            <h2 className="text-2xl sm:text-3xl font-medium text-[#E9ECEF] text-center">Ready to Try Vibe Trading?</h2>
             <p className="text-lg text-[#ADB5BD] text-center max-w-2xl">
-              TenSurf Brain is the first tool purpose-built for Vibe Algo Trading on NinjaTrader 8. Describe your strategy in English. Get backtested results in minutes.
+              TenSurf Brain is the first tool purpose-built for Vibe Trading on NinjaTrader 8. Describe your strategy in English. Get backtested results in minutes.
             </p>
             <Link href="/waitlist">
               <div className="flex items-center gap-3 bg-[#082FDF]/20 border border-[#082FDF]/40 rounded-full px-12 py-6 hover:bg-[#082FDF]/30 transition-colors">
@@ -180,7 +180,7 @@ const VibeAlgoTradingPage = () => {
 
           {/* Coined-by footer */}
           <div className="text-center text-sm text-[#6C757D] border-t border-[#1a1a2e] pt-8">
-            Vibe Algo Trading — coined by Keivan Ebrahimi and Aaron Korbs, March 2026. Inspired by Andrej Karpathy&apos;s Vibe Coding (February 2025).
+            Vibe Trading — coined by Keivan Ebrahimi and Aaron Korbs, March 2026. Inspired by Andrej Karpathy&apos;s Vibe Coding (February 2025).
           </div>
         </div>
       </DefaultLayout>

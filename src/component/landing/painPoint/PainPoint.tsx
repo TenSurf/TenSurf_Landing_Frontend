@@ -24,7 +24,7 @@ const PainPoint = () => {
           {/* Headline */}
           <h2 className="text-3xl md:text-5xl font-medium text-center text-[#E9ECEF] leading-tight max-w-3xl">
             ChatGPT Gets You Started.{" "}
-            <span className="text-[#082FDF]">Vibe Algo Trading Gets You Backtested.</span>
+            <span className="text-[#082FDF]">Vibe Trading Gets You Backtested.</span>
           </h2>
 
           {/* Stat callout */}

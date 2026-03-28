@@ -10,7 +10,7 @@ const SubtitleText = ({ title }: { title: string }) => (
 
 const Strip1Items = () => (
   <>
-    <SubtitleText title={"Vibe Algo Trading"} />
+    <SubtitleText title={"Vibe Trading"} />
     <span className="mx-10"><SubtitleIcon /></span>
     <SubtitleText title={"Plain English Strategies"} />
     <span className="mx-10"><SubtitleIcon /></span>
