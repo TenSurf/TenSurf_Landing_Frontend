@@ -3,12 +3,13 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import MenuDrawer from "@/layout/publicContentLayout/MenuDrawer";
+import {ThemeToggle} from "@/components/ThemeToggle";
 
 export const DefaultHeader = () => {
   return (
     <div className="lg:!container z-50 sticky top-0 lg:top-6">
       <div
-        className="lg:rounded-3xl mt-0 flex lg:mx-10 2xl:mx-auto 2xl:w-full items-center px-6 md:px-12 py-7 justify-between bg-[#01061D]/50 backdrop-blur-lg overflow-hidden">
+        className="lg:rounded-3xl mt-0 flex lg:mx-10 2xl:mx-auto 2xl:w-full items-center px-6 md:px-12 py-7 justify-between bg-background/80 backdrop-blur-lg border-b border-border/30 overflow-hidden">
         <Link href={"/"}>
           <Image
             src={"/tensurf.png"}
@@ -33,7 +34,8 @@ export const DefaultHeader = () => {
           ))}
         </div>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4">
+          <ThemeToggle />
           <Link href="/waitlist">
             <div className="flex items-center gap-2 bg-[#082FDF]/20 border border-[#082FDF]/40 rounded-full px-5 py-2.5 hover:bg-[#082FDF]/30 transition-colors">
               <span className="w-2 h-2 bg-[#082FDF] rounded-full animate-pulse"></span>

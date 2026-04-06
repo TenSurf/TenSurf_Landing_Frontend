@@ -95,6 +95,7 @@ const config = {
     },
     fontFamily: {
       "space-grotesk": ["var(--font-space-grotesk)", "sans-serif"],
+      "jakarta": ["var(--font-jakarta)", "sans-serif"],
       playfair: "playfair"
     }
   },

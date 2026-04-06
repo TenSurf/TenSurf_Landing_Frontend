@@ -5,7 +5,7 @@ import { DefaultHeader } from "./DefaultHeader";
 export const DefaultLayout = ({ children }: { children: ReactNode }) => {
   return (
     <div
-      className={`w-screen min-h-screen overflow-x-clip flex flex-col bg-[#01030B] text-white font-medium`}
+      className={`w-screen min-h-screen overflow-x-clip flex flex-col bg-background text-foreground font-jakarta font-medium`}
     >
       <DefaultHeader />
 

@@ -4,65 +4,51 @@
 
 @layer base {
   :root {
-    --background: 216 33% 97%;
-    --foreground: 222.2 84% 4.9%;
-
+    --background: 40 20% 98%;
+    --foreground: 240 30% 14%;
     --card: 0 0% 100%;
-    --card-foreground: 221 20% 30%;
-
+    --card-foreground: 240 30% 14%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 227 96% 60%;
-    --primary-foreground: 228 100% 96%;
-
-    --secondary: 217 16% 84%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --popover-foreground: 240 30% 14%;
+    --primary: 231 93% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 93%;
+    --secondary-foreground: 240 30% 14%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 220 14% 96%;
+    --accent-foreground: 240 30% 14%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 231 93% 45%;
+    --radius: 0.75rem;
+    --body-weight: 400;
   }
 
   .dark {
-    --background: 0 0% 0%;
-    --foreground: 210 40% 98%;
-
-    --card: 0 0% 7%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 227 96% 60%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 221 10% 69%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --background: 240 30% 6%;
+    --foreground: 220 20% 95%;
+    --card: 240 28% 9%;
+    --card-foreground: 220 20% 95%;
+    --popover: 240 28% 9%;
+    --popover-foreground: 220 20% 95%;
+    --primary: 227 100% 65%;
+    --primary-foreground: 220 20% 95%;
+    --secondary: 240 20% 13%;
+    --secondary-foreground: 220 20% 95%;
+    --muted: 231 15% 20%;
+    --muted-foreground: 231 12% 53%;
+    --accent: 240 20% 13%;
+    --accent-foreground: 220 20% 95%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 220 20% 95%;
+    --border: 240 20% 15%;
+    --input: 240 20% 15%;
+    --ring: 231 93% 60%;
+    --radius: 0.75rem;
+    --body-weight: 450;
   }
 }
 .bg-dark-primary-400\/30 {
@@ -113,9 +99,9 @@
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
   input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 30px #000000 inset !important;
-    -webkit-text-fill-color: #ffffff !important;
-    caret-color: #ffffff !important;
+    -webkit-box-shadow: 0 0 0 30px hsl(var(--background)) inset !important;
+    -webkit-text-fill-color: hsl(var(--foreground)) !important;
+    caret-color: hsl(var(--foreground)) !important;
     transition: background-color 5000s ease-in-out 0s;
   }
 
@@ -128,9 +114,9 @@
   input.\!bg-black:-webkit-autofill:hover,
   input.\!bg-black:-webkit-autofill:focus,
   input.\!bg-black:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 30px #000000 inset !important;
-    -webkit-text-fill-color: #ffffff !important;
-    caret-color: #ffffff !important;
+    -webkit-box-shadow: 0 0 0 30px hsl(var(--background)) inset !important;
+    -webkit-text-fill-color: hsl(var(--foreground)) !important;
+    caret-color: hsl(var(--foreground)) !important;
   }
 
   .staticPageTitle {
@@ -534,6 +520,43 @@
 
   .max-chart-view {
     height: calc(100vh - 150px);
+  }
+}
+
+
+/* Theme transition: only during toggle */
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.theme-transitioning *,
+  html.theme-transitioning *::before,
+  html.theme-transitioning *::after {
+    transition: none !important;
+  }
+}
+
+/* Body font weight for dark mode readability */
+body {
+  font-variation-settings: 'wght' var(--body-weight);
+}
+
+/* Gradient text accessibility */
+.gradient-text::selection {
+  -webkit-text-fill-color: white;
+  background: #082FDF;
+}
+
+@media (forced-colors: active) {
+  .gradient-text,
+  .text-primaryGradient,
+  .pageTitle {
+    background: none !important;
+    -webkit-text-fill-color: unset !important;
+    color: LinkText;
   }
 }
 

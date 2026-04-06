@@ -22,36 +22,36 @@ const PainPoint = () => {
           className="relative flex flex-col items-center gap-12 w-full max-w-4xl mx-auto"
         >
           {/* Headline */}
-          <h2 className="text-3xl md:text-5xl font-medium text-center text-[#E9ECEF] leading-tight max-w-3xl">
+          <h2 className="text-3xl md:text-5xl font-medium text-center text-foreground leading-tight max-w-3xl">
             ChatGPT Gets You Started.{" "}
-            <span className="text-[#082FDF]">Vibe Trading Gets You Backtested.</span>
+            <span className="text-primary">Vibe Trading Gets You Backtested.</span>
           </h2>
 
           {/* Stat callout */}
-          <div className="flex items-center gap-3 bg-[#FEF3C7]/10 border border-[#F59E0B]/30 rounded-full px-6 py-3">
-            <Clock className="w-5 h-5 text-[#F59E0B]" />
-            <span className="text-[#E9ECEF]">
-              Average trader spends <span className="font-bold text-[#F59E0B]">40+ hours</span> learning to code their first strategy
+          <div className="flex items-center gap-3 bg-yellow-50 dark:bg-[#FEF3C7]/10 border border-yellow-300 dark:border-[#F59E0B]/30 rounded-full px-6 py-3">
+            <Clock className="w-5 h-5 text-yellow-500" />
+            <span className="text-foreground">
+              Average trader spends <span className="font-bold text-yellow-500">40+ hours</span> learning to code their first strategy
             </span>
           </div>
 
           {/* Two-column pain vs solution */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
             {/* Pain */}
-            <div className="flex flex-col gap-4 p-8 rounded-2xl bg-gradient-to-b from-[#1a0a0a] to-[#0a0505] border border-red-900/30">
+            <div className="flex flex-col gap-4 p-8 rounded-2xl bg-red-50/50 dark:bg-gradient-to-b dark:from-[#1a0a0a] dark:to-[#0a0505] border border-red-200 dark:border-red-900/30">
               <div className="flex items-center gap-3">
                 <AlertTriangle className="w-6 h-6 text-red-400" />
                 <h3 className="text-xl font-medium text-red-400">
                   The ChatGPT problem
                 </h3>
               </div>
-              <p className="text-[#ADB5BD] leading-relaxed">
+              <p className="text-muted-foreground leading-relaxed">
                 ChatGPT doesn&apos;t know NinjaTrader. It generates code with
                 deprecated methods, missing references, and logic that looks
                 right until you hit compile. You&apos;re left debugging C# you
                 didn&apos;t write and don&apos;t fully understand.
               </p>
-              <ul className="text-[#ADB5BD] text-sm space-y-2 mt-2">
+              <ul className="text-muted-foreground text-sm space-y-2 mt-2">
                 <li className="flex items-start gap-2">
                   <span className="text-red-400">✗</span>
                   <span>Code that doesn&apos;t compile</span>
@@ -72,19 +72,19 @@ const PainPoint = () => {
             </div>
 
             {/* Solution */}
-            <div className="flex flex-col gap-4 p-8 rounded-2xl bg-gradient-to-b from-[#00115E]/30 to-[#00041A] border border-[#082FDF]/30">
+            <div className="flex flex-col gap-4 p-8 rounded-2xl bg-indigo-50/50 dark:bg-gradient-to-b dark:from-[#00115E]/30 dark:to-[#00041A] border border-indigo-200 dark:border-[#082FDF]/30">
               <div className="flex items-center gap-3">
                 <CheckCircle2 className="w-6 h-6 text-[#10B981]" />
                 <h3 className="text-xl font-medium text-[#10B981]">
                   The TenSurf Brain difference
                 </h3>
               </div>
-              <p className="text-[#E9ECEF] leading-relaxed">
+              <p className="text-foreground leading-relaxed">
                 TenSurf Brain generates NinjaScript inside NinjaTrader and
                 handles compilation automatically. You get code that
                 works — not code that almost works.
               </p>
-              <ul className="text-[#E9ECEF] text-sm space-y-2 mt-2">
+              <ul className="text-foreground text-sm space-y-2 mt-2">
                 <li className="flex items-start gap-2">
                   <span className="text-[#10B981]">✓</span>
                   <span>Compiles on first try</span>
@@ -108,7 +108,7 @@ const PainPoint = () => {
           {/* Callout badge */}
           <div className="flex items-center gap-3 bg-[#10B981]/10 border border-[#10B981]/20 rounded-full px-6 py-3">
             <CheckCircle2 className="w-5 h-5 text-[#10B981]" />
-            <span className="text-[#E9ECEF] font-medium">
+            <span className="text-foreground font-medium">
               Your strategies stay on your machine. Your ideas stay yours.
             </span>
           </div>

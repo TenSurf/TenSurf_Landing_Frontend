@@ -20,14 +20,14 @@ export const HeroSection = async ({
 				<div className="flex items-center flex-col justify-center gap-4">
 					<h1
 						className={
-							'text-[26px] sm:text-4xl md:text-5xl text-center font-medium text-[#F8F9FA] !leading-tight'
+							'text-[26px] sm:text-4xl md:text-5xl text-center font-medium text-foreground !leading-tight'
 						}
 					>
 						{title}
 					</h1>
 					<p
 						className={
-							'text-base sm:text-lg font-normal text-center text-[#DEE2E6] max-w-2xl'
+							'text-base sm:text-lg font-normal text-center text-muted-foreground max-w-2xl'
 						}
 					>
 						{description}
@@ -36,10 +36,10 @@ export const HeroSection = async ({
 
 				{/* Karpathy Quote */}
 				<div className="max-w-xl border-l-2 border-[#082FDF]/40 pl-5 py-1">
-					<p className="text-sm sm:text-base italic text-[#ADB5BD]">
+					<p className="text-sm sm:text-base italic text-muted-foreground">
 						&ldquo;There&apos;s a new kind of coding I call &apos;vibe coding&apos;, where you fully give in to the vibes, embrace exponentials, and forget that the code even exists.&rdquo;
 					</p>
-					<p className="text-xs sm:text-sm text-[#6C757D] mt-1">
+					<p className="text-xs sm:text-sm text-muted-foreground mt-1">
 						— Andrej Karpathy, AI pioneer and former Tesla AI Director
 					</p>
 				</div>
@@ -49,27 +49,27 @@ export const HeroSection = async ({
 						className={'flex justify-center w-fit'}
 						href='/waitlist'
 					>
-						<div className="flex items-center gap-3 bg-[#082FDF]/20 border border-[#082FDF]/40 rounded-full px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 hover:bg-[#082FDF]/30 transition-colors">
-							<span className="w-2.5 h-2.5 bg-[#082FDF] rounded-full animate-pulse"></span>
+						<div className="flex items-center gap-3 bg-primary/20 border border-primary/40 rounded-full px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 hover:bg-primary/30 transition-colors">
+							<span className="w-2.5 h-2.5 bg-primary rounded-full animate-pulse"></span>
 							<span className={'text-sm sm:text-base md:text-lg font-semibold text-white'}>
 								Join the Waitlist
 							</span>
 						</div>
 					</Link>
 
-					<Link href="/vibe-trading" className="text-sm text-[#082FDF] hover:underline">
+					<Link href="/vibe-trading" className="text-sm text-primary hover:underline">
 						What is Vibe Trading? →
 					</Link>
 					
 					{/* Trust Indicators */}
-					<p className="text-xs text-[#6C757D]">
+					<p className="text-xs text-muted-foreground">
 						Be first in line • No credit card required • Inspired by Vibe Coding. Built for Traders.
 					</p>
 				</div>
 			</div>
 			
 			<div
-				className="absolute z-0 h-full top-0 w-full items-stretch justify-between flex gap-[300px] max-w-[90%] max-h-screen px-4 overflow-hidden">
+				className="absolute z-0 h-full top-0 w-full items-stretch justify-between hidden dark:flex gap-[300px] max-w-[90%] max-h-screen px-4 overflow-hidden">
 				{animateLights.map((light, index) => (
 					<AnimateLight key={index} index={index}/>
 				))}

@@ -24,7 +24,7 @@ export const PublicFooter = () => {
           <TensurfLogo />
           <div>
             <div className="text-xl font-bold"><h6>Newsletter</h6></div>
-            <div className="font-normal text-lg text-[#6C757D]">
+            <div className="font-normal text-lg text-muted-foreground">
               <p>Stay updated with the latest products and insights</p>
             </div>
           </div>
@@ -55,12 +55,12 @@ export const PublicFooter = () => {
       </div>
 
       {/* Partner Logos Section */}
-      <div className="flex flex-row items-center justify-center gap-6 py-8 border-t border-white/10">
+      <div className="flex flex-row items-center justify-center gap-6 py-8 border-t border-border">
         <div className="flex items-center gap-2 bg-[#10B981]/10 border border-[#10B981]/30 rounded-full px-4 py-2">
           <ShieldCheck className="w-4 h-4 text-[#10B981]" />
           <span className="text-sm text-[#ADB5BD]">Verified NinjaTrader Vendor</span>
         </div>
-        <span className="text-sm text-[#6C757D] leading-none">Powered by</span>
+        <span className="text-sm text-muted-foreground leading-none">Powered by</span>
         <a
           href={NT_PARTNER_LINKS.ninjatrader}
           target="_blank"
@@ -72,7 +72,7 @@ export const PublicFooter = () => {
             alt="NinjaTrader"
             width={140}
             height={35}
-            className="brightness-0 invert"
+            className="dark:brightness-0 dark:invert"
             style={{ height: '28px', width: 'auto' }}
           />
         </a>
@@ -87,33 +87,33 @@ export const PublicFooter = () => {
             alt="Kinetick"
             width={120}
             height={35}
-            className="brightness-0 invert"
+            className="dark:brightness-0 dark:invert"
             style={{ height: '28px', width: 'auto' }}
           />
         </a>
       </div>
 
       {/* Risk Disclosure Section */}
-      <div className="py-6 border-t border-white/10">
-        <p className="text-[10px] leading-relaxed text-[#6C757D] text-center">
+      <div className="py-6 border-t border-border">
+        <p className="text-[10px] leading-relaxed text-muted-foreground text-center">
           {NT_DISCLOSURES.futuresRisk}
         </p>
-        <p className="text-[10px] leading-relaxed text-[#6C757D] text-center mt-4">
+        <p className="text-[10px] leading-relaxed text-muted-foreground text-center mt-4">
           {NT_DISCLOSURES.ninjatraderTrademark}
         </p>
       </div>
 
       <div
-        className="flex flex-col lg:flex-row justify-around gap-4 items-center sm:border-t-[1px] sm:border-t-white/40 sm:py-6 text-xs font-normal">
-        <div className={'border-t-[1px] border-t-white/40 pt-6 w-full sm:border-none sm:pb-0 sm:pt-0 sm:w-fit flex flex-col sm:flex-row sm:items-center gap-2'}>
+        className="flex flex-col lg:flex-row justify-around gap-4 items-center sm:border-t-[1px] sm:border-t-border sm:py-6 text-xs font-normal">
+        <div className={'border-t-[1px] border-t-border pt-6 w-full sm:border-none sm:pb-0 sm:pt-0 sm:w-fit flex flex-col sm:flex-row sm:items-center gap-2'}>
             <h6>{COPYRIGHT}</h6>
-            <span className="hidden sm:inline text-[#6C757D]">|</span>
-            <span className="flex items-center gap-1 text-[#6C757D]">
+            <span className="hidden sm:inline text-muted-foreground">|</span>
+            <span className="flex items-center gap-1 text-muted-foreground">
               <MapPin className="w-3 h-3" />
               {COMPANY_LOCATION}
             </span>
           </div>
-        <div className="flex gap-8 border-t-[1px] border-t-white/40 pt-6 pb-4 w-full sm:border-none sm:pb-0 sm:pt-0 sm:w-fit">
+        <div className="flex gap-8 border-t-[1px] border-t-border pt-6 pb-4 w-full sm:border-none sm:pb-0 sm:pt-0 sm:w-fit">
           <a
             href={TENSURF_CONTACT.mailToLink}
             className="flex items-center gap-1 group"

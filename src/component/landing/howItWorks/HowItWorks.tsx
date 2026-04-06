@@ -42,7 +42,7 @@ const HowItWorks = () => {
       >
         <div id="howItWorksHeader" className="flex flex-col items-center justify-center gap-6">
           <RoundTitleHeader title="How It Works" />
-          <h2 className="font-normal text-3xl sm:text-4xl md:text-5xl text-center text-[#E9ECEF]">
+          <h2 className="font-normal text-3xl sm:text-4xl md:text-5xl text-center text-foreground">
             Three Steps to Vibe Trading
           </h2>
         </div>
@@ -57,7 +57,7 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <div
               key={index}
-              className="relative flex flex-col gap-4 sm:gap-6 p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-[#00041A] to-[#01030B] border border-[#1a1a2e] hover:border-[#082FDF]/50 transition-all duration-300"
+              className="relative flex flex-col gap-4 sm:gap-6 p-6 sm:p-8 rounded-2xl bg-card border border-border dark:border-[#1a1a2e] hover:border-[#082FDF]/50 transition-all duration-300"
             >
               {/* Time badge */}
               <div className="absolute top-4 right-4 flex items-center gap-1 bg-[#10B981]/10 border border-[#10B981]/30 rounded-full px-3 py-1">
@@ -66,11 +66,11 @@ const HowItWorks = () => {
               </div>
 
               <div className="flex items-center gap-4">
-                <span className="text-5xl font-bold text-[#082FDF]/30">{step.number}</span>
-                <step.icon className="w-8 h-8 text-[#082FDF]" />
+                <span className="text-5xl font-bold text-primary/30">{step.number}</span>
+                <step.icon className="w-8 h-8 text-primary" />
               </div>
-              <h3 className="text-2xl font-medium text-[#E9ECEF]">{step.title}</h3>
-              <p className="text-base sm:text-lg text-[#ADB5BD]">{step.description}</p>
+              <h3 className="text-2xl font-medium text-foreground">{step.title}</h3>
+              <p className="text-base sm:text-lg text-muted-foreground">{step.description}</p>
             </div>
           ))}
         </div>
@@ -84,7 +84,7 @@ const HowItWorks = () => {
         selector="#productDemo"
       >
         <div id="productDemo" className="w-full max-w-[628px]">
-          <h3 className="text-2xl md:text-3xl font-medium text-center text-[#E9ECEF] mb-8">
+          <h3 className="text-2xl md:text-3xl font-medium text-center text-foreground mb-8">
             See It in Action
           </h3>
           <ProductDemoCarousel />
@@ -98,8 +98,8 @@ const HowItWorks = () => {
         selector="#whatNextCallout"
       >
         <div id="whatNextCallout" className="flex items-center gap-3 bg-[#082FDF]/10 border border-[#082FDF]/30 rounded-full px-6 py-3">
-          <CheckCircle className="w-5 h-5 text-[#082FDF]" />
-          <span className="text-[#E9ECEF]">
+          <CheckCircle className="w-5 h-5 text-primary" />
+          <span className="text-foreground">
             <span className="font-medium">What happens next:</span> Ready for backtesting in Strategy Analyzer
           </span>
         </div>
@@ -170,8 +170,8 @@ const ProductDemoCarousel = () => {
           ))}
         </div>
         <div className="p-4 text-center border-t border-[#1a1a2e]">
-          <p className="text-[#E9ECEF] font-medium">{demoSlides[active].label}</p>
-          <p className="text-sm text-[#ADB5BD]">{demoSlides[active].description}</p>
+          <p className="text-foreground font-medium">{demoSlides[active].label}</p>
+          <p className="text-sm text-muted-foreground">{demoSlides[active].description}</p>
         </div>
       </div>
       <div className="flex justify-center gap-2">

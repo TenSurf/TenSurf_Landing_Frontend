@@ -1,5 +1,5 @@
 import type {Metadata} from 'next';
-import {Inter, Space_Grotesk} from 'next/font/google';
+import {Inter, Space_Grotesk, Plus_Jakarta_Sans} from 'next/font/google';
 import './globals.css';
 import {Toaster} from '@/components/ui/sonner';
 import {GoogleOAuthProvider} from '@react-oauth/google';
@@ -8,9 +8,11 @@ import {HttpMethod, sendRequest} from '@/helpers/http-request';
 import {token_name} from '@/helpers/auth';
 import Script from 'next/script';
 import CookieConsent from '@/components/CookieConsent';
+import {ThemeProvider} from '@/components/theme-provider';
 
 const inter = Inter({subsets: ['latin']});
 const spaceGrotesk = Space_Grotesk({subsets: ['latin'], variable: '--font-space-grotesk', weight: ['500', '700']});
+const plusJakarta = Plus_Jakarta_Sans({subsets: ['latin'], variable: '--font-jakarta', display: 'swap'});
 
 export const metadata: Metadata = {
 	metadataBase: new URL('https://tensurf.ai'),
@@ -76,15 +78,17 @@ export default function RootLayout({
 				</>
 			)}
 		</head>
-		<body className={`${inter.className} ${spaceGrotesk.variable}`}>
+		<body className={`${plusJakarta.className} ${spaceGrotesk.variable} ${plusJakarta.variable}`}>
 		{process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID as string ? (
-			<GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID as string}>
+			<ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange storageKey="tensurf-theme">
+		<GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID as string}>
 				<App/>
 				{children}
 				<CookieConsent />
 				<Toaster duration={3000}/>
 				<script async type="text/javascript" src="/js/scroll.js" />
 			</GoogleOAuthProvider>
+		</ThemeProvider>
 		) : (
 			<div>
 			Google client id not set

@@ -17,21 +17,21 @@ const FinalCTA = () => {
         selector="#finalCTAContent"
       >
         <div id="finalCTAContent" className="relative flex flex-col items-center justify-center gap-6 text-center py-16 px-8">
-          <h2 className="font-medium text-3xl sm:text-4xl md:text-5xl text-[#E9ECEF] max-w-3xl leading-tight">
-            Start <Link href="/vibe-trading" className="text-[#082FDF] hover:underline">Vibe Trading</Link> Today
+          <h2 className="font-medium text-3xl sm:text-4xl md:text-5xl text-foreground max-w-3xl leading-tight">
+            Start <Link href="/vibe-trading" className="text-primary hover:underline">Vibe Trading</Link> Today
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-[#ADB5BD] max-w-2xl">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl">
             Karpathy made vibe coding mainstream. We&apos;re making Vibe Trading real. Describe your strategy in English. Let AI do the rest.
           </p>
 
           <Link href="/waitlist">
-            <div className="flex items-center gap-3 bg-[#082FDF]/20 border border-[#082FDF]/40 rounded-full px-12 py-6 mt-4 hover:bg-[#082FDF]/30 transition-colors">
-              <span className="w-3 h-3 bg-[#082FDF] rounded-full animate-pulse"></span>
-              <span className="text-lg font-semibold text-white">Join the Waitlist</span>
+            <div className="flex items-center gap-3 bg-primary/20 border border-primary/40 rounded-full px-12 py-6 mt-4 hover:bg-primary/30 transition-colors">
+              <span className="w-3 h-3 bg-primary rounded-full animate-pulse"></span>
+              <span className="text-lg font-semibold text-foreground">Join the Waitlist</span>
             </div>
           </Link>
 
-          <p className="text-sm text-[#6C757D]">
+          <p className="text-sm text-muted-foreground">
             Be the first to know when we launch • No commitment required
           </p>
         </div>
