@@ -3,7 +3,7 @@ import { jsonToQueryString } from "./functions";
 import { type GetServerSidePropsContext } from "next";
 import { getCookie, removeCookie } from "./auth";
 
-export const backendUrl = process.env.NEXT_PUBLIC_API_HUB_URL;
+export const backendUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export enum HttpMethod {
   GET = "GET",
@@ -12,6 +12,7 @@ export enum HttpMethod {
   PATCH = "PATCH",
   DELETE = "DELETE",
 }
+export const token_name = "tensurftoken";
 
 export const sendRequest = <T = Record<string, any>>(
   url: string,
@@ -20,6 +21,7 @@ export const sendRequest = <T = Record<string, any>>(
   hasFile: boolean = false,
   bearerToken?: string | null
 ): Promise<AxiosResponse<T>> => {
+
   let token: string | undefined;
 
   if (bearerToken) {
@@ -33,7 +35,7 @@ export const sendRequest = <T = Record<string, any>>(
   };
 
   if (token) {
-    headers.Authorization = "Token " + token;
+    headers.Authorization = "Bearer " + token;
   }
 
   const options: Record<string, any> = {
@@ -59,7 +61,6 @@ export const sendRequest = <T = Record<string, any>>(
       .catch((err) => {
         if (err.response?.data) {
           if (err.response.status === 401) {
-            window.location.replace("/signin");
             removeCookie();
           }
         }

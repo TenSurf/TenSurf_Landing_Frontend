@@ -21,7 +21,12 @@ export interface IPlan {
   month_price_id: string;
   year_price_id: string;
   is_free: boolean;
+  is_trial: boolean;
   order_id: number;
   month_currency: string;
   year_currency: string;
+  strategies_per_day?: number;
+  credits_per_day?: number;
+  cost_per_credit?: string;
+  trial_days?: number;
 }

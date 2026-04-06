@@ -25,7 +25,7 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
+          DEFAULT: "rgba(8, 47, 223, 1)",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
@@ -93,6 +93,11 @@ const config = {
         "rotate": 'rotate 1s ease-out forwards',
       },
     },
+    fontFamily: {
+      "space-grotesk": ["var(--font-space-grotesk)", "sans-serif"],
+      "jakarta": ["var(--font-jakarta)", "sans-serif"],
+      playfair: "playfair"
+    }
   },
   plugins: [require("tailwindcss-animate")],
 } satisfies Config

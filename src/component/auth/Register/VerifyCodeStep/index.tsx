@@ -1,20 +1,23 @@
 import { TimerOrButton } from "./TimerOrButton";
 import type IVerificationProps from "./types";
-import { backendUrl } from "@/helpers/http-request";
-import { BackendUrls } from "@/helpers/backend-urls";
+import { BrainUrls, brainApiUrl } from "@/helpers/backend-urls";
+
 import axios from "axios";
 import { setCookie } from "@/helpers/auth";
 import { type FC, useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import TensurfInputText from "../../../general/inputText/tensurfInputText";
-import TensurfButton from "../../../general/TensurfButton";
+import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { useRouter, useSearchParams } from "next/navigation";
+import { ROUTE } from "@/constatns/general.constants";
 
 const Verification: FC<IVerificationProps> = (props) => {
-  // let codeRef: ReactCodeInput | null;
   const [inputFocus, setInputFocus] = useState(1);
   const [isVerificationLoading, setIsVerificationLoading] =
     useState<boolean>(false);
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
   const {
     control,
@@ -47,7 +50,6 @@ const Verification: FC<IVerificationProps> = (props) => {
     (Number(watchAllFields.digit5) || watchAllFields.digit5 === "0") &&
     inputFocus === 5;
 
-  // on keypress ===============>>>
   const keyUpHandler = (
     event: any,
     digit: "digit1" | "digit2" | "digit3" | "digit4" | "digit5"
@@ -57,35 +59,16 @@ const Verification: FC<IVerificationProps> = (props) => {
     setValue(`${digit}`, value as string);
 
     if (event.keyCode === 37) {
-      // ArrowLeft
-      if (inputFocus === 2) {
-        setInputFocus(1);
-        setFocus("digit1");
-      } else if (inputFocus === 3) {
-        setInputFocus(2);
-        setFocus("digit2");
-      } else if (inputFocus === 4) {
-        setInputFocus(3);
-        setFocus("digit3");
-      } else if (inputFocus === 5) {
-        setInputFocus(4);
-        setFocus("digit4");
-      }
+      if (inputFocus === 2) { setInputFocus(1); setFocus("digit1"); }
+      else if (inputFocus === 3) { setInputFocus(2); setFocus("digit2"); }
+      else if (inputFocus === 4) { setInputFocus(3); setFocus("digit3"); }
+      else if (inputFocus === 5) { setInputFocus(4); setFocus("digit4"); }
     } else if (value !== "") {
       setInputFocus((prev) => {
-        if (prev === 1) {
-          setFocus("digit2");
-          return 2;
-        } else if (prev === 2) {
-          setFocus("digit3");
-          return 3;
-        } else if (prev === 3) {
-          setFocus("digit4");
-          return 4;
-        } else {
-          setFocus("digit5");
-          return 5;
-        }
+        if (prev === 1) { setFocus("digit2"); return 2; }
+        else if (prev === 2) { setFocus("digit3"); return 3; }
+        else if (prev === 3) { setFocus("digit4"); return 4; }
+        else { setFocus("digit5"); return 5; }
       });
     }
 
@@ -96,34 +79,17 @@ const Verification: FC<IVerificationProps> = (props) => {
 
   const pasteHandler = (event: any) => {
     const clipBoard = event.clipboardData.getData("text");
-    const char1 = clipBoard[0] as string;
-    const char2 = clipBoard[1] as string;
-    const char3 = clipBoard[2] as string;
-    const char4 = clipBoard[3] as string;
-    const char5 = clipBoard[4] as string;
+    setValue("digit1", clipBoard[0] as string);
+    setValue("digit2", clipBoard[1] as string);
+    setValue("digit3", clipBoard[2] as string);
+    setValue("digit4", clipBoard[3] as string);
+    setValue("digit5", clipBoard[4] as string);
 
-    setValue("digit1", char1);
-    setValue("digit2", char2);
-    setValue("digit3", char3);
-    setValue("digit4", char4);
-    setValue("digit5", char5);
-
-    if (!watchAllFields.digit1) {
-      setInputFocus(1);
-      setFocus("digit1");
-    } else if (!watchAllFields.digit2) {
-      setInputFocus(2);
-      setFocus("digit2");
-    } else if (!watchAllFields.digit3) {
-      setInputFocus(3);
-      setFocus("digit3");
-    } else if (!watchAllFields.digit4) {
-      setInputFocus(4);
-      setFocus("digit4");
-    } else if (!watchAllFields.digit5) {
-      setInputFocus(5);
-      setFocus("digit5");
-    }
+    if (!watchAllFields.digit1) { setInputFocus(1); setFocus("digit1"); }
+    else if (!watchAllFields.digit2) { setInputFocus(2); setFocus("digit2"); }
+    else if (!watchAllFields.digit3) { setInputFocus(3); setFocus("digit3"); }
+    else if (!watchAllFields.digit4) { setInputFocus(4); setFocus("digit4"); }
+    else if (!watchAllFields.digit5) { setInputFocus(5); setFocus("digit5"); }
 
     if (shouldAutoConfirm) {
       handleSubmit(onSubmit)();
@@ -143,13 +109,14 @@ const Verification: FC<IVerificationProps> = (props) => {
     if (isNumber && !isVerificationLoading) {
       axios({
         method: "post",
-        url: backendUrl + BackendUrls.verify_code,
+        url: brainApiUrl + BrainUrls.verify_code,
         data: { code, email: props.email },
       })
         .then((response) => {
-          toast.success(response?.data?.detail as string);
-          props.setActiveStep(2);
-          setCookie(response?.data?.token as string);
+          setCookie(response.data.token as string);
+          toast.success("Welcome to TenSurf!");
+          if (props.onModalClose) props.onModalClose();
+          router.replace(searchParams.get("redirect") || ROUTE.home);
           setIsVerificationLoading(false);
         })
         .catch((e) => {
@@ -161,12 +128,9 @@ const Verification: FC<IVerificationProps> = (props) => {
         })
         .finally(() => {
           setIsVerificationLoading(false);
-          // reset();
-          // setFocus('digit1');
-          // setInputFocus(1);
         });
     } else {
-      toast.error("Verification Code Must Be 5 Digits Number");
+      toast.error("Please enter a valid 5-digit verification code");
       setIsVerificationLoading(false);
       setInputFocus(1);
       setFocus("digit1");
@@ -176,7 +140,7 @@ const Verification: FC<IVerificationProps> = (props) => {
   const resend = () => {
     axios({
       method: "post",
-      url: backendUrl + BackendUrls.send_code,
+      url: brainApiUrl + BrainUrls.send_code,
       data: { email: props.email },
     })
       .then((response) => {
@@ -194,162 +158,56 @@ const Verification: FC<IVerificationProps> = (props) => {
       </div>
 
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
-        {(errors?.digit1?.type === "required" &&
-          watchAllFields.digit1 === "") ||
+        {(errors?.digit1?.type === "required" && watchAllFields.digit1 === "") ||
         (errors?.digit2?.type === "required" && watchAllFields.digit2 === "") ||
         (errors?.digit3?.type === "required" && watchAllFields.digit3 === "") ||
         (errors?.digit4?.type === "required" && watchAllFields.digit4 === "") ||
-        (errors?.digit5?.type === "required" &&
-          watchAllFields.digit5 === "") ? (
-          <div className=" text-center text-sm  text-white">
-            {"Fill all fields"}
-          </div>
+        (errors?.digit5?.type === "required" && watchAllFields.digit5 === "") ? (
+          <div className="text-center text-sm text-white">{"Fill all fields"}</div>
         ) : (
           <div className="h-5"></div>
         )}
         <div className="flex gap-2 w-full justify-center">
-          <Controller
-            name="digit1"
-            control={control}
-            rules={{ required: true }}
-            render={({ field }) => (
-              <TensurfInputText
-                shouldAutoFocus={true}
-                autoComplete={"off"}
-                isDisabled={isVerificationLoading || undefined}
-                onFocus={() => setInputFocus(1)}
-                onPaste={pasteHandler}
-                onKeyUp={(e) => keyUpHandler(e, "digit1")}
-                customClassName={{
-                  container: "w-11",
-                  input: "p-2 text-center",
-                }}
-                hasNoPadding={true}
-                maxChar={1}
-                hasError={
-                  errors?.digit1?.type === "required" &&
-                  watchAllFields.digit1 === "" &&
-                  true
-                }
-                {...field}
-              />
-            )}
-          />
-          <Controller
-            name="digit2"
-            control={control}
-            rules={{ required: true }}
-            render={({ field }) => (
-              <TensurfInputText
-                isDisabled={isVerificationLoading || undefined}
-                autoComplete={"off"}
-                onClick={() => setInputFocus(2)}
-                onPaste={pasteHandler}
-                onKeyUp={(e) => keyUpHandler(e, "digit2")}
-                customClassName={{
-                  container: "w-11",
-                  input: "p-2 text-center",
-                }}
-                hasNoPadding={true}
-                maxChar={1}
-                hasError={
-                  errors?.digit2?.type === "required" &&
-                  watchAllFields.digit2 === "" &&
-                  true
-                }
-                {...field}
-              />
-            )}
-          />
-          <Controller
-            name="digit3"
-            control={control}
-            rules={{ required: true }}
-            render={({ field }) => (
-              <TensurfInputText
-                isDisabled={isVerificationLoading || undefined}
-                autoComplete={"off"}
-                onFocus={() => setInputFocus(3)}
-                onPaste={pasteHandler}
-                onKeyUp={(e) => keyUpHandler(e, "digit3")}
-                customClassName={{
-                  container: "w-11",
-                  input: "p-2 text-center",
-                }}
-                hasNoPadding={true}
-                maxChar={1}
-                hasError={
-                  errors?.digit3?.type === "required" &&
-                  watchAllFields.digit3 === "" &&
-                  true
-                }
-                {...field}
-              />
-            )}
-          />
-          <Controller
-            name="digit4"
-            control={control}
-            rules={{ required: true }}
-            render={({ field }) => (
-              <TensurfInputText
-                isDisabled={isVerificationLoading || undefined}
-                autoComplete={"off"}
-                onFocus={() => setInputFocus(4)}
-                onPaste={pasteHandler}
-                onKeyUp={(e) => keyUpHandler(e, "digit4")}
-                customClassName={{
-                  container: "w-11",
-                  input: "p-2 text-center",
-                }}
-                hasNoPadding={true}
-                maxChar={1}
-                hasError={
-                  errors?.digit4?.type === "required" &&
-                  watchAllFields.digit4 === "" &&
-                  true
-                }
-                {...field}
-              />
-            )}
-          />
-          <Controller
-            name="digit5"
-            control={control}
-            rules={{ required: true }}
-            render={({ field }) => (
-              <TensurfInputText
-                isDisabled={isVerificationLoading || undefined}
-                autoComplete={"off"}
-                onFocus={() => setInputFocus(5)}
-                onPaste={pasteHandler}
-                onKeyUp={(e) => keyUpHandler(e, "digit5")}
-                customClassName={{
-                  container: "w-11",
-                  input: "p-2 text-center",
-                }}
-                hasNoPadding={true}
-                maxChar={1}
-                hasError={
-                  errors?.digit5?.type === "required" &&
-                  watchAllFields.digit5 === "" &&
-                  true
-                }
-                {...field}
-              />
-            )}
-          />
+          {(["digit1", "digit2", "digit3", "digit4", "digit5"] as const).map((digit, i) => (
+            <Controller
+              key={digit}
+              name={digit}
+              control={control}
+              rules={{ required: true }}
+              render={({ field }) => (
+                <TensurfInputText
+                  shouldAutoFocus={i === 0}
+                  autoComplete="off"
+                  isDisabled={isVerificationLoading || undefined}
+                  onFocus={() => setInputFocus(i + 1)}
+                  onPaste={i === 0 ? pasteHandler : undefined}
+                  onKeyUp={(e) => keyUpHandler(e, digit)}
+                  customClassName={{
+                    container: "w-11",
+                    input: "p-2 text-center",
+                  }}
+                  hasNoPadding={true}
+                  maxChar={1}
+                  hasError={
+                    errors?.[digit]?.type === "required" &&
+                    watchAllFields[digit] === "" &&
+                    true
+                  }
+                  {...field}
+                />
+              )}
+            />
+          ))}
         </div>
-        <TensurfButton
-          isLoading={isVerificationLoading}
+        <Button
+          loading={isVerificationLoading}
           type="submit"
-          customClassName={"animate-scale w-full"}
-          onClick={handleSubmit(onSubmit)}
-          size={"large48"}
+          size="lg"
+          className="animate-scale w-full bg-[#3861fb] hover:bg-[#3861fb]/90 text-white"
         >
           confirm
-        </TensurfButton>
-        <TimerOrButton seconds={120} resendCode={resend} />
+        </Button>
+        <TimerOrButton seconds={300} resendCode={resend} />
       </form>
     </div>
   );

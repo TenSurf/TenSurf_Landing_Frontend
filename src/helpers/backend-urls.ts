@@ -20,4 +20,18 @@ export const BackendUrls: Record<string, string> = {
   transaction: "/financial/payment/update_transaction/",
   plans: "/financial/payment/plans/",
   payment: "/financial/payment/payment_link/",
+  cancel_subscription: "/financial/payment/cancel_subscription/",
+  subscription_status: "/financial/payment/subscription_status/",
+  start_trial: "/financial/payment/start_trial/",
+  trial_status: "/financial/payment/trial_status/",
 };
+
+// Brain API endpoints (FastAPI backend at brain.tensurf.ai)
+export const BrainUrls: Record<string, string> = {
+  send_code: "/auth/send-code",
+  verify_code: "/auth/verify-code",
+  me: "/auth/me",
+  oauth_providers: "/auth/oauth/providers",
+};
+
+export const brainApiUrl = process.env.NEXT_PUBLIC_BRAIN_API_URL || "https://brain.tensurf.ai/api/v1";

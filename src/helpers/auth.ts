@@ -1,22 +1,15 @@
 import Cookies from "js-cookie";
 
-const token_name = "tensurftoken";
+export const token_name = "ts_token";
+const legacy_token = "tensurftoken";
 
-export const setCookie = (
-  token: string,
-  expirationDays: number = 365
-): void => {
+export const setCookie = (token: string): void => {
   if (typeof window !== "undefined") {
-    const date = new Date();
-    const time = date.getTime();
-    const expireTime = time + expirationDays * 24 * 3600 * 1000;
-    date.setTime(expireTime);
     Cookies.set(token_name, token, {
-      expires: date,
-      domain:
-        process.env.NODE_ENV === "production"
-          ? "tensurf.ai"
-          : window.location.hostname,
+      domain: ".tensurf.ai",
+      expires: 30,
+      secure: true,
+      sameSite: "lax",
     });
   }
 };
@@ -24,14 +17,16 @@ export const setCookie = (
 export const removeCookie = (): void => {
   if (typeof window !== "undefined") {
     Cookies.remove(token_name, { domain: ".tensurf.ai" });
-    Cookies.remove(token_name, { domain: "tensurf.ai" });
     Cookies.remove(token_name);
+    Cookies.remove(legacy_token);
+    Cookies.remove(legacy_token, { domain: "tensurf.ai" });
+    Cookies.remove(legacy_token, { domain: ".tensurf.ai" });
   }
 };
 
 export const getCookie = (): string | undefined => {
   if (typeof window === "undefined") return "";
-  return Cookies.get(token_name);
+  return Cookies.get(token_name) || Cookies.get(legacy_token);
 };
 
 export const isLoggedIn = (): boolean => {

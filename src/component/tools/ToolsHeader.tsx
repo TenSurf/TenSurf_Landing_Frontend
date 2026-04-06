@@ -29,7 +29,7 @@ const ToolsHeader = ({
       <p className={"text-2xl font-semibold mb-14"}>{description}</p>
       <a href={process.env.NEXT_PUBLIC_HUB_URL}>
         <Button className="w-52 h-16 bg-primary font-bold text-lg">
-          Go to TenSurf Hub
+          Go to TenSurf Brain
         </Button>
       </a>
     </div>

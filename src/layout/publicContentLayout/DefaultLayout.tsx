@@ -1,21 +1,17 @@
-import { type ReactNode, type RefObject } from "react";
+import { type ReactNode } from "react";
 import { PublicFooter } from "./PublicFooter";
 import { DefaultHeader } from "./DefaultHeader";
 
-export const DefaultLayout = ({
-  children,
-  headerRef,
-}: {
-  children: ReactNode;
-  headerRef?: RefObject<HTMLDivElement>;
-}) => {
+export const DefaultLayout = ({ children }: { children: ReactNode }) => {
   return (
     <div
-      className={`w-screen min-h-screen overflow-x-clip flex flex-col bg-[#000] text-white font-medium`}
+      className={`w-screen min-h-screen overflow-x-clip flex flex-col bg-background text-foreground font-jakarta font-medium`}
     >
-      <DefaultHeader headerRef={headerRef} />
+      <DefaultHeader />
 
-      <div className={`grow flex flex-col items-center gap-[200px]`}>
+      <div
+        className={`grow flex flex-col items-center gap-6 sm:gap-[120px] md:gap-[200px] md:mt-0 lg:-mt-12`}
+      >
         {children}
       </div>
 

@@ -1,5 +1,5 @@
 import React, { type FC } from 'react';
-import { type IIconAndIllustration } from '../types/general.types';
+import { type IIconAndIllustration } from "@/types/general.types";
 
 const ChevronDownIcon: FC<IIconAndIllustration> = ({ className, onClick, onMouseEnter, onMouseLeave }) => {
   return (

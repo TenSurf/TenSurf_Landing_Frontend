@@ -4,9 +4,16 @@ import { PAGE_TITLE } from "../constatns/general.constants";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "TenSurf",
+  title: "TenSurf Brain | Vibe Trading — The AI Strategy Builder for NinjaTrader",
   description:
-    'Experience the future of trading with TenSurf Hub, where our cutting-edge "TenSurf Brain" AI chat interface delivers real-time market analysis and insights directly to you. Integrate your trading strategy with our intuitive, no-code platform that makes algorithmic trading accessible to everyone.',
+    "Vibe Trading: describe your trading strategy in English, get working NinjaScript code. Inspired by vibe coding. Built for NinjaTrader. Join the waitlist.",
+  openGraph: {
+    title: "The Hottest New Algo Trading Language is English",
+    description: "Vibe Trading: describe your strategy in plain English. AI generates the code, compiles it, and backtests it. Welcome to the future of algorithmic trading.",
+    type: "website",
+    url: "https://tensurf.ai",
+    images: ["/images/og-vibe-trading.png"],
+  },
 };
 
 const MainPage = () => {

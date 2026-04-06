@@ -1,13 +1,20 @@
-version: '3.8'
+version: "3.9"
 
 services:
-  tensurf-ui:
+  tensurf-ui-dev:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: tensurf-ui-dev
     restart: always
+    env_file:
+      - .env
+    ports:
+      - "3002:3000"
+    networks:
+      - tensurf_network
 
 networks:
-  default:
+  tensurf_network:
+    name: tensurf_network
     external: true
-    name: tensurf-network

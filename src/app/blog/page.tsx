@@ -3,6 +3,12 @@ import DefaultLayout from '@/layout/publicContentLayout/DefaultLayout';
 import { PAGE_TITLE } from '@/constatns/general.constants';
 import PageProvider from '@/component/general/PageProvider';
 
+
+export const metadata = {
+  title: 'Blog | TenSurf Brain',
+};
+
+
 const BlogPage = () => {
   return (
     <PageProvider title={PAGE_TITLE.blog}>

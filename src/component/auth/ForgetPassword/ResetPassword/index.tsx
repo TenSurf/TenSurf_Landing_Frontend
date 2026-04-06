@@ -5,7 +5,7 @@ import { TeLock } from "@/icons";
 import { type Dispatch, type FC, type SetStateAction, useState } from "react";
 import TensurfInputText from "../../../general/inputText/tensurfInputText";
 import EyeOffIcon from "@/icons/EyeOffIcon";
-import TensurfButton from "../../../general/TensurfButton";
+import { Button } from "@/components/ui/button";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "sonner";
 
@@ -36,7 +36,6 @@ const ResetPassword: FC<IResetPasswordProps> = ({
   const [shouldShowConfirmPassword, setShouldShowConfirmPassword] =
     useState(false);
 
-  // RHF ↓•↓•↓
   const {
     control,
     handleSubmit,
@@ -106,7 +105,7 @@ const ResetPassword: FC<IResetPasswordProps> = ({
             {...field}
             label="New password"
             placeholder="Enter your new password"
-            autoComplete={"new-password"}
+            autoComplete="new-password"
             leftItem={<TeLock />}
             rightItem={<EyeOffIcon className="w-6 h-6" />}
             type={shouldShowPassword ? "text" : "password"}
@@ -140,8 +139,8 @@ const ResetPassword: FC<IResetPasswordProps> = ({
             {...field}
             label="Re-type new password"
             name="passwordConfirmation"
-            placeholder="Re-enter your need password"
-            autoComplete={"new-password"}
+            placeholder="Re-enter your new password"
+            autoComplete="new-password"
             leftItem={<TeLock />}
             rightItem={<EyeOffIcon className="w-6 h-6" />}
             type={shouldShowConfirmPassword ? "text" : "password"}
@@ -161,23 +160,24 @@ const ResetPassword: FC<IResetPasswordProps> = ({
       />
 
       <div className="flex flex-col gap-2">
-        <TensurfButton
-          isLoading={isLoading}
+        <Button
+          loading={isLoading}
           type="submit"
-          customClassName={"w-full"}
-          size={"xLarge56"}
+          size="xl"
+          className="w-full bg-[#3861fb] hover:bg-[#3861fb]/90 text-white"
         >
           Reset Password
-        </TensurfButton>
+        </Button>
 
-        <TensurfButton
+        <Button
+          type="button"
           onClick={() => setActiveStep(0)}
           variant="text"
-          customClassName="m-auto text-[#3861fb]"
-          size={"small32"}
+          size="sm"
+          className="m-auto text-[#3861fb]"
         >
           ← Insert email again to resend code
-        </TensurfButton>
+        </Button>
       </div>
     </form>
   );

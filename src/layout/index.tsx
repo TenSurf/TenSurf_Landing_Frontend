@@ -1,6 +1,5 @@
 import Container from './styles';
 import type ILayoutProps from './types';
-import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 
 const Layout: React.FC<ILayoutProps> = props => {
   return (
@@ -9,21 +8,14 @@ const Layout: React.FC<ILayoutProps> = props => {
         {/* ============ Header ============ */}
         <div className='p-4 h-20 flex justify-between bg-white dark:bg-black-2 shadow-default2'>
           <div className='flex items-stretch gap-6'>
-            {/* ============ ES/NG Toggle ============ */}
-            <div className='flex items-center p-1 '>
-              <ToggleButtonGroup
-                color='primary'
-                exclusive
-                aria-label='Platform'
-                className='dark:border-strokedark dark:bg-boxdark dark:text-white'
-              >
-                <ToggleButton className='dark:text-white' value='ES'>
-                  ES
-                </ToggleButton>
-                <ToggleButton className='dark:text-white' value='NQ'>
-                  NQ
-                </ToggleButton>
-              </ToggleButtonGroup>
+            {/* ============ ES/NQ Toggle ============ */}
+            <div className='flex items-center p-1 gap-0'>
+              <button className='px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-l-md dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-2 focus:ring-primary'>
+                ES
+              </button>
+              <button className='px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-r-md dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 focus:ring-2 focus:ring-primary -ml-px'>
+                NQ
+              </button>
             </div>
 
             {/* ============ Time Frame Toggle ============ */}
