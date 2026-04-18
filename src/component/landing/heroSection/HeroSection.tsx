@@ -57,7 +57,7 @@ export const HeroSection = async ({
 						</div>
 					</Link>
 
-					<Link href="/vibe-trading" className="text-sm text-primary hover:underline">
+					<Link href="/vibe-trading" className="text-sm font-semibold text-foreground underline decoration-primary decoration-2 underline-offset-4 hover:decoration-primary/70">
 						What is Vibe Trading? →
 					</Link>
 					
