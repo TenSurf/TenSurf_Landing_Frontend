@@ -34,7 +34,7 @@ export const PublicFooter = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 my-6">
           {FOOTER_MENU_COLS.map((column, index: number) => (
             <div key={index} className="flex flex-col gap-4">
-              <div className="text-lg font-bold"><h6>{column.title}</h6></div>
+              <h3 className="text-lg font-bold">{column.title}</h3>
               <div className="flex flex-wrap md:flex-col gap-4">
                 {column.items.map((item, index) => (
                   <Link
@@ -106,7 +106,7 @@ export const PublicFooter = () => {
       <div
         className="flex flex-col lg:flex-row justify-around gap-4 items-center sm:border-t-[1px] sm:border-t-border sm:py-6 text-xs font-normal">
         <div className={'border-t-[1px] border-t-border pt-6 w-full sm:border-none sm:pb-0 sm:pt-0 sm:w-fit flex flex-col sm:flex-row sm:items-center gap-2'}>
-            <h6>{COPYRIGHT}</h6>
+            <p>{COPYRIGHT}</p>
             <span className="hidden sm:inline text-muted-foreground">|</span>
             <span className="flex items-center gap-1 text-muted-foreground">
               <MapPin className="w-3 h-3" />
@@ -119,7 +119,7 @@ export const PublicFooter = () => {
             className="flex items-center gap-1 group"
           >
             <MailIcon />
-            <div className="group-hover:underline"><h6>{TENSURF_CONTACT.mail}</h6></div>
+            <span className="group-hover:underline">{TENSURF_CONTACT.mail}</span>
           </a>
         </div>
       </div>
