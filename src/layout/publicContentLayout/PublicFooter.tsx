@@ -23,7 +23,7 @@ export const PublicFooter = () => {
         <div className="flex flex-col gap-8">
           <TensurfLogo />
           <div>
-            <div className="text-xl font-bold"><h6>Newsletter</h6></div>
+            <h2 className="text-xl font-bold">Newsletter</h2>
             <div className="font-normal text-lg text-muted-foreground">
               <p>Stay updated with the latest products and insights</p>
             </div>

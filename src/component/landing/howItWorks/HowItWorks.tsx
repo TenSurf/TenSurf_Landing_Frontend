@@ -174,11 +174,14 @@ const ProductDemoCarousel = () => {
           <p className="text-sm text-muted-foreground">{demoSlides[active].description}</p>
         </div>
       </div>
-      <div className="flex justify-center gap-2">
+      <div className="flex justify-center gap-2" role="tablist" aria-label="How it works demo slides">
         {demoSlides.map((_, i) => (
           <button
             key={i}
             onClick={() => setActive(i)}
+            role="tab"
+            aria-selected={active === i}
+            aria-label={`Show step ${i + 1}`}
             className={`h-1.5 rounded-full transition-all duration-300 ${
               active === i ? "w-8 bg-[#082FDF]" : "w-1.5 bg-white/20"
             }`}
