@@ -28,9 +28,11 @@
   }
 
   .dark {
-    --background: 240 30% 6%;
+    /* Marketing surface — TenSurf Brain Design Handoff spec (2026-04-18).
+       Deeper space-black bg + cyan editorial accent for Vibe Trading narrative. */
+    --background: 228 83% 3%;          /* #01030B — deeper space-black per handoff */
     --foreground: 220 20% 95%;
-    --card: 240 28% 9%;
+    --card: 240 28% 9%;                /* #11111D — elevated surface (LIGHTER than bg) */
     --card-foreground: 220 20% 95%;
     --popover: 240 28% 9%;
     --popover-foreground: 220 20% 95%;
@@ -39,7 +41,7 @@
     --secondary: 240 20% 13%;
     --secondary-foreground: 220 20% 95%;
     --muted: 231 15% 20%;
-    --muted-foreground: 231 12% 53%;
+    --muted-foreground: 231 12% 55%;   /* raised from 53% for AA contrast on new darker bg */
     --accent: 240 20% 13%;
     --accent-foreground: 220 20% 95%;
     --destructive: 0 63% 31%;
@@ -49,6 +51,12 @@
     --ring: 231 93% 60%;
     --radius: 0.75rem;
     --body-weight: 450;
+
+    /* Handoff marketing tokens */
+    --site-bg: #01030B;
+    --site-bg-deep: #0a1628;
+    --site-accent: #00d4ff;            /* Vibe Trading editorial accent */
+    --cta-shadow: 3px 5px 24px #082FDF;
   }
 }
 .bg-dark-primary-400\/30 {
@@ -90,6 +98,21 @@
     scroll-behavior: smooth;
     overflow-x: hidden;
   }
+
+  /* Brand scrollbar — shared with TBWA app surface per handoff */
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #3861fb;
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #5a7dff;
+  }
+
   :root {
     --primaryGradient: linear-gradient(270deg, #3944e1 0.12%, #7152da 50.51%, #ff7f65 99.89%);
     --white: #ffffff;

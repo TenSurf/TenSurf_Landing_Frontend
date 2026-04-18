@@ -1,5 +1,5 @@
 import type {Metadata} from 'next';
-import {Inter, Space_Grotesk, Plus_Jakarta_Sans} from 'next/font/google';
+import {Inter, Space_Grotesk, Plus_Jakarta_Sans, JetBrains_Mono} from 'next/font/google';
 import './globals.css';
 import {Toaster} from '@/components/ui/sonner';
 import {GoogleOAuthProvider} from '@react-oauth/google';
@@ -10,9 +10,13 @@ import Script from 'next/script';
 import CookieConsent from '@/components/CookieConsent';
 import {ThemeProvider} from '@/components/theme-provider';
 
-const inter = Inter({subsets: ['latin']});
+// Font stack aligned with TenSurf Brain Design Handoff — marketing surface (2026-04-18):
+//   display/body: Inter, headings (H2 accents): Space Grotesk, code/terminal: JetBrains Mono.
+// Plus Jakarta kept loaded for back-compat with components already pinned to it.
+const inter = Inter({subsets: ['latin'], variable: '--font-inter', display: 'swap'});
 const spaceGrotesk = Space_Grotesk({subsets: ['latin'], variable: '--font-space-grotesk', weight: ['500', '700']});
 const plusJakarta = Plus_Jakarta_Sans({subsets: ['latin'], variable: '--font-jakarta', display: 'swap'});
+const jetbrainsMono = JetBrains_Mono({subsets: ['latin'], variable: '--font-mono', weight: ['400', '500', '600'], display: 'swap'});
 
 export const metadata: Metadata = {
 	metadataBase: new URL('https://tensurf.ai'),
@@ -78,12 +82,12 @@ export default function RootLayout({
 				</>
 			)}
 		</head>
-		<body className={`${plusJakarta.className} ${spaceGrotesk.variable} ${plusJakarta.variable}`}>
+		<body className={`${plusJakarta.className} ${spaceGrotesk.variable} ${plusJakarta.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
 		{process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID as string ? (
 			<ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange storageKey="tensurf-theme">
 		<GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID as string}>
 				<App/>
-				{children}
+				<main id="main-content">{children}</main>
 				<CookieConsent />
 				<Toaster duration={3000}/>
 				<script async type="text/javascript" src="/js/scroll.js" />
