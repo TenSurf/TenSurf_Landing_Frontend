@@ -26,7 +26,7 @@ export const BackendUrls: Record<string, string> = {
   trial_status: "/financial/payment/trial_status/",
 };
 
-// Brain API endpoints (FastAPI backend at brain.tensurf.ai)
+// Brain API endpoints (brain.tensurf.ai)
 export const BrainUrls: Record<string, string> = {
   send_code: "/auth/send-code",
   verify_code: "/auth/verify-code",
