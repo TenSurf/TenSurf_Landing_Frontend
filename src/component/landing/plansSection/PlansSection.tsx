@@ -221,12 +221,6 @@ export const PlansSection = (props: { data: IPlan[] }) => {
         </div>
       </div>
 
-      {/* Footnote */}
-      <div className="w-full max-w-3xl text-center">
-        <p className="text-sm text-gray-400">
-          * 1 credit = one strategy creation, custom indicator creation, or NinjaScript modification with AI. Credits reset on a rolling 24-hour window.
-        </p>
-      </div>
     </div>
   );
 };
