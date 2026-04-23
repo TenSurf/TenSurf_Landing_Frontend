@@ -80,8 +80,8 @@ const benefits = [
   },
   {
     icon: Shield,
-    title: 'Your Data Stays Local',
-    description: 'Everything runs on your machine. Your strategies never leave your computer.',
+    title: 'Your Data Stays Private',
+    description: 'Strategies are processed on our secure servers—never used to train AI models and never shared. Compilation and backtests run locally in your NinjaTrader.',
   },
   {
     icon: Zap,
@@ -152,8 +152,8 @@ const faqs = [
     answer: 'All 100+ NinjaTrader built-in indicators—RSI, MACD, Bollinger Bands, moving averages, ATR, Stochastic, and many more. Combine them however you need.',
   },
   {
-    question: 'Does my data leave my computer?',
-    answer: 'Your trading data stays on your machine. TenSurf Brain processes your strategy description through secure AI, but your historical data and backtests run locally in NinjaTrader.',
+    question: 'How is my strategy data handled?',
+    answer: 'Your trading strategies are processed on our secure servers, stored only in your account, and used only to generate your code and improve your experience. We never use your strategies to train our AI models, and we never share them with third parties. Your historical data, compilation, and backtests run locally in your NinjaTrader.',
   },
 ];
 

@@ -60,7 +60,7 @@ const sections = [
       '• Sensitive data is encrypted at rest using AES-256',
       '• Regular security audits and penetration testing',
       '• Access controls and authentication mechanisms',
-      '• Your trading strategies are processed locally in NinjaTrader and never stored on our servers',
+      '• Strategy data is stored only in your account and is never shared with third parties',
     ],
   },
   {
@@ -69,8 +69,8 @@ const sections = [
     title: 'Data Processing',
     color: '#F59E0B',
     content: [
-      'TenSurf Brain runs inside NinjaTrader on your computer. Your strategies are generated, compiled, and backtested locally.',
-      'Only metadata needed for licensing and usage limits is transmitted to our servers. Your proprietary trading logic stays on your machine.',
+      'Your trading strategies and indicators are processed on our secure servers. They are stored in your account and used only to generate your code and improve your experience.',
+      'We use your indicators to enhance your user experience. We never use your strategies or indicators to train our AI models, and we never share them with third parties.',
     ],
   },
   {
@@ -150,7 +150,7 @@ const sections = [
 ];
 
 const privacyHighlights = [
-  { text: 'Strategies processed locally', icon: CheckCircle2 },
+  { text: 'Never used to train AI models', icon: CheckCircle2 },
   { text: 'No selling of personal data', icon: CheckCircle2 },
   { text: 'AES-256 encryption at rest', icon: CheckCircle2 },
   { text: 'TLS 1.3 encryption in transit', icon: CheckCircle2 },
@@ -184,7 +184,7 @@ export const PrivacyPolicy = () => {
         </p>
         <div className="flex items-center gap-2 text-sm text-[#6C757D]">
           <span>Last Updated:</span>
-          <time dateTime="2026-02" className="text-[#ADB5BD]">February 2026</time>
+          <time dateTime="2026-04" className="text-[#ADB5BD]">April 2026</time>
         </div>
       </header>
 
@@ -215,9 +215,10 @@ export const PrivacyPolicy = () => {
               Your Strategies Stay Private
             </h2>
             <p className="text-[#ADB5BD] leading-relaxed">
-              TenSurf Brain processes your trading strategies locally inside NinjaTrader.
-              Your proprietary trading logic never leaves your computer. We only receive
-              metadata necessary for licensing—never your actual strategy code or trading rules.
+              Your trading strategies are processed on our secure servers. They are
+              stored in your account and used only to generate your code and improve
+              your experience. We never use your strategies to train our AI models,
+              and we never share them with third parties.
             </p>
           </div>
         </div>

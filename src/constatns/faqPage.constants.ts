@@ -38,7 +38,7 @@ export const FAQ_DATA = [
       },
       {
         question: 'Is my data secure?',
-        answer: 'Yes. TenSurf Brain runs inside NinjaTrader on your computer. Your strategies are generated, compiled, and backtested locally. Your proprietary trading ideas never leave your machine.'
+        answer: 'Yes. Your trading strategies are processed on our secure servers, stored only in your account, and used only to generate your code and improve your experience. We never use your strategies to train our AI models, and we never share them with third parties. Strategy compilation and backtesting run locally in your NinjaTrader.'
       },
       {
         question: 'Do I own the code TenSurf Brain generates?',
