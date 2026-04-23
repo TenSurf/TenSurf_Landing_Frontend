@@ -32,7 +32,7 @@ export default function GettingStartedPage() {
             <code className="bg-[#0a0a1f] px-2 py-0.5 rounded text-[#E9ECEF] text-sm">
               Tools &rarr; Import &rarr; NinjaScript Add-On
             </code>
-            . Select the TenSurf Brain TBCSAD add-on file and import it.
+            . Select the TenSurf Brain NinjaTrader 8 add-on file and import it.
           </p>
           <p>
             Once imported, open the TenSurf Brain panel from the NT8 menu. Click
@@ -84,13 +84,13 @@ export default function GettingStartedPage() {
           <p>
             Click <strong className="text-[#E9ECEF]">Submit</strong> to validate
             your rules. TenSurf Brain converts your plain English into a
-            Standardized Strategy Rules (SSR) format. Review the SSR to confirm the
-            AI understood your intent.
+            standardized rule summary. Review the summary to confirm the AI
+            understood your intent.
           </p>
           <p>
             Then click <strong className="text-[#E9ECEF]">Generate Code</strong>.
-            Our multi-agent AI system produces production-ready NinjaScript C# code
-            with entry/exit logic, risk management, and indicator configuration.
+            TenSurf Brain produces production-ready NinjaScript C# code with
+            entry/exit logic, risk management, and indicator configuration.
           </p>
         </div>
       </section>

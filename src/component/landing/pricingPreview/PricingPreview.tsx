@@ -1,123 +1,52 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import GsapAnimation from "@/utils/GsapAnimation";
 import RoundTitleHeader from "@/component/landing/toolsV2/RoundTitleHeader";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Check } from "lucide-react";
 
-const TBLSAI_API = process.env.NEXT_PUBLIC_TBLSAI_API_URL || "https://tblsai-app-dev.mangomeadow-024a1511.eastus.azurecontainerapps.io";
-
-interface PricingTier {
-  price_id: string;
-  amount: number; // cents
-  name: string;
-  description: string;
-  features: string[];
-}
-
-interface PricingData {
-  tiers: Record<string, PricingTier>;
-  currency: string;
-  billing_cycle: string;
-}
-
-// Static trial card (not in Stripe)
-const trialCard = {
-  name: "Free Trial",
-  price: "0",
-  period: "",
-  feature: "3 strategies/day for 7 days",
-  bestFor: "Best for: Trying TenSurf Brain risk-free",
-  cta: "Start Free Trial",
-  highlighted: false,
-  isTrial: true,
-};
-
-function tierToCard(key: string, tier: PricingTier) {
-  const price = String(tier.amount / 100);
-  const dailyFeature = tier.features.find((f) => f.toLowerCase().includes("strategies per day")) || tier.features[0] || "";
-  const bestForMap: Record<string, string> = {
-    start_surf: "Best for: Hobbyist traders testing the waters",
-    pro_surf: "Best for: Active traders iterating on multiple strategies",
-    ultra_surf: "Best for: Professional traders and strategy developers",
-  };
-  const ctaMap: Record<string, string> = {
-    start_surf: "Get Started",
-    pro_surf: "Go Pro",
-    ultra_surf: "Go Ultra",
-  };
-  return {
-    name: tier.name,
-    price,
+const PLANS = [
+  {
+    name: "Free Trial",
+    price: "0",
+    period: "",
+    feature: "Try TenSurf Brain free for 7 days",
+    bestFor: "Best for: Trying TenSurf Brain risk-free",
+    highlighted: false,
+    badge: undefined as string | undefined,
+  },
+  {
+    name: "Start Surf",
+    price: "49",
     period: "/month",
-    feature: dailyFeature,
-    bestFor: bestForMap[key] || "",
-    cta: ctaMap[key] || "Get Started",
-    highlighted: key === "pro_surf",
-    badge: key === "pro_surf" ? "Most Popular" : undefined,
-    isTrial: false,
-  };
-}
+    feature: "Full code generation package included",
+    bestFor: "Best for: Hobbyist traders testing the waters",
+    highlighted: false,
+    badge: undefined as string | undefined,
+  },
+  {
+    name: "Pro Surf",
+    price: "149",
+    period: "/month",
+    feature: "Priority support & processing",
+    bestFor: "Best for: Active traders iterating on multiple strategies",
+    highlighted: true,
+    badge: "Most Popular" as string | undefined,
+  },
+  {
+    name: "Ultra Surf",
+    price: "299",
+    period: "/month",
+    feature: "Early access to new features",
+    bestFor: "Best for: Professional traders and strategy developers",
+    highlighted: false,
+    badge: undefined as string | undefined,
+  },
+];
 
 const PricingPreview = () => {
-  const [plans, setPlans] = useState<any[] | null>(null);
-  const [error, setError] = useState(false);
-
-  useEffect(() => {
-    fetch(`${TBLSAI_API}/api/v1/stripe/pricing`)
-      .then((r) => {
-        if (!r.ok) throw new Error(`HTTP ${r.status}`);
-        return r.json();
-      })
-      .then((data: PricingData) => {
-        const cards = [trialCard];
-        for (const key of ["start_surf", "pro_surf", "ultra_surf"]) {
-          if (data.tiers[key]) cards.push(tierToCard(key, data.tiers[key]));
-        }
-        setPlans(cards);
-      })
-      .catch(() => setError(true));
-  }, []);
-
-  // Skeleton loader
-  if (!plans && !error) {
-    return (
-      <div className="relative w-full flex flex-col justify-center items-center gap-12 sm:gap-16 py-16 sm:py-24 max-w-screen-2xl px-4 md:px-0">
-        <div className="flex flex-col items-center gap-6">
-          <RoundTitleHeader title="Simple Pricing" />
-          <h2 className="font-normal text-3xl sm:text-4xl md:text-5xl text-center text-[#E9ECEF]">Simple, Transparent Pricing</h2>
-          <p className="font-normal text-base sm:text-lg md:text-xl text-center text-[#ADB5BD]">Start free. Upgrade when you need more strategies.</p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
-          {[...Array(4)].map((_, i) => (
-            <div key={i} className="h-64 rounded-2xl bg-[#00041A] animate-pulse border border-[#1a1a2e]" />
-          ))}
-        </div>
-      </div>
-    );
-  }
-
-  // Error state — show section header with link to plans
-  if (error || !plans) {
-    return (
-      <div className="relative w-full flex flex-col justify-center items-center gap-12 sm:gap-16 py-16 sm:py-24 max-w-screen-2xl px-4 md:px-0">
-        <div className="flex flex-col items-center justify-center gap-6">
-          <RoundTitleHeader title="Simple Pricing" />
-          <h2 className="font-normal text-3xl sm:text-4xl md:text-5xl text-center text-[#E9ECEF]">Simple, Transparent Pricing</h2>
-          <p className="font-normal text-base sm:text-lg md:text-xl text-center text-[#ADB5BD]">Start free. Upgrade when you need more strategies.</p>
-        </div>
-        <Link href="/plans">
-          <Button className="flex gap-2 rounded-3xl drop-shadow-[3px_5px_24px_#082FDF] py-6 px-12">
-            <span className="text-lg font-semibold">View Plans</span>
-            <ArrowRight size={20} strokeWidth={2} />
-          </Button>
-        </Link>
-      </div>
-    );
-  }
-
   return (
     <div className="relative w-full flex flex-col justify-center items-center gap-12 sm:gap-16 py-16 sm:py-24 max-w-screen-2xl px-4 md:px-0">
       <GsapAnimation
@@ -131,7 +60,7 @@ const PricingPreview = () => {
             Simple, Transparent Pricing
           </h2>
           <p className="font-normal text-base sm:text-lg md:text-xl text-center text-[#ADB5BD]">
-            Start free. Upgrade when you need more strategies.
+            Start free. Upgrade whenever you're ready.
           </p>
         </div>
       </GsapAnimation>
@@ -142,7 +71,7 @@ const PricingPreview = () => {
         selector="#pricingCards"
       >
         <div id="pricingCards" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full">
-          {plans.map((plan, index) => (
+          {PLANS.map((plan, index) => (
             <div
               key={index}
               className={`relative flex flex-col gap-6 p-8 rounded-2xl ${
@@ -176,7 +105,7 @@ const PricingPreview = () => {
                       : "bg-transparent border border-[#082FDF] hover:bg-[#082FDF]/10"
                   }`}
                 >
-                  Coming Soon
+                  Join the Waitlist
                 </Button>
               </Link>
             </div>

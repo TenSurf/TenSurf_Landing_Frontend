@@ -109,7 +109,7 @@ const PainPoint = () => {
           <div className="flex items-center gap-3 bg-[#10B981]/10 border border-[#10B981]/20 rounded-full px-6 py-3">
             <CheckCircle2 className="w-5 h-5 text-[#10B981]" />
             <span className="text-foreground font-medium">
-              Your strategies stay on your machine. Your ideas stay yours.
+              Your strategies stay private. Your ideas stay yours.
             </span>
           </div>
 

@@ -35,10 +35,10 @@ const steps = [
   {
     number: '02',
     title: 'Review Your Interpreted Rules',
-    subtitle: 'Free — No Quota Used',
+    subtitle: 'Free — Review as Often as You Need',
     description:
-      'TenSurf Brain converts your plain English into a standardized rule format and shows it to you for confirmation. This step is completely free and repeatable—submit as many times as you need until the interpretation matches your intent. No generation quota is consumed until you explicitly confirm.',
-    features: ['Free and instant', 'Repeat as needed', 'No quota consumed', 'Catches misunderstandings early'],
+      'TenSurf Brain converts your plain English into a standardized rule format and shows it to you for confirmation. This step is completely free and repeatable—submit as many times as you need until the interpretation matches your intent.',
+    features: ['Free and instant', 'Repeat as needed', 'Catches misunderstandings early'],
     icon: ClipboardCheck,
     color: '#10B981',
   },
@@ -141,7 +141,7 @@ const useCases = [
 const faqs = [
   {
     question: 'What if the AI misunderstands my strategy?',
-    answer: 'TenSurf Brain shows you exactly how it interpreted your rules before generating code. This review step is free and repeatable—adjust and resubmit until it matches your intent, with no quota used.',
+    answer: 'TenSurf Brain shows you exactly how it interpreted your rules before generating code. This review step is free and repeatable—adjust and resubmit until it matches your intent.',
   },
   {
     question: 'Can I see and edit the generated code?',

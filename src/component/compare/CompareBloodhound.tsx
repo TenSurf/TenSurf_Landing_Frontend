@@ -1,12 +1,8 @@
-"use client";
-
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, MessageSquare, GitBranch, Check, X, ArrowLeft } from 'lucide-react';
 import RoundTitleHeader from '@/component/landing/toolsV2/RoundTitleHeader';
-
-const TBLSAI_API = process.env.NEXT_PUBLIC_TBLSAI_API_URL || "https://tblsai-app-dev.mangomeadow-024a1511.eastus.azurecontainerapps.io";
 
 const quickComparison = [
   { aspect: 'Input Method', tensurf: 'Plain English text', bloodhound: 'Visual drag-and-drop nodes' },
@@ -41,19 +37,7 @@ const renderCell = (value: string | boolean) => {
 };
 
 const CompareBloodhound = () => {
-  const [startingPrice, setStartingPrice] = useState<string | null>(null);
-
-  useEffect(() => {
-    fetch(`${TBLSAI_API}/api/v1/stripe/pricing`)
-      .then((r) => r.json())
-      .then((data) => {
-        const startSurf = data?.tiers?.start_surf;
-        if (startSurf) setStartingPrice(String(startSurf.amount / 100));
-      })
-      .catch(() => {});
-  }, []);
-
-  const priceText = startingPrice ? `$${startingPrice}/month` : "$39/month";
+  const priceText = "$49/month";
 
   return (
     <div className="flex flex-col w-full gap-10 sm:gap-16 mt-16 sm:mt-24 md:mt-32 mb-16 sm:mb-24 md:mb-32 max-w-screen-xl mx-auto px-4">

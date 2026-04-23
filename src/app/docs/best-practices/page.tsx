@@ -42,9 +42,9 @@ export default function BestPracticesPage() {
         "A strategy that works on ES 5-minute charts may fail on NQ 1-minute charts. Always backtest across different conditions.",
     },
     {
-      title: "Review the SSR Before Generating Code",
+      title: "Review the Standardized Rules Before Generating Code",
       description:
-        "After submitting, review the Standardized Strategy Rules (SSR) output. This is your chance to catch misinterpretations before code generation.",
+        "After submitting, review the standardized rule summary TenSurf Brain produces. This is your chance to catch misinterpretations before code generation.",
     },
     {
       title: "Use the Chat for Complex Strategies",

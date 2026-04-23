@@ -92,7 +92,7 @@ export const FAQ_DATA = [
       },
       {
         question: 'What is the two-step process?',
-        answer: 'TenSurf Brain uses a two-phase approach to protect your quota. Phase 1 (Submit) is free and instant—the AI converts your plain English rules into a standardized format so you can verify its interpretation. You can repeat this step as many times as you want at no cost. Phase 2 (Generate) only runs after you review and confirm the interpreted rules. This is the step that consumes your daily quota. The benefit: you catch misunderstandings before expensive code generation runs, so you never waste a generation on the wrong strategy.'
+        answer: 'TenSurf Brain uses a two-phase approach. Phase 1 (Submit) is free and instant—the AI converts your plain English rules into a standardized format so you can verify its interpretation. You can repeat this step as many times as you want at no cost. Phase 2 (Generate) only runs after you review and confirm the interpreted rules. The benefit: you catch misunderstandings before code generation runs, so you never waste a generation on the wrong strategy.'
       },
       {
         question: 'What do I get with each generation?',
@@ -125,11 +125,7 @@ export const FAQ_DATA = [
       },
       {
         question: 'What\\s included in each plan?',
-        answer: 'All plans include AI code generation, automatic compilation, and backtesting. The main difference is the number of strategies you can generate per day: Trial (3/day), Start Surf $39/mo (5/day), Pro Surf $99/mo (20/day), Ultra Surf $199/mo (50/day).'
-      },
-      {
-        question: 'What counts as one strategy?',
-        answer: 'Each time you generate a new strategy or make significant changes to an existing one, it counts toward your daily limit. Minor edits to the same strategy don\\t count as new.'
+        answer: 'All plans include AI code generation, automatic compilation, and backtesting, plus full access to all NinjaTrader 8 indicators. Paid plans start at $49/month (Start Surf), $149/month (Pro Surf), and $299/month (Ultra Surf), with priority support and early access to new features on the higher tiers.'
       },
       {
         question: 'Can I upgrade or downgrade anytime?',

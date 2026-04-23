@@ -19,16 +19,16 @@ const steps = [
   {
     number: "02",
     title: "Review & Confirm",
-    description: "TenSurf Brain converts your rules to a standardized format—free, instant, and repeatable as many times as you need. No quota is consumed until you confirm. Catch any misinterpretations before code generation begins.",
+    description: "TenSurf Brain converts your rules to a standardized format—free, instant, and repeatable as many times as you need. Catch any misinterpretations before code generation begins.",
     icon: CheckCircle,
     time: "Always free"
   },
   {
     number: "03",
     title: "Generate & Test",
-    description: "TenSurf Brain creates production-ready NinjaScript code, a configuration file with tunable parameters, a strategy summary, and full documentation. It compiles everything inside NinjaTrader and runs a backtest automatically. This step uses one generation from your daily quota.",
+    description: "TenSurf Brain creates production-ready NinjaScript code, a configuration file with tunable parameters, a strategy summary, and full documentation. It compiles everything inside NinjaTrader and runs a backtest automatically.",
     icon: Play,
-    time: "~2 min · 1 credit"
+    time: "~2 min"
   }
 ];
 

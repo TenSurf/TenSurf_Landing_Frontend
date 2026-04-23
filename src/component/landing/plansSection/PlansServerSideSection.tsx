@@ -1,74 +1,104 @@
 import React from "react";
-import { BackendUrls } from "@/helpers/backend-urls";
 import type { IPlan } from "@/types/general.types";
 import { PlansSection } from "@/component/landing/plansSection/PlansSection";
 
-export const backendUrl = process.env.NEXT_PUBLIC_API_URL;
-
-// TBLSAI is the single source of truth for plan data.
-// Falls back to Django proxy if TBLSAI_PLANS_URL is not set.
-const TBLSAI_PLANS_URL =
-  process.env.TBLSAI_PLANS_URL || backendUrl + BackendUrls.plans;
-
-async function getPlans() {
-  let res = await fetch(TBLSAI_PLANS_URL, {
-    cache: "no-store",
-  });
-
-  let data: any;
-
-  try {
-    data = await res.json();
-  } catch (e) {
-    data = {};
-  }
-
-  return Object.entries(data)
-    .map(([key, val]: [string, any]): IPlan => {
-      let buttonLabel = "Get Started";
-      if (val.is_coming_soon) {
-        buttonLabel = "Contact Us";
-      } else if (val.is_trial) {
-        buttonLabel = "Start Free Trial";
-      } else if (val.is_free) {
-        buttonLabel = "Try Free";
-      }
-
-      return {
-        title: val.name,
-        description: val.description,
-        buttonLabel: buttonLabel,
-        features: val.features?.map((f: any) => ({
-          title: typeof f === "string" ? f : f.name,
-        })),
-        priceAnnually: 0,
-        priceMonthly: val.price || (val.month_unit_amount ? val.month_unit_amount / 100 : 0),
-        is_coming_soon: val.is_coming_soon || false,
-        month_price_id: val.stripe_price_id || val.month_price_id || "",
-        year_price_id: val.year_price_id || "",
-        is_free: val.is_free || false,
-        is_trial: val.is_trial || false,
-        order_id: val.order_id || 0,
-        month_currency: val.month_currency || "usd",
-        year_currency: val.year_currency || "usd",
-        strategies_per_day: val.credits_per_day || val.strategies_per_day || 0,
-        credits_per_day: val.credits_per_day || val.strategies_per_day || 0,
-        cost_per_credit:
-          val.price && val.credits_per_day
-            ? (val.price / (val.credits_per_day * 30)).toFixed(2)
-            : val.month_unit_amount && val.strategies_per_day
-              ? (val.month_unit_amount / 100 / (val.strategies_per_day * 30)).toFixed(2)
-              : undefined,
-        trial_days: val.trial_days || 0,
-      };
-    })
-    .sort((a, b) => a.order_id - b.order_id);
-}
+const PLANS: IPlan[] = [
+  {
+    title: "Free Trial",
+    description: "Try it free for 7 days",
+    buttonLabel: "Start Free Trial",
+    features: [
+      { title: "Full code generation package included" },
+      { title: "All NinjaTrader 8 indicators supported" },
+    ],
+    priceAnnually: 0,
+    priceMonthly: 0,
+    is_coming_soon: false,
+    month_price_id: "",
+    year_price_id: "",
+    is_free: false,
+    is_trial: true,
+    order_id: 0,
+    month_currency: "usd",
+    year_currency: "usd",
+    strategies_per_day: 0,
+    credits_per_day: 0,
+    trial_days: 7,
+  },
+  {
+    title: "Start Surf",
+    description: "For traders getting started",
+    buttonLabel: "Get Started",
+    features: [
+      { title: "Full code generation package included" },
+      { title: "All NinjaTrader 8 indicators supported" },
+      { title: "Email support" },
+    ],
+    priceAnnually: 0,
+    priceMonthly: 49,
+    is_coming_soon: false,
+    month_price_id: "",
+    year_price_id: "",
+    is_free: false,
+    is_trial: false,
+    order_id: 1,
+    month_currency: "usd",
+    year_currency: "usd",
+    strategies_per_day: 0,
+    credits_per_day: 0,
+    trial_days: 0,
+  },
+  {
+    title: "Pro Surf",
+    description: "For active traders",
+    buttonLabel: "Get Started",
+    features: [
+      { title: "Full code generation package included" },
+      { title: "All NinjaTrader 8 indicators supported" },
+      { title: "Priority support & processing" },
+    ],
+    priceAnnually: 0,
+    priceMonthly: 149,
+    is_coming_soon: false,
+    month_price_id: "",
+    year_price_id: "",
+    is_free: false,
+    is_trial: false,
+    order_id: 2,
+    month_currency: "usd",
+    year_currency: "usd",
+    strategies_per_day: 0,
+    credits_per_day: 0,
+    trial_days: 0,
+  },
+  {
+    title: "Ultra Surf",
+    description: "For power traders",
+    buttonLabel: "Get Started",
+    features: [
+      { title: "Full code generation package included" },
+      { title: "All NinjaTrader 8 indicators supported" },
+      { title: "Priority support & processing" },
+      { title: "Early access to new features" },
+    ],
+    priceAnnually: 0,
+    priceMonthly: 299,
+    is_coming_soon: false,
+    month_price_id: "",
+    year_price_id: "",
+    is_free: false,
+    is_trial: false,
+    order_id: 3,
+    month_currency: "usd",
+    year_currency: "usd",
+    strategies_per_day: 0,
+    credits_per_day: 0,
+    trial_days: 0,
+  },
+];
 
 const PlansServerSideSection = async () => {
-  const data = await getPlans();
-
-  return <PlansSection data={data} />;
+  return <PlansSection data={PLANS} />;
 };
 
 export default PlansServerSideSection;
