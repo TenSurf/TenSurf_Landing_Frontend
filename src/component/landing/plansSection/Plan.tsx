@@ -60,9 +60,6 @@ export const Plan: FC<IProps> = ({ plan, className }) => {
                 ${plan.priceMonthly}
                 <span className="text-sm font-normal">/month</span>
               </div>
-              {plan.cost_per_credit && (
-                <div className="text-xs text-gray-400 mt-1">~${plan.cost_per_credit}/credit</div>
-              )}
             </div>
           )}
         </div>

@@ -22,7 +22,6 @@ const PLANS: IPlan[] = [
     month_currency: "usd",
     year_currency: "usd",
     strategies_per_day: 0,
-    credits_per_day: 0,
     trial_days: 7,
   },
   {
@@ -45,7 +44,6 @@ const PLANS: IPlan[] = [
     month_currency: "usd",
     year_currency: "usd",
     strategies_per_day: 0,
-    credits_per_day: 0,
     trial_days: 0,
   },
   {
@@ -68,7 +66,6 @@ const PLANS: IPlan[] = [
     month_currency: "usd",
     year_currency: "usd",
     strategies_per_day: 0,
-    credits_per_day: 0,
     trial_days: 0,
   },
   {
@@ -92,7 +89,6 @@ const PLANS: IPlan[] = [
     month_currency: "usd",
     year_currency: "usd",
     strategies_per_day: 0,
-    credits_per_day: 0,
     trial_days: 0,
   },
 ];
