@@ -5,7 +5,7 @@ RUN npm install --legacy-peer-deps --force
 RUN npm install copy-webpack-plugin@11 ajv@8 ajv-keywords@5 schema-utils@4 --save-dev --legacy-peer-deps
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
-RUN npm run build -- --no-lint || (echo 'Build with lint failed, trying without type check' && npx next build --no-lint)
+RUN npm run build
 
 FROM node:18-alpine
 WORKDIR /app

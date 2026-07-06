@@ -1,21 +1,24 @@
 import Link from 'next/link';
 import React from 'react';
 import {AnimateLight} from './AnimateLight';
+import BrowserFrame from '@/component/general/BrowserFrame';
 
 const animateLights = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
 export const HeroSection = async ({
 	title,
-	description
+	description,
+	productShot
 }: {
 	title: React.ReactNode;
 	description: React.ReactNode;
+	productShot?: { image: string; alt: string };
 }) => {
 	return (
 		<div
-			className={`w-full flex flex-col items-center overflow-hidden min-h-screen`}
+			className={`w-full flex flex-col items-center overflow-hidden ${productShot ? '' : 'min-h-screen'}`}
 		>
-			<div className="flex items-center flex-col justify-center gap-6 relative z-[9] max-w-4xl min-h-screen px-4 py-12">
+			<div className={`flex items-center flex-col justify-center gap-6 relative z-[9] max-w-4xl px-4 ${productShot ? 'pt-24 sm:pt-28 md:pt-32 pb-4' : 'min-h-screen py-12'}`}>
 
 				<div className="flex items-center flex-col justify-center gap-4">
 					<h1
@@ -60,14 +63,25 @@ export const HeroSection = async ({
 					<Link href="/vibe-trading" className="text-sm font-semibold text-foreground underline decoration-primary decoration-2 underline-offset-4 hover:decoration-primary/70">
 						What is Vibe Trading? →
 					</Link>
-					
+
 					{/* Trust Indicators */}
 					<p className="text-xs text-muted-foreground">
 						Be first in line • No credit card required • Inspired by Vibe Coding. Built for Traders.
 					</p>
 				</div>
 			</div>
-			
+
+			{productShot && (
+				<div className="relative z-[9] w-full max-w-5xl px-4 mt-10 sm:mt-14 mb-16 sm:mb-24">
+					<BrowserFrame
+						image={productShot.image}
+						alt={productShot.alt}
+						sizes="(max-width: 1024px) 100vw, 1024px"
+						priority
+					/>
+				</div>
+			)}
+
 			<div
 				className="absolute z-0 h-full top-0 w-full items-stretch justify-between hidden dark:flex gap-[300px] max-w-[90%] max-h-screen px-4 overflow-hidden">
 				{animateLights.map((light, index) => (

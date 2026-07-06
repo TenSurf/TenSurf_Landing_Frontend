@@ -125,9 +125,9 @@ const HowItWorks = () => {
 
 
 const demoSlides = [
-  { src: "/images/Strategy Surf.png", label: "Strategy Surf", description: "Describe your trading rules in plain English" },
-  { src: "/images/Indicator Surf.png", label: "Indicator Surf", description: "Build custom NinjaTrader indicators with plain English rules" },
-  { src: "/images/Script Surf.png", label: "Script Surf", description: "Modify your NinjaScripts for strategies or indicator with prompts" },
+  { src: "/images/product/interview-wizard.png", label: "Strategy Surf", description: "TenSurf Brain interviews you to pin down entries, exits, and risk before any code is written" },
+  { src: "/images/product/indicator-popup.png", label: "Indicator Surf", description: "Type @ to reference any indicator synced from your NinjaTrader" },
+  { src: "/images/product/script-picker.png", label: "Script Surf", description: "Type / to pick an existing strategy and describe the change you want" },
 ];
 
 const ProductDemoCarousel = () => {

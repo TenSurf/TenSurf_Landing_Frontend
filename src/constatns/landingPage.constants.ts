@@ -41,7 +41,7 @@ import MenuHowItWorksIcon from "@/icons/MenuHowItWorksIcon";
 
 export enum MnuItemsEnum {
   products = "Products",
-  services = "Services",
+  services = "Features",
   chart = "Chart",
   plans = "Plans",
   compare = "Compare",
@@ -53,7 +53,7 @@ export enum MnuItemsEnum {
 }
 
 export const MENU_ITEMS = [
-  { title: MnuItemsEnum.services, icon: MenuServicesIcon, url: "/#tools" },
+  { title: MnuItemsEnum.services, icon: MenuServicesIcon, url: "/#features" },
   // { title: MnuItemsEnum.howItWorks, icon: MenuHowItWorksIcon, url: "/how-it-works" },
   {
     title: MnuItemsEnum.plans,

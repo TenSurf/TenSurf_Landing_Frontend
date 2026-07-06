@@ -1,14 +1,17 @@
 import React from 'react';
+import BrowserFrame from '@/component/general/BrowserFrame';
 
 interface EditorialSectionProps {
   overline: string;
   headline: string;
   description: string;
   reversed?: boolean;
+  image?: string;
+  imageAlt?: string;
   children?: React.ReactNode;
 }
 
-const EditorialSection = ({ overline, headline, description, reversed = false, children }: EditorialSectionProps) => {
+const EditorialSection = ({ overline, headline, description, reversed = false, image, imageAlt, children }: EditorialSectionProps) => {
   return (
     <div className={"grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 xl:gap-24 items-center"}>
       <div className={reversed ? "order-1 lg:order-2" : "order-1"}>
@@ -23,7 +26,9 @@ const EditorialSection = ({ overline, headline, description, reversed = false, c
         </p>
       </div>
       <div className={reversed ? "order-2 lg:order-1" : "order-2"}>
-        {children || (
+        {children || (image ? (
+          <BrowserFrame image={image} alt={imageAlt || headline} />
+        ) : (
           <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10 border border-border">
             <div className="flex items-center gap-1.5 px-4 py-3 border-b border-border/30">
               <div className="w-2.5 h-2.5 rounded-full bg-muted-foreground/20" />
@@ -38,7 +43,7 @@ const EditorialSection = ({ overline, headline, description, reversed = false, c
               <div className="h-8 w-24 rounded-md bg-primary/10 mt-4" />
             </div>
           </div>
-        )}
+        ))}
       </div>
     </div>
   );

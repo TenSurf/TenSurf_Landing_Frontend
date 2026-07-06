@@ -1,46 +1,18 @@
-"use client";
-import { useState, useRef } from "react";
 import { type IPlan } from "../../../types/general.types";
 import { Plan } from "./Plan";
-
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Autoplay } from "swiper/modules";
-import type { Swiper as SwiperType } from "swiper";
-import "swiper/css";
-import "swiper/css/effect-coverflow";
-import { Code2, FileJson, FileText, BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
-
-const SETS = 3; // Reduced for performance
-const MID_SET = 1; // Middle set index
+import { Code2, FileJson, FileText, BookOpen } from "lucide-react";
 
 export const PlansSection = (props: { data: IPlan[] }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const swiperRef = useRef<SwiperType | null>(null);
-  const len = props.data?.length || 4;
-
-  // Re-center to middle set when drifting too far from center (instant, no animation)
-  const handleTransitionEnd = (swiper: SwiperType) => {
-    const idx = swiper.activeIndex;
-    const offset = idx % len;
-    const currentSet = Math.floor(idx / len);
-
-    // If more than 2 sets away from middle, silently re-center
-    if (currentSet === 0 || currentSet === SETS - 1) {
-      swiper.slideTo(MID_SET * len + offset, 0);
-    }
-  };
-
-  const handleSlideChange = (swiper: SwiperType) => {
-    setActiveIndex(swiper.activeIndex % len);
-  };
-
   return (
     <div
       id="Planss"
-      className="flex flex-col gap-20 text-white w-full items-center relative z-10 scroll-m-20 max-w-screen-2xl min-h-screen my-16 sm:my-24 md:my-32 px-4 sm:px-8 sm:px-0"
+      className="flex flex-col gap-20 text-white w-full items-center relative z-10 scroll-m-20 max-w-screen-2xl min-h-screen my-16 sm:my-24 md:my-32 px-4 sm:px-8"
     >
       <div className="flex flex-col gap-6 text-center items-center w-full">
         <div className="text-4xl sm:text-5xl md:text-7xl font-semibold">Plans</div>
+        <p className="text-lg text-gray-400 max-w-xl">
+          Every plan includes the full generation pipeline: from plain English to compiled, backtest-ready NinjaScript.
+        </p>
       </div>
 
       {/* Deliverables Block */}
@@ -80,7 +52,7 @@ export const PlansSection = (props: { data: IPlan[] }) => {
         </div>
       </div>
 
-      <div className="w-full">
+      <div className="w-full relative">
         <div
           style={{
             opacity: "0.5",
@@ -90,134 +62,22 @@ export const PlansSection = (props: { data: IPlan[] }) => {
           className="pointer-events-none top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 absolute w-[492px] h-[468px] rounded-full"
         ></div>
 
-        {/* Plan name tabs */}
-        <div className="flex justify-center gap-2 mb-6 px-4 flex-wrap relative z-10">
-          {props.data?.map((item: IPlan, index: number) => (
-            <button
-              key={item.order_id}
-              onClick={() => {
-                swiperRef.current?.slideTo(MID_SET * len + index);
-              }}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                activeIndex === index
-                  ? "bg-primary text-white"
-                  : "bg-white/10 text-gray-400 hover:bg-white/20"
-              }`}
-            >
-              {item.title}
-            </button>
-          ))}
-        </div>
-
-        {/* Desktop: Coverflow carousel */}
-        <div className="hidden sm:block w-full relative">
-          <button
-            onClick={() => swiperRef.current?.slidePrev()}
-            className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center hover:bg-white/20 transition-colors"
-            aria-label="Previous plan"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button
-            onClick={() => swiperRef.current?.slideNext()}
-            className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center hover:bg-white/20 transition-colors"
-            aria-label="Next plan"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-
-          <Swiper
-            onSwiper={(swiper) => { swiperRef.current = swiper; }}
-            onSlideChange={handleSlideChange}
-            onSlideChangeTransitionEnd={handleTransitionEnd}
-            effect="coverflow"
-            wrapperClass="items-stretch"
-            initialSlide={MID_SET * len}
-            coverflowEffect={{
-              rotate: 0,
-              stretch: 0,
-              depth: 40,
-              modifier: 4,
-              slideShadows: false,
-            }}
-            slidesPerView={3}
-            breakpoints={{
-              0: {
-                coverflowEffect: {
-                  rotate: 0,
-                  stretch: 0,
-                  depth: 300,
-                  modifier: 1,
-                  slideShadows: false,
-                },
-                slidesPerView: 1.5,
-              },
-              767: {
-                coverflowEffect: {
-                  rotate: 0,
-                  stretch: 0,
-                  depth: 55,
-                  modifier: 3,
-                  slideShadows: false,
-                },
-                slidesPerView: 2,
-              },
-              1100: {
-                coverflowEffect: {
-                  rotate: 0,
-                  stretch: 0,
-                  depth: 40,
-                  modifier: 4,
-                  slideShadows: false,
-                },
-                slidesPerView: 3.935,
-              },
-            }}
-            autoplay={{
-              delay: 4000,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
-            modules={[EffectCoverflow, Autoplay]}
-            grabCursor
-            spaceBetween={10}
-            centeredSlides
-            centerInsufficientSlides
-            className="!pt-4 !overflow-visible"
-          >
-            {Array.from({ length: SETS }, (_, i) => i).map((setIdx) =>
-              props.data?.map((item: IPlan, index: number) => {
-                const slideIndex = setIdx * len + index;
-                return (
-                  <SwiperSlide
-                    className="!h-auto transition-all"
-                    key={`${setIdx}-${item.order_id}`}
-                    onClick={() => swiperRef.current?.slideTo(slideIndex)}
-                  >
-                    {({ isActive }) => (
-                      <Plan
-                        className={isActive ? "bg-gradient-to-b from-[#00115E] to-[#0424B5]" : "bg-[#33415C]/20 cursor-pointer"}
-                        plan={item}
-                        isAnnuallyChecked={false}
-                      />
-                    )}
-                  </SwiperSlide>
-                );
-              })
-            )}
-          </Swiper>
-        </div>
-
-        {/* Mobile: Stacked cards */}
-        <div className="flex flex-col gap-8 w-full sm:hidden">
-          {props.data?.map((item: IPlan, index: number) => (
-            <Plan
-              className={index === 0 ? "bg-gradient-to-b from-[#00115E] to-[#0424B5]" : "bg-[#33415C]/20"}
-              key={item.order_id}
-              plan={item}
-              isAnnuallyChecked={false}
-            />
-          ))}
+        <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 max-w-7xl mx-auto items-stretch pt-4">
+          {props.data?.map((item: IPlan) => {
+            const highlighted = item.title?.toLowerCase().includes("pro");
+            return (
+              <Plan
+                key={item.order_id}
+                className={
+                  highlighted
+                    ? "bg-gradient-to-b from-[#00115E] to-[#0424B5] border-[#082FDF]/60 shadow-[0_20px_60px_-20px_rgba(8,47,223,0.5)]"
+                    : "bg-[#33415C]/20"
+                }
+                plan={item}
+                isAnnuallyChecked={false}
+              />
+            );
+          })}
         </div>
       </div>
 

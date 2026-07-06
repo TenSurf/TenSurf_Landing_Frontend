@@ -13,16 +13,16 @@ export const TeamSection = (
 			<h1 className="text-4xl sm:text-5xl md:text-7xl font-medium text-center">
 				Meet the Team
 			</h1>
-			<div className="relative w-full overflow-hidden">
-				<div className="relative w-full aspect-video">
+			<div className="container mx-auto">
+				<div className="relative w-full max-w-5xl mx-auto h-[240px] sm:h-[320px] md:h-[400px] rounded-3xl overflow-hidden">
 					{/* Background overlay */}
 					<div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"/>
 					<Image
 						src="/images/team.png"
-						alt="About Us"
+						alt="The TenSurf team at work"
 						fill
 						priority
-						className="object-cover 2xl:rounded-3xl"
+						className="object-cover"
 					/>
 				</div>
 			</div>

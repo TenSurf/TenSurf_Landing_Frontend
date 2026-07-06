@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 const url = process.env.NEXT_PUBLIC_TENSURF_URL;
-export const revalidate = 30 
+export const revalidate = 30
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
@@ -11,18 +11,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
-      url: `${url}/tools/WidgetSurf`,
+      url: `${url}/vibe-trading`,
+      priority: 0.9,
+      lastModified: new Date(),
+    },
+    {
+      url: `${url}/waitlist`,
+      priority: 0.9,
+      lastModified: new Date(),
+    },
+    {
+      url: `${url}/plans`,
       priority: 0.8,
       lastModified: new Date(),
     },
     {
-      url: `${url}/tools/Chart_Surf`,
+      url: `${url}/compare`,
       priority: 0.8,
       lastModified: new Date(),
     },
     {
-      url: `${url}/tools/TenSurfBrain`,
-      priority: 0.8,
+      url: `${url}/compare/bloodhound`,
+      priority: 0.6,
+      lastModified: new Date(),
+    },
+    {
+      url: `${url}/compare/build-alpha`,
+      priority: 0.6,
+      lastModified: new Date(),
+    },
+    {
+      url: `${url}/team`,
+      priority: 0.6,
       lastModified: new Date(),
     },
     {
