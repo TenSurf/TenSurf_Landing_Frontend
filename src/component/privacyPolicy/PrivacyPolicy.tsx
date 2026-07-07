@@ -230,7 +230,7 @@ export const PrivacyPolicy = () => {
         aria-label="Privacy policy sections"
       >
         <h2 className="text-lg font-semibold text-[#E9ECEF] mb-4">Quick Navigation</h2>
-        <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
           {sections.map((section) => (
             <li key={section.id}>
               <a

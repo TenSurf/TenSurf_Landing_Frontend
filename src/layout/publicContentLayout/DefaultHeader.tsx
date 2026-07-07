@@ -37,9 +37,9 @@ export const DefaultHeader = () => {
         <div className="flex items-center gap-4">
           <ThemeToggle />
           <Link href="/waitlist">
-            <div className="flex items-center gap-2 bg-[#082FDF]/20 border border-[#082FDF]/40 rounded-full px-5 py-2.5 hover:bg-[#082FDF]/30 transition-colors">
-              <span className="w-2 h-2 bg-[#082FDF] rounded-full animate-pulse"></span>
-              <span className="text-sm font-medium text-white">Join the Waitlist</span>
+            <div className="flex items-center gap-2 bg-[#082FDF]/20 border border-[#082FDF]/40 rounded-full px-4 sm:px-5 py-2.5 hover:bg-[#082FDF]/30 transition-colors">
+              <span className="w-2 h-2 bg-[#082FDF] rounded-full animate-pulse shrink-0"></span>
+              <span className="text-sm font-medium text-white whitespace-nowrap">Join the Waitlist</span>
             </div>
           </Link>
           <MenuDrawer />

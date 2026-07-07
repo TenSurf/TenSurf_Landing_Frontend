@@ -157,7 +157,7 @@ export const RiskDisclosure = () => {
         aria-label="Risk disclosure sections"
       >
         <h2 className="text-lg font-semibold text-[#E9ECEF] mb-4">Quick Navigation</h2>
-        <ul className="grid grid-cols-2 md:grid-cols-3 gap-3">
+        <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           {riskSections.map((section) => (
             <li key={section.id}>
               <a
@@ -165,7 +165,7 @@ export const RiskDisclosure = () => {
                 className="flex items-center gap-2 text-sm text-[#ADB5BD] hover:text-[#E9ECEF] transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#EF4444] focus-visible:ring-offset-2 focus-visible:ring-offset-[#01030B] rounded px-2 py-1 -mx-2"
               >
                 <section.icon className="w-4 h-4 flex-shrink-0" style={{ color: section.color }} aria-hidden="true" />
-                <span className="truncate">{section.title.split(' ').slice(0, 3).join(' ')}...</span>
+                <span className="truncate">{section.title}</span>
               </a>
             </li>
           ))}

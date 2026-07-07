@@ -183,8 +183,9 @@ const CompareMain = () => {
       {/* Comparison Table */}
       <div className="flex flex-col gap-8">
         <h2 className="text-3xl font-medium text-center text-[#E9ECEF]">Feature Comparison</h2>
+        <p className="text-sm text-[#6C757D] text-center -mt-4 md:hidden">Swipe the table sideways to see all tools →</p>
         <div className="overflow-x-auto">
-          <table className="w-full border-collapse min-w-[500px]">
+          <table className="w-full border-collapse min-w-[680px]">
             <thead>
               <tr className="border-b border-[#1a1a2e]">
                 <th className="py-3 px-2 sm:px-4 md:px-6 text-left text-[#ADB5BD]">Feature</th>

@@ -70,8 +70,8 @@ const CompareBuildAlpha = () => {
             {quickComparison.map((row, index) => (
               <tr key={index} className="border-b border-[#1a1a2e]/50 hover:bg-[#00041A]/50">
                 <td className="py-3 px-2 sm:px-4 md:px-6 text-[#E9ECEF] font-medium">{row.aspect}</td>
-                <td className="py-3 px-2 sm:px-4 md:px-6 text-center text-[#ADB5BD]">{row.tensurf}</td>
-                <td className="py-3 px-2 sm:px-4 md:px-6 text-center text-[#ADB5BD]">{row.buildalpha}</td>
+                <td className="py-3 px-2 sm:px-4 md:px-6 text-center text-[#ADB5BD]">{renderCell(row.tensurf)}</td>
+                <td className="py-3 px-2 sm:px-4 md:px-6 text-center text-[#ADB5BD]">{renderCell(row.buildalpha)}</td>
               </tr>
             ))}
           </tbody>

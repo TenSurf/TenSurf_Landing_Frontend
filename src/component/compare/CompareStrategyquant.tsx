@@ -64,8 +64,8 @@ const CompareStrategyquant = () => {
             {quickComparison.map((row, index) => (
               <tr key={index} className="border-b border-[#1a1a2e]/50 hover:bg-[#00041A]/50">
                 <td className="py-4 px-6 text-[#E9ECEF] font-medium">{row.aspect}</td>
-                <td className="py-4 px-6 text-center text-[#ADB5BD]">{row.tensurf}</td>
-                <td className="py-4 px-6 text-center text-[#ADB5BD]">{row.strategyquant}</td>
+                <td className="py-4 px-6 text-center text-[#ADB5BD]">{renderCell(row.tensurf)}</td>
+                <td className="py-4 px-6 text-center text-[#ADB5BD]">{renderCell(row.strategyquant)}</td>
               </tr>
             ))}
           </tbody>
