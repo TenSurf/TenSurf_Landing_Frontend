@@ -60,7 +60,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" suppressHydrationWarning>
+		<html lang="en" className="dark" style={{colorScheme: 'dark'}} suppressHydrationWarning>
 		<head>
 			<meta name="impact-site-verification" value="6533ef63-80cd-4424-96fb-92bf1881373e" />
 
@@ -84,7 +84,7 @@ export default function RootLayout({
 		</head>
 		<body className={`${plusJakarta.className} ${spaceGrotesk.variable} ${plusJakarta.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
 		{process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID as string ? (
-			<ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange storageKey="tensurf-theme">
+			<ThemeProvider attribute="class" forcedTheme="dark" defaultTheme="dark" enableSystem={false} disableTransitionOnChange storageKey="tensurf-theme">
 		<GoogleOAuthProvider clientId={process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID as string}>
 				<App/>
 				<main id="main-content">{children}</main>

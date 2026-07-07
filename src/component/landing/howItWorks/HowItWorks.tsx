@@ -5,6 +5,7 @@ import RoundTitleHeader from "@/component/landing/toolsV2/RoundTitleHeader";
 import { MessageSquare, CheckCircle, Play, Clock } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import Lightbox from "@/component/general/Lightbox";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
@@ -156,16 +157,18 @@ const ProductDemoCarousel = () => {
             <div
               key={i}
               className={`absolute inset-0 transition-opacity duration-700 ${
-                active === i ? "opacity-100" : "opacity-0"
+                active === i ? "opacity-100" : "opacity-0 pointer-events-none"
               }`}
             >
-              <Image
-                src={slide.src}
-                alt={slide.label}
-                fill
-                className="object-contain"
-                sizes="(max-width: 768px) 100vw, 628px"
-              />
+              <Lightbox src={slide.src} alt={slide.label} className="relative h-full">
+                <Image
+                  src={slide.src}
+                  alt={slide.label}
+                  fill
+                  className="object-contain"
+                  sizes="(max-width: 768px) 100vw, 628px"
+                />
+              </Lightbox>
             </div>
           ))}
         </div>
